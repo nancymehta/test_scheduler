@@ -3,7 +3,7 @@
 ini_set("display_errors","1");
 session_start ();
 ob_start ();
-require_once($_SERVER['DOCUMENT_ROOT'].'/test_scheduler/trunk/library/constant.path.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/library/constant.path.php');
 require_once(LIBRARY_ROOT.'common.inc.php');
 require_once(LANGUAGE_ROOT.'lang.en.php');
 require_once(CONFIG_ROOT.'constants.php'); 

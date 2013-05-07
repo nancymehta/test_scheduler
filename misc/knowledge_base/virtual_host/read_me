@@ -1,0 +1,38 @@
+1. sudo gedit /etc/apache2/sites-available/default
+
+2. add this code 
+
+<VirtualHost *:80>
+	ServerAdmin abc.com
+	DocumentRoot /var/www/test_scheduler/trunk
+	ServerName test_scheduler.com
+	DirectoryIndex index.php
+	
+	<Directory /var/www/test_scheduler/trunk>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride All
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	ErrorLog /var/www/test_scheduler.com
+
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+
+</VirtualHost>
+
+3. sudo gedit /etc/hosts
+
+add this code
+
+your_machine_ip	test_scheduler.com
+
+4. change setting in edit->preferences->settings
+
+add test_scheduler.com
+
+5. restart apache
+
+sudo /etc/init.d/apache2 restart
+
