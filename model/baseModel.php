@@ -18,7 +18,7 @@ class baseModel extends dbConnectModel{
 
 		    $arrUser[]=array();
 			$data['tables'] = 'validate_users';
-			$data['columns']= array('username','password','session_id','user_type');
+			$data['columns']= array('username','id','password','session_id','user_type');
 			$data['conditions']	= array(
 									'username' => $arrArgs['username'],
 									'password' => $arrArgs['password']
@@ -32,7 +32,7 @@ class baseModel extends dbConnectModel{
 		    if ($row)
 			{
 				$_SESSION['SESS_USER_NAME']= $row['username'];
-				$_SESSION['SESS_USER_NAME']= $row['username'];
+				$_SESSION['SESS_USER_ID']= $row['id'];
 				$_SESSION['SESS_USER_TYPE']= $row['user_type'];
 				//session_start();
 				$data= array(
