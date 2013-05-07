@@ -9,4 +9,9 @@ class categoryController extends mainController {
 			$this->handleException($e->getMessage());
 		}
 	}
+	function category() {
+ 	$this->loadView("header");
+ 	$this->loadView("user_examiner_view/deshboard_menu");
+ 	$this->loadView("user_examiner_view/category");
+	 }
 }

@@ -225,4 +225,42 @@ setInterval("slideImage1()", 5000);
 
 // - -------------------------------------------End of code for slider-------------------------------
 
-// - ------------------------------------------- start validate login/varify authenticaion ajax -------------------------------    
+// - ------------------------------------------- start validate login/varify authenticaion ajax -------------------------------
+
+
+//-------category-------//
+$(document).ready(function() {
+	$("#addCatergory").click(function(){
+		$(".category_div").show();
+	});
+
+	$('.fancybox').css({"display":"none"});
+	$('.b1').click(function(){
+	
+	$('.fancybox').css({"display":"block"}).hide().fadeIn("slow");
+		$('.box').slideDown("slow");
+		$('.fancybox').css({"z-index":"999999","background-color":"black"});
+	});
+	$('#close').click(function(){
+		$('.fancybox').css({"display":"none"});
+	});
+});
+
+
+$(document).ready(function() {
+	$("#test").hover(function(){
+		$(".test-sub-menu").show();
+	});
+
+	$("#test").mouseleave(function(){
+		$(".test-sub-menu").hide();
+	});
+
+	$(".test-sub-menu").hover(function(){
+		$(".test-sub-menu").show();
+	});
+
+	$(".test-sub-menu").mouseleave(function(){
+		$(".test-sub-menu").hide();
+	});
+}); 
