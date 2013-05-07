@@ -19,10 +19,13 @@
 
 
 	<div class = "category_div">
+<!-- abhishek -->
+	<form id="addCategoryForm" action="<?php echo SITE_PATH .'category/manageCategory';?>" name="addCategoryForm" method="post">
 		<span>Category Name:</span><br>
-		<input type = "text" id = "categoryName"/>
+		<input type = "text" id = "categoryName" name="categoryName"/>
 		
-		<input type = "button" Value = "Add Category" class="add_category"/>
+		<input type = "submit" Value = "Add Category" class="add_category"/>
+	</form> 
 	</div> 
 	<div class = "catergory_list">
 		<table class = "category_table">
