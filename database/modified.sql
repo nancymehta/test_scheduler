@@ -55,4 +55,7 @@ alter table question  add status enum('0','1','2') default '0' comment "0 for ac
 alter table test_link  add status enum('0','1') default '0' comment "0 for active, 1 for deleted";
 alter table question_options  add status enum('0','1') default '0' comment "0 for active, 1 for deleted";
 
+/*Adding ip_address field to user_profile table*/
+alter table user_profile add ip_address varchar(40);
+
 
