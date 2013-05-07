@@ -1,8 +1,10 @@
 <?php
 
-require_once($_SERVER['DOCUMENT_ROOT'].'/test_scheduler/trunk/library/common.inc.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/test_scheduler/trunk/classes/common.class.php');
-echo PHASE;
+ini_set("display_errors","1");
+require_once($_SERVER['DOCUMENT_ROOT'].'/test_scheduler/trunk/library/constant.path.php');
+require_once(LIBRARY_ROOT.'common.inc.php');
+
+//echo PHASE;
 
 if(PHASE=="Development" || PHASE=="Testing"){
 	ini_set("display_errors","1");
@@ -27,13 +29,13 @@ if(isset($_REQUEST['function']) && !empty($_REQUEST['function'])){
 	 
 }
 else{
-	$function ='fncLandingPage';    //default function
+	$function ='home';    //default function
 
 }
 
 //$controller=strtolower($controller);
-$fn = SITE_ROOT.'controller/'.$controller.'.php';
-//echo $fn;
+$fn = SITE_ROOT.'controller/'.$controller.'Controller.php';
+
 if(file_exists($fn)){
 	require_once($fn);
 	$controllerClass=$controller.'Controller';

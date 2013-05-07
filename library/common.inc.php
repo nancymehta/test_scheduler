@@ -1,19 +1,46 @@
 <?php
-define('DOC_ROOT',$_SERVER['DOCUMENT_ROOT']);
-define('SITE_ROOT',DOC_ROOT.'/test_scheduler/trunk/');
-define('SITE_PATH','http://'.$_SERVER['HTTP_HOST'].'/test_scheduler/trunk/');
-define('IMAGE_PATH',SITE_PATH.'images/');
 
-define('CSS_PATH',SITE_PATH.'css/');
-define('JS_PATH',SITE_PATH.'js/');
+class common
+{
+	function loadView($templateName,$arrPassValue='')
+	{
 
-define('LIBRARY_ROOT',SITE_ROOT.'library/');
-define('VIEW_PATH',SITE_ROOT.'view/');
-define('MODEL_PATH',SITE_ROOT.'model/');
-//echo MODEL_PATH;
-define('CONTROLLER_PATH',SITE_ROOT.'controller/');
-define('PHASE','Development');
+		$view_path=VIEW_PATH.$templateName.".php";
+		if(file_exists($view_path)){
+			if(isset($arrPassValue)){
+				$arrData=$arrPassValue;
+			}
 
-//echo PHASE;
+			include_once($view_path);
+		}else{
+			die($templateName. 'View File Not Found under View Folder');
+		}
+	}
 
-?>
+
+	function loadModel($modelName,$function,$arrArgument='')
+	{
+		$model_path=MODEL_PATH.$modelName.'Model.php';
+
+		if(file_exists($model_path)){
+			include_once($model_path);
+			$modelClass=$modelName.'Model';
+			if(!method_exists($modelClass,$function)){
+				die($function .' function not found in Model '.$modelName);
+			}
+
+			$obj=new $modelClass;
+			if(isset($arrArgument)){
+				return $obj-> $function($arrArgument);
+			}else{
+				return $obj-> $function();
+			}
+		}
+		else{
+			die($modelName. ' Model Not Found under Model Folder');
+		}
+
+
+	}
+}
+
