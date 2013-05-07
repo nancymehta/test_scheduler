@@ -21,7 +21,10 @@ $(document).ready(function() {
         $("#reg_email").val("");
         $("#reg_dob").val("");
 	});
-	
+	$("#faq").click(function(){
+		alert("ghghg");
+	});
+	// js end here
 $('.inner-container-partner h1').css({
       "margin-top":'-350px',
       "opacity" : "0.3" 

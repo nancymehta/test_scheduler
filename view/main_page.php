@@ -24,7 +24,7 @@
 				<div class = "menu">
 					<ul>
 						<li><a href = "#" style="color:black;">Pricing</a></li>
-						<li><a href = "#">Faq's</a></li>
+						<li><a href =<?php echo SITE_PATH."faq"; ?>>Faq's</a></li>
 						<li><a href = "#">Blogs</a></li>
 					</ul>
 				</div>

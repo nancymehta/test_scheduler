@@ -42,6 +42,14 @@ class mainController extends common{
 		$this->loadView('login');
 	}
 	
+	function faq()
+	{$this->loadView("header");
+		$this->loadView("main_reg_login");
+		$this->loadView('faq');
+		
+		
+               
+	}
 	function singleLoginLogin()
 	{
 		$data = array(
@@ -53,5 +61,6 @@ class mainController extends common{
 	function __call($key,$index) {
 		echo "yeah error";
 	}
+
 	
 }
