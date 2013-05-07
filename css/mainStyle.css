@@ -1024,4 +1024,24 @@ padding: 10px;
 }
 
 
+/*********Start Add Test********/
+.add_test {
+	display : none;
+}
+.middle_content{
+	position : relative;
+}
+.middle_content .search_test{
+	float : left;
+}
+
+.middle_content .search_test {
+	position : absolute;
+	margin-top : 20px;
+	padding-top : 20px;
+	float : left;
+}
+/*********End Add Test********/
+
+
 
