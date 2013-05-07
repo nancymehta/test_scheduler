@@ -4,19 +4,13 @@ ini_set("display_errors","1");
 require_once($_SERVER['DOCUMENT_ROOT'].'/test_scheduler/trunk/library/constant.path.php');
 require_once(LIBRARY_ROOT.'common.inc.php');
 
-//echo PHASE;
-
 if(PHASE=="Development" || PHASE=="Testing"){
 	ini_set("display_errors","1");
+	
 }
 else{
 	ini_set("display_errors","0");
 }
-
-//ini_set("display_errors","1");
-
-//session_start();
-//require_once('././config/constants.php');
 
 if(isset($_REQUEST['controller']) && !empty($_REQUEST['controller'])){
 	$controller =$_REQUEST['controller'];
