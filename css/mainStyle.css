@@ -668,7 +668,7 @@ opacity: 0.8;
     width: 100px;
     float: right;
     margin-right: 72px;
-
+margin-top:20px;
     text-align: center;
     background-color:  #1A8ECD;
     border: 1px solid #66A8CD;
@@ -686,7 +686,6 @@ font-style: italic;
     color: white;
     cursor: pointer;
 }
-
 
 
 
@@ -777,12 +776,10 @@ display: inline-block;
     	top:60px;
     	right :100px;
         background-color:white;
-      
-    	float:right;
+       	float:right;
 		display : none;
         border: 1px 5D92FF solid;
         width: 35%;
-
         z-index: 99999;
     	box-shadow:10px 40px 40px 50px #eee inset; 
     }
@@ -823,7 +820,18 @@ display: inline-block;
 		display : none;
     }
 
-
+/*  Css Bhanu   */
+    
+    .close{
+	float: right;
+	cursor: pointer;
+	font-size: 18px;
+	color: white;
+	margin-top: -4px;
+	margin-right: -1px;
+	
+}
+    
 
 
 

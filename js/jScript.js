@@ -4,6 +4,16 @@ topvalue = 0;
 textval = 0;
 $(document).ready(function() {
 
+	// Js by Bhanu
+
+	$("#close").click(function(){
+		
+		//alert("ghghgh");
+		$("#logindiv").hide();
+		$("#user_name").val(" ");
+		$("#password").val(" ");
+	});
+	
 $('.inner-container-partner h1').css({
       "margin-top":'-350px',
       "opacity" : "0.3" 
