@@ -1,3 +1,16 @@
+<?php 
+/* @author 		 :Shashank Verma
+ * @created on   :07-05-2013
+ * @desc		 :Create footer of main page
+ ****************Modifed Log ********************************
+ *Name			Task			Date			Description
+ *			
+ *
+ ************************************************************	
+ *
+*/
+?>
+
      <div class="contact-strip">Likes & Links to Follow Us</div>
 		  <div class= "footer">
 

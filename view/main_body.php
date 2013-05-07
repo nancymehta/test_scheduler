@@ -1,3 +1,16 @@
+<?php 
+/* @author 		 :Shashank Verma
+ * @created on   :07-05-2013
+ * @desc		 :create body of main page 
+ ****************Modifed Log ********************************
+ *Name			Task			Date			Description
+ *			
+ *
+ ************************************************************	
+ *
+*/
+?>
+
 <div  class = "mainSlider">
 				<div class = "imgSlider">
 				

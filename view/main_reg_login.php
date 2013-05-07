@@ -1,3 +1,16 @@
+<?php 
+/* @author 		 :Shashank Verma
+ * @created on   :07-05-2013
+ * @desc		 :Create Main header of login and register 
+ ****************Modifed Log ********************************
+ *Name			Task			Date			Description
+ *			
+ *
+ ************************************************************	
+ *
+*/
+?>
+
 		<div class = "mainContainer">
 		
 			<div class = "header">
@@ -19,10 +32,10 @@
 			</div>
 		
 		
-<div class="logindiv">
+<div id="logindiv" class="logindiv">
     <div class="login-strip">Login <span id="close" class="close"> X</span></div>
         <div class=" val">
-            <label class="label1"><?php echo "UserName"; ?></label></label><input id="user_name" name="user_name" type="text" />
+            <label class="label1"><?php echo "UserName"; ?></label><input id="user_name" name="user_name" type="text" />
 
                     
                     <label class="label1"><?php echo "Password"; ?>  </label><input class="loginc" id="password" name="password" type="password"   />
@@ -36,7 +49,7 @@
                 
 
 
-                </span>
+                
             </div>
 
             
@@ -44,13 +57,12 @@
      
 
 </div>
-
-<div class="registerdiv">
+<div id="registerdiv" class="registerdiv">
 
 
         <dd class="register1">
 
-    <div class="login-strip">Register</div>
+    <div class="login-strip">Register<span id="close1" class="close"> X</span></div>
             <div class=" val">
                 <label class="label1"><?php echo "UserName" ?><input id="reg_user_name" class="loginc" type=
                 "text" /></label>
@@ -115,7 +127,7 @@ $(function() {
 
 
 
-               <label class="label1"><?php echo "DOB"; ?><input id="reg_dob"name="dob" class="loginc" type="text" /></label>
+               <label class="label1"><?php echo "DOB";?><input id="reg_dob" name="dob" class="loginc" type="text" /></label>
                 <span class ="reg_date"> </span><br>
 
                  
