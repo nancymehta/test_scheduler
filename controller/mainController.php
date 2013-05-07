@@ -1,12 +1,12 @@
 <?php
-class mainController {
+class mainController extends common{
 	
 	
 	
 	function home() {
 	try {
    		//$arrValue=$this->loadModel('base','login');
-		loadView("main_page");
+		$this->loadView("main_page");
 	} catch (Exception $e) {
 	  	$this->handleException($e->getMessage());
 	} 		
@@ -18,7 +18,7 @@ class mainController {
 		
 		try {
 			
-			$arrValue=loadModel('base','login');
+			$arrValue=$this->loadModel('base','login');
 			
 		} catch (Exception $e) {
 			$this->handleException($e->getMessage());
@@ -26,7 +26,7 @@ class mainController {
 	}
 	function register() {
 		try {
-			$arrValue=loadModel('base','register');
+			$arrValue=$this->loadModel('base','register');
 		} catch (Exception $e) {
 			$this->handleException($e->getMessage());
 		}
