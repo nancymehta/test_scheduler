@@ -45,10 +45,10 @@ class mainController extends common{
 	function singleLoginLogin()
 	{
 		$data = array(
-				'username'=> $_POST['username'],
+				'username'=> $_POST['userName'],
 				'password'=> $_POST['password']
 				);
-		$this->loadmodel('base','login');
+		var_dump($this->loadmodel('base','login',$data));
 	}
 	function __call($key,$index) {
 		echo "yeah error";

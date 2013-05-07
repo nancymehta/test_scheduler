@@ -6,23 +6,43 @@ class baseModel extends dbConnectModel{
 		parent::__construct();
 	}
 	function login($dataFromUser) {
+		
 		$arrUser[]=array();
 		$data['tables'] = 'validate_users';
-		$data['columns']= array('username','password');
+		$data['columns']= array('username','password','session_id');
 		$data['conditions']	= array(
-								'username' => $dataFromUser[''],
-								'password' => $dataFromUser
-		);
+								'username' => $dataFromUser['username'],
+								'password' => $dataFromUser['password']
+								);
 		$result = $this->_db->select($data);
-		while($row = $result->fetch(PDO::FETCH_ASSOC)){
-			$arrUser[]=$row;
 		
+		$row = $result->fetch(PDO::FETCH_ASSOC);
+		
+		//In case of success
+		if ($row)
+		{
+			//session_start();
+			var_dump(session_id);die;
+			if ($row['session_id'] != 0)
+			{
+				$data= array(
+						"session_id"=>"df"
+				);
+			}
+			
+			
 		}
-		return $arrUser;         
+		
+		
+		return $row;         
 	}
 	
 	function register() {
 	echo "Register";
 	}
 	
+	function faq()
+	{
+		loadView('faq.php');
+	}
 } 
