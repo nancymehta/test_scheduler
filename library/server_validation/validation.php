@@ -260,36 +260,99 @@ class validation
 				}
 			}
 			
-			
 			function dateValidator($input)     // this function is written to check the valid date format
 			{
-			$date_format = 'Y-m-d';
-			 
+				$date_format = 'Y-m-d';
+				$input = trim($input);
+				$dateValidate=explode("-", $input);
 			
-			$input = trim($input);
-			$time = strtotime($input);
-			
-			$is_valid = date($date_format, $time) == $input;
-			
-			print "Valid? ".($is_valid ? 'yes date format is valid' : 'date format is not valid');
-			}
-			
-			function ageValidator($birthDate)    // this function is written to check the valid age
-			{
-				$birthDate = explode("/", $birthDate);  //explode the date to get month, day and year
-				
-				//get age from date or birthdate
-				$age = (date("md", date("U", mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date("md") ? ((date("Y")-$birthDate[2])-1):(date("Y")-$birthDate[2]));
-				echo "Age is:".$age;
-				if($age<=18)
-				{ 
-					return "</br>your age should be more than 18 years";
-				}
-				else 
+				if( $dateValidate[2] >=1 &&  $dateValidate[2] <= 31)
 				{
-					return "</br>you have entered valid age";
+					//return "valid day";
+					if( $dateValidate[1] >=1 &&  $dateValidate[1] <= 12)
+					{
+						//return "valid month";
+			
+						$yearLength=strlen( $dateValidate[0]);
+						if($yearLength ==4 &&  $dateValidate[0] >=1900 &&  $dateValidate[0] <= 2012)
+						{
+							//return "valid year";
+			
+						}
+						else
+						{
+							return "enter a valid year";
+						}
+					  
+					}
+					else
+					{
+						return "enter a valid month";
+					}
+			
 				}
+				else
+				{
+					return "enter a valid day";
+				}
+				
+				$time = strtotime($input);
+					
+				$is_valid = date($date_format, $time) == $input;
+					
+				print "Valid? ".($is_valid ? 'yes date format is valid' : 'date format is not valid');
 			}
+				
+				function ageValidator($birthDate)    // this function is written to check the valid age
+				{
+					$birthDate = explode("/", $birthDate);  //explode the date to get month, day and year
+				
+				
+					$day='/^[0-9]{1,31}/';
+					$month='/^[0-9]{1,12}$/';
+					$year='/^19[0-9]{2}|20{2}$/';
+				
+					if ($birthDate[0] >=1 && $birthDate[0] <= 31)
+					{
+						if($birthDate[1] >=1 && $birthDate[1] <= 12)
+						{
+							$yearLength=strlen($birthDate[2]);
+							if($yearLength ==4 && $birthDate[2] >=1900 && $birthDate[2] <= 2012)
+							{
+								//return "valid year";
+								 
+							}
+							else
+							{
+								return "enter a valid year";
+							}
+							 
+						}
+						else
+						{
+							return "enter a valid month";
+						}
+				
+							
+					}
+					else
+					{
+						return "enter a valid day";
+					}
+					$age = (date("md", date("U", mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date("md") ? ((date("Y")-$birthDate[2])-1):(date("Y")-$birthDate[2]));
+					echo "Age is:".$age;
+					if($age<=18)
+					{
+						return "</br>your age should be more than 18 years";
+					}
+					else
+					{
+						return "</br>you have entered valid age";
+					}
+				}
+				
+				
+			
 	}
 	
 
@@ -312,8 +375,8 @@ $obj	=	new validation();
 //answer	=	$obj->firstName("qwerrwea");
 //$answer	=	$obj->middleName("");
 //$answer	=	$obj->lastNameName("");
-//$answer	=	$obj->dateValidator('2009-03-03');
-$answer	=	$obj->ageValidator("12/17/1983");
+//$answer	=	$obj->dateValidator('2009-03-003');
+//$answer	=	$obj->ageValidator("12/17/1983");
 echo $answer;
 ?>
 
