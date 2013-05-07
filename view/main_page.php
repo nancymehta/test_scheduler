@@ -175,7 +175,7 @@ $(function() {
              onClose: function(){
                  var today = new Date(), // today date object
                  birthday_val = $("#reg_dob").val().split('/'), // input value
-                
+                 <?php echo IMAGE_PATH;?>
                  birthday = new Date(birthday_val[2],birthday_val[0]-1,birthday_val[1]), // birthday date object
                  // calculate age
                  age = (today.getMonth() == birthday.getMonth() && today.getDate() > birthday.getDate()) ?
@@ -207,7 +207,7 @@ $(function() {
                 <span class ="reg_date"> </span><br>
 
                  
-                <label class="label1"><?php echo "Gender"; ?>
+                <label class="label1"><?php echo "Gender"; ?><?php echo IMAGE_PATH;?>
 
 
 
@@ -227,7 +227,7 @@ $(function() {
 
             </label> <span class =""> </span><br>
 
-                <label class="label1"><?php echo "Country"; ?>&nbsp;&nbsp;<select class="sel" id="reg_country">
+                <label class="label1"><?php echo "Country"; ?>&nbsp;&nbsp;<select class="sel" id="reg_country"><?php echo IMAGE_PATH;?>
                     <option>
                         India
 
@@ -352,9 +352,9 @@ $(function() {
                              </div>
               </div>
              <div class="icon">
-	            <a href="index.php"><img alt="" src="../images/f.gif" /></a>
-	            <a href="index.php"><img alt=""  src="../images/t.png" /></a>
-	            <a href="index.php"><img alt=""  src="../images/i.png" /></a>
+	            <a href="index.php"><img alt="" src="<?php echo IMAGE_PATH;?>f.gif" /></a>
+	            <a href="index.php"><img alt=""  src="<?php echo IMAGE_PATH;?>t.png" /></a>
+	            <a href="index.php"><img alt=""  src="<?php echo IMAGE_PATH;?>i.png" /></a>
         </div>
                <p class="reserve"> 
                	{Copyright 2013. All rights reserved.}

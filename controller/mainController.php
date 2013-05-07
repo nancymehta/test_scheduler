@@ -6,7 +6,11 @@ class mainController extends common{
 	function home() {
 	try {
    		//$arrValue=$this->loadModel('base','login');
-		$this->loadView("main_page");
+		$this->loadView("header");
+		$this->loadView("main_reg_login");
+		$this->loadView("main_body");
+		$this->loadView("main_footer");
+
 	} catch (Exception $e) {
 	  	$this->handleException($e->getMessage());
 	} 		
