@@ -11,7 +11,7 @@
 */
 ?>
 
-<div  class = "mainSlider">
+<div id ="mainSlider" class = "mainSlider">
 				<div class = "imgSlider">
 				
             <div class="home">

@@ -22,7 +22,7 @@ $(document).ready(function() {
         $("#reg_dob").val("");
 	});
 	$("#faq").click(function(){
-		alert("ghghg");
+		
 	});
 	// js end here
 $('.inner-container-partner h1').css({
@@ -43,7 +43,6 @@ $('.videoSlider iframe').css({
 
 
 $('.logindiv,.registerdiv').css({
-
 
       'z-index':'9999'
 
