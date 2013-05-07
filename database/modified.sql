@@ -58,4 +58,8 @@ alter table question_options  add status enum('0','1') default '0' comment "0 fo
 /*Adding ip_address field to user_profile table*/
 alter table user_profile add ip_address varchar(40);
 
+/*Altering user_type in validate_users*/
+alter table validate_users modify `user_type` enum('0','1') DEFAULT '1' NOT NULL COMMENT '0 is for admin & 1 is for user';
+
+
 
