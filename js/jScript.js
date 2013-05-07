@@ -13,8 +13,13 @@ $(document).ready(function() {
 	});
 	$("#close1").click(function(){
         $("#registerdiv").hide();
-        $("#user_name").val("");
-        $("#password").val("");
+        $("#reg_user_name").val("");
+        $("#reg_password").val("");
+        $("#reg_confirm_password").val("");
+        $("#reg_first_name").val("");
+        $("#reg_last_name").val("");
+        $("#reg_email").val("");
+        $("#reg_dob").val("");
 	});
 	
 $('.inner-container-partner h1').css({
