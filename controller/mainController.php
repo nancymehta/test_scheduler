@@ -1,4 +1,11 @@
 <?php
+/**
+ * Filename : mainController.php
+ * Created By : Amitesh Bharti
+ * Description : provides main controller to control job like show home page,login to database etc
+ * Date_of_creation :6-5-2013
+ */
+//ini_set('display_errors','1');
 class mainController extends common{
 	
 	
@@ -53,12 +60,21 @@ class mainController extends common{
 	
 	function login()
 	{
-		
-		$data = array(
-				'username'=> $_POST['userName'],
+		//die('oye');
+		$arrArgs = array(
+				'username'=> $_POST['user_name'],
 				'password'=> $_POST['password']
 				);
-		$result=$this->loadmodel('base','login',$data);
+		//die('fdsff');
+		//print_r($data);
+		$arrData=$this->loadmodel('base','login',$arrArgs);
+		if($arrData == 1){
+			die('You are logged in now');
+		}
+		else{
+			die('OOPS sorry');
+		}
+		
 	}
 	
 	function singleLoginLogic()

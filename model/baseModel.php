@@ -1,38 +1,53 @@
 <?php 
-
+/**
+ * Filename : baseModel.php
+ * Created By : Amitesh Bharti
+ * Description : provides base work for users like login to database
+ * Date_of_creation :6-5-2013
+ */
+//ini_set('display_errors','1');
 include MODEL_PATH."db_connect.php";
 class baseModel extends dbConnectModel{
 	function __construct() {
 		parent::__construct();
 	}
-	function login($dataFromUser) {
-		
-		$arrUser[]=array();
-		$data['tables'] = 'validate_users';
-		$data['columns']= array('username','password','session_id');
-		$data['conditions']	= array(
-								'username' => $dataFromUser['username'],
-								'password' => $dataFromUser['password']
-								);
-		$result = $this->_db->select($data);
-		
-		$row = $result->fetch(PDO::FETCH_ASSOC);
+	function login($arrArgs=array()) {
+		if(!empty($arrArgs)){
+			//print_r($arrArgs);
+			//die('fsdfffs');
 
+		    $arrUser[]=array();
+			$data['tables'] = 'validate_users';
+			$data['columns']= array('username','password','session_id','user_type');
+			$data['conditions']	= array(
+									'username' => $arrArgs['username'],
+									'password' => $arrArgs['password']
+									);
+			//$data['joins']   =  array();
+			$result = $this->_db->select($data);
+	
+			$row = $result->fetch(PDO::FETCH_ASSOC);
+			
 		//In case of success
-		if ($row)
-		{
-			$_SESSION['SESS_USER_NAME']= $row['username'];
-			//session_start();
-			$data= array(
-					"session_id"=> session_id()
-					);
-			$where = array('username'=>$dataFromUser['username']);
-			$result = $this->_db->update('validate_users',$data);
-			if($result)
+		    if ($row)
 			{
-				echo 'You are logged in now';
-			}
-		}       
+				$_SESSION['SESS_USER_NAME']= $row['username'];
+				$_SESSION['SESS_USER_NAME']= $row['username'];
+				$_SESSION['SESS_USER_TYPE']= $row['user_type'];
+				//session_start();
+				$data= array(
+						"session_id"=> session_id(),
+					   );
+				$where = array('username'=>$arrArgs['username']);
+				$result = $this->_db->update('validate_users',$data);
+				if($result)
+				{
+					//die('You are logged in now');
+					return 1;
+				}
+			}  
+		}
+			   
 	}
 	
 	function singleLoginLogic()

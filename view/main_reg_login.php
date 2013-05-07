@@ -34,7 +34,7 @@
 		
 		
 <div id="logindiv" class="logindiv">
-<form action="" name="login_form" method="post">
+<form action="<?php echo SITE_PATH .'main/login';?>" name="login_form" method="post">
     <div class="login-strip">Login <span id="close" class="close"> X</span></div>
         <div class=" val">
             <label class="label1"><?php echo "UserName"; ?></label><input id="user_name" name="user_name" type="text" />
@@ -46,13 +46,10 @@
 
                     
                            
-              <input id="b1"  type="button" value=
-                "Login"  onclick="checklogin()" />
+              <input id="b1"  type="submit" value="Login" />
                 
-
-
-                
-            </div>
+              
+         </div>
 
             
                 <div class="para"></div>
