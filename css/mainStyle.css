@@ -312,39 +312,6 @@ text-align:center;
 	font-size:medium;
 	top:190;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #slidercontainer1 {
     margin: 0;
     height: 350px;
@@ -826,8 +793,29 @@ display: inline-block;
 	margin-top: -4px;
 	margin-right: -1px;	
 }
-    
+#faq_head{
+	
+	height: 50px;
+	width:auto;
+	background-color:#58ACFA;
+	color: white;
+	font-size: 20px;
+	text-align: center;
+	margin-top: -40px;
+	padding-top: 20px;
 
+}
+.floatr{
+	float:right;	
+}
+  .fontsize24{
+	font-size: 24px;
+   } 
+   .colorwhite{
+	
+   	color:white;
+   }
+/* css ends here  */
 
 /*************Start Dasboard Menu CSS by Pankaj********************/
 

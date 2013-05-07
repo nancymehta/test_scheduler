@@ -15,12 +15,9 @@ class mainController extends common{
 	  	$this->handleException($e->getMessage());
 	} 		
 	}
-	function faq() {
+	function faq() {// function name need to be change
 		try {
 			//$arrValue=$this->loadModel('base','login');
-			$this->loadView("header");
-			$this->loadView("main_reg_login");
-			$this->loadView("faq");
 			
 	
 		} catch (Exception $e) {
