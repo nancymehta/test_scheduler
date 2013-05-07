@@ -16,7 +16,7 @@
 			<tr>
 				<td>1</td>
 				<td>Test</td>
-				<td clo><a href = "#">Edit</a></td>
+				<td><a href = "#">Edit</a></td>
 				<td><a href = "#">Delete</a></td>
 				<td><a href = "#">Manage assign test</a></td>							
 			</tr>

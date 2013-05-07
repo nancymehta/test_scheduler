@@ -1013,21 +1013,32 @@ padding: 10px;
 
 
 /*********Start Add Test********/
-.add_test {
+.middle_content .add_test {
 	display : none;
+	float : left;
+	position : relative;
 }
+
+.middle_content .add_test input[type = "text"]{
+	float : left;
+-} 
 .middle_content{
 	position : relative;
 }
-.middle_content .search_test{
-	float : left;
-}
 
 .middle_content .search_test {
-	position : absolute;
-	margin-top : 20px;
+	position : relative;
+	margin-top : 40px;
 	padding-top : 20px;
-	float : left;
+}
+.middle_content .test_list_div {
+	float :left;
+}
+.middle_content .test_list_div .test_list {
+	color : black;
+}
+#add_test {
+	color : blue;
 }
 /*********End Add Test********/
 
