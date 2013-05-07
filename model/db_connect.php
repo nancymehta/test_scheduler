@@ -16,7 +16,7 @@ class dbConnectModel extends cxpdo{
 		$config['type'] = 'mysql';
 		$config['port'] = null;
 		$config['persistent'] = true;
-		$this->_db = db::instance($config);		
+		$this->_db = @db::instance($config);		
 	}	 
 		
 }

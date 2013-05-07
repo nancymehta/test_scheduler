@@ -1,7 +1,7 @@
 <?php
 /**
  * Filename : mainController.php
- * Created By : Amitesh Bharti
+ * Updated By : Amitesh Bharti
  * Description : provides main controller to control job like show home page,login to database etc
  * Date_of_creation :6-5-2013
  */
@@ -34,17 +34,7 @@ class mainController extends common{
 	function handleException($message) {
 			echo 'Caught exception: '.$message;
 	}
-// 	function login() {
-	
-// 		try {
-// 			echo "amitesh";
-// 			//write code here3
-// 			//$arrValue=$this->loadModel('base','login');
-			
-// 		} catch (Exception $e) {
-// 			$this->handleException($e->getMessage());
-// 		}
-// 	}
+
 	function register() {
 		try {
 			$arrValue=$this->loadModel('base','register');
@@ -69,14 +59,22 @@ class mainController extends common{
 		//print_r($data);
 		$arrData=$this->loadmodel('base','login',$arrArgs);
 		if($arrData == 1){
-			die('You are logged in now');
+			echo 'You are logged in nows';
+			header("location:".SITE_PATH."index.php");
 		}
 		else{
 			die('OOPS sorry');
 		}
 		
 	}
-	
+	function logout(){
+		
+		$_SESSION['SESS_USER_NAME']="";
+		$_SESSION['SESS_USER_TYPE']="";
+		unset($_SESSION);
+		header("location:".SITE_PATH."index.php");
+
+	}
 	function singleLoginLogic()
 	{
 		$result=$this->loadmodel('base','singleLoginLogic');

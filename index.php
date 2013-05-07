@@ -19,17 +19,19 @@ else{
 }
 
 if(isset($_REQUEST['controller']) && !empty($_REQUEST['controller'])){
-	if (@$_SESSION ['type'] == 0) {
-        $controller = "admin";
-    } else if (@$_SESSION ['type'] == 1) {
+	
+	    $controller = $_REQUEST ['controller'];
+
+    
+}
+else{
+	if (@$_SESSION ['SESS_USER_TYPE'] == 1) {
         $controller = "user";
     } else {
         $controller = 'main'; // default controller
     }
-}
-else{
-	$controller ='main';  //default controller
-}
+ }
+ echo($controller);
 if(isset($_REQUEST['function']) && !empty($_REQUEST['function'])){
 	$function =$_REQUEST['function'];
 	$url = explode ( "/", @$_REQUEST ['function'] );
