@@ -1,8 +1,7 @@
-
 <html>
 	<head>
 		<title>Test Scheduler</title>
-		<link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH;?>/mainStyle.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH;?>mainStyle.css">
 		<script type="text/javascript" src = "<?php echo JS_PATH;?>jquery-1.8.3.js"></script>
    <script type="text/javascript" src ="<?php echo JS_PATH;?>jScript.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
@@ -13,7 +12,6 @@
 	
 	<body>
 		<div class = "mainContainer">
-		
 			<div class = "header">
 				<div class="logo"><img src="<?php echo IMAGE_PATH;?>/logo.png"></div><h1><font style="color:black">test</font>scheduler</h1>
 				<div class = "sign-register">
