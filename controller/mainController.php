@@ -19,7 +19,7 @@ class mainController extends common{
 			echo 'Caught exception: '.$message;
 	}
 	function login() {
-		
+	
 		try {
 			
 			$arrValue=$this->loadModel('base','login');
@@ -35,7 +35,22 @@ class mainController extends common{
 			$this->handleException($e->getMessage());
 		}
 	}
-	function __call($key,$index) {
-		echo "yeah Error";
+	
+	function loginView()
+	{
+		$this->loadView('login');
 	}
+	
+	function singleLoginLogin()
+	{
+		$data = array(
+				'username'=> $_POST['username'],
+				'password'=> $_POST['password']
+				);
+		$this->loadmodel('base','login');
+	}
+	function __call($key,$index) {
+		echo "yeah error";
+	}
+	
 }

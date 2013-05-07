@@ -35,7 +35,7 @@ else{
 	$function ='home';    //default function
 }
 
-$controller = strtolower ( $controller );
+//$controller = strtolower ( $controller );
 $fn = SITE_ROOT.'controller/'.$controller.'Controller.php';
 
 if(file_exists($fn)){
