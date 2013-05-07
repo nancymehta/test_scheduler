@@ -21,8 +21,9 @@ class mainController extends common{
 	function login() {
 	
 		try {
-			
-			$arrValue=$this->loadModel('base','login');
+			echo "amitesh";
+			//write code here3
+			//$arrValue=$this->loadModel('base','login');
 			
 		} catch (Exception $e) {
 			$this->handleException($e->getMessage());
