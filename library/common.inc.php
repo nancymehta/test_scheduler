@@ -1,7 +1,6 @@
 <?php
 
-class common
-{
+
 	function loadView($templateName,$arrPassValue='')
 	{
 
@@ -42,5 +41,5 @@ class common
 
 
 	}
-}
+
 

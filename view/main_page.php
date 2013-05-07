@@ -1,4 +1,4 @@
-<?php include("../library/constant.path.php"); ?>
+
 <html>
 	<head>
 		<title>Test Scheduler</title>
