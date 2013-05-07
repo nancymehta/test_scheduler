@@ -18,8 +18,8 @@
 				<div class="logo"><img src="<?php echo IMAGE_PATH;?>/logo.png"></div><h1><font style="color:black">test</font>scheduler</h1>
 				<div class = "sign-register">
 					<ul>
-						<li><a href = "#" id = "login" onclick = "showLogin()">Sign-in</a></li>
-						<li><a href = "#" id = "register" onclick = "showRegister()">Register</a></li>
+						<li><a href = "#" id = "login" >Sign-in</a></li>
+						<li><a href = "#" id = "register" >Register</a></li>
 					</ul>
 				</div>
 			
@@ -110,7 +110,7 @@
 				
 		
 <div class="logindiv">
-    <div class="login-strip">Login</div>
+    <div class="login-strip">Login <span id="close" class="close"> X</span></div>
         <div class=" val">
             <label class="label1"><?php echo "UserName"; ?></label></label><input id="user_name" name="user_name" type="text" />
 
@@ -120,7 +120,7 @@
                       <span class ="log_data"> </span>
 
                     
-                                
+                           
               <input id="b1"  type="button" value=
                 "Login"  onclick="checklogin()" />
                 
