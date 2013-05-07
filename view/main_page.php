@@ -1,9 +1,10 @@
+<?php include("../library/constant.path.php"); ?>
 <html>
 	<head>
 		<title>Test Scheduler</title>
-		<link rel="stylesheet" type="text/css" href="../css/mainStyle.css">
-		<script type="text/javascript" src = "../js/jquery-1.8.3.js"></script>
-   <script type="text/javascript" src ="../js/jScript.js"></script>
+		<link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH;?>/mainStyle.css">
+		<script type="text/javascript" src = "<?php echo JS_PATH;?>jquery-1.8.3.js"></script>
+   <script type="text/javascript" src ="<?php echo JS_PATH;?>jScript.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
@@ -14,7 +15,7 @@
 		<div class = "mainContainer">
 		
 			<div class = "header">
-				<div class="logo"><img src="../images/logo.png"></div><h1><font style="color:black">test</font>schedular</h1>
+				<div class="logo"><img src="<?php echo IMAGE_PATH;?>/logo.png"></div><h1><font style="color:black">test</font>scheduler</h1>
 				<div class = "sign-register">
 					<ul>
 						<li><a href = "#" id = "login" onclick = "showLogin()">Sign-in</a></li>
@@ -41,13 +42,13 @@
                 </div>
                 <div id="slidercontainer1">
                     <div id="slider1"><img alt=""  src=
-                    "../images/e4.jpg" /> <img alt=""  src=
-                    "../images/e1.jpg" /> <img alt=""  src=
-                    "../images/e2.jpg" /> <img alt="" src=
-                    "../images/e3.jpg" /> <img alt=""  src=
-                    "../images/e5.jpg" /> <img alt="" src=
-                    "../images/e7.jpg" /> <img alt=""  src=
-                    "../images/e6.jpg" /></div>
+                    "<?php echo IMAGE_PATH;?>e4.jpg" /> <img alt=""  src=
+                    "<?php echo IMAGE_PATH;?>e1.jpg" /> <img alt=""  src=
+                    "<?php echo IMAGE_PATH;?>e2.jpg" /> <img alt="" src=
+                    "<?php echo IMAGE_PATH;?>e3.jpg" /> <img alt=""  src=
+                    "<?php echo IMAGE_PATH;?>e5.jpg" /> <img alt="" src=
+                    "<?php echo IMAGE_PATH;?>e7.jpg" /> <img alt=""  src=
+                    "<?php echo IMAGE_PATH;?>e6.jpg" /></div>
                 </div>
 
             </div>
@@ -70,12 +71,12 @@
         <div  class="main-container-move">
           
           <div class="inner-container-move">
-            <img src="../images/c1.png">
-            <img src="../images/c2.jpg">
-            <img src="../images/c3.gif">
-            <img src="../images/c4.jpg">
-            <img src="../images/c5.jpg">
-            <img src="../images/c6.gif">
+            <img src="<?php echo IMAGE_PATH;?>c1.png">
+            <img src="<?php echo IMAGE_PATH;?>c2.jpg">
+            <img src="<?php echo IMAGE_PATH;?>c3.gif">
+            <img src="<?php echo IMAGE_PATH;?>c4.jpg">
+            <img src="<?php echo IMAGE_PATH;?>c5.jpg">
+            <img src="<?php echo IMAGE_PATH;?>c6.gif">
           
           </div>
 
@@ -90,9 +91,9 @@
 
 				<div class = "client">
 				<div class="inner-container-partner">
-            <img src="../images/p2.jpg">
+            <img src="<?php echo IMAGE_PATH;?>p2.jpg">
 
-            <img src="../images/p1.png">
+            <img src="<?php echo IMAGE_PATH;?>p1.png">
             <h1>Our Partners</h1>
            </div>
 
