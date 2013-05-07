@@ -3,10 +3,10 @@
 		<title>Test Scheduler</title>
 		<link rel="stylesheet" type="text/css" href="../css/mainStyle.css">
 		<script type="text/javascript" src = "../js/jquery-1.8.3.js"></script>
-				
-				<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+   <script type="text/javascript" src ="../js/jScript.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 		
 	</head>
 	
@@ -14,7 +14,7 @@
 		<div class = "mainContainer">
 		
 			<div class = "header">
-				
+				<div class="logo"><img src="../images/logo.png"></div><h1><font style="color:black">test</font>schedular</h1>
 				<div class = "sign-register">
 					<ul>
 						<li><a href = "#" id = "login" onclick = "showLogin()">Sign-in</a></li>
@@ -25,26 +25,100 @@
 				<div class = "menu">
 					<ul>
 						<li><a href = "#" style="color:black;">Pricing</a></li>
-						<li><a href = "#">FAQ</a></li>
+						<li><a href = "#">Faq's</a></li>
 						<li><a href = "#">Blogs</a></li>
 					</ul>
 				</div>
+			</div>
+		
+			<div  class = "mainSlider">
+				<div class = "imgSlider">
+				
+            <div class="home">
+                <div class="slidertopdiv">
+
+                <p>
+                </div>
+                <div id="slidercontainer1">
+                    <div id="slider1"><img alt=""  src=
+                    "../images/e4.jpg" /> <img alt=""  src=
+                    "../images/e1.jpg" /> <img alt=""  src=
+                    "../images/e2.jpg" /> <img alt="" src=
+                    "../images/e3.jpg" /> <img alt=""  src=
+                    "../images/e5.jpg" /> <img alt="" src=
+                    "../images/e7.jpg" /> <img alt=""  src=
+                    "../images/e6.jpg" /></div>
+                </div>
+
+            </div>
+        
 				</div>
+				<div class = "videoSlider">
+				<iframe  src="http://www.youtube.com/embed/L0pjVcIsU6A" 
+        frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+			
+        <div class="para"></div>
+    <div class="contact-strip">Our Services / clients / Toppers</div>
+			<div  class = "info">
+				<div class = "service">
+
+             <div  class="main-container-parent-move">
+
+
+        <div  class="main-container-move">
+          
+          <div class="inner-container-move">
+            <img src="../images/c1.png">
+            <img src="../images/c2.jpg">
+            <img src="../images/c3.gif">
+            <img src="../images/c4.jpg">
+            <img src="../images/c5.jpg">
+            <img src="../images/c6.gif">
+          
+          </div>
+
+        <input type="button" value="&#60;"  class="back">
+
+        <input type="button" value="&#62;" class="next">
+        </div>
+
+        </div>
+				
+				</div>
+
+				<div class = "client">
+				<div class="inner-container-partner">
+            <img src="../images/p2.jpg">
+
+            <img src="../images/p1.png">
+            <h1>Our Partners</h1>
+           </div>
+
+         
+            
+       
+
+
+				</div>
+				<div class = "Toppers">
+				
+				</div>
+			</div>
 				
 		
 <div class="logindiv">
-
-
-   <dd class="login1">
+    <div class="login-strip">Login</div>
         <div class=" val">
-            <label class="label1"><?php echo USER_NAME; ?><input id="user_name" name="user_name" type="text" /></label>
+            <label class="label1"><?php echo "UserName"; ?></label></label><input id="user_name" name="user_name" type="text" />
 
                     
-                    <label class="label1"><?php echo PASSWORD; ?><input class="loginc" id="password" name="password" type="password"   />
-                      </label>
+                    <label class="label1"><?php echo "Password"; ?>  </label><input class="loginc" id="password" name="password" type="password"   />
+                    
                       <span class ="log_data"> </span>
 
-                    <label class="label1" style="color:red"></label>
+                    
                                 
               <input id="b1"  type="button" value=
                 "Login"  onclick="checklogin()" />
@@ -56,8 +130,7 @@
 
             
                 <div class="para"></div>
-        </dd>
-
+     
 
 </div>
 
@@ -65,33 +138,31 @@
 
 
         <dd class="register1">
+
+    <div class="login-strip">Register</div>
             <div class=" val">
-                <label class="label1"><?php echo USER_NAME; ?><input id="reg_user_name" type=
+                <label class="label1"><?php echo "UserName" ?><input id="reg_user_name" class="loginc" type=
                 "text" /></label>
-                <span class ="user"> </span> 
                
-                <label class="label1"><?php echo PASSWORD; ?><input id=
+                <label class="label1"><?php echo "Password" ?><input id=
                 "reg_password" type="password" onkeyup="check()" class="loginc"/>
              
        </label> 
-       <span class ="reg_pass"> </span> 
 
 
 
 
-                <label class="label1"><?php echo CONFIRM_PASSWORD; ?><input id="reg_confirm_password" type="password"
+                <label class="label1"><?php echo "ConfirmPassword"; ?><input id="reg_confirm_password" type="password"
 			class="loginc" /></label>
-            <span class ="reg_conpass"> </span>
 
-                <label class="label1"><?php echo FIRST_NAME; ?> <input id="reg_first_name" type=
-                "text" /></label> 
-                <span class ="reg_first"> </span>
+                <label class="label1"><?php echo "FirstName"; ?> <input id="reg_first_name" type=
+                "text" class="loginc" /></label> 
+               
+                <label class="label1"><?php echo "LastName"; ?><input id="reg_last_name" type="text" class="loginc" /></label> 
+                
 
-                <label class="label1"><?php echo LAST_NAME; ?><input id="reg_last_name" type="text" /></label> 
-                <span class ="reg_last"> </span>
-
-                <label class="label1"><?php echo EMAIL; ?><input id="reg_email" type="text" /></label> 
-                <span class ="reg_mail"> </span>
+                <label class="label1"><?php echo "Email"; ?><input id="reg_email" type="text"  class="loginc" /></label> 
+              
 
       <script>
 $(function() {
@@ -133,21 +204,21 @@ $(function() {
 
 
 
-               <label class="label1"><?php echo DOB; ?><input id="reg_dob"name="dob" type="text" /></label>
+               <label class="label1"><?php echo "DOB"; ?><input id="reg_dob"name="dob" class="loginc" type="text" /></label>
                 <span class ="reg_date"> </span><br>
 
                  
-                <label class="label1"><?php echo GENDER; ?>
+                <label class="label1"><?php echo "Gender"; ?>
 
 
 
             <select class="sel" id="reg_gender">
                     <option>
-                       <?php echo MALE; ?>
+                       <?php echo "MALE"; ?>
                     </option>
 
                     <option>
-                      <?php echo FEMALE; ?>
+                      <?php echo "FEMALE"; ?>
                     </option>
              </select>
 
@@ -157,7 +228,7 @@ $(function() {
 
             </label> <span class =""> </span><br>
 
-                <label class="label1"><?php echo COUNTRY; ?>&nbsp;&nbsp;<select class="sel" id="reg_country">
+                <label class="label1"><?php echo "Country"; ?>&nbsp;&nbsp;<select class="sel" id="reg_country">
                     <option>
                         India
 
@@ -196,7 +267,7 @@ $(function() {
  </div>
  <br><br><br>
  <input id="b1" onclick="register()" type=
-                "button" value="<?php echo SAVE; ?>" />
+                "button" value="<?php echo "SAVE"; ?>" />
                 
 <br>
 
@@ -209,26 +280,88 @@ $(function() {
         
         </div>
 				
+        <div class="para"></div>
+				
+    <div class="contact-strip">Contact Us</div>
+            <div class=" val">
+        
+                <label class="label1"><?php echo "Name"; ?><input id="contact_name" class="contact_name loginc"   type="text" /></label> 
+                <span class ="con_first"> </span><br><br>
+
+                <label class="label1"><?php echo "Email Address"; ?><input class=" loginc"   id="contact_email" type="text" /></label> 
+                <span class ="con_email"> </span><br><br>
+
+                <label class="label1"><?php echo "Query / Suggestions"; ?><textarea  class=" loginc"   rows="4" cols="50" class="textarea" id="contact_suggestion"></textarea></label><br><br><br>
+                <span class ="con_data"> </span><br>
+
+                <input id="b1" onclick="contactUs()" type="button" value=
+                "send" />
+
+            </div>
+
+                <div class="para"></div>
+
+    <div class="contact-strip">Likes & Links to Follow Us</div>
+		  <div class= "footer">
+
+            <div class="footer_content">
+
+                <div class="clearfix">
+
+                    <ul class="grid_3">
+                        <h2>Company</h2>
+                        <li>
+                            <a href="/company/about" title="About">About</a>
+                        </li>
+                        <li>
+                            <a href="http://blog.loadimpact.com/" title="Blog">Blog</a>
+                        </li>
+                        <li>
+                            <a href="http://news.cision.com/load-impact" title="Press room">Press room</a>
+                        </li>
+                    </ul>
+                    <ul class="grid_3">
+                        <h2>Products</h2>
+                        <li>
+                            <a href="/features" title="Features">Features</a>
+                        </li>
+                        <li>
+                            <a href="/pricing" title="Pricing">Pricing</a>
+                        </li>
+                        <li>
+                            <a href="/consulting" title="Consulting">Consulting</a>
+                        </li>
+                        <li>
+                            <a href="/page-analyzer" title="Page analyzer">Page analyzer</a>
+                        </li>
+                    </ul>
+                    <ul class="grid_3">
+                        <h2>Support</h2>
+                        <li>
+                            <a href="http://support.loadimpact.com" title="Support">Support</a>
+                        </li>
+                        <li>
+                            <a href="http://support.loadimpact.com/knowledgebase/topics/29110-case-studies" title="Case studies">Case studies</a>
+                        </li>
+                        <li>
+                            <a href="/contact" title="Contact">Contact</a>
+                        </li>
+                        <li>
+                            <a href="http://developers.loadimpact.com" title="Developers">Developers</a>
+                        </li>
+                    </ul>
+                             </div>
+              </div>
+             <div class="icon">
+	            <a href="index.php"><img alt="" src="../images/f.gif" /></a>
+	            <a href="index.php"><img alt=""  src="../images/t.png" /></a>
+	            <a href="index.php"><img alt=""  src="../images/i.png" /></a>
+        </div>
+               <p class="reserve"> 
+               	{Copyright 2013. All rights reserved.}
+               </p>
+        </div>
+				
 		</div>
 	</body>
 </html>
-<script>
-$(document).ready(function(){
-	  
-	  $("#login").click(function(){
-	    $(".logindiv").css("display","block");
-	    $(".registerdiv").css("display","none");
-		  
-		  });
-
-	  $("#register").click(function(){
-		  $(".logindiv").css("display","none");
-		   
-			  $(".registerdiv").css("display","block");
-		  
-
-		   
-	  });
-});
-
-</script>
