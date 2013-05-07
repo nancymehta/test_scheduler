@@ -1,8 +1,10 @@
+
+<br>
 <div class = "middle_content">
 	<div class = "search_test">
 		Search : <input type="text" id = "search-test" name = "search-test"/>
 	</div>
-	
+	<br> <br> <br> <br>
 	<div class = "test_list_div">
 		<table class = "test_list">
 			<tr>
