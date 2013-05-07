@@ -1,7 +1,7 @@
 <?php
 define('DOC_ROOT',$_SERVER['DOCUMENT_ROOT']);
 define('SITE_ROOT',DOC_ROOT.'/');
-echo SITE_ROOT."SDSDSD";
+
 define('SITE_PATH','http://'.$_SERVER['HTTP_HOST'].'/');
 define('IMAGE_PATH',SITE_PATH.'images/');
 

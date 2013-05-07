@@ -18,17 +18,17 @@ class mainController extends common{
 	function handleException($message) {
 			echo 'Caught exception: '.$message;
 	}
-	function login() {
+// 	function login() {
 	
-		try {
-			echo "amitesh";
-			//write code here3
-			//$arrValue=$this->loadModel('base','login');
+// 		try {
+// 			echo "amitesh";
+// 			//write code here3
+// 			//$arrValue=$this->loadModel('base','login');
 			
-		} catch (Exception $e) {
-			$this->handleException($e->getMessage());
-		}
-	}
+// 		} catch (Exception $e) {
+// 			$this->handleException($e->getMessage());
+// 		}
+// 	}
 	function register() {
 		try {
 			$arrValue=$this->loadModel('base','register');
@@ -42,21 +42,21 @@ class mainController extends common{
 		$this->loadView('login');
 	}
 	
-	function faq()
-	{$this->loadView("header");
-		$this->loadView("main_reg_login");
-		$this->loadView('faq');
-		
-		
-               
-	}
-	function singleLoginLogin()
+	function login()
 	{
+		
 		$data = array(
 				'username'=> $_POST['userName'],
 				'password'=> $_POST['password']
 				);
-		var_dump($this->loadmodel('base','login',$data));
+		$result=$this->loadmodel('base','login',$data);
+	}
+	
+	function singleLoginLogic()
+	{
+		$result=$this->loadmodel('base','singleLoginLogic');
+		if ($result == 1)
+			echo "You are logged Out";
 	}
 	function __call($key,$index) {
 		echo "yeah error";
