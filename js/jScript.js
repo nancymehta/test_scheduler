@@ -7,11 +7,14 @@ $(document).ready(function() {
 	// Js by Bhanu
 
 	$("#close").click(function(){
-		
-		//alert("ghghgh");
-		$("#logindiv").hide();
-		$("#user_name").val(" ");
-		$("#password").val(" ");
+        $("#logindiv").hide();
+        $("#user_name").val("");
+        $("#password").val("");
+	});
+	$("#close1").click(function(){
+        $("#registerdiv").hide();
+        $("#user_name").val("");
+        $("#password").val("");
 	});
 	
 $('.inner-container-partner h1').css({

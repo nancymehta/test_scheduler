@@ -107,7 +107,7 @@
 			</div>
 				
 		
-<div class="logindiv">
+<div id="logindiv" class="logindiv">
     <div class="login-strip">Login <span id="close" class="close"> X</span></div>
         <div class=" val">
             <label class="label1"><?php echo "UserName"; ?></label></label><input id="user_name" name="user_name" type="text" />
@@ -133,12 +133,12 @@
 
 </div>
 
-<div class="registerdiv">
+<div id="registerdiv" class="registerdiv">
 
 
         <dd class="register1">
 
-    <div class="login-strip">Register</div>
+    <div class="login-strip">Register<span id="close1" class="close"> X</span></div>
             <div class=" val">
                 <label class="label1"><?php echo "UserName" ?><input id="reg_user_name" class="loginc" type=
                 "text" /></label>
