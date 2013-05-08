@@ -36,3 +36,12 @@ add test_scheduler.com
 
 sudo /etc/init.d/apache2 restart
 
+
+For configuring your virtual host at home :
+->Please put ip 127.0.0.1 in place of your ip address
+->Skip step 4
+
+and after configuring write 
+->sudo a2enmod rewrite this command in terminal
+then restart apache
+
