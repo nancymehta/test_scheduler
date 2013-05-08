@@ -31,7 +31,6 @@ else{
         $controller = 'main'; // default controller
     }
  }
- echo($controller);
 if(isset($_REQUEST['function']) && !empty($_REQUEST['function'])){
 	$function =$_REQUEST['function'];
 	$url = explode ( "/", @$_REQUEST ['function'] );

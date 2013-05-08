@@ -10,10 +10,13 @@ class userController extends mainController {
 	}
 	/*provide view for category tab*/
 	function category() {
-		$this->loadView("header");
-		$this->loadView("user_header");
+		$ArrData	=	$this->loadModel('category','viewCategory');
+	 	$this->loadView("header");
+	 	$this->loadView("user_header");
 	 	$this->loadView("user_examiner_view/deshboard_menu");
-	 	$this->loadView("user_examiner_view/category");
+	 	$this->loadView("user_examiner_view/category",$ArrData);
+		$this->loadView("header");
+		
 	}
 	/*provide view for category tab*/
 	function mytest() {

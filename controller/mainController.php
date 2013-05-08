@@ -88,7 +88,7 @@ class mainController extends common{
 		$arrData=$this->loadmodel('base','login',$arrArgs);
 		if($arrData == 1){
 			echo 'You are logged in nows';
-			header("location:".SITE_PATH."index.php");
+			header("location:".SITE_PATH);
 		}
 		else{
 			die('OOPS sorry');
@@ -100,7 +100,7 @@ class mainController extends common{
 		$_SESSION['SESS_USER_NAME']="";
 		$_SESSION['SESS_USER_TYPE']="";
 		unset($_SESSION);
-		header("location:".SITE_PATH."index.php");
+		header("location:".SITE_PATH);
 
 	}
 	

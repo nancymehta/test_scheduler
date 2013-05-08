@@ -56,8 +56,8 @@ class categoryModel extends dbConnectModel {
 		
 		while($row	=	$result->fetch(PDO::FETCH_ASSOC))
 		{
-			$categoryArray[name][]	=	$row['name'];
-			$categoryArray[id][]	=	$row['id'];
+			$categoryArray['name'][]	=	$row['name'];
+			$categoryArray['id'][]	=	$row['id'];
 		}
 		
 		return $categoryArray;
