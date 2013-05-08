@@ -1,11 +1,13 @@
-
-<br>
+<div class="para"></div>
 <div class = "middle_content">
 	<div class = "search_test">
-		Search : <input type="text" id = "search-test" name = "search-test"/>
+		<span class="ft-blue-generic">Search : </span> <input type="text" id = "search-test" name = "search-test" class="ft-blue-generic"/>
+	<br>
+		
 	</div>
-	<br> <br> <br> <br>
+	<a href="#" id = "add_test" class="bt-blue-generic ft-blue-generic" style="color:white"> Create new test</a>
 	<div class = "test_list_div">
+
 		<table class = "test_list">
 			<tr>
 				<th>S.No.</th>
@@ -53,7 +55,6 @@
 				<td><a href = "#">Manage assign test</a></td>							
 			</tr>
 		</table>
-		<a href="#" id = "add_test">Create new test</a>
 	</div>
 	
 	<div class = "add_test">

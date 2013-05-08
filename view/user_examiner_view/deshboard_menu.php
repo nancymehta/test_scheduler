@@ -1,10 +1,12 @@
-
+<div class="menus">
 <div class = "menu_list">
 	<ul>
 		<li><a id = "home" href ="<?php echo SITE_PATH; ?>">Home</a></li>
 		<li><a id = "assign" href = "assign">Assign</a></li>
 		<li><a id = "test" href = "#">Test</a></li>
 		<li><a id = "result" href = "<?php echo SITE_PATH."result"; ?>">Results</a></li>
+
+		<li><a id = "menus-show" href = "#"> Menus >></a></li>
 	</ul>
 </div>
 <div class = "sub-menu_list">
@@ -17,5 +19,4 @@
 		</ul>	
 	</div>
 </div>
-<script>
-</script>
+</div>

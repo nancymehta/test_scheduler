@@ -1,5 +1,7 @@
-<input type = "button" id = "addCatergory"  value = "Create new category"/>
+
+<div class="para"></div>
 <div class = "category_content">
+<a href="#" id ="addCatergory" class="bt-blue-generic ft-blue-generic addtest"> Create new Category</a>
 
 
 <div class="fancybox">
@@ -21,10 +23,10 @@
 	<div class = "category_div">
 <!-- abhishek -->
 	<form id="addCategoryForm" action="<?php echo SITE_PATH .'category/manageCategory';?>" name="addCategoryForm" method="post">
-		<span>Category Name:</span><br>
-		<input type = "text" id = "categoryName" name="categoryName"/>
+		<span class="ft-blue-generic ">Category Name:</span><br>
+		<input type = "text" id = "categoryName" name="categoryName" />
 		
-		<input type = "submit" Value = "Add Category" class="add_category"/>
+		<input type = "submit" Value = "Add Category" class="add_category ft-blue-generic"/>
 	</form> 
 	</div> 
 	<div class = "catergory_list">

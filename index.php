@@ -1,6 +1,8 @@
 <?php
 session_start ();
 ob_start ();
+
+
 require_once($_SERVER['DOCUMENT_ROOT'].'/library/constant.path.php');
 require_once(LIBRARY_ROOT.'common.inc.php');
 require_once(LANGUAGE_ROOT.'lang.en.php');

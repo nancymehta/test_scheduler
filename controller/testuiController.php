@@ -14,4 +14,13 @@ class testuiController extends common{
  	$this->loadView("user_examiner_view/deshboard_menu");
 
  }
+ function suraj() {
+ 	$this->loadView("header");
+ 	$this->loadView("user_header");
+ 	$this->loadView("user_examiner_view/deshboard_menu");
+
+ 	$this->loadView("user_examiner_view/maketestpage");
+	//$this->loadView("user_examiner_view/category");
+
+ }
 }

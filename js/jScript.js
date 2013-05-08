@@ -4,6 +4,14 @@ topvalue = 0;
 textval = 0;
 $(document).ready(function() {
 
+//js suraj
+
+
+
+
+//js end suraj
+
+
 	// Js by Bhanu
 
 	$("#bclose").click(function(){
@@ -248,7 +256,18 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
+
+  $('#menus-show').click(function(){
+
+    $('.menus').animate({"margin-left":"0px"},1000);
+    $(this).hide();
+  }
+);
+
 	$("#test").hover(function(){
+
+  $(".sub-menu_list").show("2000");
+
 		$(".test-sub-menu").show();
 	});
 
@@ -256,12 +275,14 @@ $(document).ready(function() {
 		$(".test-sub-menu").hide();
 	});
 
+
 	$(".test-sub-menu").hover(function(){
 		$(".test-sub-menu").show();
 	});
 
 	$(".test-sub-menu").mouseleave(function(){
 		$(".test-sub-menu").hide();
+
 	});
 }); 
 

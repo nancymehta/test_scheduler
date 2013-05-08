@@ -819,26 +819,55 @@ display: inline-block;
 
 /*************Start Dasboard Menu CSS by Pankaj********************/
 
+/* suraj edit*/
+
+/* end suraj edit*/
+
+.menus{
+    padding: 2px;
+       margin-left: -53%;
+
+      position: relative;
+
+}
 .menu_list {
-	width : 100%;
-	height : 20px;
 	background-color : #eee;
+    width: 100%;
+   position: relative;
+  height: 40px;
 }
 
+
 .menu_list li {
-	padding: 10px;	
+
 	display:inline;
 	margin-left : 5px;
-	marign-bottom : -20px;
-	
+	margin-left:30px;
+
+    padding: 6px;  
+
+     position: relative;
 }
 
 .menu_list li a{
+    display: inline-block;
+    height: 10px;
+    padding: 15px;
 	color : black;
-	font-size : 1em;
-	
+	font-size : 0.9em;
+
+    
+
 }
 
+
+.menu_list li a:hover{
+    background-color:#E6E6E6;
+    
+
+    
+
+}
 .menu_list ul {
 	float : left;
 	position : absolute;
@@ -847,9 +876,13 @@ display: inline-block;
 
 .sub-menu_list {
 	width : 100%;
-	height : 30px;
+
+    display: none;
+	height : 40px;
 	background-color : #4E4E4E;	
 	float : left;
+    margin-top: 0px;
+
 	position : relative;
 }
 
@@ -860,21 +893,32 @@ display: inline-block;
 	float : left;
 	position: absolute;
 	left : 120px;
+    top: 10px;
+
+
 }
+
+.test-sub-menu li:hover,a:hover{
+background-color: #848484;
+color: white;
+
+
+}
+
 
 
 .test-sub-menu li {
 	padding: 10px;	
 	display:inline;
-	margin-left : 5px;
+  	margin-left : 5px;
 }
 
 tr:nth-child(even) {
-	background-color : #BDEDFF;
+	background-color : #EFEFD7;
 }
 
 tr:nth-child(odd) {
-	background-color : #B4CFEC;
+	background-color :white;
 }
 .category_content {
 	position : relative;
@@ -898,16 +942,24 @@ tr:nth-child(odd) {
 
 .category_content .category_div .add_category{
 	
-	position: relative;;
-	margin-top: -13px;
-	padding : 5px;
+	position: relative;
+    margin-left:20px;
+	padding : 4px;
+	font-family: georgia;
+    font-style: italic;
+    font-size: 0.9em;
+
 	
 	
-	
+}
+input[type='submit']:hover{
+    cursor: pointer;
 }
 
 .catergory_list {
 	float : left;
+    margin: 200px;
+
 	
 }
 
@@ -925,32 +977,199 @@ tr:nth-child(odd) {
 	padding: 10px;
 	color : black;
 	font-weight:100;
-	
+
 	margin:10px;
 	
 }
 
+.category_table td,.category_table td a{
+    padding: 15px;
+    font-family: georgia;
+    font-style: italic;
+    font-size: 0.9em;
+    color: gray; 
+    margin:10px;
+    
+}
 
 .category_table th {
-	padding: 10px;
-	color : black;
+	padding: 20px;
+	color : white;
 	font-weight:300;
-	
+	background-color: gray;
+
 }
 
 .category_table a{
-	padding: 10px;
-	color : blue;
+	padding: 20px;
+	color : white;
 	
 
 	margin:10px;
 	
 }
-.category_table tr td {
-padding: 10px;
-
-	
+.category_table a:hover{
+    
+    color : white;
+    
 }
+
+/*suraj edit */
+.middle_content{
+    position: relative;
+    width: 100%;
+    height: 100%;
+  
+}
+.middle_content .search_test input[type='text'],#search-test{
+    
+width: 20%;
+float: left;
+border: 1px solid #4CC0FF;
+height: 25px;
+padding: 20px;
+
+}
+.ft-blue-generic{
+
+
+     font-family: georgia;
+    font-size: 1.3em;
+    font-style: italic;
+    color: #4CC0FF;
+
+}
+
+.bt-blue-generic{
+
+}
+.middle_content .search_test span{
+    float: left;
+    margin-left : 110px;
+  
+}
+
+
+
+.search_test{
+    margin:10xp;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+
+
+.middle_content .test_list_div .test_list.table{
+
+    padding: 10px;
+    width: 100%;
+
+}
+
+
+.middle_content .test_list_div .test_list  th{
+  padding: 20px;
+    background-color: #eee;
+
+ }
+
+
+
+.middle_content .test_list_div .test_list tr,.middle_content .test_list_div .test_list td{
+
+    padding: 20px;
+    color:#45452D;
+    font-family: georgia;
+    font-style: italic;
+    font-size: 0.9em; 
+    
+
+}
+
+.middle_content .test_list_div .test_list a{
+
+    color:#45452D;
+    padding: 10px;
+
+    
+
+}
+#addCatergory{
+
+    top: 290;
+    left: -95;
+    position: fixed;
+   
+}
+
+
+#addCatergory:hover{
+    
+
+         -webkit-transition: 1s;
+        -moz-transition: 1s;
+        transition: 1s;
+          
+    left: 0;
+}
+.middle_content .test_list_div .test_list td:hover a:hover{
+
+    color:white;
+
+
+    
+
+}
+#add_test{
+   
+    top: 290;
+    left: -70;
+    position: fixed;
+    color: white;
+
+}
+.bt-blue-generic{
+    padding: 20px;
+ 
+    color: white;
+    font-style: georgia;
+    font-style: italic;
+    background-color: #4CC0FF;
+   
+
+}
+
+
+.middle_content .test_list_div{
+
+   
+    position: relative;
+    float: left;
+    clear: both;
+    margin: 110px;
+
+
+
+
+}
+
+#add_test:hover{
+   
+    
+     -webkit-transition: 1s;
+        -moz-transition: 1s;
+        transition: 1s;
+          
+    left: 0;
+    
+
+}
+/*end suraj edit */
+
+
+
 /*************End Dasboard Menu CSS by Pankaj********************/
 
 
