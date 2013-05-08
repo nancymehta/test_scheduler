@@ -6,7 +6,6 @@
 		<li><a id = "test" href = "#">Test</a></li>
 		<li><a id = "result" href = "<?php echo SITE_PATH."result"; ?>">Results</a></li>
 
-		<li><a id = "menus-show" href = "#"> Menus >></a></li>
 	</ul>
 </div>
 <div class = "sub-menu_list">

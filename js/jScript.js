@@ -257,13 +257,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 
-  $('#menus-show').click(function(){
-
-    $('.menus').animate({"margin-left":"0px"},1000);
-    $(this).hide();
-  }
-);
-
+  
 	$("#test").hover(function(){
 
   $(".sub-menu_list").show("2000");

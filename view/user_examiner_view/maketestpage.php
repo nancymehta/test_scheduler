@@ -1,10 +1,9 @@
-<div class="para"></div>
+
 <div class = "middle_content">
 	<div class = "search_test">
 		<span class="ft-blue-generic">Search : </span> <input type="text" id = "search-test" name = "search-test" class="ft-blue-generic"/>
 	<br>
-		
-	</div>
+</div>
 	<a href="#" id = "add_test" class="bt-blue-generic ft-blue-generic" style="color:white"> Create new test</a>
 	<div class = "test_list_div">
 
