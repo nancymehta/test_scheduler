@@ -113,18 +113,6 @@ class mainController extends common{
 	function __call($key,$index) {
 		echo "yeah error";
 	}
-function mytest(){
-    $this->loadView("header");
- 	$this->loadView("user_header");
- 	$this->loadView("user_examiner_view/deshboard_menu");
-    $this->loadView("user_examiner_view/maketestpage");
- }
- function category() {
- 	$this->loadView("header");
- 	$this->loadView("user_header");
- 	$this->loadView("user_examiner_view/deshboard_menu");
- 	$this->loadView("user_examiner_view/category");
- 
- }
+
 	
 }
