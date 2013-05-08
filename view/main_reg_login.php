@@ -35,7 +35,7 @@
 		
 <div id="logindiv" class="logindiv">
 <form action="<?php echo SITE_PATH .'main/login';?>" name="login_form" method="post">
-    <div class="login-strip">Login <span id="close" class="close"> X</span></div>
+    <div class="login-strip">Login <span id="bclose" class="close">X</span></div>
         <div class=" val">
             <label class="label1"><?php echo "UserName"; ?></label><input id="username" name="user_name" type="text" />
 

@@ -6,8 +6,8 @@ $(document).ready(function() {
 
 	// Js by Bhanu
 
-	$("#close").click(function(){
-        $("#logindiv").hide();
+	$("#bclose").click(function(){
+     $("#logindiv").hide();
         $("#user_name").val("");
         $("#password").val("");
 	});
