@@ -829,9 +829,8 @@ display: inline-block;
 
 .menus{
     padding: 2px;
-       margin-left: -47%;
-
-      position: relative;
+    margin-left: 0px;
+    position: relative;
 
 }
 .menu_list {
