@@ -9,6 +9,8 @@
  ************************************************************	
  *
 */
+include_once(MODEL_PATH.'/baseModel.php');
+$obj = new registerModel;
 ?>
 
 <html>

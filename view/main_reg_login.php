@@ -37,7 +37,7 @@
 <form action="<?php echo SITE_PATH .'main/login';?>" name="login_form" method="post">
     <div class="login-strip">Login <span id="close" class="close"> X</span></div>
         <div class=" val">
-            <label class="label1"><?php echo "UserName"; ?></label><input id="user_name" name="user_name" type="text" />
+            <label class="label1"><?php echo "UserName"; ?></label><input id="username" name="user_name" type="text" />
 
                     
                     <label class="label1"><?php echo "Password"; ?>  </label><input class="loginc" id="password" name="password" type="password"   />
@@ -58,12 +58,12 @@
 </div>
 <div id="registerdiv" class="registerdiv">
 
-<form name="register_form" method="post">
+<form action="http://test_scheduler.com/main/register" name="register_form" method="post">
         <dd class="register1">
 
     <div class="login-strip">Register<span id="close1" class="close"> X</span></div>
             <div class=" val">
-                <label class="label1"><?php echo "UserName" ?><input id="reg_user_name" class="loginc" type=
+                <label class="label1"><?php echo "UserName" ?><input id="reg_user_name" name="username"class="loginc" type=
                 "text" /></label>
                
                 <label class="label1"><?php echo "Password" ?><input id=
@@ -74,29 +74,30 @@
 
 
 
-                <label class="label1"><?php echo "ConfirmPassword"; ?><input id="reg_confirm_password" type="password"
+                <label class="label1"><?php echo "ConfirmPassword"; ?><input id="reg_confirm_password" name="password" type="password"
 			class="loginc" /></label>
 
-                <label class="label1"><?php echo "FirstName"; ?> <input id="reg_first_name" type=
+                <label class="label1"><?php echo "FirstName"; ?> <input id="reg_first_name" name="first_name" type=
                 "text" class="loginc" /></label> 
                
-                <label class="label1"><?php echo "LastName"; ?><input id="reg_last_name" type="text" class="loginc" /></label> 
+                <label class="label1"><?php echo "LastName"; ?><input id="reg_last_name" name="last_name" type="text" class="loginc" /></label> 
                 
 
-                <label class="label1"><?php echo "Email"; ?><input id="reg_email" type="text"  class="loginc" /></label> 
-              
+                <label class="label1"><?php echo "Email"; ?><input id="reg_email" name="email" type="text"  class="loginc" /></label> 
+               
+       
                
                 
 
                 <div class="captcha" >
 
-                <!--insert captcha code here  -->
-
-
- </div>
- <br><br><br>
- <input id="b1" onclick="register()" type=
-                "button" value="<?php echo "SAVE"; ?>" />
+              
+</div>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <?php require_once(LIBRARY_ROOT.'/recaptcha/recaptchalib.php');
+  $publickey = "6LeCCOESAAAAAFFBFDxunP2CQUD0vtAl3hzsaODy"; // you got this from the signup page
+  echo recaptcha_get_html($publickey);  ?>
+ <input id="b1"  type="submit" value="<?php echo "SAVE"; ?>" />
                 
 <br>
 

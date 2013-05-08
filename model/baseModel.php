@@ -66,9 +66,44 @@ class baseModel extends dbConnectModel{
 		}
 	}
 	
-	function register() {
-		echo "Register";
+	function register($arrArgs) {
+		if(!empty($arrArgs))
+		{
+		//print_r($arrArgs);//die();
+		$data1=array(
+				"username"=>$arrArgs['username'],
+				"password"=>$arrArgs['password']);
+		
+		
+		$result1 = $this->_db->insert('validate_users', $data1);
+		
+		
+		  $user_id=$this->_db->lastInsertId();
+		  $ip= $_SERVER['REMOTE_ADDR'];
+		
+		$data2=array(
+				"user_id"=>$user_id,
+				"first_name"=>$arrArgs['firstName'],
+				"last_name"=>$arrArgs['lastName'],
+				"email"=>$arrArgs['email'],
+				"type_of_org_id"=>4,
+				"ip_address"=>$ip);
+		
+		$result2 = $this->_db->insert('user_profile', $data2);
+		if($result1 && $result2)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+
+		}
 	}
+		
+		
+	
 	
 	function faq()
 	{

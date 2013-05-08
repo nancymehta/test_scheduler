@@ -1,6 +1,4 @@
 <?php
-
-
 session_start ();
 ob_start ();
 require_once($_SERVER['DOCUMENT_ROOT'].'/library/constant.path.php');
