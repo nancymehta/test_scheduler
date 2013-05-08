@@ -103,6 +103,18 @@ class mainController extends common{
 		header("location:".SITE_PATH."index.php");
 
 	}
+	function category() {
+ 	$this->loadView("header");
+ 	$this->loadView("user_header");
+ 	$this->loadView("user_examiner_view/deshboard_menu");
+ 	$this->loadView("user_examiner_view/category");
+ }
+ function mytest(){
+    $this->loadView("header");
+ 	$this->loadView("user_header");
+ 	$this->loadView("user_examiner_view/deshboard_menu");
+    $this->loadView("user_examiner_view/maketestpage");
+ }
 	function singleLoginLogic()
 	{
 		$result=$this->loadmodel('base','singleLoginLogic');

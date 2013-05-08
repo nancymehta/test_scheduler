@@ -56,11 +56,11 @@
 			</tr>
 		</table>
 	</div>
-	
+	<br><br>
 	<div class = "add_test">
 		<form>
-			Test Name : <input type = "text" id = "test_name" name = "test_name"/>
-			Category Type : <select>
+		Test Name : <input type = "text" id = "test_name" name = "test_name"/>
+		Category Type : <select>
 								<option>ABC</option>
 								<option>DEF</option>
 								<option>GHI</option>

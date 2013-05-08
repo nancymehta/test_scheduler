@@ -808,6 +808,10 @@ display: inline-block;
 .floatr{
 	float:right;	
 }
+.floatl{
+    float: left;
+}
+
   .fontsize24{
 	font-size: 24px;
    } 
@@ -1182,11 +1186,6 @@ padding: 20px;
 /*   fancy code */
 
 
-
-
-
-
-
 .fancybox{
 	position:absolute;
 	top:0;
@@ -1241,14 +1240,15 @@ padding: 20px;
 .middle_content .add_test input[type = "text"]{
 	float : left;
 -} 
-.middle_content{
+/*.middle_content{
 	position : relative;
 }
-
+*/
 .middle_content .search_test {
-	position : relative;
-	margin-top : 40px;
-	padding-top : 20px;
+	color:#3741e1;
+    margin-top: 40px;
+    margin-left: 20px;
+
 }
 .middle_content .test_list_div {
 	float :left;
