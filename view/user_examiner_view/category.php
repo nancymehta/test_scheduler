@@ -29,61 +29,61 @@
 	</div> 
 	<div class = "catergory_list">
 		<table class = "category_table">
-			<tr>
+			
+			<?php
+			$name	=	array();
+			$id	=	array();
+			$sno	=	1;
+
+			if(isset($arrData['name'])&&isset($arrData['id']))
+		{
+			$name	=	$arrData['name'];
+			$id	=	$arrData['id'];
+		
+		?><tr>
 				<th>S.NO</th>
 				<th>Category</th>
 				<th>Edit</th>
 				<th>Delete</th>
 			</tr>
+		<?php
+		}
+			$count	=	count($name);
+			for($i=0;$i<$count;$i++)
+			{
+			?>
 			
 			<tr>
-				<th>1</th>
-				<td>Category</td>
-				<td><a href = "#" class="b1">Edit</a></td>
-				<td><a href = "#">Delete</a></td>
+				<td><?php echo $sno; ?></td>
+				<td><?php echo $name[$i]; ?></td>
+				<!--<td><a href="#" onclick="$('.b1').click()">Edit</a></td>-->
+				<td><a href="#" onclick="updateCategory(<?php echo $id[$i].",'".$name[$i]."'";?>)">Edit</a></td>
+				<td><a href="#" onclick="deleteCategory(<?php echo $id[$i];?>)">Delete</a></td>
 			</tr>
-			
-			<tr>
-				<th>2</th>
-				<td>Category</td>
-				<td><a href = "#">Edit</a></td>
-				<td><a href = "#">Delete</a></td>
-			</tr>
-			
-			<tr>
-				<th>3</th>
-				<td>Category</td>
-				<td><a href = "#">Edit</a></td>
-				<td><a href = "#">Delete</a></td>
-			</tr>
-			
-			<tr>
-				<th>4</th>
-				<td>Category</td>
-				<td><a href = "#">Edit</a></td>
-				<td><a href = "#">Delete</a></td>
-			</tr>
-			
-			<tr>
-				<th>5</th>
-				<td>Category</td>
-				<td><a href = "#">Edit</a></td>
-				<td><a href = "#">Delete</a></td>
-			</tr>
-			
-			<tr>
-				<th>6</th>
-				<td>Category</td>
-				<td><a href = "#">Edit</a></td>
-				<td><a href = "#">Delete</a></td>
-			</tr>
-			
-			<tr>
-				<th>7</th>
-				<td>Category</td>
-				<td><a href = "#">Edit</a></td>
-				<td><a href = "#">Delete</a></td>
-			</tr> 	
+			<?php
+			$sno++;
+			}
+			?>
 		</table>
 	</div>
 </div>
+
+
+<!-- There two functions are Added by Abhishek Arora -->
+<script type="application/x-javascript">
+	
+function deleteCategory(cat_id) {
+	var ans	=	confirm("Are you Sure you want to delete this category");
+	if (ans	==	true) {
+		window.location.assign("<?php echo SITE_PATH;?>category/manageCategory&id="+cat_id);
+	}
+	
+}
+
+function updateCategory(cat_id,name) {
+	var cat_name	=	name;
+	var ans = prompt("Enter the new value of Category",cat_name)
+	window.location.assign("<?php echo SITE_PATH;?>category/manageCategory&id="+cat_id+"&cat_name="+ans);
+}
+
+</script>
