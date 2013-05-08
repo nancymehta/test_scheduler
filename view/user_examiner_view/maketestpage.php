@@ -1,13 +1,13 @@
 
+<br>
 <div class = "middle_content">
-	<div class = "search_test">
-		<span class="ft-blue-generic">Search : </span> <input type="text" id = "search-test" name = "search-test" class="ft-blue-generic"/>
-	<br>
-</div>
-	<a href="#" id = "add_test" class="bt-blue-generic ft-blue-generic" style="color:white"> Create new test</a>
+	<div class = "search_test floatl">
+		Search : <input type="text" id = "search-test" 
+		name = "search-test"/>
+	</div>
+	<br> <br> <br> <br>
 	<div class = "test_list_div">
-
-		<table class = "test_list">
+		<table class = "category_table">
 			<tr>
 				<th>S.No.</th>
 				<th>Test</th>
@@ -54,19 +54,20 @@
 				<td><a href = "#">Manage assign test</a></td>							
 			</tr>
 		</table>
+		<a href="#" id = "add_test">Create new test</a>
 	</div>
-	<br><br>
-	<div class = "add_test">
+	<br>
+	<div class = "add_test colorblue">
 		<form>
-		Test Name : <input type = "text" id = "test_name" name = "test_name"/>
-		Category Type : <select>
+		Test Name : <input type = "text"  id = "test_name" name = "test_name"/>
+		<br><br> Category Type : <select>
 								<option>ABC</option>
 								<option>DEF</option>
 								<option>GHI</option>
 								<option>JKL</option>
 							</select>
-			
-			<input type = "submit" id="submit" name="submit" value = "Submit"/>
+			<br> <br>
+			<input type="submit" class="bluebutton" id="submit" name="submit"  value="Submit"/>
 		</form>
 	</div>
 </div>
