@@ -1,16 +1,19 @@
 <?php
 include SITE_ROOT.'controller/mainController.php';
 class questionBankController extends mainController {
-	function bulkUpload() {
+	function bulkUploadController() {
 		try {
-			echo "manage";
+			if(isset($_POST['submit']))
+			{
+				$arrArgument=$this->loadModel('questionBank','bulkUploadModel');
+			}
 				
 		} catch (Exception $e) {
 			$this->handleException($e->getMessage());
 		}
 	}
 
-	function singleUpload() {
+	function singleUploadController() {
 		try {
 			echo "manage";
 				
