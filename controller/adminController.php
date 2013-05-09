@@ -3,7 +3,7 @@ include SITE_ROOT.'controller/mainController.php';
 class adminController extends mainController {
 function mailTry() {
 
-mailTest("rahul00015@gmail.com","hello","test the mail");
+mailTest("shashank_ver@osscube.com","hello","test the mail");
 echo "Sernt";
 }
 //error handler function
@@ -23,6 +23,15 @@ function abc() {
 	}
 function jasleen() {
 echo "SDSDSD";
+}
+
+function sendmail(){
+	if($_POST['contactus']){
+		$sub=$_POST['contact_name'].$_POST['contact_email'];
+		$to="info.test.scheduler@gmail.com";
+		$body=$_POST['contact_suggestion'];
+			mailTest($to,$sub,$body);
+	}
 }
 
 }

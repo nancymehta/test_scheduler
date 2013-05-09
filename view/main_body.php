@@ -85,18 +85,17 @@
     <div class="contact-strip">Contact Us</div>
             <div class=" val">
         
-        	<form action="" id="contactus" method="post" >
-                <label class="label1"><?php echo "Name"; ?><input id="contact_name" class="contact_name loginc"   type="text" /></label> 
+        	<form action="<?php echo SITE_PATH;?>admin/sendmail" id="contactus" method="post" >
+                <label class="label1"><?php echo "Name"; ?><input id="contact_name" name="contact_name" class="contact_name loginc"   type="text" /></label> 
                 <span class ="con_first"> </span><br><br>
 
-                <label class="label1"><?php echo "Email Address"; ?><input class=" loginc"   id="contact_email" type="text" /></label> 
+                <label class="label1"><?php echo "Email Address"; ?><input class=" loginc" name="contact_email"  id="contact_email" type="text" /></label> 
                 <span class ="con_email"> </span><br><br>
 
-                <label class="label1"><?php echo "Query / Suggestions"; ?><textarea  class=" loginc"   rows="4" cols="50" class="textarea" id="contact_suggestion"></textarea></label><br><br><br>
+                <label class="label1"><?php echo "Query / Suggestions"; ?><textarea  class=" loginc" name="contact_suggestion"  rows="4" cols="50" class="textarea" id="contact_suggestion"></textarea></label><br><br><br>
                 <span class ="con_data"> </span><br>
 
-                <input id="contactus" name="contactus" onclick="" type="submit" value=
-                "send" />
+                <input id="contactus" name="contactus" onclick="" type="submit" value="send" />
 			</form>
             </div>
 
