@@ -45,7 +45,7 @@ class baseModel extends dbConnectModel{
 				$result = $this->_db->update('validate_users',$data);
 				if($result)
 				{
-					die('You are logged in now');
+					//die('You are logged in now');
 					return 1;
 				}
 			}  
