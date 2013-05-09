@@ -10,7 +10,7 @@
  *
 */
 ?>
-
+<div class="para"></div>
 <div id ="mainSlider" class = "mainSlider">
 				<div class = "imgSlider">
 				
@@ -40,7 +40,7 @@
 			</div>
 			
         <div class="para"></div>
-    <div class="contact-strip">Our Services / clients / Toppers</div>
+    <div class="contact-strip bg-mid-gray">Our Services / clients / Toppers</div>
 			<div  class = "info">
 				<div class = "service">
 
@@ -82,17 +82,17 @@
 			</div>
 			<div class="para"></div>
 				
-    <div class="contact-strip">Contact Us</div>
+    <div class="contact-strip bg-mid-gray">Contact Us</div>
             <div class=" val">
         
         	<form action="<?php echo SITE_PATH;?>admin/sendmail" id="contactus" method="post" >
-                <label class="label1"><?php echo "Name"; ?><input id="contact_name" name="contact_name" class="contact_name loginc"   type="text" /></label> 
+                <label class="label1"><?php echo "Name"; ?></label><input id="contact_name" name="contact_name" class="contact_name loginc"   type="text" /> 
                 <span class ="con_first"> </span><br><br>
 
-                <label class="label1"><?php echo "Email Address"; ?><input class=" loginc" name="contact_email"  id="contact_email" type="text" /></label> 
+                <label class="label1"><?php echo "Email Address"; ?></label><input class=" loginc" name="contact_email"  id="contact_email" type="text" />
                 <span class ="con_email"> </span><br><br>
 
-                <label class="label1"><?php echo "Query / Suggestions"; ?><textarea  class=" loginc" name="contact_suggestion"  rows="4" cols="50" class="textarea" id="contact_suggestion"></textarea></label><br><br><br>
+                <label class="label1"><?php echo "Query / Suggestions"; ?></label><textarea  class=" loginc textarea" name="contact_suggestion"  rows="4" cols="50" class="textarea" id="contact_suggestion"></textarea><br><br><br>
                 <span class ="con_data"> </span><br>
 
                 <input id="contactus" name="contactus" onclick="" type="submit" value="send" />

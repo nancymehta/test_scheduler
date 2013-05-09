@@ -25,9 +25,9 @@
 			
 				<div class = "menu">
 					<ul>
-						<li><a href = "#" class="fg-dark-orange">Pricing</a></li>
-						<li><a href = "<?php echo SITE_PATH."faq"; ?>" class="fg-dark-orange">Faq's</a></li>
-						<li><a href = "#" class="fg-dark-orange">Blogs</a></li>
+						<li><a href = "#" class="fg-dark-white button-anchor ">Pricing</a></li>
+						<li><a href = "<?php echo SITE_PATH."faq"; ?>" class="fg-dark-white button-anchor ">Faq's</a></li>
+						<li><a href = "#" class="fg-dark-white button-anchor ">Blogs</a></li>
 					</ul>
 				</div>
 			</div>
@@ -65,33 +65,34 @@
 
     <div class="login-strip bg-mid-gray ">Register<span id="close1" class="close"> <img src="<?php echo IMAGE_PATH;?>/close.png"/></span></div>
             <div class=" val">
-                <label class="label1"><?php echo "UserName" ?>
-                <input id="username" name="username" class="loginc" type="text" /></label>
+                <label class="label1"><?php echo "UserName" ?></label>
+                <input id="username" name="username" class="loginc" type="text" />
                 
                
                 <label class="label1">
-                <?php echo "Password" ?><input id="password" name="password" type="password" class="loginc"/>
+                <?php echo "Password" ?></label><br> <input id="password" name="password" type="password" class="loginc"/>
              
-       </label> 
+       
 
 
 
 
-                <label class="label1"><?php echo "ConfirmPassword"; ?><input id="confirm_password" name="confirm_password" type="password"
-				class="loginc" /></label>
+                <label class="label1"><?php echo "ConfirmPassword"; ?></label><br><input id="confirm_password" name="confirm_password" type="password"
+			       	class="loginc" />
 
-                <label class="label1"><?php echo "FirstName"; ?> <input id="first_name" name="first_name" type=
-                "text" class="loginc" /></label> 
+                <label class="label1"><?php echo "FirstName"; ?></label> <br> <input id="first_name" name="first_name" type=
+                "text" class="loginc" />
                
-                <label class="label1"><?php echo "LastName"; ?><input id="last_name" name="last_name" type="text" class="loginc" /></label> 
+                <label class="label1"><?php echo "LastName"; ?></label><br> <input id="last_name" name="last_name" type="text" class="loginc" />
     	            
                 
-                <label class="label1"><?php echo "Email"; ?><br><input id="email" name="email" type="text" class="loginc" /></label> 
+                <label class="label1"><?php echo "Email"; ?></label> <br><input id="email" name="email" type="text" class="loginc" />
     	           
    
                
-                
-              <div class="para"></div>
+                <br>
+                <br>
+                <br>
   <?php require_once(LIBRARY_ROOT.'/recaptcha/recaptchalib.php');
   $publickey = "6LeCCOESAAAAAFFBFDxunP2CQUD0vtAl3hzsaODy"; // you got this from the signup page
   echo recaptcha_get_html($publickey);  ?>
@@ -107,4 +108,3 @@
        </form> 
         </div>
 				
-        <div class="para"></div>

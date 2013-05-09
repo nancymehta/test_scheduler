@@ -70,7 +70,7 @@ $('.logindiv,.registerdiv').css({
           $("#register").click(function(){
           $(".logindiv").css("display","none");
            
-              $(".registerdiv").css("display","block");
+              $(".registerdiv").css("display","block").hide().fadeIn('slow');;
         
 
            

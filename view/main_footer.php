@@ -11,7 +11,7 @@
 */
 ?>
 
-     <div class="contact-strip">Likes & Links to Follow Us</div>
+     <div class="contact-strip bg-mid-gray">Likes & Links to Follow Us</div>
 		  <div class= "footer">
 
             <div class="footer_content">
