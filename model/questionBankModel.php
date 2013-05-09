@@ -6,7 +6,8 @@ class questionBankModel extends dbConnectModel {
 	}
 	
 	function singleUploadModel(){
-		
+		//isset()
+	    echo "single manage model";
 	}
 	
 	function bulkUploadModel(){

@@ -17,3 +17,8 @@
 [09-May-2013 08:29:55 UTC] PHP Notice:  Undefined index: category in /var/www/test_scheduler/trunk/view/user_examiner_view/single_upload.php on line 18
 [09-May-2013 08:30:17 UTC] PHP Notice:  Use of undefined constant name - assumed 'name' in /var/www/test_scheduler/trunk/view/user_examiner_view/single_upload.php on line 18
 [09-May-2013 08:48:20 UTC] PHP Notice:  Use of undefined constant arrData - assumed 'arrData' in /var/www/test_scheduler/trunk/view/user_examiner_view/single_upload.php on line 33
+[09-May-2013 09:17:59 UTC] PHP Notice:  Undefined index: submit in /var/www/test_scheduler/trunk/controller/questionBankController.php on line 24
+[09-May-2013 09:18:28 UTC] PHP Notice:  Undefined index: Submit in /var/www/test_scheduler/trunk/controller/questionBankController.php on line 24
+[09-May-2013 09:19:08 UTC] PHP Notice:  Undefined index: submit in /var/www/test_scheduler/trunk/controller/questionBankController.php on line 24
+[09-May-2013 09:20:01 UTC] PHP Notice:  Undefined index: submit in /var/www/test_scheduler/trunk/controller/questionBankController.php on line 24
+[09-May-2013 09:20:19 UTC] PHP Parse error:  syntax error, unexpected ')' in /var/www/test_scheduler/trunk/model/questionBankModel.php on line 9

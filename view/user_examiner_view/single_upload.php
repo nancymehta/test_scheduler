@@ -128,7 +128,7 @@
 				<br>
 				
 			</div>
-<input type="submit" value="Submit"/> 
+            <input type="submit" name='submit' value="Submit"/> 
 		</form>
 	</div>
 </body>
