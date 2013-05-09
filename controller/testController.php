@@ -38,11 +38,12 @@ class testController extends mainController {
 	}
 	
 	function home() {
+//unset($_SESSION['guest_id']);
 		$this->loadView("header");
 	 	$this->loadView("user_header");
-	 	//print_r($_SESSION);
+	 	print_r($_SESSION);
 	 	$url = explode ( "/", @$_REQUEST ['function'] );
-		if (count ( $url ) > 2) {
+		if (count ( $url ) > 2 ) {
 			$testUrl=$url[2];
 			echo $testUrl;
 			$testId=$this->loadModel("test","getTestId",array("link"=>"$testUrl"));
@@ -55,7 +56,7 @@ class testController extends mainController {
 				}
 				$this->loadView('user_examiner_view/user_test_info');
 			} else {
-				echo "yeah";
+				echo "yeah";//test start here...
 			}
 		} else {
 			echo "NO test Selectedd";
