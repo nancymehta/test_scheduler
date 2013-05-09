@@ -53,13 +53,7 @@ define('INVALID_AGE','your age should be more than 18 years');
 define('VALID_AGE','you have entered valid age');
 define('VALID_DATE','yes date format is valid');
 define('INVALID_DATE','date format is not valid');
-
-
-
-
-
-
-
-
-
+define('INVALID_LENGTH','Enter with in the range');
+define('INVALID_RANGE','Enter valid range min should be less than max');
+define('INVALID_DATE_FORMAT','Enter date as YYYY-MM-DD and all should be digit');
 ?>
