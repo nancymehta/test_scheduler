@@ -81,8 +81,8 @@ class mainController extends common{
 		/* this method is intended to control  the login activity of user*/
 		try {
 		    $arrArgs = array(
-				'username'=> $_POST['user_name'],
-				'password'=> $_POST['password']
+				'username'=> @$_POST['user_name'],
+				'password'=> @$_POST['password']
 				);
 			
 			$arrData=$this->loadmodel('base','login',$arrArgs);
@@ -91,6 +91,7 @@ class mainController extends common{
 			}
 			else{
 			    $_SESSION['SESS_ERROR']='Unauthorized access,you need to register first';
+			    header("location:".SITE_PATH);
 			}
 		}catch (Exception $e) {
 			$this->handleException($e->getMessage());

@@ -14,6 +14,9 @@
 	</style>
 </head>
 <body><br>
+<?php 
+print_r($arrData);
+?>
 	<div>
 		<form method="post"><br>
 			<div class="single_upload_main">

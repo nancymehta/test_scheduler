@@ -38,7 +38,8 @@ class userController extends mainController {
 		$this->loadView("user_header");
 	 	$this->loadView("user_examiner_view/deshboard_menu");
 	 	//$arrData=$this->loadModel("base","getCategory",array("id"=>$_SESSION['SESS_USER_ID']));
-	 	$this->loadView("user_examiner_view/single_upload");
+	 	$arrData = $this->loadModel ( 'createTest', 'getTestCategories',array("id"=>$_SESSION['SESS_USER_ID']));
+	 	$this->loadView("user_examiner_view/single_upload",$arrData);
 	}
 	/*provide view for category tab*/
 	function certificate() {
