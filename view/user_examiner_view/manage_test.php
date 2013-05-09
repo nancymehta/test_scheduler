@@ -30,7 +30,7 @@ a:hover {
     width: 940px;
 }
 a.showcont {
-    background: url("http://img.classmarker.com/a/showbtn.gif") no-repeat scroll right top transparent;
+    
     clear: both;
     margin: 0;
     padding: 0 25px 5px 0;
@@ -217,8 +217,8 @@ td.inplab {
 							</tr>
 						</tbody>
 					</table>
+					<input type="submit" value="Assign this test now" >
 				</div>	
-				<input type="submit" value="Assign this test now" >
 			</form>
 			<div class="boldline"></div>	
 			<div class="dotted"></div>
@@ -275,8 +275,8 @@ td.inplab {
 						</tr>
 						</tbody>
 					</table>
-					<div class="clearheight30"></div>
 					<input type="submit" value="Assign this test now" >
+					<div class="clearheight30"></div>
 				</form>
 			</div>			
 		</div>	
