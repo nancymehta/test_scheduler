@@ -1116,3 +1116,8 @@ label.error{
     width:2em;
 }
 
+#category_name {
+	width : 30%;
+	height : 50px;
+}
+

@@ -58,4 +58,12 @@ class testuiController extends common{
  	$this->loadView("user_examiner_view/category");
  	
  }
+ 
+ function edit_test()
+ {
+ 	$this->loadView("header");
+ 	$this->loadView("user_header");
+ 	$this->loadView("user_examiner_view/deshboard_menu");
+ 	$this->loadView("user_examiner_view/edit_test");
+ }
 }

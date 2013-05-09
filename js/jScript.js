@@ -302,6 +302,34 @@ $(document).ready(function(){
 });
 
 $(document).ready(function() {
+	 $("#login_form").validate({
+         rules: {
+             user_name: {
+                 required: true,
+                 minlength:5,
+                 maxlength:30,
+             },
+             password : {
+                 required: true,
+                 minlength:6,
+                 maxlength:20,
+             }
+         },
+             
+         messages: {
+             user_name: {
+                 required:"User Name Is Required.<br/>",
+                 minlength:"User Name Must Be At least 5 Digit Long.<br/>",
+                 maxlength:"User Name Must Be Less Than 30 Digit.<br/>",
+             },
+             password: {
+                 required:"Password Is Required.<br/>",
+                 minlength:"Password Must Be At least 6 Digit Long.<br/>",
+                 maxlength:"Password Must Be Less Than 20 Digit.<br/>",
+             }
+        },
+     });
+	 
 	$("#register_form").validate( {
 		 rules: {
          	username:  {
@@ -373,4 +401,23 @@ $(document).ready(function(){
 	});
 });
 
-  
+$(document).ready(function(){
+	$("#add_test_form").validate({
+		rules: {
+			test_name:{
+				required:true,
+				checkAlpha:true				
+			}
+		},
+		messages: {
+			test_name:{
+				required:"Please enter test name.",
+				checkAlpha:"Only character are required."
+			},
+		}
+	});
+});  
+
+
+
+

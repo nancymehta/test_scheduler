@@ -1,7 +1,7 @@
 
 <div class="para"></div>
 <div class = "category_content">
-<a href="#" id ="addCatergory" class="colorblue"> Create new Category</a>
+<a href="#" id ="addCatergory" class="bt-blue-generic ft-blue-generic addtest"> Create new Category</a>
 
 
 <div class="fancybox">
