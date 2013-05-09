@@ -78,7 +78,13 @@ class mainController extends common{
 	
 	function login()
 	{
-		/* this method is intended to control  the login activity of user*/
+		/**
+		 *
+		 * Created By : Amitesh Bharti
+		 * Description :this method is intended to control  the login activity of user
+		 * Date_of_creation :9-5-2013
+		 */
+	
 		try {
 		    $arrArgs = array(
 				'username'=> @$_POST['user_name'],

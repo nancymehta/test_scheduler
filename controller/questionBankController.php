@@ -25,6 +25,12 @@ function bulkUploadController() {
 	}
 
 	function singleUploadController() {
+		/**
+		 * 
+		 * Created By : Amitesh Bharti
+		 * Description : provides functionality to main controller to add single question into perticual users' Test 
+		 * Date_of_creation :9-5-2013
+		 */
 		try {
 			//echo "single manage";
 			if(isset($_POST['submit']))

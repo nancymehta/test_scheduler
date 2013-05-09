@@ -46,6 +46,7 @@ class userController extends mainController {
 	     $this->loadView("user_examiner_view/deshboard_menu");
 	   //$arrData=$this->loadModel("base","getCategory",array("id"=>$_SESSION['SESS_USER_ID']));
 	     $arrData = $this->loadModel ( 'createTest', 'getTestCategories',array("id"=>$_SESSION['SESS_USER_ID']));
+         print_r($arrData);
 	     $this->loadView("user_examiner_view/single_upload",$arrData);
      }
  
