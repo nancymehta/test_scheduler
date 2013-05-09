@@ -295,8 +295,8 @@ ALTER TABLE `validate_users` CHANGE `created_on` `created_on` TIMESTAMP NOT NULL
 CHANGE `updated_on` `updated_on` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ;
 /*altering `test_taker` table on 09-05-2013*/
 ALTER TABLE `test_taker` ADD `ip_address` VARCHAR( 40 ) NOT NULL ;
-
-
+/*altering `category` table on 09-05-2013*/
+ALTER TABLE `category` ADD `status` ENUM( '0', '1' ) NOT NULL DEFAULT '0'
 
 
 
