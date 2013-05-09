@@ -24,7 +24,10 @@ if(isset($_REQUEST['controller']) && !empty($_REQUEST['controller'])){
     
 }
 else{
-	if (@$_SESSION ['SESS_USER_TYPE'] == 1) {
+	if(isset($_SESSION['SESS_USER_TYPE']) && $_SESSION['SESS_USER_TYPE']=='0') {
+		$controller = "admin";
+	}
+	else if ($_SESSION ['SESS_USER_TYPE'] == 1) {
         $controller = "user";
     } else {
         $controller = 'main'; // default controller

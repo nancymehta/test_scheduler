@@ -33,7 +33,31 @@ function sendmail(){
 			mailTest($to,$sub,$body);
 	}
 }
+function home() {
+		$this->loadView ( "header" );
+		$this->loadView ( "user_header" );
+		$this->loadView ( "admin_view/admin_deshboard_menu" );
+		$this->loadView ( "admin_view/admin_home" );
+}
+function usermanagement() {
+		$this->loadView ( "header" );
+		$this->loadView ( "user_header" );
+		$this->loadView ( "admin_view/admin_deshboard_menu" );
+		$this->loadView ( "admin_view/usermanagement" );
+}
 
+function testmanagement() {
+		$this->loadView ( "header" );
+		$this->loadView ( "user_header" );
+		$this->loadView ( "admin_view/admin_deshboard_menu" );
+		$this->loadView ( "admin_view/testmanagement" );
+}
+function feedbackmanagement() {
+		$this->loadView ( "header" );
+		$this->loadView ( "user_header" );
+		$this->loadView ( "admin_view/admin_deshboard_menu" );
+		$this->loadView ( "admin_view/feedbackmanagement" );
+}
 }
 //set error handler
 
