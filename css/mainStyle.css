@@ -249,7 +249,8 @@ background-color:#AFB3C7;
 
 a{
 	text-decoration:none;
-	    font-size: 0.8em;
+	color:white;
+    font-size: 0.8em;
     font-family: georgia;
 
     font-weight:bolder; 
@@ -950,11 +951,12 @@ font-style: italic;
 	width:400px;
 }
 .fancybox input[type="text"],input[type="submit"]{
-	padding:2px;
-	border:1px solid #7D1B7E;
-	font-size:1.3em;
-	font-family:verdana;	
-	margin:-8px;
+	padding:10px;
+	color:white;
+	border:1px solid white;
+	font-size:0.9em;
+	font-family:georgia;	
+	margin-top:8px;
 }
  .fancybox input[type="submit"]{
 	font-size:0.9em;

@@ -96,7 +96,7 @@
   $publickey = "6LeCCOESAAAAAFFBFDxunP2CQUD0vtAl3hzsaODy"; // you got this from the signup page
   echo recaptcha_get_html($publickey);  ?>
               
- <input id="submit_registration"  type="submit" onclick="abc()" value="<?php echo "SAVE"; ?>" />
+ <input id="submit_registration"  type="submit" class="bg-vib-blue " onclick="abc()" value="<?php echo "SAVE"; ?>" />
             
 
             </div>
