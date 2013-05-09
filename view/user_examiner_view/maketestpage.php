@@ -58,9 +58,10 @@
 	</div>
 	<br>
 	<div class = "add_test colorblue">
-		<form>
+		<form method="post" action="http://test_scheduler.com/createTest/createNewTest">
 		Test Name : <input type = "text"  id = "test_name" name = "test_name"/>
-		<br><br> Category Type : <select>
+		<?php print_r($arrData);?>
+		<br><br> Category Type : <select id="category_name" name="category_name">
 								<option>ABC</option>
 								<option>DEF</option>
 								<option>GHI</option>

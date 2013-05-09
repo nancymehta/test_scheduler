@@ -20,10 +20,17 @@ class userController extends mainController {
 	}
 	/*provide view for category tab*/
 	function mytest() {
-		$this->loadView("header");
-		$this->loadView("user_header");
-	 	$this->loadView("user_examiner_view/deshboard_menu");
-	 	$this->loadView("user_examiner_view/maketestpage");
+		$arrData = $this->loadModel ( 'createTest', 'getTestCategories',array("id"=>$_SESSION['SESS_USER_ID']));
+		if (!empty($arrData)) {
+			//print_r($arrData);
+			$this->loadView("header");
+			$this->loadView("user_header");
+			$this->loadView("user_examiner_view/deshboard_menu");
+			$this->loadView("user_examiner_view/maketestpage",$arrData);
+		} else {
+			echo 'could not display the page sorry.';
+		}
+		
 	}
 	/*provide view for category tab*/
 	function questionbank() {
