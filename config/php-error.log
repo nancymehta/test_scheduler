@@ -70,3 +70,8 @@
 [09-May-2013 10:57:06 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 147
 [09-May-2013 10:57:06 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 147
 [09-May-2013 10:57:06 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 147
+[09-May-2013 11:09:41 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 56
+[09-May-2013 11:10:24 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 27
+[09-May-2013 11:10:24 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 27
+[09-May-2013 11:10:24 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 27
+[09-May-2013 11:10:24 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 27

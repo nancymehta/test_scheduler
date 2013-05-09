@@ -1,25 +1,28 @@
 <?php
-include SITE_ROOT.'controller/mainController.php';
+include SITE_ROOT . 'controller/mainController.php';
 class userController extends mainController {
-
 	function home() {
-		$this->loadView("header");
-		$this->loadView("user_header");
-		$this->loadView("user_examiner_view/deshboard_menu");
-		$this->loadView("user_examiner_view/maketestpage");
+		$this->loadView ( "header" );
+		$this->loadView ( "user_header" );
+		$this->loadView ( "user_examiner_view/deshboard_menu" );
+		$this->loadView ( "user_examiner_view/maketestpage" );
 	}
-	/*provide view for category tab*/
+	/* provide view for category tab */
 	function category() {
-		$ArrData	=	$this->loadModel('category','viewCategory');
-	 	$this->loadView("header");
-	 	$this->loadView("user_header");
-	 	$this->loadView("user_examiner_view/deshboard_menu");
-	 	$this->loadView("user_examiner_view/category",$ArrData);
-		$this->loadView("header");
-		
+		$ArrData = $this->loadModel ( 'category', 'viewCategory' );
+		$this->loadView ( "header" );
+		$this->loadView ( "user_header" );
+		$this->loadView ( "user_examiner_view/deshboard_menu" );
+		$this->loadView ( "user_examiner_view/category", $ArrData );
+		$this->loadView ( "header" );
 	}
-	/*provide view for category tab*/
+	/* provide view for category tab */
 	function mytest() {
+		/**
+		 * Created By : Siddarth Chowdhary
+		 * Description : provides functionality show test page with dynamic values
+		 * Date_of_creation :9-5-2013
+		 */
 		$arrData_1 = $this->loadModel ( 'createTest', 'getTestCategories', array (
 				"id" => $_SESSION ['SESS_USER_ID'] 
 		) );
@@ -30,7 +33,6 @@ class userController extends mainController {
 				'category' => $arrData_1,
 				'test' => $arrData_2 
 		);
-		//print_r($arrData);die("here");
 		if (! empty ( $arrData )) {
 			$this->loadView ( "header" );
 			$this->loadView ( "user_header" );
@@ -40,41 +42,41 @@ class userController extends mainController {
 			echo 'could not display the page sorry.';
 		}
 	}
-	/*provide view for category tab*/
-	 function questionbank() {
-	 	/**
-	 	 *
-	 	 * Created By : Amitesh Bharti
-	 	 * Description : provides functionality to add single question
-	 	 * Date_of_creation :6-5-2013
-	 	 */
-	     $this->loadView("header");
-	     $this->loadView("user_header");
-	     $this->loadView("user_examiner_view/deshboard_menu");
-	   //$arrData=$this->loadModel("base","getCategory",array("id"=>$_SESSION['SESS_USER_ID']));
-	     $arrData = $this->loadModel ( 'createTest', 'getTestCategories',array("id"=>$_SESSION['SESS_USER_ID']));
-       //  print_r($arrData);
-	     $this->loadView("user_examiner_view/single_upload",$arrData);
-     }
- 
-	/*provide view for category tab*/
+	/* provide view for category tab */
+	function questionbank() {
+		/**
+		 * Created By : Amitesh Bharti
+		 * Description : provides functionality to add single question
+		 * Date_of_creation :6-5-2013
+		 */
+		$this->loadView ( "header" );
+		$this->loadView ( "user_header" );
+		$this->loadView ( "user_examiner_view/deshboard_menu" );
+		// $arrData=$this->loadModel("base","getCategory",array("id"=>$_SESSION['SESS_USER_ID']));
+		$arrData = $this->loadModel ( 'createTest', 'getTestCategories', array (
+				"id" => $_SESSION ['SESS_USER_ID'] 
+		) );
+		// print_r($arrData);
+		$this->loadView ( "user_examiner_view/single_upload", $arrData );
+	}
+	
+	/* provide view for category tab */
 	function certificate() {
-		$this->loadView("header");
-		$this->loadView("user_header");
-	 	$this->loadView("user_examiner_view/deshboard_menu");
+		$this->loadView ( "header" );
+		$this->loadView ( "user_header" );
+		$this->loadView ( "user_examiner_view/deshboard_menu" );
 	}
-	/*provide view for result tab*/
+	/* provide view for result tab */
 	function result() {
-		$this->loadView("header");
-		$this->loadView("user_header");
-	 	$this->loadView("user_examiner_view/deshboard_menu");
+		$this->loadView ( "header" );
+		$this->loadView ( "user_header" );
+		$this->loadView ( "user_examiner_view/deshboard_menu" );
 	}
-	/*provide view for assign tab*/
+	/* provide view for assign tab */
 	function assign() {
-		$this->loadView("header");
-		$this->loadView("user_header");
-	 	$this->loadView("user_examiner_view/deshboard_menu");
+		$this->loadView ( "header" );
+		$this->loadView ( "user_header" );
+		$this->loadView ( "user_examiner_view/deshboard_menu" );
 	}
-
 }
 ?>

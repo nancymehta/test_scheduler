@@ -1,7 +1,7 @@
 <?php
 
 /*
- * @author :Siddarth Chowdhary @created on :08-05-2013 @desc		 :Model to create a test. ***************Modifed Log ******************************** Name			Task			Date			Description ***********************************************************
+ * @author :Siddarth Chowdhary @created on :08-05-2013 @desc		 :Model to create a test.
  */
 include MODEL_PATH . "db_connect.php";
 class createTestModel extends dbConnectModel {
@@ -134,24 +134,29 @@ class createTestModel extends dbConnectModel {
 	public function updateTest($arrArgs) {
 		try {
 			echo '<pre>';
-			print_r($arrArgs);
-			//update in table test
-			$data = array('name' => $arrArgs['testName']);
-			$where = array('id' => $arrArgs['test_id']);
-			$result_update = $this->_db->update('test', $data, $where);
-			//print_r($result_update);
-			$result_delete = $this->_db->delete('test_category', array('test_id' => $arrArgs['test_id']));
-			//print_r($result_delete);
-			
+			print_r ( $arrArgs );
+			// update in table test
+			$data = array (
+					'name' => $arrArgs ['testName'] 
+			);
+			$where = array (
+					'id' => $arrArgs ['test_id'] 
+			);
+			$result_update = $this->_db->update ( 'test', $data, $where );
+			// print_r($result_update);
+			$result_delete = $this->_db->delete ( 'test_category', array (
+					'test_id' => $arrArgs ['test_id'] 
+			) );
+			// print_r($result_delete);
 			
 			for($i = 0; $i < count ( $arrArgs ['categoryName'] ); $i ++) {
 				// query to select cat id from category table for a particular category name
 				$data ['tables'] = 'category';
 				$data ['columns'] = array (
-						'id'
+						'id' 
 				);
 				$data ['conditions'] = array (
-						'name' => $arrArgs ['categoryName'] [$i]
+						'name' => $arrArgs ['categoryName'] [$i] 
 				);
 				$result_select = $this->_db->select ( $data );
 				$row = $result_select->fetch ( PDO::FETCH_ASSOC );
@@ -163,22 +168,21 @@ class createTestModel extends dbConnectModel {
 				// query to insert data in the test_category table
 				$data ['tables'] = 'test_category';
 				$data ['columns'] = array (
-						'test_id' => $arrArgs['test_id'],
+						'test_id' => $arrArgs ['test_id'],
 						'cat_id' => $catId,
 						'created_on' => 'NOW()',
 						'updated_on' => 'NOW()',
-						'created_by' => $arrArgs ['user_id']
+						'created_by' => $arrArgs ['user_id'] 
 				);
-					
+				
 				$result_insert = $this->_db->insert ( $data ['tables'], $data ['columns'] );
-				//print_r($result_insert);
+				// print_r($result_insert);
 				if ($result_update && $result_delete && $result_insert) {
 					return true;
 				} else {
 					return false;
 				}
 			}
-			
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}
