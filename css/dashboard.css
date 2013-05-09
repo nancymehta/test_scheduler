@@ -109,7 +109,7 @@ textarea{
     margin-left: 24px;
 }
   .fontsize24{
-	font-size: 24px;
+	font-size: 1em;
    } 
    .colorwhite{
 	
@@ -282,3 +282,24 @@ padding: 10px;
 /*************End Dasboard Menu CSS by Pankaj********************/
 
 
+
+
+.username_login{
+	
+	float: right;
+	text-align: left;
+	margin-right: 2px;
+	padding: 25px;
+
+
+}
+.welcome_user{
+	font-style: italic;
+	color: white;
+	font-size: 0.8em;
+	margin-left: 10px;
+
+}
+.hover:hover{
+	color: orange;
+}

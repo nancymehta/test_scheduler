@@ -3,12 +3,13 @@
 			<div class="header bg-vib-blue">
 				<div class="logo"><img src="<?php echo IMAGE_PATH;?>/logo.png"></div>
 				<h1>
-				<font style="color:black">test</font>scheduler</h1><br>
-			<span class="fontsize24 colorwhite" ><h2><?php echo "WELCOME".@$_SESSION['SESS_USER_NAME'];?></h2></span>	<br><br>
-<a class="floatr" href="<?php echo SITE_PATH."logout"; ?>"> LOGOUT</a>
+				<font style="color:black">test</font>scheduler</h1>
 
-<a class="floatr" href="<?php echo SITE_PATH."accountSettings/accountSettings"; ?>"> Account Settings</a>
+				<div class="username_login">
+				<label class="welcome_user" ><?php echo "Welcome ,".@$_SESSION['SESS_USER_NAME'];?></label>	
+				<a class="welcome_user hover" href="<?php echo SITE_PATH."logout"; ?>"> Logout</a>
+				<a class="welcome_user hover" href="<?php echo SITE_PATH."accountSettings/accountSettings"; ?>"> Account Settings</a>
+			</div>
 			</div>
 				
 </div>
-		
