@@ -55,24 +55,25 @@ class createTestController extends mainController {
 	
 	function updateTest(){
 		try {
-				echo 'hi';
-				echo $_POST['test_name'];echo  $_POST ['category_name'];die("here");
+				
+				//echo $_POST['test_name'];echo  $_POST ['category_name'];
 				if ((! empty ( $_POST ['test_name'] )) && (! empty ( $_POST ['category_name'] ))) {
 					$testName = strip_tags ( $_POST ['test_name'] );
 					$categoryName = $_POST ['category_name'];
-					// echo $testName;
-					// print_r($categoryName);
+					//echo $testName;
+					//print_r($categoryName);
+					//die("here");
 					$arrArgs = array (
 							'testName' => $testName,
 							'categoryName' => $categoryName,
 							'user_id' => $_SESSION ['SESS_USER_ID']
 					);
-					$boolResult = $this->loadModel ( 'createTest', 'createNewTest', $arrArgs );
+					$boolResult = $this->loadModel ( 'createTest', 'updateTest', $arrArgs );
 					if ($boolResult) {
-						echo 'created the test successfully';
+						echo 'updated the test successfully';
 						header ( "location:http://test_scheduler.com/user/mytest" );
 					} else {
-						echo 'could not create the test';
+						echo 'could not update the test';
 					}
 				}
 				

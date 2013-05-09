@@ -34,3 +34,32 @@
 [09-May-2013 09:19:26 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 19
 [09-May-2013 09:20:30 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 19
 [09-May-2013 09:20:33 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 19
+[09-May-2013 09:26:33 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 20
+[09-May-2013 09:26:48 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 20
+[09-May-2013 09:31:11 UTC] PHP Parse error:  syntax error, unexpected T_VARIABLE in /var/www/test_scheduler/trunk/controller/createTestController.php on line 66
+[09-May-2013 09:42:48 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 20
+[09-May-2013 09:42:50 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 20
+[09-May-2013 09:45:41 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 20
+[09-May-2013 09:45:42 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 20
+[09-May-2013 09:45:42 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 20
+[09-May-2013 09:45:44 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 20
+[09-May-2013 09:45:54 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 20
+[09-May-2013 09:45:58 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 20
+[09-May-2013 09:48:40 UTC] PHP Parse error:  syntax error, unexpected T_VARIABLE in /var/www/test_scheduler/trunk/controller/createTestController.php on line 66
+[09-May-2013 09:56:06 UTC] PHP Notice:  Undefined index: category_name in /var/www/test_scheduler/trunk/controller/createTestController.php on line 59
+[09-May-2013 09:56:24 UTC] PHP Notice:  Undefined index: testName in /var/www/test_scheduler/trunk/controller/createTestController.php on line 59
+[09-May-2013 09:56:24 UTC] PHP Notice:  Undefined index: category_name in /var/www/test_scheduler/trunk/controller/createTestController.php on line 59
+[09-May-2013 09:57:01 UTC] PHP Notice:  Undefined index: category_name in /var/www/test_scheduler/trunk/controller/createTestController.php on line 59
+[09-May-2013 09:59:52 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 20
+[09-May-2013 10:01:44 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 27
+[09-May-2013 10:01:44 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 27
+[09-May-2013 10:01:44 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 27
+[09-May-2013 10:03:26 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 27
+[09-May-2013 10:03:27 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 27
+[09-May-2013 10:03:27 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 27
+[09-May-2013 10:03:59 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 27
+[09-May-2013 10:03:59 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 27
+[09-May-2013 10:03:59 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 27
+[09-May-2013 10:09:28 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 20
+[09-May-2013 10:09:50 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 20
+[09-May-2013 10:10:56 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 54

@@ -6,7 +6,7 @@
 	</div>
 	<br> <br> <br> <br>
 	<div class="test_list_div">
-		<table class="category_table">
+		<table class="category_table" id = "shubh">
 			<tr>
 				<th>S.No.</th>
 				<th>Test</th>
@@ -17,6 +17,7 @@
 			$count=0;
 			echo '<pre>';
 			//print_r($arrData);die("here");
+			if (isset($arrData['test'] ['testName'])){
 			while ( (! empty ( $arrData ['test'] ['testName'] [$i] )) ) {
 				echo '<tr>';
 				echo '<td>'.++$count.'</td>';
@@ -28,7 +29,7 @@
 				echo '<td><a href="#">Manage assign test</a></td>';
 				$i ++;
 				echo '</tr>';
-			}
+			}}
 			?>
 <!-- 
 			<tr>

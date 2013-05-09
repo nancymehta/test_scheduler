@@ -131,11 +131,9 @@ class createTestModel extends dbConnectModel {
 	}
 	
 	// Updating Test
-	public function updateTest($category) {
+	public function updateTest($arrArgs) {
 		try {
-			/*
-			 * $name	=	$category['name']; $id	=	$category['id']; $data['tables'] = 'category'; $data['columns']= array('name'=>$name); $data['conditions']=array('id'=>$id); $result = $this->_db->update($data['tables'],$data['columns'],$data['conditions']); if($result) { return "done"; }else { return "error"; }
-			 */
+			echo 'hi';
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}
