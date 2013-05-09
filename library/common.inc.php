@@ -1,4 +1,29 @@
 <?php
+function mailTest($to,$sub,$body) {
+	require(LIBRARY_ROOT."PHPMailer_5.2.4/class.phpmailer.php");
+	$mail = new PHPMailer();
+	$mail->IsSMTP(); // send via SMTP 
+	$mail->Host = "smtp.gmail.com"; // SMTP servers 
+	$mail->SMTPAuth = true; // turn on SMTP authentication 
+	$mail->Username = "info.test.scheduler@gmail.com"; // SMTP username 
+	$mail->Password = "osscube@123"; // SMTP password
+	$mail->SMTPSecure = 'tls';
+	$mail->From = "info.test.scheduler@gmail.com"; 
+	$mail->FromName = "Admin_Test_Scheduler"; 
+	$mail->AddAddress("$to","Member"); 
+	$mail->WordWrap = 50; // set word wrap 
+	$mail->IsHTML(true); 
+	$mail->Subject = "$sub"; 
+	$mail->Body = "$body"; 
+	$mail->AltBody = "Mail Form test Scheduler";
+	if(!$mail->Send()) 
+	{ 
+	echo "Message was not sent <p>"; 
+	echo "Mailer Error: " . $mail->ErrorInfo; 
+	exit; 	}	
+
+echo "Message has been sent"; 
+}
 class common {
 
 	function loadView($templateName,$arrPassValue='')
