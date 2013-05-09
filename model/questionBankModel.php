@@ -116,7 +116,7 @@ class questionBankModel extends dbConnectModel {
 						}
 						if($result)
 						{
-							$error[]=$question."uploaded successfully<br/>";
+							$error[]=$question." uploaded successfully<br/>";
 						}
 					}
 					
@@ -124,7 +124,7 @@ class questionBankModel extends dbConnectModel {
 				
 			}	//loop ends here
 			else
-				$error[]="cannot upload Question".$question."<br/>";
+				$error[]=" cannot upload Question".$question."<br/>";
 		}
 		return $error;
 	}
