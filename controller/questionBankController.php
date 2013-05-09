@@ -1,18 +1,24 @@
 <?php
 include SITE_ROOT.'controller/mainController.php';
 class questionBankController extends mainController {
-	function bulkUploadController() {
+function bulkUploadController() {
 		try {
-			if(isset($_POST['submit']))
-			{
-				$arrArgument=$this->loadModel('questionBank','bulkUploadModel');
-				$this->loadView("header");
-			  	$this->loadView("user_header");
-			  	$this->loadView("user_examiner_view/deshboard_menu");
-			  	$this->loadView("user_examiner_view/bulk_upload",$arrArgument);
-				//print_r($arrArgument);
+			if(isset($_POST['submit'])){
+				$file=$_FILES["file"]["name"];
+				$extension = substr($_FILES['file']['name'],
+						strrpos($_FILES['file']['name'],'.')+1);
+				if($extension=='csv')
+				{
+					$arrArgument=$this->loadModel('questionBank','bulkUploadModel');
+				}
+				else{
+					$arrArgument="Enter Correct Format";
+				}
+					$this->loadView("header");
+					$this->loadView("user_header");
+					$this->loadView("user_examiner_view/deshboard_menu");
+					$this->loadView("user_examiner_view/bulk_upload",$arrArgument);
 			}
-				
 		} catch (Exception $e) {
 			$this->handleException($e->getMessage());
 		}
