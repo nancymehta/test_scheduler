@@ -9,7 +9,7 @@ class testuiController extends common{
  	$this->loadView("user_examiner_view/deshboard_menu");
 
  }
- function mytest(){
+  function mytest(){
 	$this->loadView("header");
  	$this->loadView("user_header");
  	$this->loadView("user_examiner_view/deshboard_menu");
@@ -21,7 +21,14 @@ class testuiController extends common{
  	$this->loadView("user_examiner_view/deshboard_menu");
  	$this->loadView("user_examiner_view/category");
   }
- 
+  function questionbank(){
+  	$this->loadView("header");
+  	$this->loadView("user_header");
+  	$this->loadView("user_examiner_view/deshboard_menu");
+  	$this->loadView("user_examiner_view/single_upload");
+  
+  }
+  
  function suraj() {
  	$this->loadView("header");
  	$this->loadView("user_header");
@@ -30,10 +37,18 @@ class testuiController extends common{
 	//$this->loadView("user_examiner_view/category");
 
  }
- function rahul() {
-	$this->loadView("header");
+  function maketest(){
+ 	$this->loadView("header");
  	$this->loadView("user_header");
  	$this->loadView("user_examiner_view/deshboard_menu");
- 	$this->loadView("user_examiner_view/test_settings");
+ 	$this->loadView("user_examiner_view/maketestpage");
+ 
+ }
+ function assign(){
+ 	$this->loadView("header");
+ 	$this->loadView("user_header");
+ 	$this->loadView("user_examiner_view/deshboard_menu");
+ 	$this->loadView("user_examiner_view/category");
+ 	
  }
 }

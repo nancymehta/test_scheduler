@@ -71,4 +71,5 @@ class categoryController extends mainController {
 	 	$this->loadView("user_examiner_view/deshboard_menu");
 	 	$this->loadView("user_examiner_view/category",$ArrData);
 	 }
+	
 }

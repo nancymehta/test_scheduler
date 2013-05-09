@@ -830,6 +830,25 @@ display: inline-block;
 	
    	color:white;
    }
+   
+  .bigmid{
+	
+  	height: 75%;
+  	width: auto;
+  }
+  .midpanel{
+	
+  	height: 75%;
+  	width: 50%;
+  	float:none;
+  } 
+  .midright{
+	
+  	height: 75%;
+  	width: 30%;
+  	float: right;
+  }
+  
 /* css ends here  */
 
 /*************Start Dasboard Menu CSS by Pankaj********************/

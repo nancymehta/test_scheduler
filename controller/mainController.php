@@ -118,6 +118,6 @@ class mainController extends common{
 	function __call($key,$index) {
 		echo "yeah error";
 	}
-
+	
 	
 }
