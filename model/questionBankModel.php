@@ -1,14 +1,10 @@
-<?php
+<?php 
 include MODEL_PATH."db_connect.php";
-class questionbankModel extends dbConnectModel {
+class questionBankModel extends dbConnectModel {
 	function __construct() {
 		parent::__construct();
 	}
-
-	function bulkUploadModel(){
-	}
-
-	function singleUploadModel(){
-	}
+	
+	
 }
-?>
+?>	
