@@ -26,3 +26,11 @@
 [09-May-2013 07:44:16 UTC] PHP Notice:  Undefined variable: arrData in /var/www/test_scheduler/trunk/view/user_examiner_view/edit_test.php on line 4
 [09-May-2013 07:52:43 UTC] PHP Parse error:  syntax error, unexpected T_ECHO, expecting ',' or ';' in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 26
 [09-May-2013 08:15:00 UTC] PHP Notice:  Undefined index: category_name in /var/www/test_scheduler/trunk/controller/createTestController.php on line 59
+[09-May-2013 09:14:12 UTC] PHP Notice:  Undefined index: SESS_USER_ID in /var/www/test_scheduler/trunk/controller/createTestController.php on line 43
+[09-May-2013 09:14:29 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 18
+[09-May-2013 09:15:54 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 18
+[09-May-2013 09:16:36 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 18
+[09-May-2013 09:17:10 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 19
+[09-May-2013 09:19:26 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 19
+[09-May-2013 09:20:30 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 19
+[09-May-2013 09:20:33 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 19

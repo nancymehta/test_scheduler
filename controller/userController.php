@@ -30,6 +30,7 @@ class userController extends mainController {
 				'category' => $arrData_1,
 				'test' => $arrData_2 
 		);
+		//print_r($arrData);die("here");
 		if (! empty ( $arrData )) {
 			$this->loadView ( "header" );
 			$this->loadView ( "user_header" );

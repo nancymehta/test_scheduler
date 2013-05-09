@@ -15,6 +15,8 @@
 			<?php
 			$i = 0;
 			$count=0;
+			echo '<pre>';
+			//print_r($arrData);die("here");
 			while ( (! empty ( $arrData ['test'] ['testName'] [$i] )) ) {
 				echo '<tr>';
 				echo '<td>'.++$count.'</td>';
