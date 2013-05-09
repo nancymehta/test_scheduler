@@ -3,7 +3,7 @@
 /**
  * @classname            categoryCotroller
  *
- * This clss is used to manage the categories such as to add, update and delete.
+ * This class is used to manage the categories such as to add, update and delete.
 
  * @package              Zend_Magic
 
@@ -34,7 +34,6 @@ class categoryController extends mainController {
 		//This is to update the categoery
 			if(isset($_REQUEST['id'])&&isset($_REQUEST['cat_name']))
 			{
-				//echo "hi";die();
 				$arrArgs[name]	=	$_REQUEST['cat_name'];
 				$arrArgs[id]	=	$_REQUEST['id'];
 				$arrData	=	$this->loadModel('category','updateCategory',$arrArgs);
