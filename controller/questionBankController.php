@@ -28,28 +28,55 @@ function bulkUploadController() {
 		try {
 			//echo "single manage";
 			if(isset($_POST['submit']))
-			{   print_r($_POST);
+			{  
+				echo '<pre>';
+				print_r($_POST);
 				$arrArgs = array(
 						'question'=> @$_POST['question'],
-						'ques1'=> @$_POST['ques1'],
-						'ques2'=> @$_POST['ques2']
+						'option1'=> @$_POST['ques1'],
+						'option2'=> @$_POST['ques2']
 				);
-				if (!empty($_POST['ques1'])){
-					echo 'grrrrr';
-					$arrArgs['ans1']= @$_POST['ques1'];
+				if (!empty($_POST['check1'])){
+					$arrArgs['ans1']= @$_POST['check1'];
 				}
-				if (!empty($_POST['ques2'])){
-					echo 'grrrrr';
-					$arrArgs['ans2']= @$_POST['ques2'];
+				if (!empty($_POST['check2'])){
+					$arrArgs['ans2']= @$_POST['check2'];
 				}
 				if (!empty($_POST['feedback1'])){
-				    echo 'grrrrr';
 				    $arrArgs['feedback1']= @$_POST['feedback1'];
 				}	
 				if (!empty($_POST['feedback2'])){
-					echo 'grrrrr';
-					$arrArgs['feedback=2']= @$_POST['feedback2'];
+					$arrArgs['feedback2']= @$_POST['feedback2'];
 				}	
+				
+				if (!empty($_POST['ques3'])){
+					$arrArgs['option3']= @$_POST['ques3'];
+					if (!empty($_POST['check3'])){
+						$arrArgs['ans3']= @$_POST['check3'];
+					}
+					if (!empty($_POST['feedback3'])){
+						$arrArgs['feedback3']= @$_POST['feedback3'];
+					}	
+				}
+				if (!empty($_POST['ques4'])){
+					$arrArgs['option4']= @$_POST['ques4'];
+					if (!empty($_POST['check4'])){
+						$arrArgs['ans4']= @$_POST['check4'];
+					}
+					if (!empty($_POST['feedback4'])){
+						$arrArgs['feedback4']= @$_POST['feedback4'];
+					}
+				}
+				if (!empty($_POST['ques5'])){
+					$arrArgs['option5']= @$_POST['ques5'];
+					if (!empty($_POST['check5'])){
+						$arrArgs['ans5']= @$_POST['check5'];
+					}
+					if (!empty($_POST['feedback5'])){
+						$arrArgs['feedback5']= @$_POST['feedback5'];
+					}
+				}
+		
 				print_r($arrArgs);
 			    //$arrArgument=$this->loadModel('questionBank','singleUploadModel');
 			}

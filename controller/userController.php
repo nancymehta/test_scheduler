@@ -40,13 +40,15 @@ class userController extends mainController {
 		}
 	}
 	/*provide view for category tab*/
-	function questionbank() {
-		$this->loadView("header");
-		$this->loadView("user_header");
-	 	$this->loadView("user_examiner_view/deshboard_menu");
-	 	$this->loadView("user_examiner_view/single_upload");
-	 	 
-	}
+	 function questionbank() {
+	     $this->loadView("header");
+	     $this->loadView("user_header");
+	     $this->loadView("user_examiner_view/deshboard_menu");
+	   //$arrData=$this->loadModel("base","getCategory",array("id"=>$_SESSION['SESS_USER_ID']));
+	     $arrData = $this->loadModel ( 'createTest', 'getTestCategories',array("id"=>$_SESSION['SESS_USER_ID']));
+	     $this->loadView("user_examiner_view/single_upload",$arrData);
+     }
+ 
 	/*provide view for category tab*/
 	function certificate() {
 		$this->loadView("header");

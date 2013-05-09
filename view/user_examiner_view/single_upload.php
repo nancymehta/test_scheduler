@@ -16,6 +16,7 @@
 		
 	}
 	.single_upload_main .marginl40{
+
 	margin-left: 60px;
 	}
 	.innerdiv{
@@ -24,19 +25,15 @@
 	border-bottom-color: grey;
 	height: auto;
 	width: 500px;
-	
 	}
-	
 	
 	</style>
 </head>
-<body>
-<?php print_r($arrData)?>
-<br>
+<body><br>
 <br>
 			<a class="colorblue floatr" href = "<?php echo SITE_PATH."testui/bulk_upload"; ?>">Add More Questions</a>
 	<div>
-		<form action="<?php echo SITE_PATH .'questionBank/singleUploadController';?>" name="login_form" method="post"><br>
+		<form method="post"><br>
 			<div class="single_upload_main">
 			
 				<br>
@@ -101,26 +98,26 @@
 						<td>
 							<div class="test">
 							</div>
-							<textarea cols=15 rows=1 id="ques1" name="ques1"></textarea>
+							<textarea cols=10 rows=3 id="ques1" name="ques1"></textarea>
 						</td>
 						<td>
-							<input type="checkbox" id="check1" name="check1">
+							<input type="radio" id="radio1" name="radio1">
 						</td>
 						<td>
-							<textarea cols=15 rows=1 id="feedback1" name="feedback1"></textarea> 
+							<textarea cols=10 rows=3 id="feedback1" name="feedback1"></textarea> 
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<div class="test">
 							</div>
-							<textarea cols=15 rows=1 id="ques2" name="ques2"></textarea>
+							<textarea cols=10 rows=3 id="ques2" name="ques2"></textarea>
 						</td>
 						<td>
-							<input type="checkbox" id="check2" name="check2">
+							<input type="radio" id="radio2" name="radio2">
 						</td>
 						<td>
-							<textarea cols=15 rows=1 id="feedback2" name="feedback2"></textarea> 
+							<textarea cols=10 rows=3 id="feedback2" name="feedback2"></textarea> 
 						</td>
 					</tr>
 				</table>
@@ -128,7 +125,7 @@
 				<br>
 				
 			</div>
-            <input type="submit" name='submit' value="Submit"/> 
+<input type="submit" value="Submit"/> 
 		</form>
 	</div>
 </body>
@@ -141,7 +138,7 @@ $(document).ready(function(){
 	            alert("Maximum 5");
 	            return false;
 			}   
-			$('.s_upload_table').append('<tr id="dynamic"><td><textarea cols=15 rows=1 id=ques'+v1+' name=ques'+v1+'></textarea></td><td><input type="checkbox" id=check'+v1+' name=check'+v1+'/></td><td><textarea cols=15 rows=1 id=feedback'+v1+' name=feeback'+v1+'></textarea> </td></tr>');
+			$('.s_upload_table').append('<tr id="dynamic"><td><textarea cols=10 rows=5 id=ques'+v1+' name=ques'+v1+'></textarea></td><td><input type="radio" id=radio'+v1+' name=radio'+v1+'/></td><td><textarea cols=10 rows=5 id=feedback'+v1+' name=feeback'+v1+'></textarea> </td></tr>');
 			v1++;	
 		});
 	   $("#removeButton").click(function () {
