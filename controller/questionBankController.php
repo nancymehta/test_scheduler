@@ -85,6 +85,12 @@ function bulkUploadController() {
 		
 				//print_r($arrArgs);
 			    $arrArgument=$this->loadModel('questionBank','singleUploadModel',$arrArgs);
+			    if( $arrArgument==1){
+			    	echo 'Question Inserted successfully';
+			    }
+			    else{
+			    	echo 'Question not Inserted';
+			    }
 			}
 			else{ 
 				//print_r($_POST['submit']);

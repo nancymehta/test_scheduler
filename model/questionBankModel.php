@@ -13,8 +13,75 @@ class questionBankModel extends dbConnectModel {
 		 * Date_of_creation :9-5-2013
 		 */
 		if(isset($arrArgs)){
-	    echo "single manage model";
-	    print_r($arrArgs);
+		    echo "single manage model";
+		    print_r($arrArgs);
+		    		    
+		    // Finding question_type_id from master table 
+		    
+		    $data['tables'] = 'master';
+		    $data['columns']= array('id');
+		    $data['conditions']	= array(
+		    		'code_value' => 'mcq',
+		    		'created_by' => $_SESSION ['SESS_USER_ID']
+		    );
+		    $result = $this->_db->select($data);
+		    $row = $result->fetch(PDO::FETCH_ASSOC);
+		    $ques_type_id=$row['id'];
+		   		   
+		    // Finding category_id from database
+		   
+		   $data['tables'] = 'category';
+		   $data['columns']= array('id');
+		   $data['conditions']	= array(
+		   		'name' => 'php',
+		   		'created_by' => $_SESSION ['SESS_USER_ID']
+		   );
+		   $result = $this->_db->select($data);
+		   $row = $result->fetch(PDO::FETCH_ASSOC);
+		   $category_id = $row['id'];
+		   
+		   //inserting question into question table
+		   $t=time();
+		   echo date("Y-m-d h:i:s",$t);
+		   $data1=array(
+		            "question"=>$arrArgs['question'],
+		    		"ques_type_id"=>$ques_type_id,
+		    		"category_id"=>$category_id,
+		    		'created_by'=>$_SESSION ['SESS_USER_ID'],
+		    		'created_on'=> date("Y-m-d h:i:s",$t)
+		    		
+		    );
+		    
+		    $result1 = $this->_db->insert('question', $data1);
+		    $ques_id=$this->_db->lastInsertId();
+		    
+		    //inserting question-option into question_options table
+		    
+		    $i=1;
+		    while(!empty($arrArgs['option'.$i])){
+		    	//die('oye');
+		    	$data2=array(
+		    	"ques_id"=>$ques_id,
+		    	"option"=>$arrArgs['option'.$i],
+		    	'created_on'=> date("Y-m-d h:i:s",$t),
+		    	'created_by'=>$_SESSION ['SESS_USER_ID']
+		    );
+		    	if($arrArgs['ans'.$i]=='on'){
+		    		$data2['correct']=1;
+		    	}
+		    	$i++;
+		    	print_r($data2);
+		    	$result2 = $this->_db->insert('question_options', $data2);
+		    	
+		    }
+		    if($result1 && $result2){
+		    	return 1;
+		    }
+		    else{
+		    	return 0;
+		    }
+	 
+	   
 		}
 		
 	}

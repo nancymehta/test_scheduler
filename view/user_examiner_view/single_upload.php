@@ -45,8 +45,25 @@
 					Question type:
 				</label>
 				<select  >
-					<option value="0">mcq</option>
+				 <option value="0">mcq</option>
 					<option value="1">true/false</option>
+				
+				<?php
+				/*
+				if(isset($arrData)){
+	                 $i = 0;
+	                 while ( (! empty($arrData['category_name'][$i] )) ) {
+	                 echo "<option>";
+	                 echo ($arrData['category_name'] [$i] );
+	                 echo "</option>";
+	                 $i ++;
+	                 }
+	            }
+	            else{
+	            	echo "<option>no test category</option>";
+	            }
+	            */
+                ?>
 				</select>
 				</div><br>
 					<div class="innerdiv">
