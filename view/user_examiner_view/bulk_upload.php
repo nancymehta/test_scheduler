@@ -31,16 +31,20 @@
 			<?php
 				//print_r($arrData);
 				if($arrData) {
-					echo "<ul>";
-					
-					foreach($arrData as $key) {
-						if(substr_count($key,"cannot upload")<1) {
-							echo "<li class='colorblue'>" .$key ." </li>";								
-						} else {
-							echo "<li>" .$key ." </li>";							
+					if(is_array($arrData)) {
+						echo "<ul>";
+						foreach($arrData as $key) {
+							if(substr_count($key,"cannot upload")<1) {
+								echo "<li class='colorblue'>" .$key ." </li>";
+							} else {
+								echo "<li>" .$key ." </li>";
+							}
 						}
+						echo "</ul>";						
+					} else {
+						echo $arrData;
 					}
-					echo "</ul>";
+					
 				}
 				 
 			?>				
