@@ -43,6 +43,19 @@ color:black;
    
 }
 
+a{
+	blue;
+	
+}
+a:hover{
+	green;
+	
+}
+a:visited{
+	red;
+	
+}
+
 .mainContainer {
 	margin : 0px;
 	padding : 0px;
