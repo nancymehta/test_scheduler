@@ -75,11 +75,80 @@ color:#000;
 .fg-dark-blue{
 color:#0000FF;
 }
-.fg-dark-black{
+.fg-mid-blue{
 color:#3BB9FF;
 		
 }
 
+
+.bg-dark-orange{
+color:#FF8040;
+		
+}
+.bg-dark-black{
+color:#000;
+		
+}
+
+.bg-dark-white{
+color:#000;
+		
+}
+
+
+.bg-dark-blue{
+color:#0000FF;
+}
+.bg-mid-blue{
+color:#3BB9FF;
+		
+}
+.bg-mid-gray{
+color:#AFB3C7;
+		
+}
+
+
+.border-small-radius{
+	border-radius:4px;
+	
+}
+.border-mid-radius{
+	border-radius:6px;
+	
+}
+.border-large-radius{
+	border-radius:8px;
+	
+}
+
+.border-small-small-style-blue{
+	border:1px solid blue;
+}
+.border-mid-radius{
+	border-radius:6px;
+	
+}
+.border-large-radius{
+	border-radius:8px;
+	
+}
+
+
+.clear{
+	clear:both;
+	
+}
+ .fontsize24{
+	font-size: 24px;
+   } 
+   
+.float-right{
+	float:right;	
+}
+.float-left{
+    float: left;
+}
 
 /*----------------------- End of  Generic Classes ----------------------------------------*/
 
@@ -865,18 +934,8 @@ textarea{
 	padding-top: 20px;
 
 }
-.floatr{
-	float:right;	
-}
-.floatl{
-    float: left;
-}
-.marginl24{
-    margin-left: 24px;
-}
-  .fontsize24{
-	font-size: 24px;
-   } 
+
+
    .colorwhite{
 	
    	color:white;
