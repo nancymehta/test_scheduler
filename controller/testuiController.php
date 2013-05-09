@@ -59,13 +59,6 @@ class testuiController extends common{
  	
  }
  
- function edit_test()
- {
- 	$this->loadView("header");
- 	$this->loadView("user_header");
- 	$this->loadView("user_examiner_view/deshboard_menu");
- 	$this->loadView("user_examiner_view/edit_test");
- }
  
  function recent_result()
  {
