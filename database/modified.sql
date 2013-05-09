@@ -296,7 +296,23 @@ CHANGE `updated_on` `updated_on` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL 
 /*altering `test_taker` table on 09-05-2013*/
 ALTER TABLE `test_taker` ADD `ip_address` VARCHAR( 40 ) NOT NULL ;
 /*altering `category` table on 09-05-2013*/
-ALTER TABLE `category` ADD `status` ENUM( '0', '1' ) NOT NULL DEFAULT '0'
+ALTER TABLE `category` CHANGE `status` `status` ENUM( '0', '1' ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0'
+/*creating `test_question` table on 09-05-2013*/
+CREATE TABLE `test_question` (
+  `id` int(11) NOT NULL,
+  `test_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `status` enum('0','1','2') NOT NULL DEFAULT '0' COMMENT '0 for active,1 for deleted,2 for inactive'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE `test_question` COMMENT = 'stores the reletionship between test and questions';
+ALTER TABLE `test_question` ADD FOREIGN KEY ( `test_id` ) REFERENCES `test_scheduler`.`test` (
+`id`
+) ON DELETE CASCADE ON UPDATE CASCADE ;
+
+ALTER TABLE `test_question` ADD FOREIGN KEY ( `question_id` ) REFERENCES `test_scheduler`.`question` (
+`id`
+) ON DELETE CASCADE ON UPDATE CASCADE ;
+
 
 
 
