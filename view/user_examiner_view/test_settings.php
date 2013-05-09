@@ -1,5 +1,5 @@
 <h3>Test Settings</h3>
-<form name="testSettings"  id="testSettings" >
+<form name="testSettings"  id="testSettings" action="" >
 <div >
 	<div>
 		<div id="userTestSettingLeft">
@@ -268,6 +268,9 @@
 				</div>
 			</div>
 		</div>
+		<input type="submit" value="Submit" name="testSettingSubmit" id="testSettingSubmit" />
 	</div>
+	
 </div>
+
 </form>

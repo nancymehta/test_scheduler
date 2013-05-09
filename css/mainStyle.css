@@ -1056,4 +1056,33 @@ padding: 10px;
 /*********End Add Test********/
 
 
+/*
+    Changes by rahul
+*/
+
+#userTestSettingLeft {
+    width :50%;
+    border: 1px solid black;
+    float:left;
+}
+#userTestSettingRight {
+    width: 30%;
+    border: 1px solid black;
+    float:left;
+    margin-left:10px;
+}
+#userTestSettingRight div,#userTestSettingLeft div {
+    margin:10px;
+}
+.testSettingCommonHeight1 {
+    height: 60px;
+    padding:5px;
+}
+.testSettingCommonHeight2 {
+    height: auto;
+    padding:5px;
+}
+#questionsPerPage {
+    width:2em;
+}
 
