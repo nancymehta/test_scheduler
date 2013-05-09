@@ -78,23 +78,28 @@ class mainController extends common{
 	
 	function login()
 	{
-		//die('oye');
-		$arrArgs = array(
+		/* this method is intended to control  the login activity of user*/
+		try {
+		    $arrArgs = array(
 				'username'=> $_POST['user_name'],
 				'password'=> $_POST['password']
 				);
-		//die('fdsff');
-		//print_r($data);
-		$arrData=$this->loadmodel('base','login',$arrArgs);
-		if($arrData == 1){
-			echo 'You are logged in nows';
-			header("location:".SITE_PATH);
+			
+			$arrData=$this->loadmodel('base','login',$arrArgs);
+			if($arrData == 1){
+			    header("location:".SITE_PATH);
+			}
+			else{
+			    $_SESSION['SESS_ERROR']='Unauthorized access,you need to register first';
+			}
+		}catch (Exception $e) {
+			$this->handleException($e->getMessage());
 		}
-		else{
-			die('OOPS sorry');
-		}
-		
 	}
+	
+	
+	
+	
 	function logout(){
 		
 		$_SESSION['SESS_USER_NAME']="";

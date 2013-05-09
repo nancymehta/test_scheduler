@@ -12,6 +12,7 @@ class baseModel extends dbConnectModel{
 		parent::__construct();
 	}
 	function login($arrArgs=array()) {
+		/* this method is intended to check the login activity of authorized user*/
 		if(!empty($arrArgs)){
 			//print_r($arrArgs);
 			//die('fsdfffs');
