@@ -22,87 +22,94 @@
 	.innerdiv{
 	border-bottom-style: dotted; 
     border-bottom-width:1px;
-	border-bottom-color: blue;
+	border-bottom-color: grey;
 	height: auto;
-	width: auto;
+	width: 500px;
 	}
 	
 	</style>
 </head>
 <body><br>
-	<div class="bigmid marginl24">
+<br>
+			<a class="colorblue floatr" href = "<?php echo SITE_PATH."testui/bulk_upload"; ?>">Add More Questions</a>
+	<div>
 		<form method="post"><br>
 			<div class="single_upload_main">
-			<br>
-			<a class="colorblue floatr" href = "<?php echo SITE_PATH."testui/bulk_upload"; ?>">Add More Questions</a>
+			
 				<br>
 				<div class="innerdiv">
 				<label >
 					Question type:
 				</label>
-				<select >
+				<select  >
 					<option value="0">mcq</option>
 					<option value="1">true/false</option>
 				</select>
-				</div>
-				<br><br>
+				</div><br>
+					<div class="innerdiv">
 				<label>
 					Category:
 				</label>
 				<select >
 					<option value="0">PHP</option>
 					<option value="1">MYSQL</option>
-				</select><br> <br>
+				</select></div>
+				<br> <br><div class="innerdiv">
 				<label class="floatl">Type Qestion here:</label><input  type="text" name="question" id="question">
-				<br><br>
-				<table >
+				<br><br></div>
+	           <br>
+	           <div class="innerdiv">
+	            Add Options Here
+				<table class="s_upload_table" >
 					<tr>
-						<td>
+						
 							<input type="button" id="addButton" value="Add Options"/>
 							<input type="button" id="removeButton" value="Delete Options"/>
-						</td>
+						
 					</tr>
 					<tr>
-						<td>
+						<th>
 							Options
-						</td>
-						<td>
+						</th>
+						<th>
 							Answer
-						</td>
-						<td>
+						</th>
+						<th>
 							Feedback
-						</td>
+						</th>
 					</tr>
 					<tr>
 						<td>
 							<div class="test">
 							</div>
-							<textarea cols=20 rows=3 id="ques1" name="ques1"></textarea>
+							<textarea cols=5 rows=8 id="ques1" name="ques1"></textarea>
 						</td>
 						<td>
 							<input type="radio" id="radio1" name="radio1">
 						</td>
 						<td>
-							<textarea cols=10 rows=5 id="feedback1" name="feedback1"></textarea> 
+							<textarea cols=5 rows=10 id="feedback1" name="feedback1"></textarea> 
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<div class="test">
 							</div>
-							<textarea cols=10 rows=5 id="ques2" name="ques2"></textarea>
+							<textarea cols=10 rows=10 id="ques2" name="ques2"></textarea>
 						</td>
 						<td>
 							<input type="radio" id="radio2" name="radio2">
 						</td>
 						<td>
-							<textarea cols=10 rows=5 id="feedback2" name="feedback2"></textarea> 
+							<textarea cols=10 rows=3 id="feedback2" name="feedback2"></textarea> 
 						</td>
 					</tr>
 				</table>
-				<input type="submit" value="Submit"/> 
+		</div>
+				<br>
+				
 			</div>
-
+<input type="submit" value="Submit"/> 
 		</form>
 	</div>
 </body>
@@ -115,7 +122,7 @@ $(document).ready(function(){
 	            alert("Maximum 5");
 	            return false;
 			}   
-			$('.single_upload_table').append('<tr id="dynamic"><td><textarea cols=10 rows=5 id=ques'+v1+' name=ques'+v1+'></textarea></td><td><input type="radio" id=radio'+v1+' name=radio'+v1+'/></td><td><textarea cols=10 rows=5 id=feedback'+v1+' name=feeback'+v1+'></textarea> </td></tr>');
+			$('.s_upload_table').append('<tr id="dynamic"><td><textarea cols=10 rows=5 id=ques'+v1+' name=ques'+v1+'></textarea></td><td><input type="radio" id=radio'+v1+' name=radio'+v1+'/></td><td><textarea cols=10 rows=5 id=feedback'+v1+' name=feeback'+v1+'></textarea> </td></tr>');
 			v1++;	
 		});
 	   $("#removeButton").click(function () {
