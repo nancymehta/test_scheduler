@@ -19,14 +19,15 @@ class categoryController extends mainController {
 	// This is the main function which calls other functions
 	function manageCategory() {
 	try {
-		
+		//print_r($_SESSION);
 		if(isset($_REQUEST['categoryName'])) 	//This is to Add Category
 			{
-				$ArrArgs	=	$_REQUEST['categoryName'];
+				$ArrArgs['cat_name']		=	$_REQUEST['categoryName'];
+				$ArrArgs['user_id']		=	$_SESSION['SESS_USER_ID'];
 				$ArrData	=	$this->loadModel('category','addCategory',$ArrArgs);
 				if($ArrData=="done")
 				{
-					header("location:".SITE_PATH."category/home");
+					header("location:".SITE_PATH."category");
 				
 				}
 			}
@@ -34,12 +35,14 @@ class categoryController extends mainController {
 		//This is to update the categoery
 			if(isset($_REQUEST['id'])&&isset($_REQUEST['cat_name']))
 			{
-				$arrArgs[name]	=	$_REQUEST['cat_name'];
-				$arrArgs[id]	=	$_REQUEST['id'];
+				$arrArgs['cat_name']	=	$_REQUEST['cat_name'];
+				$arrArgs['id']	=	$_REQUEST['id'];
+				$arrArgs['user_id']		=	$_SESSION['SESS_USER_ID'];
+				
 				$arrData	=	$this->loadModel('category','updateCategory',$arrArgs);
 				if($arrData=="done")
 				{
-					header("location:".SITE_PATH."category/home");
+					header("location:".SITE_PATH."category");
 				}else{
 					echo $arrData;
 				}
@@ -50,7 +53,7 @@ class categoryController extends mainController {
 				$arrData	=	$this->loadModel('category','deleteCategory',$arrArgs);
 				if($arrData=="done")
 				{
-					header("location:".SITE_PATH."category/home");
+					header("location:".SITE_PATH."category");
 				}else{
 					echo $arrData;
 				}
