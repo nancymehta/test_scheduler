@@ -5,9 +5,18 @@ class questionBankModel extends dbConnectModel {
 		parent::__construct();
 	}
 	
-	function singleUploadModel(){
-		//isset()
+	function singleUploadModel($arrArgs=array()){
+		/**
+		 *
+		 * Created By : Amitesh Bharti
+		 * Description : provides functionality to validate login
+		 * Date_of_creation :9-5-2013
+		 */
+		if(isset($arrArgs)){
 	    echo "single manage model";
+	    print_r($arrArgs);
+		}
+		
 	}
 	
 	function bulkUploadModel(){

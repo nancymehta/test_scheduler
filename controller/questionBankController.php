@@ -36,7 +36,7 @@ function bulkUploadController() {
 			if(isset($_POST['submit']))
 			{  
 				echo '<pre>';
-				print_r($_POST);
+				//print_r($_POST);
 				$arrArgs = array(
 						'question'=> @$_POST['question'],
 						'option1'=> @$_POST['ques1'],
@@ -83,8 +83,8 @@ function bulkUploadController() {
 					}
 				}
 		
-				print_r($arrArgs);
-			    //$arrArgument=$this->loadModel('questionBank','singleUploadModel');
+				//print_r($arrArgs);
+			    $arrArgument=$this->loadModel('questionBank','singleUploadModel',$arrArgs);
 			}
 			else{ 
 				//print_r($_POST['submit']);

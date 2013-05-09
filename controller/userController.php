@@ -42,12 +42,18 @@ class userController extends mainController {
 	}
 	/*provide view for category tab*/
 	 function questionbank() {
+	 	/**
+	 	 *
+	 	 * Created By : Amitesh Bharti
+	 	 * Description : provides functionality to add single question
+	 	 * Date_of_creation :6-5-2013
+	 	 */
 	     $this->loadView("header");
 	     $this->loadView("user_header");
 	     $this->loadView("user_examiner_view/deshboard_menu");
 	   //$arrData=$this->loadModel("base","getCategory",array("id"=>$_SESSION['SESS_USER_ID']));
 	     $arrData = $this->loadModel ( 'createTest', 'getTestCategories',array("id"=>$_SESSION['SESS_USER_ID']));
-         print_r($arrData);
+       //  print_r($arrData);
 	     $this->loadView("user_examiner_view/single_upload",$arrData);
      }
  

@@ -12,6 +12,12 @@ class baseModel extends dbConnectModel{
 		parent::__construct();
 	}
 	function login($arrArgs=array()) {
+		/**
+		 *
+		 * Created By : Amitesh Bharti
+		 * Description : provides functionality to validate login
+		 * Date_of_creation :9-5-2013
+		 */
 		/* this method is intended to check the login activity of authorized user*/
 		if(!empty($arrArgs)){
 			//print_r($arrArgs);
@@ -29,7 +35,7 @@ class baseModel extends dbConnectModel{
 	
 			$row = $result->fetch(PDO::FETCH_ASSOC);
 			
-		//In case of success
+		     //In case of success
 		    if ($row)
 			{
 				$_SESSION['SESS_USER_NAME']= $row['username'];
