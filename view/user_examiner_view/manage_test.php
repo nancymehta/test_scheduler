@@ -150,7 +150,7 @@ td.inplab {
 <div id="col640">
 		<ul id="crumbtrail">
 			<li>
-				<a href="/a/tests/">Tests</a>
+				<a href="#">Tests</a>
 					>
 			</li>
 			<li>Manage test</li>
