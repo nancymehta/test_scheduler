@@ -34,7 +34,11 @@
 					echo "<ul>";
 					
 					foreach($arrData as $key) {
-						echo "<li>" .$key ." </li>";
+						if(substr_count($key,"cannot upload")<1) {
+							echo "<li class='colorblue'>" .$key ." </li>";								
+						} else {
+							echo "<li>" .$key ." </li>";							
+						}
 					}
 					echo "</ul>";
 				}
