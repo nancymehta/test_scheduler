@@ -82,20 +82,20 @@
 						<td>
 							<div class="test">
 							</div>
-							<textarea cols=5 rows=8 id="ques1" name="ques1"></textarea>
+							<textarea cols=10 rows=3 id="ques1" name="ques1"></textarea>
 						</td>
 						<td>
 							<input type="radio" id="radio1" name="radio1">
 						</td>
 						<td>
-							<textarea cols=5 rows=10 id="feedback1" name="feedback1"></textarea> 
+							<textarea cols=10 rows=3 id="feedback1" name="feedback1"></textarea> 
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<div class="test">
 							</div>
-							<textarea cols=10 rows=10 id="ques2" name="ques2"></textarea>
+							<textarea cols=10 rows=3 id="ques2" name="ques2"></textarea>
 						</td>
 						<td>
 							<input type="radio" id="radio2" name="radio2">
