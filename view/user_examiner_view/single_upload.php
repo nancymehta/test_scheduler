@@ -16,7 +16,6 @@
 		
 	}
 	.single_upload_main .marginl40{
-
 	margin-left: 60px;
 	}
 	.innerdiv{
@@ -82,26 +81,26 @@
 						<td>
 							<div class="test">
 							</div>
-							<textarea cols=10 rows=3 id="ques1" name="ques1"></textarea>
+							<textarea cols=15 rows=1 id="ques1" name="ques1"></textarea>
 						</td>
 						<td>
 							<input type="radio" id="radio1" name="radio1">
 						</td>
 						<td>
-							<textarea cols=10 rows=3 id="feedback1" name="feedback1"></textarea> 
+							<textarea cols=15 rows=1 id="feedback1" name="feedback1"></textarea> 
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<div class="test">
 							</div>
-							<textarea cols=10 rows=3 id="ques2" name="ques2"></textarea>
+							<textarea cols=15 rows=1 id="ques2" name="ques2"></textarea>
 						</td>
 						<td>
 							<input type="radio" id="radio2" name="radio2">
 						</td>
 						<td>
-							<textarea cols=10 rows=3 id="feedback2" name="feedback2"></textarea> 
+							<textarea cols=15 rows=1 id="feedback2" name="feedback2"></textarea> 
 						</td>
 					</tr>
 				</table>
