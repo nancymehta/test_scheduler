@@ -314,7 +314,14 @@ ALTER TABLE `test_taker` CHANGE `ip_address` `ip_address` VARCHAR( 40 ) CHARACTE
 ADD `last_name` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL AFTER `first_name` ;
 
 
-
-
-
+ALTER TABLE `category` CHANGE `created_by` `created_by` INT( 11 ) NOT NULL ;
+ALTER TABLE `certificate` CHANGE `created_by` `created_by` INT( 11 ) NOT NULL ;
+ALTER TABLE `question_options` CHANGE `created_by` `created_by` INT( 11 ) NOT NULL ;
+ALTER TABLE `test` CHANGE `created_by` `created_by` INT( 11 ) NOT NULL ;
+ALTER TABLE `test_category` CHANGE `created_by` `created_by` INT( 11 ) NOT NULL ;
+ALTER TABLE `test_link` CHANGE `created_by` `created_by` INT( 11 ) NOT NULL ;
+ALTER TABLE `test_taker` CHANGE `created_by` `created_by` INT( 11 ) NOT NULL ;
+ALTER TABLE `test_taker_ques` CHANGE `created_by` `created_by` INT( 11 ) NOT NULL ;
+ALTER TABLE `user_profile` CHANGE `created_by` `created_by` INT( 11 ) NOT NULL ;
+ALTER TABLE `validate_users` CHANGE `created_by` `created_by` INT( 11 ) NOT NULL ;
 
