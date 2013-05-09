@@ -955,8 +955,12 @@ font-style: italic;
 	color:white;
 	border:1px solid white;
 	font-size:0.9em;
+	font-weight:bold;
+	width:100px;
+	
 	font-family:georgia;	
-	margin-top:8px;
+	margin-top:10px;
+	font-style:italic;
 }
  .fancybox input[type="submit"]{
 	font-size:0.9em;

@@ -58,6 +58,15 @@ class testuiController extends common{
  	$this->loadView("user_examiner_view/category");
  	
  }
+ function gg(){
+ 	$this->loadView("header");
+ 	$this->loadView("user_header");
+ 	
+ 	echo "<table class=table1><thead><tr><th>adsdsd</th></tr></thead>
+ 			<tbody><tr><td>ashdfajhsd</td></tr><tr><td>ashdfajhsd</td></tr><tr><td>ashdfajhsd</td></tr></tbody>
+ 			
+ 			</table>";
+ }
  
  
  function recent_result()

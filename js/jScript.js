@@ -7,6 +7,7 @@ $(document).ready(function() {
 //js suraj
 
 
+$('.table1').dataTable();
 
 
 //js end suraj

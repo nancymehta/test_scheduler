@@ -86,7 +86,7 @@
                 <label class="label1"><?php echo "LastName"; ?><input id="last_name" name="last_name" type="text" class="loginc" /></label> 
     	            
                 
-                <label class="label1"><?php echo "Email"; ?><br><input id="last_name" name="last_name" type="text" class="loginc" /></label> 
+                <label class="label1"><?php echo "Email"; ?><br><input id="email" name="email" type="text" class="loginc" /></label> 
     	           
    
                
