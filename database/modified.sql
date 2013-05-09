@@ -331,5 +331,15 @@ INSERT INTO `test_scheduler`.`test_question` (
 `status`
 )
 VALUES (
-NULL , '1', '1', '0'
+NULL , '1', '1', '0');
+
+/*altering email_id in user_profile table on 09-05-2013*/
+alter table user_profile modify email varchar(100) unique;
+
+/*altering certificate_master on 09-05-2013*/
+ALTER TABLE `certificate_master` ADD `certificate_title` VARCHAR( 100 ) NOT NULL AFTER `upload_path` ,
+ADD `certificate_body` TEXT NOT NULL AFTER `certificate_title` ;
+
+
+
 
