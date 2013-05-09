@@ -24,7 +24,9 @@
 	border-bottom-color: grey;
 	height: auto;
 	width: 500px;
+	
 	}
+	
 	
 	</style>
 </head>

@@ -792,6 +792,9 @@ display: inline-block;
 	margin-top: -4px;
 	margin-right: -1px;	
 }
+textarea{
+	resize:none;
+}
 .colorblue{
     color: #3741e1;
 }
@@ -846,6 +849,14 @@ display: inline-block;
   	height: 75%;
   	width: 30%;
   	float: right;
+  }
+  
+  .errdiv{
+	
+  	height:100px;
+  	width: 200px;
+  	left: 20px;
+  	top:10px;
   }
   
 /* css ends here  */
@@ -982,7 +993,6 @@ tr:nth-child(odd) {
 }
 .category_table tr td {
 padding: 10px;
-
 	
 }
 /*************End Dasboard Menu CSS by Pankaj********************/
