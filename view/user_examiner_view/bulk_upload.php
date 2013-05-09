@@ -1,5 +1,4 @@
-<html>
-<head>
+
 	<title>bulkupload</title>
 	<style type="text/css">
 		.bulkupload{
@@ -37,5 +36,4 @@
 		</div>
 	</div>
 
-</body>
-</html>
+

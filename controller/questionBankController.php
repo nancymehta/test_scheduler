@@ -6,6 +6,11 @@ class questionBankController extends mainController {
 			if(isset($_POST['submit']))
 			{
 				$arrArgument=$this->loadModel('questionBank','bulkUploadModel');
+				$this->loadView("header");
+			  	$this->loadView("user_header");
+			  	$this->loadView("user_examiner_view/deshboard_menu");
+			  	$this->loadView("user_examiner_view/bulk_upload",$arrArgument);
+				//print_r($arrArgument);
 			}
 				
 		} catch (Exception $e) {
