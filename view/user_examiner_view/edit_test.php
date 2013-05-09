@@ -13,6 +13,7 @@ Test Name : <input type = "text"  id = "test_name" name = "test_name" value="<?p
 								}
 								?>
 							</select>
+			<input type="hidden" name="testId" value="<?php print_r($arrData['test_id']);?>">
 			<br> <br>
 			<input type="submit" class="bluebutton" id="submit" name="submit"  value="Submit"/>
 		</form>

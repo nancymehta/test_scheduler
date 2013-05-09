@@ -63,3 +63,10 @@
 [09-May-2013 10:09:28 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 20
 [09-May-2013 10:09:50 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 20
 [09-May-2013 10:10:56 UTC] PHP Fatal error:  Cannot use string offset as an array in /var/www/test_scheduler/trunk/view/user_examiner_view/maketestpage.php on line 54
+[09-May-2013 10:27:55 UTC] PHP Notice:  Undefined index: category_name in /var/www/test_scheduler/trunk/controller/createTestController.php on line 59
+[09-May-2013 10:50:49 UTC] PHP Notice:  Undefined variable: db in /var/www/test_scheduler/trunk/model/createTestModel.php on line 141
+[09-May-2013 10:50:49 UTC] PHP Fatal error:  Call to a member function update() on a non-object in /var/www/test_scheduler/trunk/model/createTestModel.php on line 141
+[09-May-2013 10:51:08 UTC] PHP Warning:  PDO::query(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test_scheduler.users' doesn't exist in /var/www/test_scheduler/trunk/library/cxpdo/cxpdo.php on line 81
+[09-May-2013 10:57:06 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 147
+[09-May-2013 10:57:06 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 147
+[09-May-2013 10:57:06 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 147

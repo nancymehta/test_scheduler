@@ -42,7 +42,7 @@ class createTestController extends mainController {
 			$arrData_1 = $this->loadModel ( 'createTest', 'getTestCategories', array (
 					"id" => $_SESSION ['SESS_USER_ID']
 			) );
-			$arrData=array('category'=>$arrData_1,'testName'=>$_REQUEST['test_name']);
+			$arrData=array('category'=>$arrData_1,'testName'=>$_REQUEST['test_name'],'test_id'=>$_REQUEST['test_id']);
 			echo 'test id : '.$_REQUEST['test_id'];
 			$this->loadView ( "header" );
 			$this->loadView ( "user_header" );
@@ -55,8 +55,8 @@ class createTestController extends mainController {
 	
 	function updateTest(){
 		try {
-				
-				//echo $_POST['test_name'];echo  $_POST ['category_name'];
+				//echo '<pre>';
+				//print_r($_POST);die;
 				if ((! empty ( $_POST ['test_name'] )) && (! empty ( $_POST ['category_name'] ))) {
 					$testName = strip_tags ( $_POST ['test_name'] );
 					$categoryName = $_POST ['category_name'];
@@ -66,6 +66,7 @@ class createTestController extends mainController {
 					$arrArgs = array (
 							'testName' => $testName,
 							'categoryName' => $categoryName,
+							'test_id'=> $_POST['testId'],
 							'user_id' => $_SESSION ['SESS_USER_ID']
 					);
 					$boolResult = $this->loadModel ( 'createTest', 'updateTest', $arrArgs );

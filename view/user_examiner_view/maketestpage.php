@@ -6,7 +6,7 @@
 	</div>
 	<br> <br> <br> <br>
 	<div class="test_list_div">
-		<table class="category_table" id = "shubh">
+		<table class="category_table" id="shubh">
 			<tr>
 				<th>S.No.</th>
 				<th>Test</th>
@@ -14,22 +14,23 @@
 			</tr>
 			<?php
 			$i = 0;
-			$count=0;
+			$count = 0;
 			echo '<pre>';
-			//print_r($arrData);die("here");
-			if (isset($arrData['test'] ['testName'])){
-			while ( (! empty ( $arrData ['test'] ['testName'] [$i] )) ) {
-				echo '<tr>';
-				echo '<td>'.++$count.'</td>';
-				echo '<td>';
-				print_r ( $arrData ['test'] ['testName'] [$i] );
-				echo '</td>';
-				echo '<td><a href="http://test_scheduler.com/createTest/editTest?test_id='.$arrData ['test'] ['testId'] [$i].'&test_name='.$arrData ['test'] ['testName'] [$i].'">Edit</a></td>';
-				echo '<td><a href="#">Delete</a></td>';
-				echo '<td><a href="#">Manage assign test</a></td>';
-				$i ++;
-				echo '</tr>';
-			}}
+			// print_r($arrData);die("here");
+			if (isset ( $arrData ['test'] ['testName'] )) {
+				while ( (! empty ( $arrData ['test'] ['testName'] [$i] )) ) {
+					echo '<tr>';
+					echo '<td>' . ++ $count . '</td>';
+					echo '<td>';
+					print_r ( $arrData ['test'] ['testName'] [$i] );
+					echo '</td>';
+					echo '<td><a href="http://test_scheduler.com/createTest/editTest?test_id=' . $arrData ['test'] ['testId'] [$i] . '&test_name=' . $arrData ['test'] ['testName'] [$i] . '">Edit</a></td>';
+					echo '<td><a href="#">Delete</a></td>';
+					echo '<td><a href="#">Manage assign test</a></td>';
+					$i ++;
+					echo '</tr>';
+				}
+			}
 			?>
 <!-- 
 			<tr>
@@ -48,7 +49,8 @@
 		<form method="post"
 			action="http://test_scheduler.com/createTest/createNewTest">
 			Test Name : <input type="text" id="test_name" name="test_name" /> <br>
-			<br> Category Type : <select id="category_name" name="category_name[]" multiple>
+			<br> Category Type : <select id="category_name"
+				name="category_name[]" multiple>
 								<?php
 								$i = 0;
 								while ( (! empty ( $arrData ['category'] ['category_name'] [$i] )) ) {

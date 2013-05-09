@@ -133,7 +133,52 @@ class createTestModel extends dbConnectModel {
 	// Updating Test
 	public function updateTest($arrArgs) {
 		try {
-			echo 'hi';
+			echo '<pre>';
+			print_r($arrArgs);
+			//update in table test
+			$data = array('name' => $arrArgs['testName']);
+			$where = array('id' => $arrArgs['test_id']);
+			$result_update = $this->_db->update('test', $data, $where);
+			//print_r($result_update);
+			$result_delete = $this->_db->delete('test_category', array('test_id' => $arrArgs['test_id']));
+			//print_r($result_delete);
+			
+			
+			for($i = 0; $i < count ( $arrArgs ['categoryName'] ); $i ++) {
+				// query to select cat id from category table for a particular category name
+				$data ['tables'] = 'category';
+				$data ['columns'] = array (
+						'id'
+				);
+				$data ['conditions'] = array (
+						'name' => $arrArgs ['categoryName'] [$i]
+				);
+				$result_select = $this->_db->select ( $data );
+				$row = $result_select->fetch ( PDO::FETCH_ASSOC );
+				if (! empty ( $row ['id'] )) {
+					$catId = $row ['id'];
+				} else {
+					return false;
+				}
+				// query to insert data in the test_category table
+				$data ['tables'] = 'test_category';
+				$data ['columns'] = array (
+						'test_id' => $arrArgs['test_id'],
+						'cat_id' => $catId,
+						'created_on' => 'NOW()',
+						'updated_on' => 'NOW()',
+						'created_by' => $arrArgs ['user_id']
+				);
+					
+				$result_insert = $this->_db->insert ( $data ['tables'], $data ['columns'] );
+				//print_r($result_insert);
+				if ($result_update && $result_delete && $result_insert) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+			
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}
