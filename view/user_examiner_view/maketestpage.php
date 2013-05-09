@@ -21,7 +21,7 @@
 				echo '<td>';
 				print_r ( $arrData ['test'] ['testName'] [$i] );
 				echo '</td>';
-				echo '<td><a href="http://test_scheduler.com/createTest/editTest?test_id='.$arrData ['test'] ['testId'] [$i].'">Edit</a></td>';
+				echo '<td><a href="http://test_scheduler.com/createTest/editTest?test_id='.$arrData ['test'] ['testId'] [$i].'&test_name='.$arrData ['test'] ['testName'] [$i].'">Edit</a></td>';
 				echo '<td><a href="#">Delete</a></td>';
 				echo '<td><a href="#">Manage assign test</a></td>';
 				$i ++;

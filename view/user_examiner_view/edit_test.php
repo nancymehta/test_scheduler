@@ -1,12 +1,17 @@
 <div class = "add_test colorblue">
-<form method="post" action="http://test_scheduler.com/createTest/createNewTest" id="add_test_form" name="add_test_form">
-Test Name : <input type = "text"  id = "test_name" name = "test_name"/>
-		<?php print_r($arrData);?>
-		<br><br> Category Type : <select id="categor_name" name="category_name" multiple>
-								<option>ABC</option>
-								<option>DEF</option>
-								<option>GHI</option>
-								<option>JKL</option>
+<form method="post" action="http://test_scheduler.com/createTest/updateTest" id="add_test_form" name="add_test_form">
+Test Name : <input type = "text"  id = "test_name" name = "test_name" value="<?php print_r($arrData['testName']);?>"/>
+		<?php //echo '<pre>';print_r($arrData);die("here");?>
+		<br><br> Category Type : <select id="category_name" name="category_name" multiple>
+								<?php
+								$i = 0;
+								while ( (! empty ( $arrData ['category'] ['category_name'] [$i] )) ) {
+									echo "<option>";
+									print_r ( $arrData ['category'] ['category_name'] [$i] );
+									echo "</option>";
+									$i ++;
+								}
+								?>
 							</select>
 			<br> <br>
 			<input type="submit" class="bluebutton" id="submit" name="submit"  value="Submit"/>
