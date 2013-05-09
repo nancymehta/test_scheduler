@@ -911,6 +911,7 @@ tr:nth-child(odd) {
 }
 .category_content {
 	position : relative;
+	color:black;
 }
 .category_div {
 	float : left;
