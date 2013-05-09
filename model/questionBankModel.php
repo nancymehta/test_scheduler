@@ -31,6 +31,7 @@ class questionBankModel extends dbConnectModel {
 			$data1['conditions']= array('name'=>$fileop[1]);
 			//print_r($data1);die;
 			$result = $this->_db->select($data1);
+			$question = '\''.$fileop[2].'\'';
 			if($row1=$result->fetch(PDO::FETCH_ASSOC)){
 				$questionCategory = $row1['id'];
 			}
@@ -40,7 +41,7 @@ class questionBankModel extends dbConnectModel {
 			//echo $questionCategory;
 			if(!($questionCategory == ""))
 			{
-				$question = '\''.$fileop[2].'\'';
+				
 				$options = $fileop[3].','.$fileop[4].','.$fileop[5].','.$fileop[6];
 				if ($questionType==7){
 					$correct = $fileop[7].','.$fileop[8].','.$fileop[9];
