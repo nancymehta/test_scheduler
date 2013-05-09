@@ -100,12 +100,14 @@ class validation
 		$alpha='/^[a-zA-Z]+$/';
 		if(preg_match($alpha,$var))
 		{
-			return ALPHABETIC;	 
+				 
 		}
 		else
 		{
-			return NON_ALPHABETIC;
+			echo NON_ALPHABETIC;
+			return false;
 		}
+		return true;
 	}
 	/* this function is written to check the only alphanumeric inputs.
 	 * @param $var (string)
@@ -116,14 +118,16 @@ class validation
 		$alpha='/^[a-zA-Z0-9]+$/';
 		if(preg_match($alpha,$var))
 		{
-			return ALPHANUMERIC;
+			//echo ALPHANUMERIC;
 	
 		}
 		else
 		{
 			
-			return NON_ALPHANUMERIC;
+			echo NON_ALPHANUMERIC;
+			return false;
 		}
+		return true;
 	}
 	/* this function is written to check the special characters given as inputs.
 	 * @param $val (string)
@@ -134,12 +138,14 @@ class validation
 		$specialchar='/[^\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\]/';
 		if(preg_match($specialchar,$val))
 		{
-			return VALID_SPECIALCHAR;
+			//return VALID_SPECIALCHAR;
 		}
 		else
 		{
-			return INVALID_SPECIALCHAR;
+			echo INVALID_SPECIALCHAR;
+			return false;
 		}
+		return true;
 		 
 	}
 	/* this function is written to check the valid character for username.
@@ -161,18 +167,24 @@ class validation
 				} 
 				else 
 				{
-					return INVALID_USERNAME;
+					echo INVALID_USERNAME;
+					return false;
 				}
 			}
 			else 
 			{
-				return UNAME_LENGTH;
+				echo UNAME_LENGTH;
+				retun false;
+				
 			}
 		} 
 		else 
 		{
-			return UNAME_VALUE;
+			echo UNAME_VALUE;
+			return false;
+			
 		}
+		return true;
 	}
 	
 	/* this function is written to check the correct password.
@@ -464,7 +476,46 @@ class validation
 		}
 		return true;
 	}
+	
+	/*public function chk_FilesUpload($url)
+	{
+	
+		if (substr($url,0,4)=='http') 
+		{
+			$x = array_change_key_case(get_headers($url, 1),CASE_LOWER);
+			if ( strcasecmp($x[0], 'HTTP/1.1 200 OK') != 0 ) 
+			{ 
+				$x = $x['content-length'][1];
+				echo '$x here'; 
+			}
+			else 
+			{ 
+				$x = $x['content-length'];
+				echo $x;
 				
+			}
+		}
+		else 
+		{
+			$x = @filesize($url); 
+		
+			echo "file will upload if you will upload the file less than 1 mb</br>";
+			if ($x>1000)
+			{
+				echo "</br>size exceeds the limit,file will not uploaded";
+				return " </br>file size is $x ";
+			}
+			else
+			{
+				echo "file size valid,file uploaded</br>";
+				return true;
+			}		
+			
+		}
+		
+		
+		return true ;
+	}*/
 				
 			
 }
@@ -473,7 +524,7 @@ class validation
 
 $obj	=	new validation();
 
-$answer	=	$obj->checkEmail("sgdsgosscubefefer.com");
+//$answer	=	$obj->checkEmail("sgdsgosscubefefer.com");
 //$answer	=	$obj->checkURL("HTTP://www.osscube.com");
 //$answer	=	$obj->checkIP("192.168.156.75");
 //$answer	=	$obj->checkRequired(12);
@@ -491,6 +542,7 @@ $answer	=	$obj->checkEmail("sgdsgosscubefefer.com");
 //$answer	=	$obj->lastName("");
 //$answer	=	$obj->dateValidator('2009-03-003');
 //$answer	=	$obj->ageValidator("12/17/1983");
+$answer	=	$obj->chk_FilesUpload("https://github.com/nancymehta/test_scheduler");
 echo $answer;
 ?>
 
