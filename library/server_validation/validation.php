@@ -174,7 +174,7 @@ class validation
 			else 
 			{
 				echo UNAME_LENGTH;
-				retun false;
+				return false;
 				
 			}
 		} 
@@ -542,7 +542,7 @@ $obj	=	new validation();
 //$answer	=	$obj->lastName("");
 //$answer	=	$obj->dateValidator('2009-03-003');
 //$answer	=	$obj->ageValidator("12/17/1983");
-$answer	=	$obj->chk_FilesUpload("https://github.com/nancymehta/test_scheduler");
+//$answer	=	$obj->chk_FilesUpload("https://github.com/nancymehta/test_scheduler");
 echo $answer;
 ?>
 
