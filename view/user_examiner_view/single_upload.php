@@ -141,7 +141,7 @@ $(document).ready(function(){
 	            alert("Maximum 5");
 	            return false;
 			}   
-			$('.s_upload_table').append('<tr id="dynamic"><td><textarea cols=15 rows=1 id=ques'+v1+' name=ques'+v1+'></textarea></td><td><input type="checkbox" id=check'+v1+' name=check'+v1+'/></td><td><textarea cols=15 rows=1 id=feedback'+v1+' name=feeback'+v1+'></textarea> </td></tr>');
+			$('.s_upload_table').append('<tr id="dynamic"><td><textarea cols=15 rows=1 id=ques'+v1+' name=ques'+v1+'></textarea></td><td><input type="checkbox" id=check'+v1+' name=check'+v1+' /></td><td><textarea cols=15 rows=1 id=feedback'+v1+' name=feeback'+v1+'></textarea> </td></tr>');
 			v1++;	
 		});
 	   $("#removeButton").click(function () {

@@ -61,9 +61,9 @@
 <div id="registerdiv" class="registerdiv">
 
 <form action="http://test_scheduler.com/main/register" id="register_form" name="register_form" method="post">
-        <dd class="register1">
+      
 
-    <div class="login-strip">Register<span id="close1" class="close"> <img src="<?php echo IMAGE_PATH;?>/close.png"/></span></div>
+    <div class="login-strip bg-mid-blue ">Register<span id="close1" class="close"> <img src="<?php echo IMAGE_PATH;?>/close.png"/></span></div>
             <div class=" val">
                 <label class="label1"><?php echo "UserName" ?>
                 <input id="username" name="username" class="loginc" type="text" /></label>
@@ -108,7 +108,7 @@
 
             
                 <div class="para"></div>
-        </dd>
+       
         
        </form> 
         </div>
