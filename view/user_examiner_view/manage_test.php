@@ -139,9 +139,9 @@ td.inplab {
 		$('#tog_certs').click(function(){
 			$('#dotog_certs').toggle();
 		});
-		$('#editLink_tn').click(function(){
+	/*	$('#editLink_tn').click(function(){
 			$('#misc_cat hide').show();
-		});
+		});*/
 	});
 
 </script>

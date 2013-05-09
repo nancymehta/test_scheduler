@@ -1,5 +1,5 @@
-<div class="bigmid">
-<div class="midpanel">
+<div class="bigmid" >
+<div class="midpanel" style="border:1px solid red">
 
 <!-- midpanel Content gooes here  -->
 
