@@ -21,43 +21,43 @@
                     <ul class="grid_3">
                         <h2>Company</h2>
                         <li>
-                            <a href="/company/about" title="About">About</a>
+                            <a href="#" title="About">About</a>
                         </li>
                         <li>
-                            <a href="http://blog.loadimpact.com/" title="Blog">Blog</a>
+                            <a href="#" title="Blog">Blog</a>
                         </li>
                         <li>
-                            <a href="http://news.cision.com/load-impact" title="Press room">Press room</a>
+                            <a href="#" title="Press room">Press room</a>
                         </li>
                     </ul>
                     <ul class="grid_3">
                         <h2>Products</h2>
                         <li>
-                            <a href="/features" title="Features">Features</a>
+                            <a href="#" title="Features">Features</a>
                         </li>
                         <li>
-                            <a href="/pricing" title="Pricing">Pricing</a>
+                            <a href="#" title="Pricing">Pricing</a>
                         </li>
                         <li>
-                            <a href="/consulting" title="Consulting">Consulting</a>
+                            <a href="#" title="Consulting">Consulting</a>
                         </li>
                         <li>
-                            <a href="/page-analyzer" title="Page analyzer">Page analyzer</a>
+                            <a href="#" title="Page analyzer">Page analyzer</a>
                         </li>
                     </ul>
                     <ul class="grid_3">
                         <h2>Support</h2>
                         <li>
-                            <a href="http://support.loadimpact.com" title="Support">Support</a>
+                            <a href="#" title="Support">Support</a>
                         </li>
                         <li>
-                            <a href="http://support.loadimpact.com/knowledgebase/topics/29110-case-studies" title="Case studies">Case studies</a>
+                            <a href="#" title="Case studies">Case studies</a>
                         </li>
                         <li>
-                            <a href="/contact" title="Contact">Contact</a>
+                            <a href="#" title="Contact">Contact</a>
                         </li>
                         <li>
-                            <a href="http://developers.loadimpact.com" title="Developers">Developers</a>
+                            <a href="#" title="Developers">Developers</a>
                         </li>
                     </ul>
                              </div>
