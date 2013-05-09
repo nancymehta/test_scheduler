@@ -190,11 +190,11 @@ td.inplab {
 			<a id="tog_randomopt1" class="showcont" href="#">View option 1 settings</a>
 			<div class="dotted"></div>
 			<form id="option1" class="randomQuestionsForm-old" method="post" action="#">
-				<input type="hidden" value="option1" name="random_option">
-				<input type="hidden" value="341354" name="test_id">
+				<input type="hidden" value="option1" id="random_option1" name="random_option1">
+				<input type="hidden" value="341354" id="test_id" name="test_id">
 				<div id="dotog_randomopt1" class="hide">
 					<div class="titlename">
-					<input type="text" maxlength="3" size="3" value="" name="num_random">
+					<input type="text" maxlength="3" size="3" value="" id="num_random" name="num_random">
 					Total number of questions <br>
 					</div>
 					<div class="clearheight"></div>
@@ -204,7 +204,7 @@ td.inplab {
 						<tbody>
 							<tr>
 								<td class="radio">
-									<input id="c1_0" type="checkbox" value="0" name="cat_id_0">
+									<input type="checkbox" value="0" id="cat_id_0" name="cat_id_0">
 								</td>
 								<td class="inplab">
 									<label class="titlename" for="c1_0">Generic</label>
@@ -236,11 +236,11 @@ td.inplab {
 				<div class="titlename">No. questions per category</div>
 				<div class="clearheight"></div>
 				<form id="option2" class="randomQuestionsForm-old" method="post" action="">
-					<input type="hidden" value="option2" name="random_option">
-					<input type="hidden" value="341354" name="test_id">
-					<div class="userbox" style="">
+					<input type="hidden" value="option2" id="random_option2" name="random_option2">
+					<input type="hidden" value="341354" id="test_id" name="test_id">
+					<div class="userbox" >
 						<div class="titlename">
-							<input type="text" value="" name="cat_id_0" size="2" maxlength="3">
+							<input type="text" value="" id="cat_id_0" name="cat_id_0" size="2" maxlength="3">
 								Generic
 						</div>
 					</div>			
@@ -255,7 +255,7 @@ td.inplab {
 						<tr>
 							<td>
 								<div class="titlename">
-									<input id="rqo1" type="radio" checked="checked" value="0" name="order_by_cat_id">
+									<input id="rqo1" type="radio" checked="checked" value="0" name="rqo1">
 									<label for="rqo1">Display questions in random order</label>
 								</div>
 							</td>
@@ -268,7 +268,7 @@ td.inplab {
 						<tr>
 							<td>
 								<div class="titlename">
-									<input id="rqo2" type="radio" value="1" name="order_by_cat_id">
+									<input id="rqo2" type="radio" value="1" name="rqo2">
 									<label for="rqo2">Display questions grouped and ordered by categories above</label>
 								</div>
 							</td>
