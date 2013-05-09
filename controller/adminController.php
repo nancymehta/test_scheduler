@@ -39,8 +39,9 @@ function usermanagement() {
 		$this->loadView ( "header" );
 		$this->loadView ( "user_header" );
 		$this->loadView ( "admin_view/admin_deshboard_menu" );
-		$this->loadModel ( "admin","usermanagement");
-		$this->loadView ( "admin_view/usermanagement" );
+		$userResult=$this->loadModel ( "admin","usermanagement");
+//print_r($userResult);
+		$this->loadView ( "admin_view/usermanagement",$userResult);
 }
 
 function testmanagement() {
