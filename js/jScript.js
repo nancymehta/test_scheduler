@@ -306,26 +306,22 @@ $(document).ready(function() {
          rules: {
              user_name: {
                  required: true,
-                 minlength:5,
-                 maxlength:30,
+                 
              },
              password : {
                  required: true,
-                 minlength:6,
-                 maxlength:20,
+               
              }
          },
              
          messages: {
              user_name: {
                  required:"User Name Is Required.<br/>",
-                 minlength:"User Name Must Be At least 5 Digit Long.<br/>",
-                 maxlength:"User Name Must Be Less Than 30 Digit.<br/>",
+               
              },
              password: {
                  required:"Password Is Required.<br/>",
-                 minlength:"Password Must Be At least 6 Digit Long.<br/>",
-                 maxlength:"Password Must Be Less Than 20 Digit.<br/>",
+               
              }
         },
      });
