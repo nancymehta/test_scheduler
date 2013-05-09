@@ -309,6 +309,9 @@ CREATE TABLE `test_question` (
   CONSTRAINT `test_question_ibfk_1` FOREIGN KEY (`test_id`) REFERENCES `test` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `test_question1_ibfk_2` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='stores the reletionship between test and questions';
+ALTER TABLE `test_taker` CHANGE `ip_address` `ip_address` VARCHAR( 40 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL; 
+ ALTER TABLE `test_taker` ADD `first_name` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL AFTER `test_link_id` ,
+ADD `last_name` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL AFTER `first_name` ;
 
 
 
