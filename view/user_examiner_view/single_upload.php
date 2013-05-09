@@ -10,33 +10,51 @@
 		height:100%;
 		
 	}
+	.single_upload_main input[type='text']{
+		width: 300px;
+		float: left;
+		
+	}
+	.single_upload_main .marginl40{
+
+	margin-left: 60px;
+	}
+	.innerdiv{
+	border-bottom-style: dotted; 
+    border-bottom-width:1px;
+	border-bottom-color: blue;
+	height: auto;
+	width: auto;
+	}
 	
 	</style>
 </head>
 <body><br>
-<?php 
-print_r($arrData);
-?>
-	<div>
+	<div class="bigmid marginl24">
 		<form method="post"><br>
 			<div class="single_upload_main">
 			<br>
 			<a class="colorblue floatr" href = "<?php echo SITE_PATH."testui/bulk_upload"; ?>">Add More Questions</a>
-				<br><label>
+				<br>
+				<div class="innerdiv">
+				<label >
 					Question type:
 				</label>
-				<select>
+				<select >
 					<option value="0">mcq</option>
 					<option value="1">true/false</option>
 				</select>
-				
+				</div>
+				<br><br>
 				<label>
 					Category:
 				</label>
-				<select>
+				<select >
 					<option value="0">PHP</option>
 					<option value="1">MYSQL</option>
 				</select><br> <br>
+				<label class="floatl">Type Qestion here:</label><input  type="text" name="question" id="question">
+				<br><br>
 				<table >
 					<tr>
 						<td>
