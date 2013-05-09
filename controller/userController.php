@@ -20,34 +20,36 @@ class userController extends mainController {
 	}
 	/*provide view for category tab*/
 	function mytest() {
-		$arrData = $this->loadModel ( 'createTest', 'getTestCategories',array("id"=>$_SESSION['SESS_USER_ID']));
-		if (!empty($arrData)) {
-			//print_r($arrData);
-			$this->loadView("header");
-			$this->loadView("user_header");
-			$this->loadView("user_examiner_view/deshboard_menu");
-			$this->loadView("user_examiner_view/maketestpage",$arrData);
+		$arrData_1 = $this->loadModel ( 'createTest', 'getTestCategories', array (
+				"id" => $_SESSION ['SESS_USER_ID'] 
+		) );
+		$arrData_2 = $this->loadModel ( 'createTest', 'getTestNames', array (
+				"id" => $_SESSION ['SESS_USER_ID'] 
+		) );
+		$arrData = array (
+				'category' => $arrData_1,
+				'test' => $arrData_2 
+		);
+		if (! empty ( $arrData )) {
+			$this->loadView ( "header" );
+			$this->loadView ( "user_header" );
+			$this->loadView ( "user_examiner_view/deshboard_menu" );
+			$this->loadView ( "user_examiner_view/maketestpage", $arrData );
 		} else {
 			echo 'could not display the page sorry.';
 		}
-		
 	}
 	/*provide view for category tab*/
 	function questionbank() {
 		$this->loadView("header");
 		$this->loadView("user_header");
 	 	$this->loadView("user_examiner_view/deshboard_menu");
-	 	//$arrData=$this->loadModel("base","getCategory",array("id"=>$_SESSION['SESS_USER_ID']));
-	 	$arrData = $this->loadModel ( 'createTest', 'getTestCategories',array("id"=>$_SESSION['SESS_USER_ID']));
-	 	$this->loadView("user_examiner_view/single_upload",$arrData);
 	}
 	/*provide view for category tab*/
 	function certificate() {
 		$this->loadView("header");
 		$this->loadView("user_header");
 	 	$this->loadView("user_examiner_view/deshboard_menu");
-	
-	 	
 	}
 	/*provide view for result tab*/
 	function result() {
@@ -61,7 +63,6 @@ class userController extends mainController {
 		$this->loadView("user_header");
 	 	$this->loadView("user_examiner_view/deshboard_menu");
 	}
-	
 
 }
 ?>
