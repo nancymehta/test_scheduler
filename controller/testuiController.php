@@ -28,6 +28,13 @@ class testuiController extends common{
   	$this->loadView("user_examiner_view/single_upload");
   
   }
+  function bulk_upload(){
+  	$this->loadView("header");
+  	$this->loadView("user_header");
+  	$this->loadView("user_examiner_view/deshboard_menu");
+  	$this->loadView("user_examiner_view/bulk_upload");
+  	  	
+  }
   
  function suraj() {
  	$this->loadView("header");

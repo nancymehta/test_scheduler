@@ -18,7 +18,8 @@
 		<form method="post"><br>
 			<div class="single_upload_main">
 			<br>
-				<label>
+			<a class="colorblue floatr" href = "<?php echo SITE_PATH."testui/bulk_upload"; ?>">Add More Questions</a>
+				<br><label>
 					Question type:
 				</label>
 				<select>
