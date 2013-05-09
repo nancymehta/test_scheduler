@@ -280,3 +280,49 @@ $(document).ready(function() {
 	});
 }); 
 
+
+
+
+
+
+
+
+
+
+
+/************************Validations**********************************/
+
+//Registration form
+$(document).ready(function(){
+	$.validator.addMethod("checkAlpha", function(value, element) 
+		{
+			return this.optional(element) || /^[a-z \-,]+$/i.test(value);
+    	}
+    );
+});
+
+$(document).ready(function() {
+	$("#register_form").validate( {
+		 debug: true,
+         rules: {
+         	username:  {
+                 required:true,
+                 checkAlpha:true
+                 },
+                 password:{
+                	 required:true
+                 }
+            	},
+              
+         messages: {
+         	username:  {
+         		required:"Please enter user name.", 
+                 checkAlpha:"Only character are required."
+                 },
+            password:{
+                	 required:"Please enter password."
+                 }
+            	},
+        });
+	});
+  
