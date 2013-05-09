@@ -44,6 +44,8 @@ class userController extends mainController {
 		$this->loadView("header");
 		$this->loadView("user_header");
 	 	$this->loadView("user_examiner_view/deshboard_menu");
+	 	$this->loadView("user_examiner_view/single_upload");
+	 	 
 	}
 	/*provide view for category tab*/
 	function certificate() {
