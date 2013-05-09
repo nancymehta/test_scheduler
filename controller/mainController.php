@@ -52,15 +52,15 @@ class mainController extends common{
   } else {
 		try {
 			$reg_values=array (
-					"username"=>$_REQUEST['username'],
-					"password"=>$_REQUEST['password'],
-					"firstName"=>$_REQUEST['first_name'],
-				    "lastName"=>$_REQUEST['last_name'],
-				     "email"=>$_REQUEST['email']);
+					"username"=>strip_tags($_REQUEST['username']),
+					"password"=>strip_tags($_REQUEST['password']),
+					"firstName"=>strip_tags($_REQUEST['first_name']),
+				    "lastName"=>strip_tags($_REQUEST['last_name']),
+				     "email"=>strip_tags($_REQUEST['email']));
 		 $arrData=$this->loadModel('base','register',$reg_values);	
 		if($arrData == 1){
 			echo 'You are successfully registered';
-			header("location:".SITE_PATH."index.php");
+			//header("location:".SITE_PATH."index.php");
 		}
 		else{
 			die('OOPS unable to register');
