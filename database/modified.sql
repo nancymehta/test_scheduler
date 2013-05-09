@@ -324,4 +324,12 @@ ALTER TABLE `test_taker` CHANGE `created_by` `created_by` INT( 11 ) NOT NULL ;
 ALTER TABLE `test_taker_ques` CHANGE `created_by` `created_by` INT( 11 ) NOT NULL ;
 ALTER TABLE `user_profile` CHANGE `created_by` `created_by` INT( 11 ) NOT NULL ;
 ALTER TABLE `validate_users` CHANGE `created_by` `created_by` INT( 11 ) NOT NULL ;
+INSERT INTO `test_scheduler`.`test_question` (
+`id` ,
+`test_id` ,
+`question_id` ,
+`status`
+)
+VALUES (
+NULL , '1', '1', '0'
 
