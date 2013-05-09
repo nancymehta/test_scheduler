@@ -42,7 +42,7 @@
             
 
                     
-                    <label class="label1"><?php echo "Password"; ?>  </label><input class="loginc" id="password" name="password" type="password"   />
+                    <label class="label1"><?php echo "Password"; ?>  </label><input class="loginc" id="login_password" name="password" type="password"   />
                     
                       <span class ="log_data"> </span>
 
@@ -77,16 +77,16 @@
 
 
 
-                <label class="label1"><?php echo "ConfirmPassword"; ?><input id="reg_confirm_password" name="password" type="password"
+                <label class="label1"><?php echo "ConfirmPassword"; ?><input id="confirm_password" name="confirm_password" type="password"
 			class="loginc" /></label>
 
-                <label class="label1"><?php echo "FirstName"; ?> <input id="reg_first_name" name="first_name" type=
+                <label class="label1"><?php echo "FirstName"; ?> <input id="first_name" name="first_name" type=
                 "text" class="loginc" /></label> 
                
-                <label class="label1"><?php echo "LastName"; ?><input id="reg_last_name" name="last_name" type="text" class="loginc" /></label> 
+                <label class="label1"><?php echo "LastName"; ?><input id="last_name" name="last_name" type="text" class="loginc" /></label> 
                 
 
-                <label class="label1"><?php echo "Email"; ?><input id="reg_email" name="email" type="text"  class="loginc" /></label> 
+                <label class="label1"><?php echo "Email"; ?><input id="email" name="email" type="text"  class="loginc" /></label> 
                
        
                
@@ -100,7 +100,7 @@
   <?php require_once(LIBRARY_ROOT.'/recaptcha/recaptchalib.php');
   $publickey = "6LeCCOESAAAAAFFBFDxunP2CQUD0vtAl3hzsaODy"; // you got this from the signup page
   echo recaptcha_get_html($publickey);  ?>
- <input id="submit_registration"  type="submit" value="<?php echo "SAVE"; ?>" />
+ <input id="submit_registration"  type="submit" onclick="abc()" value="<?php echo "SAVE"; ?>" />
                 
 <br>
 

@@ -290,7 +290,7 @@ $(document).ready(function() {
 
 
 
-/************************Validations**********************************/
+/************************Validations by pankaj**********************************/
 
 //Registration form
 $(document).ready(function(){
@@ -303,15 +303,30 @@ $(document).ready(function(){
 
 $(document).ready(function() {
 	$("#register_form").validate( {
-		 debug: true,
-         rules: {
+		 rules: {
          	username:  {
                  required:true,
                  checkAlpha:true
                  },
                  password:{
                 	 required:true
-                 }
+                 },
+                 confirm_password: {
+                	 required:true,
+                 	equalTo:"#password"
+                 },
+                 first_name:{
+                	 required:true,
+                	 checkAlpha:true
+                 },
+                 last_name:{
+                	 required:true,
+                	 checkAlpha:true
+                 },
+                 email:{
+                	 required:true,
+                	 email:true
+                 },
             	},
               
          messages: {
@@ -321,8 +336,41 @@ $(document).ready(function() {
                  },
             password:{
                 	 required:"Please enter password."
-                 }
+                 },
+                 confirm_password: {
+                	 required:"Please enter confirm password.",
+                 	equalTo:"Password does't match."
+                 },
+                 first_name:{
+                	 required:"Please enter first name.",
+                	 checkAlpha:"Only character are required."
+                 },
+                 last_name:{
+                	 required:"Please enter last name.",
+                	 checkAlpha:"Only character are required."
+                 },
+                 email:{
+                	 required:"Please enter email.",
+                	 email:"Invalid email."
+                 },
             	},
-        });
+            	
+        });	
 	});
+
+$(document).ready(function(){
+	$("#addCategoryForm").validate({
+		rules: {
+			categoryName:{
+				required:true,
+				checkAlpha:true,				
+			}
+		},
+		messages:{
+			required:"Please enter category name.",
+			checkAlpha:"Only character are required.",
+		},
+	});
+});
+
   
