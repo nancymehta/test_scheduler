@@ -1,20 +1,18 @@
 <div class="user_overall_result">
-
 <div class="search_test">
 <span class="">Select Test </span> <div class="search_test" name="search_test" id="search_test">
-	<select>
-		<option>1</option>
-
-		<option>2</option>
-
-		<option>3</option>
-
+	<select name="testSelect">
+	<option value="0">select</option>
+	<?php foreach($arrData as $key) {
+		echo "<option value=".$key['id'].">".$key['name']."</option>";
+	}?>
+		
 	</select>
 </div>
 
 </div>
 
-
+<!-- 
 <div class="all_result_table">
 <div class="overall" style="text-align:center">
 
@@ -49,4 +47,4 @@
 
 </div>
 
-</div>
+</div> -->

@@ -76,13 +76,29 @@ class baseModel extends dbConnectModel{
 	function register($arrArgs) {
 		if(!empty($arrArgs))
 		{
+			$count=0;
 		//print_r($arrArgs);//die();
-		$data1=array(
+			$ip= $_SERVER['REMOTE_ADDR'];
+			
+			$data['tables'] = 'user_profile';
+			$data['columns']= array('ip_address');
+			$datax	= array(
+					'ip_address' => $ip
+					
+						);
+			$result = $this->_db->count('user_profile',$datax);
+			
+			$count=$result->fetchColumn();
+			echo $count;
+			
+			if($count<10)
+			{
+				$data1=array(
 				"username"=>$arrArgs['username'],
 				"password"=>$arrArgs['password']);
 		
 		
-		$result1 = $this->_db->insert('validate_users', $data1);
+				$result1 = $this->_db->insert('validate_users', $data1);
 		
 		
 		  $user_id=$this->_db->lastInsertId();
@@ -100,18 +116,20 @@ class baseModel extends dbConnectModel{
 		if($result1 && $result2)
 		{
 			return 1;
-		}
-		else
-		{
+			}
+		  }else{
 			return 0;
-		}
+			}
 
-		}
 	}
-		
+	else {
+	  return 0;
+	}		
+	}
 
 	function faq()
 	{
 		$this->loadView('faq.php');
 	}
 } 
+
