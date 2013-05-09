@@ -35,7 +35,7 @@
 		
 <div id="logindiv" class="logindiv">
 <form action="<?php echo SITE_PATH .'main/login';?>" id = "login_form" name="login_form" method="post">
-    <div class="login-strip">Login <span id="bclose" class="close">X</span></div>
+    <div class="login-strip">Login <span id="bclose" class="close"><img src="<?php echo IMAGE_PATH;?>/close.png"/></span></div>
         <div class=" val">
             <label class="label1"><?php echo "UserName"; ?></label>
             <input id="username" name="user_name" type="text" />
@@ -63,7 +63,7 @@
 <form action="http://test_scheduler.com/main/register" id="register_form" name="register_form" method="post">
         <dd class="register1">
 
-    <div class="login-strip">Register<span id="close1" class="close"> X</span></div>
+    <div class="login-strip">Register<span id="close1" class="close"> <img src="<?php echo IMAGE_PATH;?>/close.png"/></span></div>
             <div class=" val">
                 <label class="label1"><?php echo "UserName" ?>
                 <input id="username" name="username" class="loginc" type="text" /></label>

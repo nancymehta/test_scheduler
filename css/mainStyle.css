@@ -52,10 +52,6 @@ a:visited{
 	
 }
 
-
-
-
-
 /* --------------------------   Generic Classes ----------------------------------------*/
 
 .para {
@@ -161,9 +157,6 @@ color:#AFB3C7;
 	padding:20px;
 }
 /*----------------------- End of  Generic Classes ----------------------------------------*/
-
-
-
 
 
 
@@ -756,7 +749,7 @@ opacity: 0.8;
     width: 100px;
     float: right;
     margin-right: 72px;
-margin-top:20px;
+	margin-top:20px;
     text-align: center;
     background-color:  #1A8ECD;
     border: 1px solid #66A8CD;
@@ -783,7 +776,7 @@ font-style: italic;
        bottom:0;
        right:0;
 
-   z-index: 99999990;
+  		 z-index: 99999990;
         }
         .top a{ 
         display:block;
@@ -840,12 +833,7 @@ font-style: italic;
 
 
 
-.strength{
-        width: 20px;
-        overflow: hidden;
-        
-display: inline-block;      
-    }
+
     .imgps{
         height: 13px;
 
@@ -908,223 +896,6 @@ display: inline-block;
 		display : none;
     }
 
-/*  Css Bhanu   */
-    
-    .close{
-	float: right;
-	cursor: pointer;
-	font-size: 18px;
-	color: white;
-	margin-top: -4px;
-	margin-right: -1px;	
-}
-textarea{
-	resize:none;
-}
-.colorblue{
-    color: #3741e1;
-}
-.bluebutton{
-    border-radius: 4px;
-    background-color: #2d9be8;
-    color: white;
-    border:0 ;
-}
-#faq_head{
-	
-	height: 50px;
-	width:auto;
-	background-color:#58ACFA;
-	color: white;
-	font-size: 20px;
-	text-align: center;
-	margin-top: -40px;
-	padding-top: 20px;
-
-}
-.floatr{
-	float:right;	
-}
-.floatl{
-    float: left;
-}
-.marginl24{
-    margin-left: 24px;
-}
-  .fontsize24{
-	font-size: 24px;
-   } 
-   .colorwhite{
-	
-   	color:white;
-   }
-   
-  .bigmid{
-	
-  	height: 75%;
-  	width: auto;
-  }
-  .midpanel{
-	
-  	height: 75%;
-  	width: 50%;
-  	float:none;
-  } 
-  .midright{
-	
-  	height: 75%;
-  	width: 30%;
-  	float: right;
-  }
-  
-  .errdiv{
-  	background-color:blue;
-	padding:10px;
-  	height:auto;
-  	width: 200px;
-  	left: 20px;
-  	top:10px;
-  }
-  
-/* css ends here  */
-
-/*************Start Dasboard Menu CSS by Pankaj********************/
-
-.menu_list {
-	width : 100%;
-	height : 20px;
-	background-color : #eee;
-}
-
-.menu_list li {
-	padding: 10px;	
-	display:inline;
-	margin-left : 5px;
-	marign-bottom : -20px;
-	
-}
-
-.menu_list li a{
-	color : black;
-	font-size : 1em;
-	
-}
-
-.menu_list ul {
-	float : left;
-	position : absolute;
-	right : 60%;
-}
-
-.sub-menu_list {
-	width : 100%;
-	height : 30px;
-	background-color : #4E4E4E;	
-	float : left;
-	position : relative;
-}
-
-
-.test-sub-menu {
-	display : none;
-	position: absolute;
-	float : left;
-	position: absolute;
-	left : 120px;
-}
-
-
-.test-sub-menu li {
-	padding: 10px;	
-	display:inline;
-	margin-left : 5px;
-}
-
-tr:nth-child(even) {
-	background-color : #BDEDFF;
-}
-
-tr:nth-child(odd) {
-	background-color : #B4CFEC;
-}
-.category_content {
-	position : relative;
-	color:black;
-}
-.category_div {
-	float : left;
-	width:100%;
-	display: none;
-	
-	
-}
-.category_content .category_div span {
-	float : left;
-	font-size : 1em;
-	margin:10px;
-	position: relative;
-	
-	color : black;
-	
-}
-
-.category_content .category_div .add_category{
-	
-	position: relative;;
-	margin-top: -13px;
-	padding : 5px;
-	
-	
-	
-}
-
-.catergory_list {
-	float : left;
-	
-}
-
-.category_div input[type='text'] {
-	float : left;
-	
-	
-	
-	font-size : 1em;
-	color : black;
-}
-
-
-.category_table{
-	padding: 10px;
-	color : black;
-	font-weight:100;
-	
-	margin:10px;
-	
-}
-
-
-.category_table th {
-	padding: 10px;
-	color : black;
-	font-weight:300;
-	
-}
-
-.category_table a{
-	padding: 10px;
-	color : blue;
-	
-
-	margin:10px;
-	
-}
-.category_table tr td {
-padding: 10px;
-	
-}
-/*************End Dasboard Menu CSS by Pankaj********************/
-
-
 
 
 
@@ -1178,74 +949,15 @@ padding: 10px;
 }
 
 
-/*********Start Add Test********/
-.middle_content .add_test {
-	display : none;
-	float : left;
-    margin-left: 20px;
-	
+/*-----------by bhanu --------*/
+   .close{
+	float: right;
+	cursor: pointer;
+	font-size: 18px;
+	color: white;
+	margin-top: -4px;
+	margin-right: -1px;	
 }
 
-.middle_content .add_test select
-{
-	margin-left:35px;
-} 
-/*.middle_content{
-	position : relative;
-}
-*/
-.middle_content .search_test {
-	color:#3741e1;
-    margin-top: 40px;
-    margin-left: 20px;
 
-}
-/*.middle_content .test_list_div {
-	float :left;
-}*/
-.middle_content .test_list_div .test_list {
-	color : black;
-}
-#add_test {
-	color : blue;
-}
-/*********End Add Test********/
-
-/*****Error*****/
-label.error{
-	color:red;
-}
-/*
-    Changes by rahul
-*/
-
-#userTestSettingLeft {
-    width :50%;
-    border: 1px solid black;
-    float:left;
-}
-#userTestSettingRight {
-    width: 30%;
-    border: 1px solid black;
-    float:left;
-    margin-left:10px;
-}
-#userTestSettingRight div,#userTestSettingLeft div {
-    margin:10px;
-}
-.testSettingCommonHeight1 {
-    height: 60px;
-    padding:5px;
-}
-.testSettingCommonHeight2 {
-    height: auto;
-    padding:5px;
-}
-#questionsPerPage {
-    width:2em;
-}
-
-#category_name {
-	width : 30%;
-	height : 50px;
-}
+/*-----------End by Bhanu --------*/
