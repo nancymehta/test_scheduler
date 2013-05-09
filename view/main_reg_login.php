@@ -14,20 +14,20 @@
 
 		<div class = "mainContainer">
 		
-			<div class = "header">
-				<div class="logo"><img src="<?php echo IMAGE_PATH;?>/logo.png"></div><h1><font style="color:black">test</font>scheduler</h1>
+			<div class = "header bg-vib-blue">
+				<div class="logo"><img src="<?php echo IMAGE_PATH;?>/logo.png"></div><h1><font class="fg-dark-orange">test</font>scheduler</h1>
 				<div class = "sign-register">
 					<ul>
-						<li><a href = "#" id = "login" >Sign-in</a></li>
-						<li><a href = "#" id = "register" >Register</a></li>
+						<li><a href = "#" id = "login" class="fg-dark-white">Sign-in</a></li>
+						<li><a href = "#" id = "register"  class="fg-dark-white"  >Register</a></li>
 					</ul>
 				</div>
 			
 				<div class = "menu">
 					<ul>
-						<li><a href = "#" style="color:black;">Pricing</a></li>
-						<li><a href = "<?php echo SITE_PATH."faq"; ?>">Faq's</a></li>
-						<li><a href = "#">Blogs</a></li>
+						<li><a href = "#" class="fg-dark-orange">Pricing</a></li>
+						<li><a href = "<?php echo SITE_PATH."faq"; ?>" class="fg-dark-orange">Faq's</a></li>
+						<li><a href = "#" class="fg-dark-orange">Blogs</a></li>
 					</ul>
 				</div>
 			</div>
@@ -35,7 +35,7 @@
 		
 <div id="logindiv" class="logindiv">
 <form action="<?php echo SITE_PATH .'main/login';?>" id = "login_form" name="login_form" method="post">
-    <div class="login-strip bg-mid-blue">Login <span id="bclose" class="close"><img src="<?php echo IMAGE_PATH;?>/close.png"/></span></div>
+    <div class="login-strip bg-mid-gray">Login <span id="bclose" class="close"><img src="<?php echo IMAGE_PATH;?>/close.png"/></span></div>
         <div class=" val">
             <label class="label1"><?php echo "UserName"; ?></label>
             <input id="username" name="user_name" type="text" />
@@ -58,12 +58,12 @@
      
 </form>
 </div>
-<div id="registerdiv" class="registerdiv">
+<div id="registerdiv" class="registerdiv logindiv">
 
 <form action="http://test_scheduler.com/main/register" id="register_form" name="register_form" method="post">
       
 
-    <div class="login-strip bg-mid-blue ">Register<span id="close1" class="close"> <img src="<?php echo IMAGE_PATH;?>/close.png"/></span></div>
+    <div class="login-strip bg-mid-gray ">Register<span id="close1" class="close"> <img src="<?php echo IMAGE_PATH;?>/close.png"/></span></div>
             <div class=" val">
                 <label class="label1"><?php echo "UserName" ?>
                 <input id="username" name="username" class="loginc" type="text" /></label>
@@ -78,37 +78,31 @@
 
 
                 <label class="label1"><?php echo "ConfirmPassword"; ?><input id="confirm_password" name="confirm_password" type="password"
-			class="loginc" /></label>
+				class="loginc" /></label>
 
                 <label class="label1"><?php echo "FirstName"; ?> <input id="first_name" name="first_name" type=
                 "text" class="loginc" /></label> 
                
                 <label class="label1"><?php echo "LastName"; ?><input id="last_name" name="last_name" type="text" class="loginc" /></label> 
+    	            
                 
-
-                <label class="label1"><?php echo "Email"; ?><input id="email" name="email" type="text"  class="loginc" /></label> 
-               
-       
+                <label class="label1"><?php echo "Email"; ?><br><input id="last_name" name="last_name" type="text" class="loginc" /></label> 
+    	           
+   
                
                 
-
-                <div class="captcha" >
-
-              
-</div>
- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+              <div class="para"></div>
   <?php require_once(LIBRARY_ROOT.'/recaptcha/recaptchalib.php');
   $publickey = "6LeCCOESAAAAAFFBFDxunP2CQUD0vtAl3hzsaODy"; // you got this from the signup page
   echo recaptcha_get_html($publickey);  ?>
+              
  <input id="submit_registration"  type="submit" onclick="abc()" value="<?php echo "SAVE"; ?>" />
-                
-<br>
+            
 
             </div>
 
             
-                <div class="para"></div>
-       
+      
         
        </form> 
         </div>
