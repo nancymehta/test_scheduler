@@ -18,7 +18,6 @@
 
 
 ini_set("display_errors","1");
-include '';
 class validation
 {
 	
@@ -28,30 +27,29 @@ class validation
 	* */
 	function checkEmail($text)   
 	{
-	if (!filter_var($text, FILTER_VALIDATE_EMAIL)) 
-	{
-		return VALID_EMAIL;
-	}else
-	{
-		return INVALID_EMAIL;
+		if (filter_var($text, FILTER_VALIDATE_EMAIL)) {
 		}
+		else
+		{
+			echo INVALID_EMAIL;
+			return false;
+		}
+	return true;
 	}
+	
 	
 	/* this function is written to check the valid URL.
 	 * @param $url (string)
 	* @return type : string
 	* */
-	
 	function checkURL($url)    
 	{
-		if (!preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $url))
-		{
-			return INVALID_URL;
-		}
-		else
-		{
-			return VALID_URL;
-		}
+		if (!preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $url)){
+			echo INVALID_URL;
+			return false;
+		} else {
+		  }
+		return true;
 	}
 	
 	/* this function is written to check the ip address of your pc .
@@ -61,13 +59,12 @@ class validation
 	
 	public function checkIP($ip)         
 	{
-		if (filter_var($ip, FILTER_VALIDATE_IP))
-		{
-			return VALID_IP;
-		}else
-		{
-			return INVALID_IP;
-		}
+		if (filter_var($ip, FILTER_VALIDATE_IP)){
+		} else {
+			echo INVALID_IP;
+			return false;
+		  }
+		return true;
 	}
 	
 	/* this function is written to check the values that are required. 
@@ -78,22 +75,19 @@ class validation
 	{
 		if($var == '')
 		{
-			return REQUIRED;
+			echo REQUIRED;
+			return false;
 		}
-		else
-		{
-			return NOT_REQUIRED;
-		} 
+		return true;
 	}
 	
 	/* this function is written to check the lenght of input given.
 	 * @param $var (int)
 	* @return type : integer
 	* */
-	public function countLenght($var)               // 
+	public function countLenght($var)               
 	{
 		$length=strlen($var);
-		
 		return $length;
 	}
 	
@@ -106,8 +100,7 @@ class validation
 		$alpha='/^[a-zA-Z]+$/';
 		if(preg_match($alpha,$var))
 		{
-			return ALPHABETIC;
-			 
+			return ALPHABETIC;	 
 		}
 		else
 		{
@@ -154,7 +147,7 @@ class validation
 	* @return type : string
 	* */
 	
-function validateUsername($str)
+	function validateUsername($str)
 	{
 		$pattern='/^[A-Za-z0-9._]+$/';
 		if(!$str == '')
@@ -163,35 +156,51 @@ function validateUsername($str)
 			if(($strLength >= 5)&&($strLength <= 30))
 			{
 				$pattern='/^[A-Za-z0-9.]+$/';
-				if(preg_match($pattern,$str)){
-				} else {
+				if(preg_match($pattern,$str))
+				{
+				} 
+				else 
+				{
 					return INVALID_USERNAME;
-				  }
-			} else {
+				}
+			}
+			else 
+			{
 				return UNAME_LENGTH;
-			  }
-		} else {
+			}
+		} 
+		else 
+		{
 			return UNAME_VALUE;
-		  }
+		}
 	}
 	
 	/* this function is written to check the correct password.
 	 * @param $pass (string)
 	* @return type : string
 	* */
-function validatePassword($pass){
+	function validatePassword($pass)
+	{
 		$passLength=strlen($pass);
-		if($passLength >=6 && $passLength <= 20){
+		if($passLength >=6 && $passLength <= 20)
+		{
 		   $str=$pass;
 		   $pattern='/^[a-zA-Z0-9\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\]+$/';
-		   if(preg_match($pattern,$str)){
-		   }else{
-			return INVALID_PASS;
+		   if(preg_match($pattern,$str))
+		   {
 		   }
-		}else{
-			echo INVALID_PASS_LENGTH;
+		   else
+		   {
+			echo INVALID_PASS;
+			return false;
+		   }
 		}
-	
+		else
+		{
+			echo INVALID_PASS_LENGTH;
+			return false;
+		}
+	return true;
 	}
 	
 	/* this function is written to check the float values.
@@ -199,15 +208,18 @@ function validatePassword($pass){
 	* @return type : float
 	* */
 	function checkFloat($val) // 
-	{
-	if(is_float($val))
+	{echo INVALID_URL;
+			return false;
+			if(is_float($val))
 			{
-				return VALID_FLOAT;
-			}else
-			{
-				return INVALID_FLOAT;
+				//return VALID_FLOAT;
 			}
-				
+			else
+			{
+				echo NVALID_FLOAT;
+				return false;
+			}
+			return true;	
 	}
 	
 	/* this function is written to check the integer values.
@@ -219,197 +231,264 @@ function validatePassword($pass){
 		$min = 0;
 		$max = 2147483647;
 		if(filter_var($val, FILTER_VALIDATE_INT, array(
-		"options" => array("max_range"=> $max )
-		   )
-			 ) === FALSE)
+				"options" => array("max_range"=> $max )
+		   			 )
+		  ) === FALSE)
 	
 		{
-	
-			return  VALID_INT;
 	
 		}
 		else
 		{
-			return INVALID_INT;
+			echo INVALID_INT;
+			return false;
 		}
-	
+	return true;
 	}
 
 	/* this function is written to check the valid values given as phone no.
 	 * @param $num (int)
 	* @return type : integer
 	* */
-function phone($num) {
-				$phoneLength = strlen($num);
-				if($phoneLength >= 8 && $phoneLength <= 15){
-					$pattern='/^[0-9]+$/';
-					if(preg_match($pattern,$num)){
+	function phone($num) 
+	{
+			$phoneLength = strlen($num);
+			if($phoneLength >= 8 && $phoneLength <= 15)
+			{
+				$pattern='/^[0-9]+$/';
+				if(preg_match($pattern,$num))
+				{
 						
-					}else{
-						return INVALID_PHONE;
-					}
-				}else{
-					return INVALID_PHONE_LENGTH;
+					
+				}
+				else
+				{
+					echo INVALID_PHONE;
+					return false;
 				}
 			}
+			else
+			{
+				echo INVALID_PHONE_LENGTH;
+				return false;
+			}
+			return true;
+	}
 			
 			
 			/* this function is written to check the values given to first name field .
 			 * @param $str (string)
 			* @return type : string
 			* */
-function firstName($str){
-			    $len=strlen($str);
-				if ($len >= 5 &&  $len <= 20){
-				    $alpha='/^[a-zA-Z]+$/';
-					if(preg_match($alpha,$str)){
-					}else{
-						return INVALID_FNAME;
-					}
-				}else{
-					return INVALID_FNAME_LENGTH;
-				}
+	function firstName($str)
+	{
+		$len=strlen($str);
+		if ($len >= 5 &&  $len <= 20)
+		{
+			$alpha='/^[a-zA-Z]+$/';
+			if(preg_match($alpha,$str))
+			{
 			}
+			else
+			{
+				echo INVALID_FNAME;
+				return false;
+			}
+		}
+		else
+		{
+			echo  INVALID_FNAME_LENGTH;
+			return false;
+		}
+		return true;
+	}
 			
 			
 			/* this function is written to check the values given to middle name field.
 			 * @param $str (string)
 			* @return type : string
 			* */
-function middleName($str){
+	function middleName($str)
+	{
 			
-				$len=strlen($str);
-				if ($len >= 5 &&  $len <= 20){
-				    $alpha='/^[a-zA-Z]+$/';
-					if(preg_match($alpha,$str)){
-					}else{
-						return INVALID_FNAME;
-					}
-				}else{
-					return INVALID_FNAME_LENGTH;
-				}
+		$len=strlen($str);
+		if ($len >= 5 &&  $len <= 20)
+		{
+			$alpha='/^[a-zA-Z]+$/';
+			if(preg_match($alpha,$str))
+			{
 			}
+			else
+			{
+				echo INVALID_FNAME;
+				return false;
+			}
+		}
+		else
+		{
+			echo INVALID_FNAME_LENGTH;
+			return false;
+		}
+		return true;
+	}
 			
 			
 			/* this function is written to check the values given to last name field
 			 * @param $str (string)
 			* @return type : string
 			* */
-function lastName($str){
-				$len=strlen($str);
-				if ($len >= 5 &&  $len <= 20){
-				    $alpha='/^[a-zA-Z]+$/';
-					if(preg_match($alpha,$str)){
-					}else{
-						return INVALID_FNAME;
-					}
-				}else{
-					return INVALID_FNAME_LENGTH;
-				}
+	function lastName($str)
+	{
+				
+		$len=strlen($str);
+		if ($len >= 5 &&  $len <= 20)
+		{
+			$alpha='/^[a-zA-Z]+$/';
+			if(preg_match($alpha,$str))
+			{
 			}
+			else
+			{
+				echo INVALID_FNAME;
+				return false;
+			}
+		}
+		else
+		{
+			echo INVALID_FNAME_LENGTH;
+			return false;
+		}
+		return true;
+	}
 			
 			/* this function is written to check the valid date format
 			 * @param $input (string)
 			* @return type : string
 			* */
-			function dateValidator($input)    
-			{
-				$date_format = 'Y-m-d';
-				$input = trim($input);
-				$dateValidate=explode("-", $input);
+	function dateValidator($input)    
+	{
+		$date_format = 'Y-m-d';
+		$input = trim($input);
+		$dateValidate=explode("-", $input);
 			
-				if( $dateValidate[2] >=1 &&  $dateValidate[2] <= 31)
-				{
+		if( $dateValidate[2] >=1 &&  $dateValidate[2] <= 31)
+		{
 					
-					if( $dateValidate[1] >=1 &&  $dateValidate[1] <= 12)
-					{
+			if( $dateValidate[1] >=1 &&  $dateValidate[1] <= 12)
+			{
 						
 			
-						$yearLength=strlen( $dateValidate[0]);
-						if($yearLength ==4 &&  $dateValidate[0] >=1900 &&  $dateValidate[0] <= 2012)
-						{
+				$yearLength=strlen( $dateValidate[0]);
+				if($yearLength ==4 &&  $dateValidate[0] >=1900 &&  $dateValidate[0] <= 2012)
+				{
 							
-			
-						}
-						else
-						{
-							return INVALID_YEAR;
-						}
-					  
-					}
-					else
-					{
-						return INVALID_MONTH;
-					}
 			
 				}
 				else
 				{
-					return INVALID_DAY;
+					echo INVALID_YEAR;
+					return false;
 				}
+					  
+			}
+			else
+			{
+				echo INVALID_MONTH;
+				return false;
+			}
+			
+		}
+		else
+		{
+			echo INVALID_DAY;
+			return false;
+		}
 				
 				$time = strtotime($input);
 					
 				$is_valid = date($date_format, $time) == $input;
 					
 				print "Valid? ".($is_valid ? VALID_DATE : INVALID_DATE);
-			}
+				return true;
+	}
 				
 			/* this function is written to check the valid age
 			 * @param $birthDate (string)
 			* @return type : string
 			* */
-function ageValidator($birthDate){
-					$birthDate = explode("/", $birthDate); 
-					if ($birthDate[0] >=1 && $birthDate[0] <= 31){
-						if($birthDate[1] >=1 && $birthDate[1] <= 12){
-							$yearLength=strlen($birthDate[2]);
-							if($yearLength ==4 && $birthDate[2] >=1900 && $birthDate[2] <= 2012){
+	function ageValidator($birthDate)
+	{
+					
+		$birthDate = explode("/", $birthDate); 
+					
+		if ($birthDate[0] >=1 && $birthDate[0] <= 31)
+		{
+			if($birthDate[1] >=1 && $birthDate[1] <= 12)
+			{
+					$yearLength=strlen($birthDate[2]);
+					if($yearLength ==4 && $birthDate[2] >=1900 && $birthDate[2] <= 2012)
+					{
 							
-							}else{
-								return INVALID_YEAR;
-							}
-			            }else{
-							return INVALID_MONTH;
-			            }
-		            }else{
-						return INVALID_DAY;
-		            }
-					
-					
-					$age = (date("md", date("U", mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date("md") ? ((date("Y")-$birthDate[2])-1):(date("Y")-$birthDate[2]));
-					echo "Age is:".$age;
-					if($age<=18){
-						return INVALID_AGE;
-					}else{
-						 return VALID_AGE;
 					}
-				}
+					else
+					{
+						echo INVALID_YEAR;
+						return false;
+					}
+		 	}
+		 	else
+		 	{
+				echo INVALID_MONTH;
+				return false;
+		 	}
+		}
+		else
+		{
+						
+			echo INVALID_DAY;
+			return false;
+		}
+					
+					
+		$age = (date("md", date("U", mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date("md") ? ((date("Y")-$birthDate[2])-1):(date("Y")-$birthDate[2]));
+		echo "Age is:".$age;
+		if($age<=18)
+		{
+			echo INVALID_AGE;
+			return false;
+					
+		}
+		else
+		{
+			//return VALID_AGE;
+		}
+		return true;
+	}
 				
 				
 			
-	}
+}
 	
 
 
 $obj	=	new validation();
 
-//$answer	=	$obj->checkEmail("sgdsg123@osscube.com");
+$answer	=	$obj->checkEmail("sgdsgosscubefefer.com");
 //$answer	=	$obj->checkURL("HTTP://www.osscube.com");
 //$answer	=	$obj->checkIP("192.168.156.75");
 //$answer	=	$obj->checkRequired(12);
 //$answer	=	$obj->countLenght(100);
-//$answer	=	$obj->validateAlphabate();
+//$answer	=	$obj->validateAlphabate("@#$%^");
 //$answer	=	$obj->validateAlphaNumeric("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdfghjkl1234567890sdfghjkl");
 //$answer	=	$obj->checkSpecialChar("!@#$%!@#$%^&*()!@#$%^&*())!@#$%^&*(^&*");
-//$answer	=	$obj->validateUserame("!@#$%^&");
-//$answer	=	$obj->validatePassword("fVB75896%$");
+//$answer	=	$obj->validateUsername("!@#$%^&");
+//$answer	=	$obj->validatePassword("fVB");
 //$answer	=	$obj->checkFloat(.123456);
 //$answer	=	$obj->checkInt("1123234567845");
 //$answer	=	$obj->phone("");
-//answer	=	$obj->firstName("qwerrwea");
+//$answer	=	$obj->firstName("");
 //$answer	=	$obj->middleName("");
-//$answer	=	$obj->lastNameName("");
+//$answer	=	$obj->lastName("");
 //$answer	=	$obj->dateValidator('2009-03-003');
 //$answer	=	$obj->ageValidator("12/17/1983");
 echo $answer;
