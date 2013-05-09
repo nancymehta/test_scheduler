@@ -15,7 +15,7 @@ class questionBankController extends mainController {
 
 	function singleUploadController() {
 		try {
-			echo "manage";
+			echo "single manage";
 				
 		} catch (Exception $e) {
 			$this->handleException($e->getMessage());

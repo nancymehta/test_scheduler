@@ -80,7 +80,7 @@ class baseModel extends dbConnectModel{
 		
 		
 		  $user_id=$this->_db->lastInsertId();
-		 /* $ip= $_SERVER['REMOTE_ADDR'];
+		  $ip= $_SERVER['REMOTE_ADDR'];
 		
 		$data2=array(
 				"user_id"=>$user_id,
@@ -89,7 +89,7 @@ class baseModel extends dbConnectModel{
 				"email"=>$arrArgs['email'],
 				"type_of_org_id"=>4,
 				"ip_address"=>$ip);
-		*/
+		
 		$result2 = $this->_db->insert('user_profile', $data2);
 		if($result1 && $result2)
 		{

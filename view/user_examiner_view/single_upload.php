@@ -28,11 +28,13 @@
 	
 	</style>
 </head>
-<body><br>
+<body>
+<?php print_r($arrData)?>
+<br>
 <br>
 			<a class="colorblue floatr" href = "<?php echo SITE_PATH."testui/bulk_upload"; ?>">Add More Questions</a>
 	<div>
-		<form method="post"><br>
+		<form action="<?php echo SITE_PATH .'questionBank/singleUploadController';?>" name="login_form" method="post"><br>
 			<div class="single_upload_main">
 			
 				<br>
@@ -50,8 +52,24 @@
 					Category:
 				</label>
 				<select >
-					<option value="0">PHP</option>
-					<option value="1">MYSQL</option>
+				<!--<option value="0">PHP</option>
+					<option value="1">MYSQL</option> 
+				-->
+				<?php
+				if(isset($arrData)){
+	                 $i = 0;
+	                 while ( (! empty($arrData['name'][$i] )) ) {
+	                 echo "<option>";
+	                 print_r ($arrData['name'] [$i] );
+	                 echo "</option>";
+	                 $i ++;
+	                 }
+	            }
+	            else{
+	            	echo "<option>no test category</option>";
+	            }
+                ?>
+					
 				</select></div>
 				<br> <br><div class="innerdiv">
 				<label class="floatl">Type Qestion here:</label><input  type="text" name="question" id="question">
