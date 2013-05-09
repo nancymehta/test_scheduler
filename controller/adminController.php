@@ -21,10 +21,6 @@ function abc() {
 	  trigger_error("Value must be 1 or below",E_USER_WARNING);
 	  }
 	}
-function jasleen() {
-echo "SDSDSD";
-}
-
 function sendmail(){
 	if($_POST['contactus']){
 		$sub=$_POST['contact_name'].$_POST['contact_email'];
@@ -36,13 +32,14 @@ function sendmail(){
 function home() {
 		$this->loadView ( "header" );
 		$this->loadView ( "user_header" );
-		$this->loadView ( "admin_view/admin_deshboard_menu" );
+		$this->loadView ( "admin_view/admin_deshboard_menu" );	
 		$this->loadView ( "admin_view/admin_home" );
 }
 function usermanagement() {
 		$this->loadView ( "header" );
 		$this->loadView ( "user_header" );
 		$this->loadView ( "admin_view/admin_deshboard_menu" );
+		$this->loadModel ( "admin","usermanagement");
 		$this->loadView ( "admin_view/usermanagement" );
 }
 

@@ -339,6 +339,14 @@ alter table user_profile modify email varchar(100) unique;
 /*altering certificate_master on 09-05-2013*/
 ALTER TABLE `certificate_master` ADD `certificate_title` VARCHAR( 100 ) NOT NULL AFTER `upload_path` ,
 ADD `certificate_body` TEXT NOT NULL AFTER `certificate_title` ;
+/*creating contact_us table on 09-05-2013*/
+CREATE TABLE `contact_us` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='contact us table';
 
 
 
