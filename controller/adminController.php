@@ -23,10 +23,14 @@ function abc() {
 	}
 function sendmail(){
 	if($_POST['contactus']){
-		$sub=$_POST['contact_name'].$_POST['contact_email'];
+		$sub=$_POST['contact_name']." <-name   email-> ".$_POST['contact_email'];
 		$to="info.test.scheduler@gmail.com";
 		$body=$_POST['contact_suggestion'];
-			mailTest($to,$sub,$body);
+		$name=$_POST['contact_name'];
+		$email=$_POST['contact_email'];
+		mailTest($to,$sub,$body);
+		$arrArgument=array('name'=>$name,'email'=>$email,'body'=>$body);
+		$this->loadModel("admin","contactUs",$arrArgument);
 	}
 }
 function home() {

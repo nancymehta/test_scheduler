@@ -5,6 +5,21 @@ class adminModel extends dbConnectModel{
 	function __construct() {
 		parent::__construct();
 	}
+	
+		function contactUs($arrArgument){
+			$name=$arrArgument['name'];
+			$email=$arrArgument['email'];
+			$body=$arrArgument['body'];
+			$data=array(
+					"name"=>$name,
+					"email"=>$email,
+					"description"=>$body,
+					);
+			$result = $this->_db->insert('contact_us',$data);
+	
+		}
+	}
+	
 	function usermanagement(){
 		$userResult=array();
 		echo "<br><br>hi";
