@@ -296,7 +296,7 @@ CHANGE `updated_on` `updated_on` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL 
 /*altering `test_taker` table on 09-05-2013*/
 ALTER TABLE `test_taker` ADD `ip_address` VARCHAR( 40 ) NOT NULL ;
 /*altering `category` table on 09-05-2013*/
-ALTER TABLE `category` CHANGE `status` `status` ENUM( '0', '1' ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0'
+ALTER TABLE `category` ADD `status` ENUM( '0', '1', '2' ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '''0 for active,1 for deleted,2 for inactive''';
 /*creating `test_question` table on 09-05-2013*/
 CREATE TABLE `test_question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -307,18 +307,8 @@ CREATE TABLE `test_question` (
   KEY `test_id` (`test_id`),
   KEY `question_id` (`question_id`),
   CONSTRAINT `test_question_ibfk_1` FOREIGN KEY (`test_id`) REFERENCES `test` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `test_question_ibfk_2` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `test_question1_ibfk_2` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='stores the reletionship between test and questions';
-
-
-
-
-
-
-
-
-
-
 
 
 
