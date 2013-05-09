@@ -18,7 +18,7 @@
 	</style>
 </head>
 <body>
-	<div class="">
+	<div >
 	<form action="<?php echo SITE_PATH;?>questionBank/bulkUploadController" method="post" enctype="multipart/form-data">
 		<label for="file">BulkUpload:</label>
 		<input type="file" name="file" id="file"><br>
@@ -34,6 +34,13 @@
 			</div>
 			
 		</div>
+	</div>
+	<div class="errdiv">
+		<?php
+		echo "<pre>";
+		
+			print_r($arrData); 
+		?>
 	</div>
 
 
