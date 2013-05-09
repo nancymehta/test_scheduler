@@ -32,7 +32,6 @@ class baseModel extends dbConnectModel{
 		//In case of success
 		    if ($row)
 			{
-				print_r($row);
 				$_SESSION['SESS_USER_NAME']= $row['username'];
 				$_SESSION['SESS_USER_ID']= $row['id'];
 				echo "--->".$_SESSION['SESS_USER_TYPE']= $row['user_type'];
@@ -45,7 +44,6 @@ class baseModel extends dbConnectModel{
 				$result = $this->_db->update('validate_users',$data);
 				if($result)
 				{
-					//die('You are logged in now');
 					return 1;
 				}
 			}  
@@ -105,11 +103,7 @@ class baseModel extends dbConnectModel{
 		}
 	}
 		
-	function getCategory($arrData=array()){
-		print_r($arrData);
-	}
-	
-	
+
 	function faq()
 	{
 		$this->loadView('faq.php');

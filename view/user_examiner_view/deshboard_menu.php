@@ -11,10 +11,10 @@
 <div class = "sub-menu_list">
 	<div class = "test-sub-menu">
 		<ul>
-			<li><a class =""href = "<?php echo SITE_PATH."testui/mytest"; ?>">My Tests</a></li>
-			<li><a href = "<?php echo SITE_PATH."testui/questionbank"; ?>">Question Bank</a></li>
-			<li><a href = "<?php echo SITE_PATH."testui/category"; ?>">categories</a></li>
-			<li><a href = "<?php echo SITE_PATH."testui/certificate"; ?>">certificates</a></li>
+			<li><a href = "<?php echo SITE_PATH."mytest"; ?>">My Tests</a></li>
+			<li><a href = "<?php echo SITE_PATH."questionbank"; ?>">Question Bank</a></li>
+			<li><a href = "<?php echo SITE_PATH."category"; ?>">categories</a></li>
+			<li><a href = "<?php echo SITE_PATH."certificate"; ?>">certificates</a></li>
 		</ul>	
 	</div>
 </div>
