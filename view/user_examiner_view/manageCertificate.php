@@ -25,6 +25,12 @@ h3 {
 h2, h3, h6 {
     font-family: Helvetica,sans-serif,Arial;
 }
+table,tr,td,th,tbody,thead {
+	background-color: white;
+	float:left;
+	text-align: left;
+	
+}
 </style>
 
 <div id="certificate">

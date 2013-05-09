@@ -92,4 +92,10 @@ class testuiController extends common{
  	$this->loadView("user_examiner_view/deshboard_menu");
  	$this->loadView("user_examiner_view/result_by_test");
  }
+ function certif(){
+ 	$this->loadView("header");
+ 	$this->loadView("user_header");
+ 	$this->loadView("user_examiner_view/deshboard_menu");
+ 	$this->loadView("user_examiner_view/manageCertificate");
+ }
 }
