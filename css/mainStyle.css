@@ -30,10 +30,10 @@ blockquote:before,blockquote:after,q:before,q:after {
 }
 
 body {
-    text-align: center;
+    text-align: left;
     margin: 0;
     padding: 0;
-    font-family: georgia,SketchRockwell-Bold, verdana;
+    font-family: SketchRockwell-Bold, verdana;
 	color:black;
     line-height: 1;
    
@@ -51,6 +51,10 @@ a:visited{
 	red;
 	
 }
+
+
+
+
 
 /* --------------------------   Generic Classes ----------------------------------------*/
 
@@ -157,8 +161,6 @@ color:#AFB3C7;
 	padding:20px;
 }
 /*----------------------- End of  Generic Classes ----------------------------------------*/
-
-
 
 
 
@@ -500,7 +502,10 @@ text-align:center;
     line-height: 1.3em;
 }
 
-
+.para {
+    clear: both;
+    height: 40px;
+}
 
 h1 {
     color: #000;
@@ -937,8 +942,18 @@ textarea{
 	padding-top: 20px;
 
 }
-
-
+.floatr{
+	float:right;	
+}
+.floatl{
+    float: left;
+}
+.marginl24{
+    margin-left: 24px;
+}
+  .fontsize24{
+	font-size: 24px;
+   } 
    .colorwhite{
 	
    	color:white;
@@ -1234,4 +1249,3 @@ label.error{
 	width : 30%;
 	height : 50px;
 }
-
