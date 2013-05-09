@@ -66,4 +66,28 @@ class testuiController extends common{
  	$this->loadView("user_examiner_view/deshboard_menu");
  	$this->loadView("user_examiner_view/edit_test");
  }
+ 
+ function recent_result()
+ {
+ 	$this->loadView("header");
+ 	$this->loadView("user_header");
+ 	$this->loadView("user_examiner_view/deshboard_menu");
+ 	$this->loadView("user_examiner_view/recent_result");
+ }
+
+ function result_by_group()
+ {
+ 	$this->loadView("header");
+ 	$this->loadView("user_header");
+ 	$this->loadView("user_examiner_view/deshboard_menu");
+ 	$this->loadView("user_examiner_view/result_by_group");
+ }
+ 
+ function result_by_test()
+ {
+ 	$this->loadView("header");
+ 	$this->loadView("user_header");
+ 	$this->loadView("user_examiner_view/deshboard_menu");
+ 	$this->loadView("user_examiner_view/result_by_test");
+ }
 }

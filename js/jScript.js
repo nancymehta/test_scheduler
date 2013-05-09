@@ -419,5 +419,47 @@ $(document).ready(function(){
 });  
 
 
-
+function valid_search_user()
+{
+	if(($("#first_name").val() == '') && ($("#last_name").val() == '') && ($("#email").val() == ''))
+	{
+			alert("Enter any field");
+			return false;
+	}
+	else 
+	{
+		var valid = $("#search_form").validate({
+			rules: {
+			first_name:{
+					checkAlpha:true				
+				},
+			last_name:{
+					checkAlpha:true				
+				},
+			email:{
+				required: false,
+				email:true
+			}
+			},
+			messages: {
+			first_name:{
+					checkAlpha:"Only character are required."
+				},
+			last_name:{
+					checkAlpha:"Only character are required."
+				},
+				email:{
+					required: false,
+					email:"Invalid email."
+				}
+			}
+		}).form();
+		if(valid){
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+}
 

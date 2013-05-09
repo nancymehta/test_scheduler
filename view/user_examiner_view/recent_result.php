@@ -57,7 +57,7 @@
 	</div>
 	<div class="midright">
 	
-		<form action="" method="">
+		<form action="#" id = "search_form" name = "search_form" method="" onsubmit="return valid_search_user()">
 			User search
 			<hr>
 			Fill one or more fields</br>
