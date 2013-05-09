@@ -25,9 +25,21 @@
 		<input type="submit" name="submit" value="Submit">
 	</form>
 	<hr>
-		<div class="">
+		<div>
 			<span class="bulk_error_span">
 				<label>Errors Log:</label><br/>
+			<?php
+				//print_r($arrData);
+				if($arrData) {
+					echo "<ul>";
+					
+					foreach($arrData as $key) {
+						echo "<li>" .$key ." </li>";
+					}
+					echo "</ul>";
+				}
+				 
+			?>				
 			</span>
 			<div class="bulk_error">
 
@@ -35,12 +47,6 @@
 			
 		</div>
 	</div>
-	<div class="errdiv">
-		<?php
-		echo "<pre>";
-		
-			print_r($arrData); 
-		?>
-	</div>
+	
 
 

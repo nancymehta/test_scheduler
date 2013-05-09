@@ -16,9 +16,6 @@ body {
    
 }
 
-ol,ul {
-    list-style: none;
-}
 
 blockquote,q {
     quotes: none;
@@ -852,8 +849,9 @@ textarea{
   }
   
   .errdiv{
-	
-  	height:100px;
+  	background-color:blue;
+	padding:10px;
+  	height:auto;
   	width: 200px;
   	left: 20px;
   	top:10px;
