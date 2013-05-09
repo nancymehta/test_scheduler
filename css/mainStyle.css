@@ -11,10 +11,6 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
     display: block;
 }
 
-body {
-    line-height: 1;
-   
-}
 
 
 blockquote,q {
@@ -38,8 +34,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: SketchRockwell-Bold, verdana;
-color:black;
-   
+	color:black;
+    line-height: 1;
    
 }
 
@@ -55,6 +51,40 @@ a:visited{
 	red;
 	
 }
+
+
+
+
+/* --------------------------   Generic Classes ----------------------------------------*/
+
+.fg-dark-orange{
+color:#FF8040;
+		
+}
+.fg-dark-black{
+color:#000;
+		
+}
+
+
+
+
+
+
+
+/*----------------------- End of  Generic Classes ----------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 .mainContainer {
 	margin : 0px;
