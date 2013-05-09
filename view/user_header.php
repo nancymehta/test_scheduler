@@ -7,7 +7,7 @@
 			<span class="fontsize24 colorwhite" ><h2><?php echo "WELCOME".@$_SESSION['SESS_USER_NAME'];?></h2></span>	<br><br>
 <a class="floatr" href="<?php echo SITE_PATH."logout"; ?>"> LOGOUT</a>
 
-<a class="floatr" href="<?php echo SITE_PATH."settings"; ?>"> Account Settings</a>
+<a class="floatr" href="<?php echo SITE_PATH."accountSettings/accountSettings"; ?>"> Account Settings</a>
 			</div>
 				
 </div>

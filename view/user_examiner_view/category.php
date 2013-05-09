@@ -34,13 +34,13 @@
 			
 			<?php
 			$name	=	array();
-			$id	=	array();
+			$id		=	array();
 			$sno	=	1;
 
 			if(isset($arrData['name'])&&isset($arrData['id']))
 		{
 			$name	=	$arrData['name'];
-			$id	=	$arrData['id'];
+			$id		=	$arrData['id'];
 		
 		?><tr>
 				<th>S.NO</th>
@@ -86,9 +86,9 @@ function updateCategory(cat_id,name) {
 	var cat_name	=	name;
 	var ans = prompt("Enter the new value of Category",cat_name);
 	if(ans==null || ans===false){
-	window.location.assign("<?php echo SITE_PATH;?>category/manageCategory&id="+cat_id+"&cat_name="+cat_name);
+	window.location.assign("<?php echo SITE_PATH;?>category/manageCategory&id="+cat_id+"&catName="+cat_name);
 	}else{
-	window.location.assign("<?php echo SITE_PATH;?>category/manageCategory&id="+cat_id+"&cat_name="+ans);
+	window.location.assign("<?php echo SITE_PATH;?>category/manageCategory&id="+cat_id+"&catName="+ans);
 }
 }
 
