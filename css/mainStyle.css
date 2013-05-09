@@ -1075,7 +1075,9 @@ padding: 10px;
 /*********End Add Test********/
 
 /*****Error*****/
-
+label.error{
+	color:red;
+}
 /*
     Changes by rahul
 */
