@@ -235,7 +235,7 @@ td.inplab {
 				<div class="dotted"></div>
 				<div class="titlename">No. questions per category</div>
 				<div class="clearheight"></div>
-				<form id="option2" class="randomQuestionsForm-old" method="post" action="/a/tests/test/editRandomQuestions.rpc.php">
+				<form id="option2" class="randomQuestionsForm-old" method="post" action="">
 					<input type="hidden" value="option2" name="random_option">
 					<input type="hidden" value="341354" name="test_id">
 					<div class="userbox" style="">
