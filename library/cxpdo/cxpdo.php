@@ -53,7 +53,7 @@ class cxpdo extends PDO {
 		. '('. $this->column_list($data). ')'
 		. ' VALUES '
 		. $this->value_list($data);
-
+echo($query);
 		//Return the results -or a query string?
 		return $return ? $this->query($query) : $query;
 
@@ -104,7 +104,7 @@ die;*/
 		. (!empty($data['conditionslike']) ? $this->like($data['conditionslike']) : '')
 		. (!empty($data['limit']) ? $this->limit($data['limit'], (!empty($data['offset']) ? $data['offset'] : '')) : '');
 		
-			//echo $query.'<br/>';
+		//	echo $query.'<br/>';
 		//Return the results -or a query string?
 		return $return ? $this->query($query) : $query;
 	}
