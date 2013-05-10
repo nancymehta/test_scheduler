@@ -479,7 +479,12 @@ class validation
 			echo INVALID_RANGE;
 				return false;
 		  }
-	}			
+	}	
+	
+	public function testing(){
+		
+		return "hello";
+		}		
 }
 
 
