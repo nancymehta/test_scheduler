@@ -44,8 +44,23 @@ function usermanagement() {
 		$this->loadView ( "user_header" );
 		$this->loadView ( "admin_view/admin_deshboard_menu" );
 		$userResult=$this->loadModel ( "admin","usermanagement");
-//print_r($userResult);
 		$this->loadView ( "admin_view/usermanagement",$userResult);
+}
+function showUserDetails() {
+	if(isset($_POST['id']) && isset($_POST['request'])){
+		if($_POST['request']=='EDIT'){
+			$userResult=$this->loadModel ( "admin","showUserDetails",$_POST['id']);
+$this->loadView ( "admin_view/showUserDetails",$userResult);
+		}else if($_POST['request']=='DELETE'){
+				$userResult=$this->loadModel ( "admin","deleteUser",$_POST['id']);
+			}
+	}
+}
+function editUserDetails() {
+	print_r($_POST);
+	if(isset($_POST)){
+		$userResult=$this->loadModel ( "admin","editUserDetails",$_POST);
+	}	
 }
 
 function testmanagement() {
