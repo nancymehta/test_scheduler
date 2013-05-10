@@ -57,25 +57,28 @@ class testController extends mainController {
 			$testUrl=$url[2];
 			echo $testUrl;
 			$test=$this->loadModel("test","getTestId",array("link"=>"$testUrl"));
-			if(!(isset($_SESSION['guest_id'])) || @$_SESSION['guest_id']=="") {
-				echo "nooo";
-				if(isset($_POST['submit']) ) {
-					$this->candidateInfo();
-				}
-				$this->loadView('user_examiner_view/user_test_info');
-			} else {
-				/// all The Test Settings here :D
-				if($_SESSION['question']>$_SESSION['total_question']) {
+			if($test!=-1) {
+				if(!(isset($_SESSION['guest_id'])) || @$_SESSION['guest_id']=="") {
+					if(isset($_POST['submit']) ) {
+						$this->candidateInfo();
+					}
+					$this->loadView('user_examiner_view/user_test_info');
+				} else {
+					/// all The Test Settings here :D
+					if($_SESSION['question']>$_SESSION['total_question']) {
+							$this->finishTest();
+					} else if(($_SESSION['time']+($_SESSION['duration']*60))<time()) {
+					/*For test to finish in given Duration*///TO be verified
+						echo "TIMES UP";
 						$this->finishTest();
-				} else if(($_SESSION['time']+($_SESSION['duration']*60))<time()) {
-				/*For test to finish in given Duration*///TO be verified
-					echo "TIMES UP";
-					$this->finishTest();
+					}
+					else {
+						$this->startTest($test);
+					}
+					//echo "yeah";//test start here...
 				}
-				else {
-					$this->startTest($test);
-				}
-				//echo "yeah";//test start here...
+			} else {
+				echo "Test Does Not Exisit";
 			}
 		} else {
 			echo "NO test Selectedd";

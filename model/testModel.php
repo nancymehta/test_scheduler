@@ -7,7 +7,22 @@ class testModel extends dbConnectModel{
 	/*return the testID according to link*/
 	function getTestId($arrArgs=array()) {
 		//write a quesry to get test id and test link id according to test_url
-		return array("test_id"=>1,"test_link_id"=>1);
+		$data['tables']="test_link";
+		$data['columns']=array("id as test_link_id","test_id");
+		$data['conditions']=array("link"=>$arrArgs['link']);
+		$result = $this->_db->select($data);
+		if($result) {
+			$row	=	$result->fetch(PDO::FETCH_ASSOC);
+			if(!empty($row)) {
+				print_r($row);
+				return $row;
+			} else {
+				return -1;
+			}
+		} else {
+				return -1;
+		}
+		//return array("test_id"=>1,"test_link_id"=>1);
 	}
 	function setUser($arrArgs=array()) {
 		if(!empty($arrArgs)) {

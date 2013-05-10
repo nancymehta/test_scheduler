@@ -1,7 +1,7 @@
 <?php 
 //print_r($arrData);
 //$_SESSION['question']=0;
-
+if(!empty($arrData)) {
 echo $quesNo=$_SESSION['question'];
 $type=$arrData["$quesNo"]['ques_type_id'];
 $questionId=$arrData["$quesNo"]['question_id'];
@@ -28,9 +28,19 @@ foreach($options as $val) {
 		}
 		echo $val['option']."<br>";
 	}
-}
+} 
+
 ?>
 <input type="hidden" name="controller" value="test" >
 <input type=submit name="function" value="next">
 </form>
 
+<?php } else {
+	?>
+ <br/> test Empty <br/>
+ <form action="#" method="post<br/><br/><br/><br/><br/><br/>">
+	<input type="hidden" name="controller" value="test" >
+	<input type="submit" name='function' value="exitTest">
+</form>
+ <?php
+}?>
