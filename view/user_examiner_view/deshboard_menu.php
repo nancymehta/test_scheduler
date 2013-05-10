@@ -1,21 +1,38 @@
-<div class="menus">
-<div class = "menu_list">
-	<ul>
-		<li><a id = "home" href ="<?php echo SITE_PATH; ?>">Home</a></li>
-		<li><a id = "assign" href = "assign">Assign</a></li>
-		<li><a id = "test" href = "#">Test</a></li>
-		<li><a id = "result" href = '<?php echo SITE_PATH."/result/result";?>'>Results</a></li>
+<div class="menu_container bg-mid-gray">
 
-	</ul>
-</div>
-<div class = "sub-menu_list">
-	<div class = "test-sub-menu">
-		<ul>
+<div class="links">
+					
+					<a id = "home" href ="<?php echo SITE_PATH; ?>">Home »</a>
+					<a id = "assign" class="services" href = "#">Assign »</a>
+					<a id = "test" class="tech" href = "#">Test »</a>
+					<a id = "result" href = '<?php echo SITE_PATH."/result/result";?>'>Results »</a>
+					<a id = "test" class="tech" href = "#">Faq's »</a>
+					<a id = "test" class="tech" href = "#">Test »</a>
+					<a id = "test" class="tech" href = "#">Account Settings »</a>
+					
+				
+
+
+				</div>	
+				<div class="menu-services ">
+						<ul>
 			<li><a href = "<?php echo SITE_PATH."mytest"; ?>">My Tests</a></li>
 			<li><a href = "<?php echo SITE_PATH."questionbank"; ?>">Question Bank</a></li>
 			<li><a href = "<?php echo SITE_PATH."category"; ?>">categories</a></li>
 			<li><a href = "<?php echo SITE_PATH."certificate"; ?>">certificates</a></li>
-		</ul>	
-	</div>
+					</ul>
+					</div>			
+					<div class="tech-services">
+					<ul>
+							<li><a href="">item1</a></li>
+							<li><a href="">item1</a></li>
+							<li><a href="">item1</a></li>
+							<li><a href="">item1</a></li>
+							<li><a href="">item1</a></li>
+						</ul>
+					</div>	
+
+
+
 </div>
-</div>
+

@@ -147,55 +147,144 @@ textarea{
 
 /*************Start Dasboard Menu CSS by Pankaj********************/
 
-.menu_list {
-	width : 100%;
-	height : 20px;
-	background-color : #eee;
+.menu_container{
+	width: 100%;
+	height: 57px;
+
+
+}
+.links {
+	
+	margin-top 				: 	10px;
+	float 					:   left;
+	margin-left 			:  200px;
+	height 					: 100%;
+
 }
 
-.menu_list li {
-	padding: 10px;	
-	display:inline;
-	margin-left : 5px;
-	marign-bottom : -20px;
+.links a {
+	border                  :	1px solid #ddd;
+	margin-left				:   8px;
+	padding					:	11px;
+	font-weight				: 	bold;
+	font-size 				:	0.7em;
+	display 				: 	inline-block;
+	background-color 		:   #585858;
+	text-decoration 		:   none;
+	color 					:   white; 	
+	float 					:	left;				
+
+	border-radius			:	5px;
+
+
+}
+
+
+.menu_container ul li{
+	
+	text-align 				: left;
+	display                 : inline-block;
+	padding  				: 1px;
+	float:left;
+	margin                  : 5px;
+}
+
+.menu_container ul li a{
+	border                  :	1px solid #ddd;
+	margin-left				:   8px;
+	padding					:	11px;
+	font-weight				: 	bold;
+	font-size 				:	1.3em;
+	display 				: 	inline-block;
+	background-color 		:   #585858;
+	text-decoration 		:   none;
+	color 					:   white; 	
+	float 					:	left;				
+
+	border-radius			:	5px;
+
+}
+
+.menu_container ul li a:hover{
+	background-color 		:   #8A8A8A;
+	color 					:   white; 	
 	
 }
-
-.menu_list li a{
-	color : black;
-	font-size : 1em;
+.links a:hover {
 	
-}
+	background-color 		:    #6C6C6C;
 
-.menu_list ul {
-	float : left;
-	position : absolute;
-	right : 60%;
-}
-
-.sub-menu_list {
-	width : 100%;
-	height : 30px;
-	background-color : #4E4E4E;	
-	float : left;
-	position : relative;
 }
 
 
-.test-sub-menu {
-	display : none;
-	position: absolute;
-	float : left;
-	position: absolute;
-	left : 120px;
+.menu-services  {
+
+	list-style-type			: none;
+	margin-left				:   195px;
+	padding					:	1px;
+	font-size 				:	0.5em;
+	display 				: 	inline-block;
+	text-decoration 		:   none; 	
+
+	float 					:	left;				
+	width					:   auto;
+	border-radius			:	5px;
+    text-align				: 	left;
+    height                  :   auto;
+	position 				:   absolute;
+	margin-top 				: 	55px;
+	color 					:   black;
+	z-index					:	999999;
+	border                  :   1px solid 	white;
+	background-color		: #9B9B9B;
+
+}
+
+.tech-services  {
+
+	z-index					:	999999;
+	list-style-type  		: 	none;
+	border                  :	2px solid #ddd;
+	margin-top 				: 	55px;
+	margin-left				:   175px;
+	color 					:   black;
+	padding					:	1px;
+	font-size 				:	0.5em;
+	display 				: 	inline-block;
+	text-decoration 		:   none; 	
+	float 					:	left;				
+	width					:   auto;
+	border-radius			:	5px;
+    text-align				: 	left;
+   height                  :    auto;
+    position                :   absolute;
+    left					:	108px;
+    background-color 		:   #9B9B9B;
+	border                  :   1px solid 	white;
 }
 
 
-.test-sub-menu li {
-	padding: 10px;	
-	display:inline;
-	margin-left : 5px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 tr:nth-child(even) {
 	background-color : #BDEDFF;

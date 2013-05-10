@@ -7,6 +7,26 @@ $(document).ready(function() {
 //js suraj
 
 
+    $('body').click(function(){
+    
+    })
+    var tech1 = $('.tech-services');
+    var serv = $('.menu-services');
+    tech1.hide();
+    serv.hide();
+    $('.services').click(function(){
+    tech1.hide();
+    serv.toggle();
+    })
+
+
+    $('.tech').click(function(){
+    tech1.toggle();
+    serv.hide();
+    });
+
+
+
 $('.table1').dataTable();
 
 
