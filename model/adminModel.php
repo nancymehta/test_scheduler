@@ -18,7 +18,6 @@ class adminModel extends dbConnectModel{
 			$result = $this->_db->insert('contact_us',$data);
 	
 		}
-	}
 	
 	function usermanagement(){
 		$userResult=array();
@@ -139,6 +138,18 @@ class adminModel extends dbConnectModel{
 				$result = $this->_db->update('validate_users',$row,$data['conditions']);
 			}	
 		
+	}
+		
+	function feedbackManagementModel(){
+		$feedbackResult=array();
+		$data['tables'] = 'contact_us';
+		$data['columns']= array('name','email','description');
+		$result=$this->_db->select($data);
+		while($row = $result->fetch(PDO::FETCH_ASSOC)){
+			$feedbackResult[]=$row;
+			
+		}
+		return $feedbackResult;
 	}
 	
 }

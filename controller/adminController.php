@@ -4,7 +4,7 @@ class adminController extends mainController {
 function mailTry() {
 
 mailTest("shashank_ver@osscube.com","hello","test the mail");
-echo "Sernt";
+echo "Sent";
 }
 //error handler function
 function testmail() {
@@ -70,10 +70,12 @@ function testmanagement() {
 		$this->loadView ( "admin_view/testmanagement" );
 }
 function feedbackmanagement() {
+		$result=$this->loadModel( "admin","feedbackManagementModel" );
 		$this->loadView ( "header" );
 		$this->loadView ( "user_header" );
 		$this->loadView ( "admin_view/admin_deshboard_menu" );
-		$this->loadView ( "admin_view/feedbackmanagement" );
+		$this->loadView ( "admin_view/feedbackmanagement",$result );
+		
 }
 }
 //set error handler
