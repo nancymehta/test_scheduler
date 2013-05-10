@@ -1,5 +1,4 @@
 <?php
-
 include MODEL_PATH."db_connect.php";
 class adminModel extends dbConnectModel{
 	function __construct() {
@@ -143,7 +142,7 @@ class adminModel extends dbConnectModel{
 	function feedbackManagementModel(){
 		$feedbackResult=array();
 		$data['tables'] = 'contact_us';
-		$data['columns']= array('name','email','description');
+		$data['columns']= array('id','name','email','description');
 		$result=$this->_db->select($data);
 		while($row = $result->fetch(PDO::FETCH_ASSOC)){
 			$feedbackResult[]=$row;
@@ -152,5 +151,17 @@ class adminModel extends dbConnectModel{
 		return $feedbackResult;
 	}
 	
+	function fetchFeedEmail($id){
+		$data['tables']= 'contact_us';
+		$data['columns']= array( 'email' );
+		$data['conditions']=array( 'id'=> $id);
+		$result=$this->_db->select($data);
+		if($row = $result->fetch(PDO::FETCH_ASSOC)){
+			return $row['email'];
+		}
+		else{
+			return 0;
+		}	
+	}
 }
 ?>

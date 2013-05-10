@@ -70,16 +70,28 @@ function testmanagement() {
 		$this->loadView ( "admin_view/testmanagement" );
 }
 function feedbackmanagement() {
-		$result=$this->loadModel( "admin","feedbackManagementModel" );
 		$this->loadView ( "header" );
 		$this->loadView ( "user_header" );
 		$this->loadView ( "admin_view/admin_deshboard_menu" );
+		$result=$this->loadModel( "admin","feedbackManagementModel" );
 		$this->loadView ( "admin_view/feedbackmanagement",$result );
 		
+}
+
+function adminMailSend(){
+		$id=$_POST['id'];
+		$body=$_POST['body'];
+		$result=$this->loadModel( "admin","fetchFeedEmail",$id );
+		if($result)
+		{
+			mailTest($result,'info.test.scheduler@gmail.com',$body);
+		}
+		else{
+			return 0;
+		}
 }
 }
 //set error handler
 
 
 ?>
-
