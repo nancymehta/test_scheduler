@@ -1,41 +1,12 @@
-<html>
-<head>
-	<title>Upload Questions</title>
-	<script type="text/javascript" src="jquery-1.9.1.js">
+<div class="bigmid" >
+<div class="midpanel" style="border:1px solid red">
 
-	</script>
-	<style type="text/css">
-	.single_upload_main{
-		width:100%;
-		height:100%;
-		
-	}
-	.single_upload_main input[type='text']{
-		width: 300px;
-		float: left;
-		
-	}
-	.single_upload_main .marginl40{
-	margin-left: 60px;
-	}
-	.innerdiv{
-	border-bottom-style: dotted; 
-    border-bottom-width:1px;
-	border-bottom-color: grey;
-	height: auto;
-	width: 500px;
-	
-	}
-	
-	
-	</style>
-</head>
-<body>
+<!-- midpanel Content gooes here  -->
 <?php //print_r($arrData)?>
-<br>
-<br>
-			<a class="colorblue floatr" href = "<?php echo SITE_PATH."testui/bulk_upload"; ?>">Add More Questions</a>
-	<div>
+
+			<a class="button_generic" href = "<?php echo SITE_PATH."testui/bulk_upload"; ?>">Add More Questions</a>
+		<div class="space"></div>
+	
 		<form action="<?php echo SITE_PATH .'questionBank/singleUploadController';?>" name="login_form" method="post"><br>
 			<div class="single_upload_main">
 			
@@ -44,7 +15,7 @@
 				<label >
 					Question type:
 				</label>
-				<select  >
+				<select class="select_generic">
 				 <option value="0">mcq</option>
 					<option value="1">true/false</option>
 				
@@ -67,10 +38,11 @@
 				</select>
 				</div><br>
 					<div class="innerdiv">
+						<div class="space"></div>
 				<label>
 					Category:
 				</label>
-				<select >
+				<select class="select_generic">
 				<!--<option value="0">PHP</option>
 					<option value="1">MYSQL</option> 
 				-->
@@ -81,7 +53,7 @@
 	                 echo "<option>";
 	                 echo ($arrData['category_name'] [$i] );
 	                 echo "</option>";
-	                 $i ++;
+	                 $i++;
 	                 }
 	            }
 	            else{
@@ -90,18 +62,29 @@
                 ?>
 					
 				</select></div>
-				<br> <br><div class="innerdiv">
-				<label class="floatl">Type Qestion here:</label><input  type="text" name="question" id="question">
-				<br><br></div>
-	           <br>
-	           <div class="innerdiv">
-	            Add Options Here
-				<table class="s_upload_table" >
+				
+
+						<div class="space"></div>
+				<div class="innerdiv">
+					<div class="space"></div>
+				<label >Type Qestion here:</label><input  class="text_right_generic" type="textarea" name="question" id="question">
+				</div>
+	           <div class="space"></div>
+	           <div class="space"></div>
+						<div class="space"></div><div class="innerdiv">
+	           <div class="contact-strip bg-mid-gray"> Add Options Here</div>
+				
+
+						<div class="space"></div>
+				<input type="button" id="addButton" class="button_generic" value="Add Options"/>
+				<input type="button" id="removeButton" class="button_generic" value="Delete Options"/>
+						<div class="space"></div>
+						
+						<div class="space"></div>
+				
+
+				<table class="s_upload_table table-generic font-generic-mid" >
 					<tr>
-						
-							<input type="button" id="addButton" value="Add Options"/>
-							<input type="button" id="removeButton" value="Delete Options"/>
-						
 					</tr>
 					<tr>
 						<th>
@@ -118,56 +101,68 @@
 						<td>
 							<div class="test">
 							</div>
-							<textarea cols=15 rows=1 id="ques1" name="ques1"></textarea>
+							<textarea cols=15 rows=1 id="ques1" name="ques1" class="text_right_generic "></textarea>
 						</td>
 						<td>
 							<input type="checkbox" id="check1" name="check1">
 						</td>
 						<td>
-							<textarea cols=15 rows=1 id="feedback1" name="feedback1"></textarea> 
+							<textarea cols=15 rows=1 id="feedback1" name="feedback1" class="text_right_generic"></textarea> 
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<div class="test">
-							</div>
-							<textarea cols=15 rows=1 id="ques2" name="ques2"></textarea>
+							
+							<textarea cols=15 rows=1 id="ques2" name="ques2" class="text_right_generic"></textarea>
 						</td>
 						<td>
 							<input type="checkbox" id="check2" name="check2">
 						</td>
 						<td>
-							<textarea cols=15 rows=1 id="feedback2" name="feedback2"></textarea> 
+							<textarea cols=15 rows=1 id="feedback2" name="feedback2" class="text_right_generic"></textarea> 
 						</td>
 					</tr>
 				</table>
 		</div>
-				<br>
-				
+	
+						<div class="space"></div>
+					
+						<div class="space"></div>
+								
 			</div>
-            <input type="submit" name='submit' value="Submit"/> 
+            <input type="submit" name='submit' value="Submit" class="submmit_button_generic font-generic-mid" /> 
 		</form>
-	</div>
-</body>
-</html>
+	
+
 <script>
 $(document).ready(function(){
-	var v1 = 3;
+	var valincr = 3;
 	   $("#addButton").click(function (){
-		  if(v1>5){
+		  if(valincr>5){
 	            alert("Maximum 5");
 	            return false;
 			}   
-			$('.s_upload_table').append('<tr id="dynamic"><td><textarea cols=15 rows=1 id=ques'+v1+' name=ques'+v1+'></textarea></td><td><input type="checkbox" id=check'+v1+' name=check'+v1+' /></td><td><textarea cols=15 rows=1 id=feedback'+v1+' name=feedback'+v1+'></textarea> </td></tr>');
-			v1++;	
+			$('.s_upload_table').append('<tr id="dynamic"><td><textarea class="text_right_generic" cols=15 rows=1 id=ques'+valincr+' name=ques'+valincr+'></textarea></td><td><input type="checkbox" id=check'+valincr+' name=check'+valincr+' /></td><td><textarea class="text_right_generic" cols=15 rows=1 id=feedback'+valincr+' name=feedback'+valincr+'></textarea> </td></tr>');
+			valincr++;	
 		});
 	   $("#removeButton").click(function () {
-		   if(v1==3){
+		   if(valincr==3){
 			      alert("Minimum 2");
 		          return false;
 		       }
-	       v1--;
+	       valincr--;
 	        $("#dynamic").remove();  	
 		});
 });
 </script>
+</div>
+<div class="midright">
+
+<!-- right content goes here -->
+</div>
+
+</div>
+
+
+
+

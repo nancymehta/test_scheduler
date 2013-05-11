@@ -1,32 +1,21 @@
+<div class="bigmid" >
+<div class="midpanel" style="border:1px solid red">
 
-	<title>bulkupload</title>
-	<style type="text/css">
-		.bulkupload{
+<!-- midpanel Content gooes here  -->
+<form action="<?php echo SITE_PATH;?>questionBank/bulkUploadController" method="post" enctype="multipart/form-data">
+		<div  class="contact-strip bg-mid-gray">BulkUpload:</div>
 
-		}
-		.bulk_error{
-			width: 500px;
-			height: 300px;
-			border: solid 1px;
-			float: left; 
-			
-		}
-		.bulk_error_span{
-			height:200px; 
-			width:500px;
-		}
-	</style>
-</head>
-<body>
-	<div >
-	<form action="<?php echo SITE_PATH;?>questionBank/bulkUploadController" method="post" enctype="multipart/form-data">
-		<label for="file">BulkUpload:</label>
-		<input type="file" name="file" id="file"><br>
-		<input type="submit" name="submit" value="Submit">
+		<div class="space"></div>
+		<input type="file" name="file" id="file" class="button_generic floatr">
+		<div class="space"></div>
+		
+		<input type="submit" name="submit" value="Submit" class="submmit_button_generic font-generic-mid">
 	</form>
-	<hr>
-		<div>
-			<span class="bulk_error_span">
+</div>
+<div class="midright">
+
+<!-- right content goes here -->
+<span class="bulk_error_span">
 				<label>Errors Log:</label><br/>
 			<?php
 				//print_r($arrData);
@@ -49,12 +38,15 @@
 				 
 			?>				
 			</span>
-			<div class="bulk_error">
+</div>
 
-			</div>
+</div>
+
+
+
+	
+	
 			
-		</div>
-	</div>
 	
 
 

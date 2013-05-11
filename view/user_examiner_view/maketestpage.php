@@ -1,12 +1,36 @@
+<div class="bigmid" >
+<div class="midpanel" style="border:1px solid red">
 
-<br>
+<!-- midpanel Content gooes here  -->
+
+
 <div class="middle_content">
-	<div class="search_test floatl">
-		Search : <input type="text" id="search-test" name="search-test" />
+		<label>Search : </label><input type="text" class="text_right_generic" id="search-test" name="search-test" />
+		<div class="space"></div>
+		<a class="button_generic" href="#" id ="add_test">Create new test</a>
+
+	<div class="space"> </div>
+	<div class="add_test ">
+		<form method="post"
+			action="http://test_scheduler.com/createTest/createNewTest"><div class="space"></div>
+			<label>Test Name :</label> <input type="text" class="text_right_generic" id="test_name" name="test_name" /><div class="space"> </div>
+			<label>Category Type :</label>  <select id="category_name" class="select_generic"
+				name="category_name[]" >
+								<?php
+								$i = 0;
+								while ( (! empty ( $arrData ['category'] ['category_name'] [$i] )) ) {
+									echo "<option>";
+									print_r ( $arrData ['category'] ['category_name'] [$i] );
+									echo "</option>";
+									$i ++;
+								}
+								?>
+							</select> <div class="space"> </div> <input type="submit" 
+				id="submit" name="submit" value="Submit" class="submmit_button_generic"/>
+		</form>
 	</div>
-	<br> <br> <br> <br>
-	<div class="test_list_div">
-		<table class="category_table" id="shubh">
+	<div class="space"></div>
+		<table class="table-generic" id="shubh">
 			<tr>
 				<th>S.No.</th>
 				<th>Test</th>
@@ -42,28 +66,7 @@
 			</tr>
  -->
 		</table>
-		<a href="#" id="add_test">Create new test</a>
-	</div>
-	<br>
-	<div class="add_test colorblue">
-		<form method="post"
-			action="http://test_scheduler.com/createTest/createNewTest">
-			Test Name : <input type="text" id="test_name" name="test_name" /> <br>
-			<br> Category Type : <select id="category_name"
-				name="category_name[]" multiple>
-								<?php
-								$i = 0;
-								while ( (! empty ( $arrData ['category'] ['category_name'] [$i] )) ) {
-									echo "<option>";
-									print_r ( $arrData ['category'] ['category_name'] [$i] );
-									echo "</option>";
-									$i ++;
-								}
-								?>
-							</select> <br> <br> <input type="submit" class="bluebutton"
-				id="submit" name="submit" value="Submit" />
-		</form>
-	</div>
+	
 </div>
 
 <script>
@@ -73,3 +76,12 @@ $(document).ready(function() {
 	});
 });
 </script>
+
+</div>
+<div class="midright">
+
+<!-- right content goes here -->
+</div>
+
+</div>
+

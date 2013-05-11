@@ -1,7 +1,26 @@
+<div class="bigmid" >
+<div class="midpanel" style="border:1px solid red">
 
-<form action="#" method="post"><br/><br/><br/>
-	First Name : <input type="text" name="firstName"/><br/>
-	Second Name : <input type="text" name="lastName"/><br/>
-	Email: <input type="text" name="email"/><br/><br/><br/><br/><br/><br/><br/><br/>
-	<input type="submit" name="submit">
+<!-- midpanel Content gooes here  -->
+
+<div class="space"></div>
+
+  <div class="contact-strip bg-mid-gray">Enter Your Credentials</div>
+<p>notice:</p>
+  <div class="space"></div>
+<form action="#" method="post"><div class="space"></div>
+<label>First Name :</label>	<div class="space"></div> <input type="text" name="firstName"/><div class="space"></div>
+<label>	Second Name :</label><div class="space"></div>  <input type="text" name="lastName"/><div class="space"></div>
+<label>	Email: </label><div class="space"></div> <input type="text" name="email"/><div class="space"></div><div class="space"></div>
+	<input type="submit" name="submit" class="submmit_button_generic">
 </form>
+
+</div>
+<div class="midright">
+
+<!-- right content goes here -->
+</div>
+
+</div>
+
+

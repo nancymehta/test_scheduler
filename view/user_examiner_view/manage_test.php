@@ -13,33 +13,23 @@
 	border-top: rgb(000,100,200);
 	border: solid;
 }
-a {
-    color: #DE3E00;
-    text-decoration: none;
-}	
-a:hover {
-	text-decoration: underline; 
-	color: orange;
 
+.content{
+	float: left;
+	width: 100%;
 }
 #cmcontent {
     height: auto !important;
     margin: 0 auto;
     min-height: 600px;
     padding: 0 20px;
-    width: 940px;
+    width: 100%;
 }
-a.showcont {
-    
-    clear: both;
-    margin: 0;
-    padding: 0 25px 5px 0;
-    
-}
+
 .col640 {
     float: left;
     margin-right: 20px;
-    width: 640px;
+     width: 100%;
 }
 .hide {
 	display: none;
@@ -146,20 +136,21 @@ td.inplab {
 
 </script>
 	
+<div class="bigmid" >
+<div class="midpanel" style="border:1px solid red">
+
+<!-- midpanel Content gooes here  -->
+
 <div class="content">
 <div id="col640">
-		<ul id="crumbtrail">
-			<li>
-				<a href="#">Tests</a>
-					>
-			</li>
-			<li>Manage test</li>
-		</ul>
+		
+  <div class="contact-strip bg-mid-gray">Manage Test</div>
 	<div class="clearheight30"></div>
 	<div id="random_question">
-		<h3>Random questions</h3>
+
+  <div class="contact-strip bg-mid-gray">Random Questions</div>
 		<p>
-			<a id="tog_random" class="showcont" href="#" > Set random questions</a>
+			<a id="tog_random"  href="#" class="button_generic"> Set random questions</a>
 		</p>	
 		<div id="dotog_random" class="hide" >
 			<p class="gray">
@@ -195,10 +186,11 @@ td.inplab {
 				<div id="dotog_randomopt1" class="hide">
 					<div class="titlename">
 					<input type="text" maxlength="3" size="3" value="" id="num_random" name="num_random">
-					Total number of questions <br>
+					<label>Total number of questions </label><br>
 					</div>
 					<div class="clearheight"></div>
-					<div class="titlename">From categories:</div>
+					
+					<label>From categories:</label>
 					<div class="clearheight"></div>	
 					<table cellspacing="0" cellpadding="0">
 						<tbody>
@@ -217,7 +209,7 @@ td.inplab {
 							</tr>
 						</tbody>
 					</table>
-					<input type="submit" value="Assign this test now" >
+					<input type="submit" value="Assign this test now" class="submmit_button_generic">
 				</div>	
 			</form>
 			<div class="boldline"></div>	
@@ -275,16 +267,16 @@ td.inplab {
 						</tr>
 						</tbody>
 					</table>
-					<input type="submit" value="Assign this test now" >
+					<input type="submit" value="Assign this test now" class="submmit_button_generic">
 					<div class="clearheight30"></div>
 				</form>
 			</div>			
 		</div>	
 	</div>
 
-	<h4>1. Using Certificates </h4>
 	<div class="col-span-3">
-		<a id="tog_certs" class="littlelink hideme showcont" href="#" >Open</a>
+		<div class="space"></div>
+		<a id="tog_certs"  href="#" class="button_generic">click to use certificate</a>
 	</div>
 	<div class="clearheight5"></div>
 	<div id="dotog_certs" class="hide" >
@@ -308,4 +300,13 @@ td.inplab {
 	<div class="col-span-4">
 	<div class="clearheight30"></div>
 </div>
+</div>
+
+
+</div>
+<div class="midright">
+
+<!-- right content goes here -->
+</div>
+
 </div>

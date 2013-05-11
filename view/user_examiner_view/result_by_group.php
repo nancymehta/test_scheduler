@@ -1,89 +1,48 @@
-<style>
-.bigmid{
-	
-  	height: 75%;
-  	width: auto;
-	border:1px solid red;
-  }
-  .midpanel{
-	
-  	height: 75%;
-  	width: 50%;
-  	float:left;
-  	
-  	
-  } 
-  .midright{
-	
-  	height: auto;
-  	width: 30%;
-  	float: right;
-  	
-  
-  	
-  }
-  .midpanel_content
-  {
-  	height: auto;
-  	width:	100%;
-  	float: left;
-  	padding-left:5px;
-  	
-  	margin-top: 30px;
-  }
-  .result_by_group_header
-  {
-  	background-color: black;
-  	height:10%;
-  	color: white;
-  	padding-top: 25px;
-  	padding-left:20px;
-  	font-size: 2em;
-  	
-  }
-  
-  
-</style>
-
 <div class="bigmid">
-	<div class="result_by_group_header"><b>Overall Group Results</b></div>
+	  <div class="contact-strip bg-mid-gray">Overall Group Results
+</div>
 	<div class="midpanel">
 		<div class="midpanel_content">
-		    <b>Registered user groups results</b></br><br/>
 		    
-		    <table cellpadding="2" border="1">
+		      <div class="contact-strip bg-mid-gray">Registered user groups results
+</div>
+		    
+		    <table cellpadding="2" border="1" class="table-generic">
 		    	<tr><th colspan="4">Group Name</th><td>Percentage</td><td>Attempts</td></tr>
 		    	<tr><td colspan="4">Demo</td><td>--</td><td>--</td></tr>
 		    	<tr><td colspan="4">Result to be displayed</td><td>--</td><td>--</td></tr>
 		    	<tr><td colspan="4">Result to be displayed</td><td>--</td><td>--</td></tr>
 		    	<tr><td colspan="4">DummyDummyDummy</td><td>--</td><td>--</td></tr>
+		   
 		    </table>
-		    <br/><br/><b>Direct link/embed test results</b><br/>
-		    You have no results at present
+		  <div class="space"></div>  <label>You have no results at present</label>
 		</div>
 
 
 	</div>
 	<div class="midright">
-		<b>About test results</b>
-		<hr>
-		Results on this page are calculated as an average from your Registered user groups and Direct link testing combined.<br/><br/>
-		Tests that are currently <b>In progress</b> are not included.<br/><br/>
+<form action="#" id = "search_form" name = "search_form" method="" onsubmit="return valid_search_user()">
 		
-		<b>Note:</b> Results on this page are updated every <b>10 minutes.</b> Recent results may not appear.
-		<hr>
-		<form action="#" id = "search_form" name = "search_form" method="" onsubmit="return valid_search_user()">
-			User search
-			<hr>
-			Fill one or more fields</br>
+
+        <div class="space"></div>
+        <div class="space"></div>
+  <div class="contact-strip bg-mid-gray">User search
+</div>
+        <div class="space"></div>
+      
+    				<hr>
+
+  <div class="contact-strip bg-mid-gray">Fill one or more fields</div>
+			  <div class="space"></div>
+      
 			<table>
-				<tr cellspacing="2">First Name</tr></br>
-				<tr><input type="text" name="first_name" id="first_name"/></tr></br>
-				<tr>Last Name</tr></br>
-				<tr><input type="text" name="last_name" id="last_name"/></tr></br>
-				<tr>Email Address</tr></br>
-				<tr><input type="text" name="email" id="email"/></tr></br>
-				<tr><input type="submit" value="Search"/></tr>
+				<tr cellspacing="2"><label>First Name</label></tr><br></div>
+				<tr><input type="text"  name="first_name" id="first_name"/></tr><div class="space"></div>
+				<tr><label>Last Name</label></tr></br>
+				<tr><input type="text" name="last_name" id="last_name"/></tr><div class="space"></div>
+				<tr><label>Email Address</label></tr></br>
+				<tr><input type="text" name="email" id="email"/></tr><div class="space"></div>
+				<tr><input type="submit" value="Search" class="submmit_button_generic" /></tr>
 			</table>
 		</form>
 		

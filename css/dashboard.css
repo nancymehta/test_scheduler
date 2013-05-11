@@ -2,34 +2,21 @@
 /*********Start Add Test********/
 .middle_content .add_test {
 	display : none;
-	float : left;
-    margin-left: 20px;
+	
 	
 }
 
-.middle_content .add_test select
-{
-	margin-left:35px;
-} 
+
 /*.middle_content{
 	position : relative;
 }
 */
-.middle_content .search_test {
-	color:#3741e1;
-    margin-top: 40px;
-    margin-left: 20px;
 
-}
 /*.middle_content .test_list_div {
 	float :left;
 }*/
-.middle_content .test_list_div .test_list {
-	color : black;
-}
-#add_test {
-	color : blue;
-}
+
+
 /*********End Add Test********/
 
 /*****Error*****/
@@ -118,14 +105,20 @@ textarea{
    
   .bigmid{
 	
-  	height: 75%;
+  	height: auto;
   	width: auto;
+  	margin: 40px;
+  	margin-left: 10;
+
+
   }
   .midpanel{
 	
-  	height: 75%;
-  	width: 50%;
+  	height: auto;
+  	width: 60%;
   	float:none;
+  	padding: 10px;
+
   } 
   .midright{
 	
@@ -220,7 +213,7 @@ textarea{
 .menu-services  {
 
 	list-style-type			: none;
-	margin-left				:   195px;
+	margin-left				:   295px;
 	padding					:	1px;
 	font-size 				:	0.5em;
 	display 				: 	inline-block;
@@ -246,7 +239,7 @@ textarea{
 	list-style-type  		: 	none;
 	border                  :	2px solid #ddd;
 	margin-top 				: 	55px;
-	margin-left				:   175px;
+	margin-left				:   295px;
 	color 					:   black;
 	padding					:	1px;
 	font-size 				:	0.5em;
@@ -265,6 +258,34 @@ textarea{
 
 
 
+.midpanel{
+	
+  	height: 75%;
+  	width: 50%;
+  	float:left;
+  	
+  	
+  } 
+  
+.midpanel_content
+  {
+  	height: auto;
+  	width:	95%;
+  	float: right;
+    border: 1px solid red;
+  	margin-top: 30px;
+  }
+.recent_result_header
+  {
+  	background-color: black;
+  	height:10%;
+  	color: white;
+  	padding-top: 25px;
+  	padding-left:20px;
+  	font-size: 2em;
+  	
+  }
+  
 
 
 
@@ -285,14 +306,6 @@ textarea{
 
 
 
-
-tr:nth-child(even) {
-	background-color : #BDEDFF;
-}
-
-tr:nth-child(odd) {
-	background-color : #B4CFEC;
-}
 .category_content {
 	position : relative;
 	color:black;
@@ -304,70 +317,9 @@ tr:nth-child(odd) {
 	
 	
 }
-.category_content .category_div span {
-	float : left;
-	font-size : 1em;
-	margin:10px;
-	position: relative;
-	
-	color : black;
-	
-}
-
-.category_content .category_div .add_category{
-	
-	position: relative;;
-	margin-top: -13px;
-	padding : 5px;
-	
-	
-	
-}
-
-.catergory_list {
-	float : left;
-	
-}
-
-.category_div input[type='text'] {
-	float : left;
-	
-	
-	
-	font-size : 1em;
-	color : black;
-}
 
 
-.category_table{
-	padding: 10px;
-	color : black;
-	font-weight:100;
-	
-	margin:10px;
-	
-}
 
-
-.category_table th {
-	padding: 10px;
-	color : black;
-	font-weight:300;
-	
-}
-
-.category_table a{
-	padding: 10px;
-	color : blue;
-	
-
-	margin:10px;
-	
-}
-.category_table tr td {
-padding: 10px;
-	
-}
 /*************End Dasboard Menu CSS by Pankaj********************/
 
 
@@ -391,4 +343,162 @@ padding: 10px;
 }
 .hover:hover{
 	color: orange;
+}
+
+.submmit_button_generic{
+	border                  :	1px solid #ddd;
+	margin-left				:   20px;
+	
+	padding					:	10px;
+	font-weight				: 	bold;
+	font-size 				:	0.7em;
+	background-color 		:   #585858;
+	color 					:   white; 	
+		
+	border-radius			:	5px;
+
+}
+
+.button_generic{
+	border                  :	1px solid #ddd;
+
+	padding					:	9px;
+	font-weight				: 	bold;
+	font-size 				:	0.7em;
+	background-color 		:   #295292;
+	color 					:   white; 	
+	float 					:	right;				
+
+	border-radius			:	5px;
+
+}
+
+
+
+.submmit_button_generic:hover {
+	
+	background-color 		:    #6C6C6C;
+	cursor: pointer;
+
+}
+.button_generic:hover {
+	
+	background-color 		:    #6C6C6C;
+	cursor: pointer;
+}
+.select_generic{
+	width 					:  200;
+	height 					:  35px;
+	background-color 		:   #585858;
+	color 					:   white; 	
+	border-radius			:	5px;
+	font-size 				:	0.8em;
+	padding 				: 	3px;
+	float 					:	 right ;
+
+}
+.text_right_generic{
+	width 					:  200px;
+	height 					:  45px;
+	border-radius			:	5px;
+	font-size 				:	1.2em;
+	
+	float 					:	 right ;
+	border: 1px solid #295292;
+}
+
+
+
+.text_right_generic-small{
+	width 					:  400px;
+	height 					:  85px;
+	border-radius			:	5px;
+	font-size 				:	0.8em;
+	
+	float 					:	 right ;
+
+}
+label{
+	float						: left;
+	font-family					: georgia;
+	font-style					: italic;
+	clear						:both;
+	padding						: 10px;
+}
+.space{
+	height						: 20px;
+	width: 100%;
+clear: both;
+margin-top:1px; 
+
+}
+.table-generic{
+	float:						 left;
+	clear						:both;
+	padding						: 15px;
+	width						: 90%; 
+
+}
+.table-generic th{
+	padding					: 15px;
+	border-radius				: 5px;
+	background-color: #295292;
+	color 				: white;
+
+}
+.table-generic tr, .table-generic td {
+	text-align: center;
+	padding 					:6px;
+	border-radius				: 5px;
+	font-style: italic;
+	font-family: georgia;
+	font-size: 1em;
+
+}
+.font-generic-default{
+font-family: georgia;
+font-style: italic;
+font-weight: 100;
+
+
+}
+.font-generic-mid{
+font-family: georgia;
+font-style: italic;
+font-size: 0.8em;
+
+font-weight: 100;
+
+
+}
+
+.font-generic-small{
+font-family: georgia;
+font-style: italic;
+font-size: 0.7em;
+
+font-weight: 100;
+
+
+}
+tr:nth-child(even) {
+	background-color : #ddd;
+}
+
+tr:nth-child(odd) {
+	background-color : #eee;
+}
+a{
+color:  #585858;	
+}
+p{
+	border: 1px solid #eee;
+	width: 100%;
+	font-family: georgia;
+font-style: italic;
+font-size: 0.8em;
+clear: both;
+margin: 10px;
+
+font-weight: 100;
 }
