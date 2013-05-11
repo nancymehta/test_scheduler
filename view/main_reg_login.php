@@ -17,18 +17,19 @@
 			<div class = "header bg-vib-blue">
 				<div class="logo"><img src="<?php echo IMAGE_PATH;?>/logo.png"></div><h1><font class="fg-dark-orange">test</font>scheduler</h1>
 				<div class = "sign-register">
-					<ul>
-						<li><a href = "#" id = "login" class="fg-dark-white">Sign-in</a></li>
-						<li><a href = "#" id = "register"  class="fg-dark-white"  >Register</a></li>
-					</ul>
+			
+				<a href = "#" id = "login"  class=" button_generic margin-left-10 ">Sign-in</a>
+				<a href = "#" id = "register"  class=" button_generic margin-left-10"  >Register</a>
+				
 				</div>
 			
 				<div class = "menu">
-					<ul>
-						<li><a href = "#" class="fg-dark-white button-anchor ">Pricing</a></li>
-						<li><a href = "<?php echo SITE_PATH."faq"; ?>" class="fg-dark-white button-anchor ">Faq's</a></li>
-						<li><a href = "#" class="fg-dark-white button-anchor ">Blogs</a></li>
-					</ul>
+					<a href = "#" class=" button_generic margin-left-10" >Pricing</a>
+						<a href = "<?php echo SITE_PATH."faq"; ?>" class=" button_generic margin-left-10">Faq's</a>
+						<a href = "#" class=" button_generic margin-left-10">Blogs</a>
+					 <a href = "#" class=" button_generic margin-left-10">Help</a>
+           <a href = "#" class=" button_generic margin-left-10">Trial</a>
+          
 				</div>
 			</div>
 		

@@ -146,7 +146,7 @@ $('.next').click(function(){
 
       "margin-left":value_move+"px"
 
-    },500).fadeOut("slow").fadeIn("fast");
+    },500);
 
   });
 
@@ -165,7 +165,7 @@ $('.next').click(function(){
 
       "margin-left":value_move+"px"
 
-    },500).fadeOut("slow").fadeIn("fast");
+    },500);
 
   });
 

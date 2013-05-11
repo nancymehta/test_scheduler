@@ -67,9 +67,9 @@
 	            <a href="index.php"><img alt=""  src="<?php echo IMAGE_PATH;?>t.png" /></a>
 	            <a href="index.php"><img alt=""  src="<?php echo IMAGE_PATH;?>i.png" /></a>
         </div>
-               <p class="reserve"> 
+               <span class="reserve"> 
                	{Copyright 2013. All rights reserved.}
-               </p>
+               </span>
         </div>
 				
 		</div>

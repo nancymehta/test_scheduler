@@ -95,7 +95,7 @@
                 <label class="label1"><?php echo "Query / Suggestions"; ?></label><textarea  class=" loginc textarea" name="contact_suggestion"  rows="4" cols="50" class="textarea" id="contact_suggestion"></textarea><br><br><br>
                 <span class ="con_data"> </span><br>
 
-                <input id="contactus" name="contactus" onclick="" type="submit" value="send" />
+                <input id="contactus" name="contactus" onclick="" type="submit" value="send" class="submmit_button_generic" />
 			</form>
             </div>
 
