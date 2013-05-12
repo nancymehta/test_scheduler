@@ -76,7 +76,7 @@ echo($query);
 		$query = 'UPDATE '. $this->table_list($tables). ' SET '
 		. $this->update_value_list($data)
 		.($conditions ? $this->where_list($conditions) : '');
-
+echo $query;
 		//Return the results -or a query string?
 		return $return ? $this->query($query) : $query;
 

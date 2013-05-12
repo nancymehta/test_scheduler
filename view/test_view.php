@@ -14,10 +14,14 @@ $options= $arrData[$quesNo."opt"];
 <?php
 echo $arrData["$quesNo"]['question']."<br/>";
 foreach($options as $val) {
+	$checked="";
+	if(in_array($val['id'],$_SESSION['answers'])) {
+		$checked="checked";
+	}
 	if(!empty($val)) {
 		//for MCQ
 		if($type==5 || $type==6 || $type==7) {
-			echo "<input type='radio' name='coption' value='".$val['id']."'>";
+			echo "<input type='radio' name='coption' value='".$val['id']."' $checked >";
 		}
 		//true false question but for this user must have valid
 		//entry in db seprately 
@@ -32,6 +36,7 @@ foreach($options as $val) {
 
 ?>
 <input type="hidden" name="controller" value="test" >
+<input type=submit name="function" value="prev">
 <input type=submit name="function" value="next">
 </form>
 

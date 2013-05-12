@@ -1,9 +1,10 @@
 
 <?php
+echo $_SERVER['REQUEST_URI'];
 if(!empty($_SESSION['answers'])) {
-	//print_r($arrData); 
 	foreach ($arrData as $key => $value) {
-		echo $arrData["$key"]['question']."<br/>";
+		echo "<a href='http://test_scheduler.com".$_SERVER['REQUEST_URI']."?id=1'>";   
+		echo $arrData["$key"]['question']."</a>"."<br/>";
 		echo $arrData["$key"]['option']."<br/>"."<br/>";
 	}
 	} else {

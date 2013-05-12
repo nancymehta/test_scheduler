@@ -16,6 +16,8 @@ class testController extends mainController {
 						"email_enroll_no"=>$_POST['email'],
 						"test_link_id"=>$test['test_link_id'],
 						"test_id"=>$test['test_id'], 
+						"start_time"=>"now()",
+						"ip_address"=>$_SERVER['REMOTE_ADDR'],
 						"created_by"=>'1',//taken default value 
 								//	must be retrived from db according to test_id
 						);
@@ -99,14 +101,17 @@ class testController extends mainController {
 		$answersId=$_POST['coption'];
 		$_SESSION['answers']["$questionId"]=$answersId;
 		$_SESSION['question']+=1;
+		if($_SESSION['question']>$_SESSION['total_question']) {
+			$_SESSION['question']=1;
+		}
 		header("location:"."http://test_scheduler.com".$_SERVER['REQUEST_URI']);
 	}
 	function finishTest() {
 		/*call a function to give result using guest id 
 		and load it to the view*/
-
+		$arrData=$this->loadModel("test","fetchSpecificResult",array("id"=>$_SESSION['guest_id']));
 		$_SESSION['total_question']=0; //indicates test is over
-		$this->loadView("finish_test");
+		$this->loadView("finish_test",$arrData);
 
 	}
 	function exitTest() {
@@ -118,6 +123,14 @@ class testController extends mainController {
 		$question=$this->loadModel("test","fetchAttemptedQuestions",$_SESSION['answers']);
 		$this->loadView("showattempted",$question);		
 		echo "yo";
+	}
+	function prev() {
+		echo "ssssssssssssssssssssssssss";
+		$_SESSION['question']-=1;
+		if($_SESSION['question']<1) {
+			$_SESSION['question']=$_SESSION['total_question'];
+		}
+		header("location:"."http://test_scheduler.com".$_SERVER['REQUEST_URI']);
 	}
 
 }

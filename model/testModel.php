@@ -73,16 +73,43 @@ class testModel extends dbConnectModel{
 	function insertAnswer($arrArgs=array()) {
 		echo "s";
 		if(!empty($arrArgs)) {
-			//
-			$result=$this->_db->insert("test_taker_ques",$arrArgs);
-			if($result->rowCount()>0) {
-				echo "inserted";
-
-				return $this->_db->lastInsertId();
+			$data['tables']="test_taker_ques";
+			$data['columns']=array("id");
+			$data['conditions']=array(
+							"test_taker_id"=>$arrArgs["test_taker_id"],
+		 					"ques_id"=>$arrArgs["ques_id"]);
+			$result2 = $this->_db->select($data);
+			$row=$result2->fetch(PDO::FETCH_ASSOC);
+			$_SESSION['cc']=$row;
+			if($row) {
+				$_SESSION['kk']=$row;
+				$answer=array("answer_given"=>$arrArgs['answer_given']);
+				$result=$this->_db->update("test_taker_ques",$answer,array("id"=>$row['id']));
+				if($result->rowCount()>0) {
+						echo "updated";
+						return $this->_db->lastInsertId();
+					} else {
+						echo "OOPSerted";
+						return 0;
+					}	
 			} else {
-				echo "OOPSerted";
-				return 0;
+				$_SESSION['kk']="no";
+				$_SESSION['kk']="insert";
+					$result=$this->_db->insert("test_taker_ques",$arrArgs);
+					if($result->rowCount()>0) {
+						echo "inserted";
+						return $this->_db->lastInsertId();
+					} else {
+						echo "OOPSerted";
+						return 0;
+					}		
 			}
+				
+			
+
+
+
+			
 		}
 	}
 	function fetchAttemptedQuestions($arrArgs=array()) {
@@ -100,6 +127,30 @@ class testModel extends dbConnectModel{
 		}
 		return($row);
 		}
+
+	}
+	function fetchSpecificResult($arrArgs=array()) {
+		$sql="select t.id,count(t.id) as score, 
+			tt.total_ques,t.first_name,t.start_time,
+			t.end_time,	t.last_name,t.email_enroll_no from
+				test_taker_ques tq 
+			join test_taker t
+				on tq.test_taker_id=t.id 
+			join question_options qo
+				on tq.answer_given=qo.id
+			join test tt
+				on tt.id=t.test_id
+			where t.test_id='1' and qo.correct='1'
+			AND t.id='".$arrArgs['id']."'
+			group by t.id";
+		$result = $this->_db->query($sql);
+		$row=	$result->fetch(PDO::FETCH_ASSOC);
+		if($row) {
+			return($row);
+		} else {
+			return -1;
+		}
+	
 
 	}
 }
