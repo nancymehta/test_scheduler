@@ -67,7 +67,8 @@ function testmanagement() {
 		$this->loadView ( "header" );
 		$this->loadView ( "user_header" );
 		$this->loadView ( "admin_view/admin_deshboard_menu" );
-		$this->loadView ( "admin_view/testmanagement" );
+		$arrArgs=$this->loadModel("admin","fetchTests");
+		$this->loadView ( "admin_view/testmanagement",$arrArgs );
 }
 function feedbackmanagement() {
 		$this->loadView ( "header" );
@@ -90,6 +91,17 @@ function adminMailSend(){
 			return 0;
 		}
 }
+	function deleteTest() {
+		$result=$this->loadModel("admin","deleteTest",array("id"=>$_REQUEST['id']));
+		if($result) {
+			echo "DELETED";
+		}
+	}
+	function fetchTestContents() {
+		
+		$arrArgs=$this->loadModel("admin","fetchTestContent",array("id"=>$_REQUEST['id']));
+		$this->loadView("admin_view/testContent",$arrArgs);
+	}
 }
 //set error handler
 

@@ -163,5 +163,46 @@ class adminModel extends dbConnectModel{
 			return 0;
 		}	
 	}
+	function fetchTests() {
+		$data['tables']="test";
+		$data['columns']=array("id","name","created_on");
+		$data['conditions']=array("status"=>"0");
+		$result=$this->_db->select($data);
+		$row=array();
+		while($temp=$result->fetch(PDO::FETCH_ASSOC)) {
+			$row[]=$temp;
+		}
+		return $row;
+	}
+	function fetchTestContent($arrArgs=array()) {
+		if(isset($arrArgs) && !empty($arrArgs)) {
+			$data['columns'] = array(
+					"question.question"
+					);
+			$data['tables'] = 'question';
+			$data['joins'][] = array(
+						'table' => 'test_question', 
+						'type'	=> '',
+						'conditions' => array('question.id' => 'test_question.question_id')
+						);
+			$data['conditions'] = array('test_question.test_id' => $arrArgs['id'],
+										"test_question.status"=>'0');
+			$result = $this->_db->select($data);
+            $userResult=array();
+			while ($row = $result->fetch(PDO::FETCH_ASSOC)){ 
+            			$userResult[]=$row;
+            		}
+				
+			return $userResult;
+		}
+	}
+	function deleteTest($arrArgs=array()) {
+		if(isset($arrArgs) && !empty($arrArgs)) {
+			$data['conditions']=array("id"=>$arrArgs['id']);
+			$result=$this->_db->update('test',array("status"=>"1"),$data['conditions']);
+			return $result;
+		}
+		
+	}
 }
 ?>
