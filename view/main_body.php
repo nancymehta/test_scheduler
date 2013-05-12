@@ -17,7 +17,7 @@
             <div class="home">
                 <div class="slidertopdiv">
 
-                <p>
+                <p></p>
                 </div>
                 <div id="slidercontainer1">
                     <div id="slider1"><img alt=""  src=

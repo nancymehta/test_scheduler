@@ -305,15 +305,20 @@ a{
 .mainContainer .header {
 
      position: relative;
+     position: fixed;
+     top: 0;
+     left: 0;
+     margin-bottom:100px; 
+     z-index: 9999999999;
+
 }
 .mainContainer .header  h1{
 
      position: absolute;
-     top: 15;
+     top: 18;
      left: 90;
      font-family: georgia;
-     text-decoration: overline;
-    
+        font-weight: 100;
      color: white;
 }
 .sign-register {
@@ -786,30 +791,6 @@ opacity: 0.8;
     float: left;
 
 }
-#b1 {
-    color: white;
-    height: 40px;
-    width: 100px;
-    float: right;
-    margin-right: 72px;
-	margin-top:20px;
-    text-align: center;
-    background-color:  #1A8ECD;
-    border: 1px solid #66A8CD;
-    
-    font-family: georgia;
-    font-size: 1em;
-    
- 
-font-style: italic;
-}
-
-#b1:hover {
-    background-color: #66A8CD;
-
-    color: white;
-    cursor: pointer;
-}
 
 
 
@@ -893,7 +874,7 @@ font-style: italic;
 	
     .logindiv{
     	position: absolute;
-    	top:60px;
+    	top:70px;
     	right :100px;
         background-color:white;
        	float:right;

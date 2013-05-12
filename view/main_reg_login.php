@@ -15,7 +15,7 @@
 		<div class = "mainContainer">
 		
 			<div class = "header bg-vib-blue">
-				<div class="logo"><img src="<?php echo IMAGE_PATH;?>/logo.png"></div><h1><font class="fg-dark-orange">test</font>scheduler</h1>
+				<div class="logo"><img src="<?php echo IMAGE_PATH;?>/logo.png"></div><h1>testscheduler</h1>
 				<div class = "sign-register">
 			
 				<a href = "#" id = "login"  class=" button_generic margin-left-10 ">Sign-in</a>
@@ -47,9 +47,10 @@
                     
                       <span class ="log_data"> </span>
 
-                    
+                    <div class"space"></div>
+                        <br>
                            
-              <input id="b1"  type="submit" value="Login" />
+              <input id="b1"  class="submmit_button_generic"  type="submit" value="Login"/>
                 
               
          </div>
@@ -98,7 +99,7 @@
   $publickey = "6LeCCOESAAAAAFFBFDxunP2CQUD0vtAl3hzsaODy"; // you got this from the signup page
   echo recaptcha_get_html($publickey);  ?>
               
- <input id="submit_registration"  type="submit" class="bg-vib-blue " onclick="abc()" value="<?php echo "SAVE"; ?>" />
+ <input id="submit_registration"  type="submit" class="submmit_button_generic" onclick="abc()" value="<?php echo "SAVE"; ?>"  />
             
 
             </div>
@@ -108,4 +109,8 @@
         
        </form> 
         </div>
+        <div class="space"></div>
+        
+        <div class="space"></div>
+        <div class="space"></div>
 				

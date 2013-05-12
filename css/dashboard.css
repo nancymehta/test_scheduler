@@ -114,7 +114,8 @@ textarea{
   }
   .midpanel{
 	
-  	height: auto;
+  	height: 100%;
+
   	width: 60%;
   	float:none;
   	padding: 10px;
@@ -142,16 +143,19 @@ textarea{
 
 .menu_container{
 	width: 100%;
-	height: 57px;
-
+	height: 118px;
+	position: fixed;
+	top: 0;
+	left: 0;
+opacity: 0.9;
 
 }
 .links {
-	
-	margin-top 				: 	10px;
+	position: fixed;
+	top 				: 	75;
 	float 					:   left;
-	margin-left 			:  200px;
-	height 					: 100%;
+	left 			:  200px;
+
 
 }
 
@@ -213,7 +217,7 @@ textarea{
 .menu-services  {
 
 	list-style-type			: none;
-	margin-left				:   295px;
+	left					:   295;
 	padding					:	1px;
 	font-size 				:	0.5em;
 	display 				: 	inline-block;
@@ -224,8 +228,8 @@ textarea{
 	border-radius			:	5px;
     text-align				: 	left;
     height                  :   auto;
-	position 				:   absolute;
-	margin-top 				: 	55px;
+	position 				:   fixed;
+	top 				: 	115px;
 	color 					:   black;
 	z-index					:	999999;
 	border                  :   1px solid 	white;
@@ -233,13 +237,13 @@ textarea{
 
 }
 
-.tech-services  {
+.tech-services  {	
+	position: fixed;
 
 	z-index					:	999999;
 	list-style-type  		: 	none;
 	border                  :	2px solid #ddd;
-	margin-top 				: 	55px;
-	margin-left				:   295px;
+	top 				: 	115;
 	color 					:   black;
 	padding					:	1px;
 	font-size 				:	0.5em;
@@ -251,7 +255,7 @@ textarea{
     text-align				: 	left;
    height                  :    auto;
     position                :   absolute;
-    left					:	108px;
+    left					:	380;
     background-color 		:   #9B9B9B;
 	border                  :   1px solid 	white;
 }
@@ -346,11 +350,14 @@ textarea{
 
 .submmit_button_generic{
 	border                  :	1px solid #ddd;
-	margin-left				:   20px;
-	
+	margin-left				:   15px;
+	width: 250px;
+
 	padding					:	10px;
-	font-weight				: 	bold;
-	font-size 				:	0.7em;
+	font-style 				: italic;
+	font-weight				: 	900;
+
+	font-size 				:	0.8em;
 	background-color 		:   #585858;
 	color 					:   white; 	
 		
