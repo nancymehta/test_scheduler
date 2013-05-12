@@ -10,8 +10,7 @@ require_once(CONFIG_ROOT.'constants.php');
 if(PHASE=="Development" || PHASE=="Testing"){
 	ini_set("log_errors", 1);
 	ini_set("error_log", "config/php-error.log");
-	ini_set("display_errors","1");
-	
+	ini_set("display_errors","1");	
 }
 else{
 	ini_set("display_errors","0");
@@ -24,11 +23,15 @@ if(isset($_REQUEST['controller']) && !empty($_REQUEST['controller'])){
     
 }
 else{
-	if(isset($_SESSION['SESS_USER_TYPE']) && $_SESSION['SESS_USER_TYPE']=='0') {
-		$controller = "admin";
-	}
-	else if ($_SESSION ['SESS_USER_TYPE'] == 1) {
-        $controller = "user";
+	if(isset($_SESSION['SESS_USER_TYPE']))  {
+		if($_SESSION['SESS_USER_TYPE']=='1') {
+			$controller = "user";
+		}
+		else if($_SESSION['SESS_USER_TYPE']=='0')  {
+        	$controller = "admin";
+    	} else {
+			$controller = "main";
+    	}
     } else {
         $controller = 'main'; // default controller
     }
