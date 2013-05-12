@@ -130,7 +130,8 @@ class createTestController extends mainController {
 		}
 	}
 	
-	/********Method related to certificate management **************/
+	/********Methods related to certificate management **************/
+
 	# method to show certificate create view
 	function showCertificateCreate() {
 		try {
@@ -143,7 +144,7 @@ class createTestController extends mainController {
 		}
 	}
 	
-	# method to certificate create view
+	# method to create certificate 
 	function certificateCreate() { 
 		try { 
 			if ((! empty ($_POST ['certificate_name'])) && 
@@ -174,14 +175,24 @@ class createTestController extends mainController {
 	#method to show certificate 
 	function showCertificate() {  
 		try {  
-				$arrArgs = array (
-									'id'		=> 10 
+				#create array containg user details like name, marks , total marks 
+				$arrArgs = array(  
+									'userName'			=> 'Dean Winchester',
+									'marksObtained'		=> '99',
+									'totalMarks'		=> '100',
+									'testDate'			=> '12/05/13',
+									'id' 		=> 10, 
 							); 
-				$Result = $this->loadModel ( 'createTest', 'showCertificate', $arrArgs );
+							
+				#loading model to retrieve certificate details			
+				$Result = $this->loadModel ( 'createTest', 'showCertificate', $arrArgs ); 
 				if ($Result) {
 					
+					#merging userdetails and certificate details
 					$result_data = array_merge($arrArgs,$Result); 
-					$this->loadModel ( 'createTest', 'drawCertificate', $result_data );
+					 
+					#loading model to dynamically generate certificate 
+					$this->loadModel ( 'createTest', 'drawCertificate', $result_data ); 
 				} else {
 					echo 'could not show certificate';
 				}	

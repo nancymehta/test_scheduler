@@ -268,7 +268,8 @@ class createTestModel extends dbConnectModel {
 		}
 	}
 	
-	/*********************  Method related to certificate managment **************/
+	/*********************  Methods related to certificate managment **************/
+	
 	# Method to create new certificate
 	public function createNewCertificate($arrArgs) {
 		try {
@@ -304,14 +305,15 @@ class createTestModel extends dbConnectModel {
 			if (! empty ( $arrArgs )) {
 									
 				$data ['tables'] 	 = 'certificate_master';
-				$data ['conditions'] = array (
-										'id' => $arrArgs ['id']
-									  );
-				$result_select = $this->_db->select ( $data );
+				$data ['conditions'] = array(
+											'id' => $arrArgs ['id']
+									   );
+									  
+				#selecting certificate details from certificate_master table					  
+				$result_select = $this->_db->select ( $data ); 
 				$row = $result_select->fetch ( PDO::FETCH_ASSOC );
-				if (!empty ( $row ) == 1) { //var_dump($row);
-				
-					return $row;
+				if (!empty ( $row ) == 1) { 
+					return $row; # returning certificate details 
 				} else {
 					return false;
 				}
@@ -328,33 +330,37 @@ class createTestModel extends dbConnectModel {
 		try {
 			if (! empty ( $arrArgs )) {
 									
-				//var_dump($arrArgs);
-				$imagePath = $arrArgs['upload_path'];
-				$certficateName = $arrArgs['name'];
-				$userName ='Dean';
-				$marksObtained =99;
-				$totralMarks =100;
-				$date		 = "12/5/13";
+				$imagePath = $arrArgs['upload_path'];     # getting certificate path 
 				
+				$certficateName = $arrArgs['name'];
+				$userName 		= $arrArgs['userName'];
+				$marksObtained	= $arrArgs['marksObtained'];
+				$totralMarks 	= $arrArgs['totalMarks'];
+				$testDate		= $arrArgs['testDate'];
+				
+				#setting path for saved certificates
 				$imageSavePath = "misc/SavedCertificate/".$certficateName.$userName.".jpeg";
 				
 				header ("Content-type: image/jpeg");
 				
-				$font = 8;
+				$font = 8;		#fontsize for writing details on certificate
 				$im = ImageCreateFromJPEG( $imagePath );
 				
 				$backgroundColor = imagecolorallocate ($im, 255, 255, 255);
 				$textColor = imagecolorallocate ($im, 0, 0,0);
 				
+				#writing user specific details on the certificate
 				imagestring ($im, $font, 60 , 80 ,  $userName      , $textColor);
 				imagestring ($im, $font, 50 , 100,  $certficateName, $textColor);
 				imagestring ($im, $font, 70 , 120,  $marksObtained , $textColor);
 				imagestring ($im, $font, 100, 120,  $totralMarks   , $textColor);
-				imagestring ($im, $font, 90 , 140,  $date          , $textColor);
-				//echo "<img src=".imagejpeg($im,NULL, 100)."alt='ash' height='500' width='600'/>";
-				imagejpeg($im,NULL, 100);
-				imagejpeg($im, $imageSavePath, 100);    //saving certificate image
+				imagestring ($im, $font, 90 , 140,  $testDate      , $textColor);
 				
+				#displaying certificate
+				imagejpeg($im,NULL, 100);
+				
+				#saving certificate image
+				imagejpeg($im, $imageSavePath, 100); 
 				
 				
 			} else {
