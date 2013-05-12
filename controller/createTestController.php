@@ -8,7 +8,7 @@
 *Siddarth							10/5/13			worked on above 3 functions
 *Siddarth							11/5/13			created test settings
 *Siddarth							12/5/13			worked on test settings
-*
+*Ashwani		Certificate			12/5/13			Added methods for certificate management 
 ************************************************************
 *
 */
@@ -125,6 +125,77 @@ class createTestController extends mainController {
 				echo 'could not update the test';
 			}
 					 
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
+	/********Method related to certificate management **************/
+	# method to show certificate create view
+	function showCertificateCreate() {
+		try {
+			$this->loadView("header" );
+			$this->loadView("user_header" );
+			$this->loadView("user_examiner_view/deshboard_menu" ); 
+			$this->loadView("user_examiner_view/showCertificateCreate");
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
+	# method to certificate create view
+	function certificateCreate() { 
+		try { 
+			if ((! empty ($_POST ['certificate_name'])) && 
+				(! empty ($_POST ['certificate_title'])) &&
+				(! empty ($_POST ['certificate_body'])))	{
+				$certificateName	 = strip_tags ($_POST ['certificate_name']);
+				$certificateTitle 	 = strip_tags ($_POST ['certificate_title']);
+				$certificateBody 	 = strip_tags ($_POST ['certificate_body']);
+				$arrArgs = array (
+						'name' 				=> $certificateName,
+						'certificate_title' => $certificateTitle,
+						'certificate_body' 	=> $certificateBody 
+				);
+				$boolResult = $this->loadModel ( 'createTest', 'createNewCertificate', $arrArgs );
+				if ($boolResult) {
+					echo 'created the certificate successfully';
+				} else {
+					echo 'could not create certificate';
+				}
+			} else {
+					echo "no input";
+			}
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
+	#method to show certificate 
+	function showCertificate() {  
+		try {  
+			if ((! empty ($_POST ['certificate_name'])) && 
+				(! empty ($_POST ['certificate_title'])) &&
+				(! empty ($_POST ['certificate_body'])))	{
+				$certificateName	 = strip_tags ($_POST ['certificate_name']);
+				$certificateTitle 	 = strip_tags ($_POST ['certificate_title']);
+				$certificateBody 	 = strip_tags ($_POST ['certificate_body']); 
+				$arrArgs = array (
+							'name' 				=> $certificateName,
+							'certificate_title' => $certificateTitle,
+							'certificate_body' 	=> $certificateBody,
+							'id'				=> 10 
+						); 
+				$Result = $this->loadModel ( 'createTest', 'showCertificate', $arrArgs );
+				if ($Result) {
+					
+					$result_data = array_merge($arrArgs,$Result); 
+					//var_dump($result); die("here");
+					$this->loadModel ( 'createTest', 'drawCertificate', $result_data );
+				} else {
+					echo 'could not show certificate';
+				}
+			}	
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}

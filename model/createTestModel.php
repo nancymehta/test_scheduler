@@ -8,7 +8,7 @@
 *Siddarth		10/5/13			getTestCategories,getTestNames
 *Siddarth		11/5/13			created test settings
 *Siddarth		12/5/13			worked on test settings,getTestLinkValues
-*
+*Ashwani 		12/5/13 		added methods related to certificate management
 ************************************************************
 *
 */include MODEL_PATH . "db_connect.php";
@@ -267,5 +267,98 @@ class createTestModel extends dbConnectModel {
 			$this->handleException ( $e->getMessage () );
 		}
 	}
+	
+	/*********************  Method related to certificate managment **************/
+	# Method to create new certificate
+	public function createNewCertificate($arrArgs) {
+		try {
+			if (! empty ( $arrArgs )) {
+				$data ['tables'] = 'certificate_master';
+				$data ['columns'] = array (
+										'name'				=> $arrArgs ['name'],
+										'certificate_title' => $arrArgs ['certificate_title'],
+										'certificate_body'  => $arrArgs ['certificate_body'],
+										'created_on' 		=> 'NOW()',
+										'updated_on' 		=> 'NOW()',
+										'created_by' 		=> 1,
+										'upload_path'		=> 'http://test_scheduler.com/misc/certificateUploads/certificate.jpg'
+									);
+				$result_query = $this->_db->insert ( $data ['tables'], $data ['columns'] );
+				
+				if ($result_query) {
+					return true;
+				} else {
+					return false;
+				}
+			 } else {
+				return false;
+			}
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
+	# Method to show certificate
+	public function showCertificate($arrArgs) {
+		try {
+			if (! empty ( $arrArgs )) {
+									
+				$data ['tables'] 	 = 'certificate_master';
+				$data ['conditions'] = array (
+										'id' => $arrArgs ['id']
+									  );
+				$result_select = $this->_db->select ( $data );
+				$row = $result_select->fetch ( PDO::FETCH_ASSOC );
+				if (!empty ( $row ) == 1) { //var_dump($row);
+				
+					return $row;
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}		
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
+	# Method to dynamically create certificate
+	public function drawCertificate($arrArgs) {
+		try {
+			if (! empty ( $arrArgs )) {
+									
+				//var_dump($arrArgs);
+				$imagePath = $arrArgs['upload_path'];
+				$name = $arrArgs['name'];
+				$imageSavePath = "http://test_scheduler.com/misc/SavedCertificate";
+				
+				$save = $imageSavePath.strtolower($name) .".jpeg";
+				
+				header ("Content-type: image/jpeg");
+				$string = $arrArgs['certificate_title'];
+				$font = 8;
+				$width = imagefontwidth($font) * strlen($string) ;
+				$height = imagefontheight($font) ;
+				$im = ImageCreateFromJPEG( $imagePath );
+				$x = 60;
+				$y = 80;
+				$backgroundColor = imagecolorallocate ($im, 255, 255, 255);
+				$textColor = imagecolorallocate ($im, 0, 0,0);
+				imagestring ($im, $font, $x, $y,  $string, $textColor);
+				echo "<img src=".imagejpeg($im)."alt='ash' height='500' width='600'/>";
+				//imagejpeg($im, $save);
+				
+				
+				
+			} else {
+				return false;
+			}		
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
+	
 	
 }
