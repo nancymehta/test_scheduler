@@ -1,3 +1,4 @@
+<?php //print_r($arrData);?>
 <div class="add_test colorblue">
 	<form method="post"
 		action="http://test_scheduler.com/createTest/updateTest"

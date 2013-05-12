@@ -6,7 +6,6 @@ require_once(LIBRARY_ROOT.'common.inc.php');
 require_once(LANGUAGE_ROOT.'lang.en.php');
 require_once(CONFIG_ROOT.'constants.php'); 
 
-
 if(PHASE=="Development" || PHASE=="Testing"){
 	ini_set("log_errors", 1);
 	ini_set("error_log", "config/php-error.log");

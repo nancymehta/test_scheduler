@@ -35,12 +35,12 @@
 				<th>S.No.</th>
 				<th>Test</th>
 				<th colspan="3">Option</th>
+				<th>Test Link</th>
 			</tr>
 			<?php
 			$i = 0;
 			$count = 0;
 			echo '<pre>';
-			// print_r($arrData);die("here");
 			if (isset ( $arrData ['test'] ['testName'] )) {
 				while ( (! empty ( $arrData ['test'] ['testName'] [$i] )) ) {
 					echo '<tr>';
@@ -50,7 +50,8 @@
 					echo '</td>';
 					echo '<td><a href="http://test_scheduler.com/createTest/editTest?test_id=' . $arrData ['test'] ['testId'] [$i] . '&test_name=' . $arrData ['test'] ['testName'] [$i] . '">Edit</a></td>';
 					echo '<td><a href="#">Delete</a></td>';
-					echo '<td><a href="#">Manage assign test</a></td>';
+					echo '<td><a href="http://test_scheduler.com/user/examSettings?test_id=' . $arrData ['test'] ['testId'] [$i] . '&test_name=' . $arrData ['test'] ['testName'] [$i] . '">Manage assign test</a></td>';
+					echo "<td>test_scheduler.com/test/".md5($arrData ['test'] ['testId'][$i])."</td>";
 					$i ++;
 					echo '</tr>';
 				}

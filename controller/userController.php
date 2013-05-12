@@ -78,5 +78,27 @@ class userController extends mainController {
 		$this->loadView ( "user_header" );
 		$this->loadView ( "user_examiner_view/deshboard_menu" );
 	}
+	
+	function examSettings() {
+		//echo 'hi';
+		//echo $_GET ['test_id'];die;
+		$arrData = $this->loadModel ( 'createTest', 'getTestLinkValues', array (
+				"test_id" => $_GET ['test_id']
+		) );
+		//var_dump($arrData);die;
+		//die("here");
+		if (! empty ( $arrData )) {
+			// echo '<pre>';print_r($arrData);die;
+			$this->loadView ( "header" );
+			$this->loadView ( "user_header" );
+			$this->loadView ( "user_examiner_view/deshboard_menu" );
+			$this->loadView ( "user_examiner_view/examSettings", $arrData );
+		} else {
+			$this->loadView ( "header" );
+			$this->loadView ( "user_header" );
+			$this->loadView ( "user_examiner_view/deshboard_menu" );
+			$this->loadView ( "user_examiner_view/examSettings" );
+		}
+	}
 }
 ?>

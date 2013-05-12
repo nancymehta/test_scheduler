@@ -1,9 +1,17 @@
 <?php
-
-/*
- * @author :Siddarth Chowdhary @created on :08-05-2013 @desc		 :Model to create a test.
- */
-include MODEL_PATH . "db_connect.php";
+/* @author 		 :Siddarth Chowdhary
+ * @created on   :07-05-2013
+* @desc		 	 :Model to create a test.
+****************Modifed Log ********************************
+*Name			Date			Description
+*Siddarth       9/5/13          added createNewTest,editTest,updateTest
+*Siddarth		10/5/13			getTestCategories,getTestNames
+*Siddarth		11/5/13			created test settings
+*Siddarth		12/5/13			worked on test settings,getTestLinkValues
+*
+************************************************************
+*
+*/include MODEL_PATH . "db_connect.php";
 class createTestModel extends dbConnectModel {
 	function __construct() {
 		parent::__construct ();
@@ -81,12 +89,10 @@ class createTestModel extends dbConnectModel {
 			);
 			
 			$result = $this->_db->select ( $data );
-			// print_r($result);
 			while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
 				$categoryArray ['category_name'] [] = $row ['name'];
 				$categoryArray ['category_id'] [] = $row ['id'];
 			}
-			// print_r($categoryArray);die("here");
 			return $categoryArray;
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
@@ -96,7 +102,7 @@ class createTestModel extends dbConnectModel {
 	// Viewing Tests categories
 	public function getTestNames($arrArgs) {
 		try {
-			$TestArray = array ();
+			$testArray = array ();
 			$data ['tables'] = 'test';
 			$data ['columns'] = array (
 					'name',
@@ -107,13 +113,12 @@ class createTestModel extends dbConnectModel {
 			);
 			
 			$result = $this->_db->select ( $data );
-			// print_r($result);
 			while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
-				$TestArray ['testName'] [] = $row ['name'];
-				$TestArray ['testId'] [] = $row ['id'];
+				$testArray ['testName'] [] = $row ['name'];
+				$testArray ['testId'] [] = $row ['id'];
 			}
 			// print_r($categoryArray);die("here");
-			return $TestArray;
+			return $testArray;
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}
@@ -122,9 +127,65 @@ class createTestModel extends dbConnectModel {
 	// Deleting Test
 	public function deleteTest() {
 		try {
-			/*
-			 * echo "hi"; $data['tables'] = 'category'; $data['conditions']=array('id'=>$cat_id); $result = $this->_db->delete($data['tables'],$data['conditions']); if($result) { return "done"; }else { return "error"; }
-			 */
+			//query needed
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
+	
+	// Test Settings
+	public function testSettings($arrArgs) {
+		try {
+			if (! empty ( $arrArgs )) {
+				//select query to check whether data exists for particular test in test_link table
+				$row = $this->getTestLinkValues($arr=array('test_id'=>$arrArgs['test_id']));
+				if(empty($row)){
+					// query to insert data in the test_link table
+					$data ['tables'] = 'test_link';
+					$data ['columns'] = array (
+							'test_id' => $arrArgs['test_id'],
+							'random' => $arrArgs['random'],
+							'start_time' => $arrArgs['start_time'],
+							'end_time' => $arrArgs['end_time'],
+							'link' => md5($arrArgs['test_id']),
+							'time_limit' => $arrArgs ['time_limit'],
+							'feedback' => $arrArgs ['feedback'],
+							'email_results' => $arrArgs ['email_results'],
+							'created_by'=> $arrArgs ['created_by'],
+							'pass_marks'=> $arrArgs ['pass_marks'],
+							'per_page_ques' =>$arrArgs ['per_page_ques']
+					);
+					
+					$result = $this->_db->insert ( $data ['tables'], $data ['columns'] );
+						if ($result) {
+							return true;
+						} else {
+							return false;
+						}
+				} else {
+					$data = array (
+							'random' => $arrArgs['random'],
+							'start_time' => $arrArgs['start_time'],
+							'end_time' => $arrArgs['end_time'],
+							'time_limit' => $arrArgs ['time_limit'],
+							'feedback' => $arrArgs ['feedback'],
+							'email_results' => $arrArgs ['email_results'],
+							'created_by'=> $arrArgs ['created_by'],
+							'pass_marks'=> $arrArgs ['pass_marks'],
+							'per_page_ques' =>$arrArgs ['per_page_ques']
+					);
+					$where = array (
+							'test_id' => $arrArgs ['test_id']
+					);
+					$result_update = $this->_db->update ( 'test_link', $data, $where );
+					if ($result_update) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+			}
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}
@@ -187,6 +248,24 @@ class createTestModel extends dbConnectModel {
 			$this->handleException ( $e->getMessage () );
 		}
 	}
+	
+	//getting test link table values for a particular test_id
+	public function getTestLinkValues($arrArgs) {
+		try {
+			$data ['tables'] = 'test_link';
+			$data ['conditions'] = array (
+					'test_id' => $arrArgs ['test_id']
+			);
+			$result_select = $this->_db->select ( $data );
+			$row = $result_select->fetch ( PDO::FETCH_ASSOC );
+			if (!empty ( $row ) == 1) {
+				return $row;
+			} else {
+				return false;
+			}
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
 }
-
-
