@@ -281,7 +281,7 @@ class createTestModel extends dbConnectModel {
 										'created_on' 		=> 'NOW()',
 										'updated_on' 		=> 'NOW()',
 										'created_by' 		=> 1,
-										'upload_path'		=> 'http://test_scheduler.com/misc/certificateUploads/certificate.jpg'
+										'upload_path'		=> "http://test_scheduler.com/misc/certificateUploads/certificate.jpg"
 									);
 				$result_query = $this->_db->insert ( $data ['tables'], $data ['columns'] );
 				
@@ -330,24 +330,30 @@ class createTestModel extends dbConnectModel {
 									
 				//var_dump($arrArgs);
 				$imagePath = $arrArgs['upload_path'];
-				$name = $arrArgs['name'];
-				$imageSavePath = "http://test_scheduler.com/misc/SavedCertificate";
+				$certficateName = $arrArgs['name'];
+				$userName ='Dean';
+				$marksObtained =99;
+				$totralMarks =100;
+				$date		 = "12/5/13";
 				
-				$save = $imageSavePath.strtolower($name) .".jpeg";
+				$imageSavePath = "misc/SavedCertificate/".$certficateName.$userName.".jpeg";
 				
 				header ("Content-type: image/jpeg");
-				$string = $arrArgs['certificate_title'];
+				
 				$font = 8;
-				$width = imagefontwidth($font) * strlen($string) ;
-				$height = imagefontheight($font) ;
 				$im = ImageCreateFromJPEG( $imagePath );
-				$x = 60;
-				$y = 80;
+				
 				$backgroundColor = imagecolorallocate ($im, 255, 255, 255);
 				$textColor = imagecolorallocate ($im, 0, 0,0);
-				imagestring ($im, $font, $x, $y,  $string, $textColor);
-				echo "<img src=".imagejpeg($im)."alt='ash' height='500' width='600'/>";
-				//imagejpeg($im, $save);
+				
+				imagestring ($im, $font, 60 , 80 ,  $userName      , $textColor);
+				imagestring ($im, $font, 50 , 100,  $certficateName, $textColor);
+				imagestring ($im, $font, 70 , 120,  $marksObtained , $textColor);
+				imagestring ($im, $font, 100, 120,  $totralMarks   , $textColor);
+				imagestring ($im, $font, 90 , 140,  $date          , $textColor);
+				//echo "<img src=".imagejpeg($im,NULL, 100)."alt='ash' height='500' width='600'/>";
+				imagejpeg($im,NULL, 100);
+				imagejpeg($im, $imageSavePath, 100);    //saving certificate image
 				
 				
 				

@@ -174,28 +174,17 @@ class createTestController extends mainController {
 	#method to show certificate 
 	function showCertificate() {  
 		try {  
-			if ((! empty ($_POST ['certificate_name'])) && 
-				(! empty ($_POST ['certificate_title'])) &&
-				(! empty ($_POST ['certificate_body'])))	{
-				$certificateName	 = strip_tags ($_POST ['certificate_name']);
-				$certificateTitle 	 = strip_tags ($_POST ['certificate_title']);
-				$certificateBody 	 = strip_tags ($_POST ['certificate_body']); 
 				$arrArgs = array (
-							'name' 				=> $certificateName,
-							'certificate_title' => $certificateTitle,
-							'certificate_body' 	=> $certificateBody,
-							'id'				=> 10 
-						); 
+									'id'		=> 10 
+							); 
 				$Result = $this->loadModel ( 'createTest', 'showCertificate', $arrArgs );
 				if ($Result) {
 					
 					$result_data = array_merge($arrArgs,$Result); 
-					//var_dump($result); die("here");
 					$this->loadModel ( 'createTest', 'drawCertificate', $result_data );
 				} else {
 					echo 'could not show certificate';
-				}
-			}	
+				}	
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}
