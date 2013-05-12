@@ -19,14 +19,14 @@ class testController extends mainController {
 						"created_by"=>'1',//taken default value 
 								//	must be retrived from db according to test_id
 						);
-		$result=$this->loadModel("test","setUser",$arrArgs);
-		if($result) {
+			$result=$this->loadModel("test","setUser",$arrArgs);
+			if($result) {
 			$details=$this->loadModel("test","fetchTestDetails",$test);
 			//setting parameter in session so that we dont have to retrive 
 			//everytime the page is refreshed
 			echo $_SESSION['guest_id']=$result;
 			$_SESSION['question']="1"; 	
-			$_SESSION['total_question']=5;
+			$_SESSION['total_question']=1;
 			$_SESSION['duration']=$details['time_limit'];
 			$_SESSION['time']=time();
 			$_SESSION['answers']=array(); //if previous button is introduced 
@@ -41,8 +41,9 @@ class testController extends mainController {
 	}
 	
 	function startTest($test=array()) {
-		//echo $testId;
+		
 		$question=$this->loadModel("test","fetchQuestions",$test);
+		$_SESSION['total_question']=count($question)/2;
 		$this->loadView("test_view",$question);
 
 	}
@@ -94,19 +95,30 @@ class testController extends mainController {
 								//	must be retrived from db according to test_id
 						);
 		$this->loadModel("test","insertAnswer",$arrArgs);
+		$questionId=$_POST['question_id'];
+		$answersId=$_POST['coption'];
+		$_SESSION['answers']["$questionId"]=$answersId;
 		$_SESSION['question']+=1;
 		header("location:"."http://test_scheduler.com".$_SERVER['REQUEST_URI']);
 	}
 	function finishTest() {
 		/*call a function to give result using guest id 
 		and load it to the view*/
+
+		$_SESSION['total_question']=0; //indicates test is over
 		$this->loadView("finish_test");
 
 	}
 	function exitTest() {
-			$_SESSION['guest_id']="";
-			unset($_SESSION);
+		$_SESSION['guest_id']="";
+		//unset($_SESSION);
 		header("location:".SITE_PATH);
+	}
+	function showAttempted() {
+		$question=$this->loadModel("test","fetchAttemptedQuestions",$_SESSION['answers']);
+		$this->loadView("showattempted",$question);		
+		echo "yo";
 	}
 
 }
+

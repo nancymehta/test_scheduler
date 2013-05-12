@@ -85,6 +85,23 @@ class testModel extends dbConnectModel{
 			}
 		}
 	}
+	function fetchAttemptedQuestions($arrArgs=array()) {
+		if(!empty($arrArgs)) {
+		$data['tables']="question q";
+		$data['columns']=array('q.question','qo.option');
+		$data['conditions']=array("qo.id"=>$arrArgs);
+		$data['joins'][] = array(
+		'table' => 'question_options qo', 
+		'type'	=> 'inner',
+		'conditions' => array('q.id' => 'qo.ques_id'));
+		$result = $this->_db->select($data);
+		while($row[]	=	$result->fetch(PDO::FETCH_ASSOC)){
+			
+		}
+		return($row);
+		}
+
+	}
 }
 	
 ?>	

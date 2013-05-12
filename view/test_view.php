@@ -35,6 +35,7 @@ foreach($options as $val) {
 <input type=submit name="function" value="next">
 </form>
 
+<a href="<?php echo SITE_PATH."test/finishTest"; ?>" >FINISH TEST</a>
 <?php } else {
 	?>
  <br/> test Empty <br/>
@@ -43,4 +44,14 @@ foreach($options as $val) {
 	<input type="submit" name='function' value="exitTest">
 </form>
  <?php
-}?>
+}
+?>
+<button onclick="showAttempted()">Show Attempted</button>
+<div id="showattemped"></div>
+
+
+<script type="text/javascript">
+function showAttempted() {
+	$("#showattemped").load("index.php","controller=test&function=showAttempted");
+}
+</script>

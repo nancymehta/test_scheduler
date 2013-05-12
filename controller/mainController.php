@@ -112,6 +112,7 @@ class mainController extends common{
 		$_SESSION['SESS_USER_NAME']="";
 		$_SESSION['SESS_USER_TYPE']="";
 		unset($_SESSION);
+		session_unset();
 		header("location:".SITE_PATH);
 
 	}
