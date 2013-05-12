@@ -1,8 +1,12 @@
+
 <?php 
-//print_r($arrData);
-//$_SESSION['question']=0;
+
+
+//print_r($_SESSION);
+//$_SESSION['question']=0; 
+
 if(!empty($arrData)) {
-echo $quesNo=$_SESSION['question'];
+$quesNo=$_SESSION['questions'][$_SESSION['question']];
 $type=$arrData["$quesNo"]['ques_type_id'];
 $questionId=$arrData["$quesNo"]['question_id'];
 $options= $arrData[$quesNo."opt"];
@@ -12,7 +16,10 @@ $options= $arrData[$quesNo."opt"];
 <form method="post" action="#" > 
 <input type='hidden' value='<?php echo $questionId; ?>' name='question_id'>
 <?php
-echo $arrData["$quesNo"]['question']."<br/>";
+echo ($_SESSION['question']+1); //serial no.
+echo " Question ".$arrData["$quesNo"]['question']."<br/>";
+shuffle($options);
+
 foreach($options as $val) {
 	$checked="";
 	if(in_array($val['id'],$_SESSION['answers'])) {
@@ -26,6 +33,8 @@ foreach($options as $val) {
 		//true false question but for this user must have valid
 		//entry in db seprately 
 		if($type==6) {
+		//	echo "<input type='checkbox' name='coption' value='".$val['id']."' $checked >";
+
 		}
 		// for check box
 		if($type==7) {

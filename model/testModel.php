@@ -35,9 +35,25 @@ class testModel extends dbConnectModel{
 		}
 	}
 	function fetchTestDetails($arrArgs=array()) {
+		$testId=$arrArgs['test_id'];
 		$data['tables']="test_link";
+		$data['conditions']=array("test_id"=>"$testId");
 		$result = $this->_db->select($data);
-		return ($row	=	$result->fetch(PDO::FETCH_ASSOC));
+		$row1	=	$result->fetch(PDO::FETCH_ASSOC);
+		//fetching questions
+		$_SESSION['jj']=($arrArgs);
+		$data['tables']="test_question";
+		$data['conditions']=array("test_id"=>"$testId");
+		$data['columns']=array("question_id");
+		$result2 = $this->_db->select($data);
+		$ques=array();
+		while($row2 = $result2->fetch(PDO::FETCH_ASSOC)) {
+			array_push($ques,$row2['question_id']);
+		}
+		$row=array("details"=>$row1,
+					"questions"=>$ques
+					);
+		return ($row);
 	}
 	//
 	function fetchQuestions($arrArgs=array()) {

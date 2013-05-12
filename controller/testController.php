@@ -23,17 +23,23 @@ class testController extends mainController {
 						);
 			$result=$this->loadModel("test","setUser",$arrArgs);
 			if($result) {
-			$details=$this->loadModel("test","fetchTestDetails",$test);
+			$res=$this->loadModel("test","fetchTestDetails",$test);
+			$details=$res['details'];
 			//setting parameter in session so that we dont have to retrive 
 			//everytime the page is refreshed
-			echo $_SESSION['guest_id']=$result;
-			$_SESSION['question']="1"; 	
+			$_SESSION['guest_id']=$result;
+			$_SESSION['question']="0"; 	
+			$_SESSION['pass_marks']=$details['pass_marks'];
 			$_SESSION['total_question']=1;
 			$_SESSION['duration']=$details['time_limit'];
 			$_SESSION['time']=time();
 			$_SESSION['answers']=array(); //if previous button is introduced 
-											//rather than checking from db for previous answers
-
+							//rather than checking from db for previous answers
+			$_SESSION['select_answer']=$details['select_answer'];							
+			$_SESSION['questions']=$res['questions'];	
+			if($details['random']=='1') {
+				shuffle($_SESSION['questions']);
+			}
 			header("location:".SITE_PATH."test/home/".$testUrl)	;
 
 		}
@@ -54,7 +60,7 @@ class testController extends mainController {
 		//unset($_SESSION['guest_id']);	
 		$this->loadView("header");
 	 	$this->loadView("user_header");
-	 	print_r($_SESSION);
+	 	//print_r($_SESSION);
 	 	$url = explode ( "/", @$_REQUEST ['function'] );
 		if (count ( $url ) > 2 ) {
 			$testUrl=$url[2];
@@ -68,8 +74,8 @@ class testController extends mainController {
 					$this->loadView('user_examiner_view/user_test_info');
 				} else {
 					/// all The Test Settings here :D
-					if($_SESSION['question']>$_SESSION['total_question']) {
-							$this->finishTest();
+					if($_SESSION['question']>=$_SESSION['total_question']) {
+								$this->finishTest();
 					} else if(($_SESSION['time']+($_SESSION['duration']*60))<time()) {
 					/*For test to finish in given Duration*///TO be verified
 						echo "TIMES UP";
@@ -88,8 +94,9 @@ class testController extends mainController {
 		}
 	}
 	function next() {
-		print_r($_POST);
-		$arrArgs =array(
+		//print_r($_POST);
+		if(!empty($_POST['coption']) && $_POST['coption']!="" ) {
+			$arrArgs =array(
 		 	"test_taker_id"=>$_SESSION['guest_id'],
 		 	"ques_id"=>$_POST['question_id'],
 		 	"answer_given"=>$_POST['coption'],
@@ -101,22 +108,31 @@ class testController extends mainController {
 		$answersId=$_POST['coption'];
 		$_SESSION['answers']["$questionId"]=$answersId;
 		$_SESSION['question']+=1;
-		if($_SESSION['question']>$_SESSION['total_question']) {
-			$_SESSION['question']=1;
+		if($_SESSION['question']>=$_SESSION['total_question']) {
+			$_SESSION['question']=0;
 		}
+		
+	} else {
+		if($_SESSION['select_answer']=='1') {
+			$_SESSION['question']+=1;
+			if($_SESSION['question']>=$_SESSION['total_question']) {
+				$_SESSION['question']=0;
+			}
+		}
+	}
 		header("location:"."http://test_scheduler.com".$_SERVER['REQUEST_URI']);
 	}
 	function finishTest() {
 		/*call a function to give result using guest id 
 		and load it to the view*/
-		$arrData=$this->loadModel("test","fetchSpecificResult",array("id"=>$_SESSION['guest_id']));
+		$arrData=$this->loadModel("test","fetchSpecificResult",array("id"=>@$_SESSION['guest_id']));
 		$_SESSION['total_question']=0; //indicates test is over
 		$this->loadView("finish_test",$arrData);
 
 	}
 	function exitTest() {
 		$_SESSION['guest_id']="";
-		//unset($_SESSION);
+		session_unset();
 		header("location:".SITE_PATH);
 	}
 	function showAttempted() {
@@ -127,8 +143,8 @@ class testController extends mainController {
 	function prev() {
 		echo "ssssssssssssssssssssssssss";
 		$_SESSION['question']-=1;
-		if($_SESSION['question']<1) {
-			$_SESSION['question']=$_SESSION['total_question'];
+		if($_SESSION['question']<0) {
+			$_SESSION['question']=$_SESSION['total_question']-1;
 		}
 		header("location:"."http://test_scheduler.com".$_SERVER['REQUEST_URI']);
 	}
