@@ -76,38 +76,6 @@
 	</div>
 </div>
 
-
-<!-- There two functions are Added by Abhishek Arora -->
-<script type="application/x-javascript">
-	
-/*function deleteCategory(cat_id) {
-	var ans	=	confirm("Are you Sure you want to delete this category ?");
-	if (ans	==	true) {
-		window.location.assign("<?php echo SITE_PATH;?>category/manageCategory&id="+cat_id);
-	}
-	
-}
-
-function updateCategory(cat_id,name) {
-	var cat_name	=	name;
-	var ans = prompt("Enter the new value of Category",cat_name);
-	if(ans==null || ans===false){
-	window.location.assign("<?php echo SITE_PATH;?>category/manageCategory&id="+cat_id+"&catName="+cat_name);
-	}else{
-	window.location.assign("<?php echo SITE_PATH;?>category/manageCategory&id="+cat_id+"&catName="+ans);
-}
-}
-
-function checkCategoryValue()
-{
-	
-}*/
-
-</script>
-
-
-
-
 </div>
 <div class="midright">
 

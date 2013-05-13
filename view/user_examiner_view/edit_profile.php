@@ -1,27 +1,4 @@
 
-<script type="text/javascript">
-	$(document).ready(function(){
-	   /* $("#divView1").hide();
-	    $("#divView2").hide();
-	    $("#divView3").hide();
-	    $("#divView4").hide();
-		$("#view1").click(function(){
-  			$("#divView1").toggle("fast");
-		});
-		
-		$("#view2").click(function(){
-  			$("#divView2").toggle("fast");
-		});
-		$("#view3").click(function(){
-  			$("#divView3").toggle("fast");
-		});
-		$("#view4").click(function(){
-  			$("#divView4").toggle("fast");
-		});*/
-		
-	});
-
-</script>
 
 <div  class="bigmid">
 

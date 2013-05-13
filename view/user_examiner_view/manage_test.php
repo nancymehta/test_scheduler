@@ -114,27 +114,6 @@ td.inplab {
 
 </style>
 
-<script type="text/javascript">
-	$(document).ready(function(){
-		/*$("#tog_random").click(function(){
-  			$("#dotog_random").toggle();
-		});
-		$("#tog_randomopt1").click(function(){
-			$('#dotog_randomopt1').toggle();
-		});
-		$('#tog_randomopt2').click(function(){
-			$('#dotog_randomopt2').toggle();
-		});
-		$('#tog_certs').click(function(){
-			$('#dotog_certs').toggle();
-		});*/
-	/*	$('#editLink_tn').click(function(){
-			$('#misc_cat hide').show();
-		});*/
-	});
-
-</script>
-	
 <div class="bigmid" >
 <div class="midpanel" >
 

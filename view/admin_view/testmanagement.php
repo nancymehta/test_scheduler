@@ -1,30 +1,4 @@
-<script type="text/javascript" >
-	/*function fetchTestContent(id) {
-		$("#hidden").toggle();
-		$("#hidden").load("<?php echo SITE_PATH;?>admin/fetchTestContents","id="+id);
-	}
-	function deleteTest(id) {
-		if(id) {
-			$.ajax( {
-				type: "POST",
-				url: "<?php echo SITE_PATH;?>admin/deleteTest",
-				data: "id="+id,
-			    success: function(response){
-					if(response=='DELETED'){
-						alert("The Test Has Been Successfully Deleted");
-						window.location.href="<?php echo SITE_PATH;?>admin/testmanagement";
-					}
-                },
-				error: function () {
-					alert("Error Occurred While Processing Your Request.");
-				},
-			});
-		} else {
-			alert("Invalid Command");
-		}
-		
-	}*/
-</script>
+
 <div class="bigmid" >
 <div class="midpanel">
 

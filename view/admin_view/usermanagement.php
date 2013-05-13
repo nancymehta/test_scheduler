@@ -14,25 +14,7 @@
 <div class="midpanel" >
 
 <!-- midpanel Content gooes here  -->
-<script>
-/*Function Name:submit1,parameter passed:1 ,to submit the id of the user*/
-		function submit1(id,request)
-		{
-        	$.ajax( {
-				type: "POST",
-				url: "<?php echo SITE_PATH;?>admin/showUserDetails",
-				data: "id="+id+"&request="+request,
-			    success: function(response){
-					if(request=='DELETE'){
-						alert("the user has been successfully deleted");
-						window.location.href="<?php echo SITE_PATH;?>admin/usermanagement";
-					} else{
-                			$(".um").html(response);
-						}
-                			},
-			} );
-		} 
-</script>
+
 <div class = "um">
 <?php 
 	if(isset($arrData) && !empty($arrData)){

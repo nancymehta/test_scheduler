@@ -10,24 +10,7 @@
  *
 */
 ?>
-<script>
-/*Function Name:submit1,parameter passed:1 ,to submit the id of the user*/
-	/*function send_form(id)
-        {
-          
-		$.ajax({
-    			type: "POST",
-    			url:  "<?php echo SITE_PATH;?>admin/editUserDetails",
-    			data: $('#send').serialize() +"&id=" +id,
-    			success: function(response){
-				alert("the user details has been successfully changed" );
-				window.location.href="<?php echo SITE_PATH;?>admin/usermanagement";
-                        },
-    			     
-    		}); // end of ajax
-                 
-	} */
-</script>
+
 
 		      <div class="contact-strip bg-mid-gray">Edit profile
 </div>
