@@ -1,9 +1,15 @@
 <?php
 
 include SITE_ROOT.'controller/mainController.php';
-
+/*
+ * class testController
+ * testController controls the flow of information to testModel while a test is in execution.
+*/
 class testController extends mainController {
-	
+	/*
+	 * function candidateInfo()
+	 * candidateInfo sends the information like first name, last name, etc to the testModel
+	*/
 	function candidateInfo() {
 		$url = explode ( "/", @$_REQUEST ['function'] );
 		if (count ( $url ) > 2) {
@@ -57,6 +63,10 @@ class testController extends mainController {
 		}*/
 	}
 	
+	/*
+	 * function startTest()
+	 * startTest controls the flow of information while starting the execution of test
+	*/
 	function startTest($test=array()) {
 		
 		$question=$this->loadModel("test","fetchQuestions",$test);
@@ -65,6 +75,11 @@ class testController extends mainController {
 
 	}
 	
+	/*
+	 * function home()
+	 * home is the default function of testController
+	 * It loads the first view of the test page
+	*/
 	function home() {
 		
 		$this->loadView("header");
@@ -115,6 +130,12 @@ class testController extends mainController {
 			echo "NO test Selectedd";
 		}
 	}
+	
+	/*
+	 * function next()
+	 * next deals with the maintaining the information of the current page and forwarding to
+	 * next question page
+	*/
 	function next() {
 		
 		if(isset($_REQUEST['review'])) {
@@ -147,6 +168,11 @@ class testController extends mainController {
 	}
 		header("location:"."http://test_scheduler.com".$_SERVER['REQUEST_URI']);
 	}
+	
+	/*
+	 * funciton finishTest()
+	 * finishTest deals with the flow of information while finishing the test
+	*/
 	function finishTest() {
 		/*call a function to give result using guest id 
 		and load it to the view*/
@@ -167,16 +193,31 @@ class testController extends mainController {
 		}
 		
 	}
+	
+	/*
+	 * function exitTest()
+	 * exitTest takes the examinee out of the test and redirects him to Main Page, finishing the test.
+	*/
 	function exitTest() {
 		$_SESSION['guest_id']="";
 		session_unset();
 		header("location:".SITE_PATH);
 	}
+	
+	/*
+	 * function showAttempted()
+	 * showAttempted loads the required model to fetch all the attempted questions for the current test.
+	*/
 	function showAttempted() {
 		$question=$this->loadModel("test","fetchAttemptedQuestions",$_SESSION['answers']);
 		$this->loadView("showattempted",$question);		
 		
 	}
+	/*
+	 * function prev()
+	 * prev controls the flow of information while going back to previous question.
+	 * it saves the state of the current question.
+	*/
 	function prev() {
 
 		if(isset($_REQUEST['review'])) {
@@ -209,6 +250,11 @@ class testController extends mainController {
 	}
 		header("location:"."http://test_scheduler.com".$_SERVER['REQUEST_URI']);
 	}
+	
+	/*
+	 * function feedback()
+	 * feedback loads the required model to fetch the feedback after the test.
+	*/
 	function feedback() {
 		if(isset($_POST['feedback'])) {
 			$arrArgs=array(
@@ -218,6 +264,11 @@ class testController extends mainController {
 		}
 		$this->finishTest();
 	}
+	
+	/*
+	 * function navigateQuestion()
+	 * navigateQuestion takes the examinee to the specified question
+	*/
 	function navigateQuestion() {
 		$question=$_REQUEST['question'];
 		$index=array_search($question,$_SESSION['questions']);

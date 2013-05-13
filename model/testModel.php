@@ -1,10 +1,22 @@
 <?php
 	include MODEL_PATH."db_connect.php";
+/*
+ * class testModel
+ * testModel deals with the business logic corresponding to test in execution
+*/
 class testModel extends dbConnectModel{
+	/*
+	 * function __construct()
+	 * __construct constructs the constructor of the dbConnectModel, thus allowing itself to make use of
+	 * of the database connectivity.
+	*/
 	function __construct() {
 		parent::__construct();
 	}
-	/*return the testID according to link*/
+	/*
+	 * function getTestId()
+	 * getTestId returns the testID corresponding to a given link
+	*/
 	function getTestId($arrArgs=array()) {
 		//write a quesry to get test id and test link id according to test_url
 		$data['tables']="test_link";
@@ -23,6 +35,11 @@ class testModel extends dbConnectModel{
 		}
 		//return array("test_id"=>1,"test_link_id"=>1);
 	}
+	
+	/*
+	 * function setUser()
+	 * setUser register the test taker into the test_taker table.
+	*/
 	function setUser($arrArgs=array()) {
 		if(!empty($arrArgs)) {
 			$result=$this->_db->insert("test_taker",$arrArgs);
@@ -33,6 +50,12 @@ class testModel extends dbConnectModel{
 			}
 		}
 	}
+	
+	/*
+	 * function fetchTestDetails()
+	 * fetchTestDetails fetches the test details from the database (test_link table) and
+	 * questions from the question table.
+	*/
 	function fetchTestDetails($arrArgs=array()) {
 		$testId=$arrArgs['test_id'];
 		$data['tables']="test_link";
@@ -54,7 +77,11 @@ class testModel extends dbConnectModel{
 					);
 		return ($row);
 	}
-	//
+	
+	/*
+	 * function fetchQuestions()
+	 * fetchQuestions fetches the question from the question table.
+	*/
 	function fetchQuestions($arrArgs=array()) {
 		echo("<pre>");
 		$data['tables']="test_question tq";
@@ -85,6 +112,10 @@ class testModel extends dbConnectModel{
 		};	
 		return $row;
 	}
+	/*
+	 * function insertAnswer()
+	 * insertAnswer inserts the users answer into the test_taker_ques table, according to the question.
+	*/
 	function insertAnswer($arrArgs=array()) {
 		echo "s";
 		if(!empty($arrArgs)) {
@@ -98,7 +129,7 @@ class testModel extends dbConnectModel{
 			$_SESSION['cc']=$row;
 			if($row) {
 				$_SESSION['kk']=$row;
-				$answer=array("answer_given"=>$arrArgs['answer_given']);
+				$answer=array("answer_given"=>strip_tags($arrArgs['answer_given']));
 				$result=$this->_db->update("test_taker_ques",$answer,array("id"=>$row['id']));
 				if($result->rowCount()>0) {
 						echo "updated";
@@ -122,6 +153,11 @@ class testModel extends dbConnectModel{
 			
 		}
 	}
+	/*
+	 * function fetchAttemptedQuestions()
+	 * fetchAttemptedQuestions fetches all the attemptes questions for the particular user
+	 * and loads the corresponding view.
+	*/
 	function fetchAttemptedQuestions($arrArgs=array()) {
 		if(!empty($arrArgs)) {
 		$data['tables']="question q";
@@ -137,8 +173,12 @@ class testModel extends dbConnectModel{
 		}
 		return($row);
 		}
-
 	}
+	
+	/*
+	 * function fetchSpecificResult()
+	 * fetchSpecificResult fetches the saved answer of the question(already answered)
+	*/
 	function fetchSpecificResult($arrArgs=array()) {
 		echo "->";print_r($arrArgs);
 		$sql="select t.id,count(t.id) as score, 
@@ -162,9 +202,12 @@ class testModel extends dbConnectModel{
 		} else {
 			return -2;
 		}
-	
-
 	}
+	
+	/*
+	 * function fetchTestTime()
+	 * fetchTestTime fetches the start time and the end time of the test.
+	*/
 	function fetchTestTime($arrArgs=array()) {
 		$testId=$arrArgs['test_id'];
 		$data['tables']="test_link";
@@ -175,6 +218,11 @@ class testModel extends dbConnectModel{
 		$row	=	$result->fetch(PDO::FETCH_ASSOC);
 		return ($row);
 	}
+	
+	/*
+	 * function insertResult()
+	 * insertResult inserts the examinees final result details into the test_taker table.
+	*/
 	function insertResult($arrData=array()) {
 		if(!empty($arrData)) {
 			$id=$arrData['id'];
@@ -184,9 +232,9 @@ class testModel extends dbConnectModel{
 			} 
 			$quesAttempted=count($_SESSION['answers']);
 			$data=array(
-				"score"=>"$percentage",
+				"score"=>strip_tags($percentage),
 				"end_time"=>"now()",
-				"ques_attempted"=>"$quesAttempted",
+				"ques_attempted"=>strip_tags($quesAttempted),
 					);
 			$result=$this->_db->update("test_taker",$data,array("id"=>"$id"));
 			if($result->rowCount()>0) {
@@ -196,6 +244,11 @@ class testModel extends dbConnectModel{
 			}
 		}
 	}
+	
+	/*
+	 * function insertFeedback()
+	 * insertFeedback takes in the feedback from the examinee and saves it in the database
+	*/
 	function insertFeedback($arrArgs=array()) {
 			if(!empty($arrArgs)) {
 		/*	$result=$this->_db->update("test_taker",$arrArgs,array("id"=>$_SESSION['guest_id']));
@@ -206,6 +259,11 @@ class testModel extends dbConnectModel{
 			} */
 		}
 	}
+	
+	/*
+	 * function fetchUser()
+	 * fetchUser fetches the details of the user like name, score, etc.
+	*/
 	function fetchUser($arrArgs=array()) {
 		$id=$arrArgs['id'];
 		$data['tables']="test_taker";
