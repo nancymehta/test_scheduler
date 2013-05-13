@@ -49,7 +49,11 @@ $(document).ready(function(){
 		$("#view4").click(function(){
   			$("#divView4").toggle("fast");
 		});
-		function deleteCategory(cat_id) {
+	
+
+});
+
+function deleteCategory(cat_id) {
 	var ans	=	confirm("Are you Sure you want to delete this category ?");
 	if (ans	==	true) {
 		window.location.assign("<?php echo SITE_PATH;?>category/manageCategory&id="+cat_id);
@@ -72,9 +76,6 @@ function checkCategoryValue()
 	
 }
 
-
-
-});
 
 //js of admin view
 
