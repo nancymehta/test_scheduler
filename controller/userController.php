@@ -7,7 +7,7 @@ class userController extends mainController {
 		$this->loadView ( "user_examiner_view/deshboard_menu" );
 		$this->loadView ( "user_examiner_view/maketestpage" );
 	}
-	/* provide view for category tab */
+	/* provide view for category tab */	
 	function category() {
 		$ArrData = $this->loadModel ( 'category', 'viewCategory' );
 		$this->loadView ( "header" );

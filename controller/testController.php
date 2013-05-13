@@ -10,24 +10,25 @@ class testController extends mainController {
 			$testUrl=$url[2];
 			echo $testUrl;
 			$test=$this->loadModel("test","getTestId",array("link"=>"$testUrl"));
-			$arrArgs=array(
-						"first_name"=>$_POST['firstName'],
-						"last_name"=>$_POST['lastName'],
-						"email_enroll_no"=>$_POST['email'],
-						"test_link_id"=>$test['test_link_id'],
-						"test_id"=>$test['test_id'], 
-						"start_time"=>"now()",
-						"ip_address"=>$_SERVER['REMOTE_ADDR'],
-						"created_by"=>'1',//taken default value 
-								//	must be retrived from db according to test_id
-						);
-			$result=$this->loadModel("test","setUser",$arrArgs);
-			if($result) {
 			$res=$this->loadModel("test","fetchTestDetails",$test);
 			$details=$res['details'];
+			//if(time()<$details['start_time']) {
+				$arrArgs=array(
+							"first_name"=>$_POST['firstName'],
+							"last_name"=>$_POST['lastName'],
+							"email_enroll_no"=>$_POST['email'],
+							"test_link_id"=>$test['test_link_id'],
+							"test_id"=>$test['test_id'], 
+							"start_time"=>"now()",
+							"ip_address"=>$_SERVER['REMOTE_ADDR'],
+							"created_by"=>'1',//taken default value 
+									//	must be retrived from db according to test_id
+							);
+			$result=$this->loadModel("test","setUser",$arrArgs);
+			if($result) {
 			//setting parameter in session so that we dont have to retrive 
 			//everytime the page is refreshed
-			$_SESSION['guest_id']=$result;
+			$_SESSION['guest_id']=$result; //store unique id of the test taker
 			$_SESSION['question']="0"; 	
 			$_SESSION['pass_marks']=$details['pass_marks'];
 			$_SESSION['total_question']=1;
@@ -36,7 +37,7 @@ class testController extends mainController {
 			$_SESSION['answers']=array(); //if previous button is introduced 
 							//rather than checking from db for previous answers
 			$_SESSION['select_answer']=$details['select_answer'];							
-			$_SESSION['questions']=$res['questions'];	
+			$_SESSION['questions']=$res['questions'];
 			if($details['random']=='1') {
 				shuffle($_SESSION['questions']);
 			}
@@ -44,8 +45,11 @@ class testController extends mainController {
 
 		}
 		} else {
-				echo "NO test Selectedd11";	
+				echo "Please Try Later! You Are not valid user to take test";	
 		}
+		/*} else {
+			echo "Test is not Started Yet";
+		}*/
 	}
 	
 	function startTest($test=array()) {
@@ -57,21 +61,31 @@ class testController extends mainController {
 	}
 	
 	function home() {
-		//unset($_SESSION['guest_id']);	
 		$this->loadView("header");
 	 	$this->loadView("user_header");
-	 	//print_r($_SESSION);
-	 	$url = explode ( "/", @$_REQUEST ['function'] );
+	  	$url = explode ( "/", @$_REQUEST ['function'] );
 		if (count ( $url ) > 2 ) {
 			$testUrl=$url[2];
-			echo $testUrl;
+			$testUrl;
 			$test=$this->loadModel("test","getTestId",array("link"=>"$testUrl"));
 			if($test!=-1) {
 				if(!(isset($_SESSION['guest_id'])) || @$_SESSION['guest_id']=="") {
 					if(isset($_POST['submit']) ) {
 						$this->candidateInfo();
 					}
-					$this->loadView('user_examiner_view/user_test_info');
+					$res=$this->loadModel("test","fetchTestTime",$test);
+					if($res['start_time']=='0' || $res['end_time']=='0' ) {
+						$this->loadView('user_examiner_view/user_test_info');
+					}
+					else if($res['start_time']<=time() && $res['end_time']>=time()  ) {
+						$this->loadView('user_examiner_view/user_test_info');
+					} else {
+						//to be deleted
+						$this->loadView('user_examiner_view/user_test_info');
+						echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+						Test Time is Not Started or Ended";
+					}
+					//
 				} else {
 					/// all The Test Settings here :D
 					if($_SESSION['question']>=$_SESSION['total_question']) {
@@ -84,7 +98,6 @@ class testController extends mainController {
 					else {
 						$this->startTest($test);
 					}
-					//echo "yeah";//test start here...
 				}
 			} else {
 				echo "Test Does Not Exisit";
@@ -127,10 +140,10 @@ class testController extends mainController {
 		and load it to the view*/
 		$this->loadView("header");
 	 	$this->loadView("user_header");
-		$arrData=$this->loadModel("test","fetchSpecificResult",array("id"=>@$_SESSION['guest_id']));
+	 	$arrData=$this->loadModel("test","fetchSpecificResult",array("id"=>@$_SESSION['guest_id']));
+	 	$result=$this->loadModel("test","insertResult",$arrData);	
 		$_SESSION['total_question']=0; //indicates test is over
 		$this->loadView("finish_test",$arrData);
-
 	}
 	function exitTest() {
 		$_SESSION['guest_id']="";
@@ -149,6 +162,15 @@ class testController extends mainController {
 			$_SESSION['question']=$_SESSION['total_question']-1;
 		}
 		header("location:"."http://test_scheduler.com".$_SERVER['REQUEST_URI']);
+	}
+	function feedback() {
+		if(isset($_POST['feedback'])) {
+			$arrArgs=array(
+				"feedback"=>$_POST['feedback'],
+				);
+			$arrData=$this->loadModel("test","insertFeedback",$arrArgs);
+		}
+		$this->finishTest();
 	}
 
 }

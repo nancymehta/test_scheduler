@@ -169,6 +169,47 @@ class testModel extends dbConnectModel{
 	
 
 	}
+	function fetchTestTime($arrArgs=array()) {
+		$testId=$arrArgs['test_id'];
+		$data['tables']="test_link";
+		$data['columns']=array("unix_timestamp(start_time) as start_time",
+								"unix_timestamp(end_time) as end_time");
+		$data['conditions']=array("test_id"=>"$testId");
+		$result = $this->_db->select($data);
+		$row	=	$result->fetch(PDO::FETCH_ASSOC);
+		return ($row);
+	}
+	function insertResult($arrData=array()) {
+		if(!empty($arrData)) {
+			$id=$arrData['id'];
+			$percentage="0";
+			if($arrData['score']!=0 && $arrData['score']!="" ) {
+				$percentage=(($arrData['score']/$arrData['total_ques'])*100);
+			} 
+			$quesAttempted=count($_SESSION['answers']);
+			$data=array(
+				"score"=>"$percentage",
+				"end_time"=>"now()",
+				"ques_attempted"=>"$quesAttempted",
+					);
+			$result=$this->_db->update("test_taker",$data,array("id"=>"$id"));
+			if($result->rowCount()>0) {
+				return $this->_db->lastInsertId();
+			} else {
+				return 0;
+			}
+		}
+	}
+	function insertFeedback($arrArgs=array()) {
+			if(!empty($arrArgs)) {
+		/*	$result=$this->_db->update("test_taker",$arrArgs,array("id"=>$_SESSION['guest_id']));
+			if($result->rowCount()>0) {
+				return $this->_db->lastInsertId();
+			} else {
+				return 0;
+			} */
+		}
+	}
 }
 	
 ?>	

@@ -2,8 +2,6 @@
 "The TEst is finished NOw "<br/>
 <?php 
 	
-	
-	echo $eds;	
 //print_r($arrData); 
 //print_r($_SESSION); 
 if(!empty($arrData) && isset($_SESSION['guest_id'])) {
@@ -31,11 +29,12 @@ if(!empty($arrData) && isset($_SESSION['guest_id'])) {
 
 
 ?>
-<form action="#" method="post<br/><br/><br/><br/><br/><br/>">
-<textarea> </textarea>
+<form action="#" method="post">
+<textarea name="feedback"> </textarea>
+	<input type="hidden" name="controller" value="test" >	
 	<input type="submit" name='function' value="feedback">
 </form>
-<form action="#" method="post<br/><br/><br/><br/><br/><br/>">
+<form action="#" method="post">
 	<input type="hidden" name="controller" value="test" >
 	<input type="submit" name='function' value="exitTest">
 </form>

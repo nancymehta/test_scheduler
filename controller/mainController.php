@@ -105,15 +105,17 @@ class mainController extends common{
 	}
 	
 	
-	
-	
 	function logout(){
-		
+		try {
 		$_SESSION['SESS_USER_NAME']="";
 		$_SESSION['SESS_USER_TYPE']="";
 		unset($_SESSION);
 		session_unset();
 		header("location:".SITE_PATH);
+			}catch (Exception $e) {
+			$this->handleException($e->getMessage());
+		}
+	
 
 	}
 	
