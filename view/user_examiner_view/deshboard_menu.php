@@ -3,7 +3,7 @@
 <div class="links">
 					<a id = "home" href ="<?php echo SITE_PATH; ?>">Home »</a>
 					<a id = "assign" class="services" href = "#">Assign »</a>
-					<a id = "test" class="tech" href = "#">Test »</a>
+					<a id = "test" class="tech" href = "<?php echo SITE_PATH."allTest"; ?>">Test »</a>
 					<a id = "result" href = '<?php echo SITE_PATH."/result/result";?>'>Results »</a>
 					<a id = "test" class="tech" href = '<?php echo SITE_PATH."/faq";?>'>Faq's »</a>
 					<a id = "test" class="tech" href = "#">Test »</a>

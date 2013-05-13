@@ -14,7 +14,6 @@ class testModel extends dbConnectModel{
 		if($result) {
 			$row	=	$result->fetch(PDO::FETCH_ASSOC);
 			if(!empty($row)) {
-				print_r($row);
 				return $row;
 			} else {
 				return -1;

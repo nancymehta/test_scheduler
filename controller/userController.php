@@ -99,5 +99,8 @@ class userController extends mainController {
 			$this->loadView ( "user_examiner_view/examSettings" );
 		}
 	}
+	function allTest() {
+		
+	}
 }
 ?>

@@ -126,10 +126,6 @@ class baseModel extends dbConnectModel{
 	  return 0;
 	}		
 	}
-
-	function faq()
-	{
-		$this->loadView('faq.php');
-	}
+	
 } 
 

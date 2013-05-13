@@ -49,6 +49,7 @@ class testController extends mainController {
 
 		}
 		} else {
+			$this->getSpace();
 				echo "Please Try Later! You Are not valid user to take test";	
 		}
 		/*} else {
@@ -65,6 +66,7 @@ class testController extends mainController {
 	}
 	
 	function home() {
+		
 		$this->loadView("header");
 	 	$this->loadView("test_header");
 	  	$url = explode ( "/", @$_REQUEST ['function'] );
@@ -96,6 +98,7 @@ class testController extends mainController {
 								$this->finishTest();
 					} else if(($_SESSION['time']+($_SESSION['duration']*60))<time()) {
 					/*For test to finish in given Duration*///TO be verified
+						$this->getSpace();
 						echo "TIMES UP";
 						$this->finishTest();
 					}
@@ -104,9 +107,11 @@ class testController extends mainController {
 					}
 				}
 			} else {
+				$this->getSpace();
 				echo "Test Does Not Exisit";
 			}
 		} else {
+			$this->getSpace();
 			echo "NO test Selectedd";
 		}
 	}
@@ -216,6 +221,8 @@ class testController extends mainController {
 		}
 		header("location:".SITE_PATH."test/home/".$_SESSION['test_url']);
 	}
-
-}
+	function getSpace() {
+		echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/>";
+	}
+} 
 
