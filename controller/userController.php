@@ -69,6 +69,9 @@ class userController extends mainController {
 		$this->loadView ( "header" );
 		$this->loadView ( "user_header" );
 		$this->loadView ( "user_examiner_view/deshboard_menu" );
+	 	$arrData= $this->loadModel("base","getResults",array('id'=>$_SESSION['SESS_USER_ID']));
+	 	
+	 	$this->loadView("result",$arrData);
 	}
 	/* provide view for assign tab */
 	function assign() {

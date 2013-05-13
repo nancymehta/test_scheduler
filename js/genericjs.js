@@ -1,4 +1,19 @@
 $(document).ready(function(){
+
+// ankit js for result
+ $(".all_result_table").css({"display":"none"});
+	
+
+$("#testSelect").change(function() {
+       $(".all_result_table").css({"display":"block"});
+       var a=$("#testSelect").val();
+       $("#show_result").load("index.php","controller=result&function=getResults&testId="+a);
+       
+       alert(a);
+  
+    });
+
+//--------------------------------------------------------------------------------
 	// js of user_examiner view...
 	var valincr = 3;
 	   $("#addButton").click(function (){

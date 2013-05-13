@@ -1,24 +1,35 @@
+
+<?php //print_r($arrData); ?>
+<?php 
+   foreach($arrData as $key)
+   {
+   	$end_time = new DateTime($key['end_time']);
+ 	$start_time = new DateTime($key['start_time']);
+ 	$diff_time=$end_time->diff($start_time);
+ 	$data_perc=($key['score']/$key['total_ques'])*100;
+   	?>
 <div class="user-result">
 
-	<span class="">Name of Exam Taker : <label class="" id="user-result-name" name="user-result-name">Sourab</label></span> 
+	<span class="">Name of Exam Taker : </span> <label class="" id="user-result-name" name="user-result-name"><?php echo $key['first_name']." " .$key['last_name']; ?></label>
 	<br>
 	<br>
-	<span class="">Ip Address : </span> <label class="" id="user-result-ip" name="user-result-ip">192.168.1.1</label>  
+	<span class="">Ip Address : </span> <label class="" id="user-result-ip" name="user-result-ip"><?php echo $key['ip_address'];?></label>  
 	<br>
-	<span class="">Id  Assigned  : </span> <label class="" id="user-result-id" name="user-result-id">12345</label>  
+	<span class="">Id  Assigned  : </span> <label class="" id="user-result-id" name="user-result-id"><?php echo $key['id']; ?></label>  
 	<hr>
-	<span class="">Score   : </span> <label class="" id="user-result-score" name="user-result-score">90</label>  <br>
-	<span class="">Percentage :</span> <label class="" id="user-result-per" name="user-result-per">50%</label>  <br>
-	<span class="">Duration :</span> <label class="" id="user-result-duration" name="user-result-duration">30 hrs</label>  <br>
-	<span class="">Date Started : </span> <label class="" id="user-result-date" name="user-result-date">1-3-4</label>  <br>
+	<span class="">Score   : </span> <label class="" id="user-result-score" name="user-result-score"><?php echo $key['score']."/".$key['total_ques']; ?></label>  <br>
+	<span class="">Percentage :</span> <label class="" id="user-result-per" name="user-result-per"><?php echo $data_perc;?></label>  <br>
+	<span class="">Duration :</span> <label class="" id="user-result-duration" name="user-result-duration"><?php echo $diff_time->format('%hh :%mm: %ss');?></label>  <br>
+	<span class="">Date Started : </span> <label class="" id="user-result-date" name="user-result-date"><?php echo $key['start_time'];?></label>  <br>
 
-	<span class="">Date Finished : </span> <label class="" id="user-result-dateend" name="user-result-dateend">1-2-3</label>  <br>
+	<span class="">Date Finished : </span> <label class="" id="user-result-dateend" name="user-result-dateend"><?php echo $key['end_time'];?></label>  <br>
 	<hr>
 	<span class="">Email : </span> <label class="" id="user-result-mail" name="user-result-mail">sourab@gmail.com</label>  <br>
 	<br>
-	<div class="worng-right-questions" style="text-align:center; height:20px; width:100%; background-color:#eee">
+	
+	<div class="wrong-right-questions" style="text-align:center; height:20px; width:100%; background-color:#eee">
 
-	10 out of 75 
+	<?php echo $key['score']." out of ".$key['total_ques'];?> 
 
 
 </div>
@@ -27,6 +38,7 @@
 		Q1. blah blah ... 
 		 
 	</div>
+	<?php } ?>
 
 
 
