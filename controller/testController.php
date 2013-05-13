@@ -37,6 +37,7 @@ class testController extends mainController {
 				$_SESSION['duration']=180;
 			}
 			$_SESSION['time']=time();
+			$_SESSION['review']=array();
 			$_SESSION['answers']=array(); //if previous button is introduced 
 							//rather than checking from db for previous answers
 			$_SESSION['select_answer']=$details['select_answer'];							
@@ -110,7 +111,10 @@ class testController extends mainController {
 		}
 	}
 	function next() {
-		//print_r($_POST);
+		
+		if(isset($_REQUEST['review'])) {
+			array_push($_SESSION['review'],$_SESSION['questions'][$_SESSION['question']]);
+		}	
 		if(!empty($_POST['coption']) && $_POST['coption']!="" ) {
 			$arrArgs =array(
 		 	"test_taker_id"=>$_SESSION['guest_id'],
@@ -162,7 +166,10 @@ class testController extends mainController {
 		
 	}
 	function prev() {
-		
+
+		if(isset($_REQUEST['review'])) {
+			array_push($_SESSION['review'],$_SESSION['question']);
+		}	
 		if(!empty($_POST['coption']) && $_POST['coption']!="" ) {
 			$arrArgs =array(
 		 	"test_taker_id"=>$_SESSION['guest_id'],
@@ -188,7 +195,6 @@ class testController extends mainController {
 			}
 		}
 	}
-		
 		header("location:"."http://test_scheduler.com".$_SERVER['REQUEST_URI']);
 	}
 	function feedback() {
@@ -199,6 +205,16 @@ class testController extends mainController {
 			$arrData=$this->loadModel("test","insertFeedback",$arrArgs);
 		}
 		$this->finishTest();
+	}
+	function navigateQuestion() {
+		$question=$_REQUEST['question'];
+		$index=array_search($question,$_SESSION['questions']);
+		if($index===false) {
+			$_SESSION['question']=0;
+		} else {
+			$_SESSION['question']=$index;
+		}
+		header("location:".SITE_PATH."test/home/".$_SESSION['test_url']);
 	}
 
 }

@@ -131,7 +131,7 @@ class testModel extends dbConnectModel{
 	function fetchAttemptedQuestions($arrArgs=array()) {
 		if(!empty($arrArgs)) {
 		$data['tables']="question q";
-		$data['columns']=array('q.question','qo.option');
+		$data['columns']=array('q.question','qo.option','q.id');
 		$data['conditions']=array("qo.id"=>$arrArgs);
 		$data['joins'][] = array(
 		'table' => 'question_options qo', 
