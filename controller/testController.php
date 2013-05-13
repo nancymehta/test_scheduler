@@ -178,17 +178,18 @@ class testController extends mainController {
 		and load it to the view*/
 		$_SESSION['total_question']=0; //indicates test is over
 		$this->loadView("header");
-	 	$this->loadView("user_header");
+	 	$this->loadView("test_header");
 	 	$arrData=array();
 	 	if(isset($_SESSION['guest_id']) && !empty($_SESSION['answers']) ) {
 	 		$arrData=$this->loadModel("test","fetchSpecificResult",array("id"=>$_SESSION['guest_id']));
 	 	 	$result=$this->loadModel("test","insertResult",$arrData);	
-	 	 }
+	 	 } 
 		
-		if(empty($_SESSION['answers'])) {
+		if(empty($_SESSION['answers']) && isset($_SESSION['guest_id'])) {
 			$arrData=$this->loadModel("test","fetchUser",array("id"=>$_SESSION['guest_id']));
 			$this->loadView("finish_test",$arrData);	
 		} else {
+			
 			$this->loadView("finish_test",$arrData);
 		}
 		

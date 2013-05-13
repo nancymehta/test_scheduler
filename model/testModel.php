@@ -117,7 +117,7 @@ class testModel extends dbConnectModel{
 	 * insertAnswer inserts the users answer into the test_taker_ques table, according to the question.
 	*/
 	function insertAnswer($arrArgs=array()) {
-		echo "s";
+		
 		if(!empty($arrArgs)) {
 			$data['tables']="test_taker_ques";
 			$data['columns']=array("id");
@@ -126,9 +126,9 @@ class testModel extends dbConnectModel{
 		 					"ques_id"=>$arrArgs["ques_id"]);
 			$result2 = $this->_db->select($data);
 			$row=$result2->fetch(PDO::FETCH_ASSOC);
-			$_SESSION['cc']=$row;
+		
 			if($row) {
-				$_SESSION['kk']=$row;
+		
 				$answer=array("answer_given"=>strip_tags($arrArgs['answer_given']));
 				$result=$this->_db->update("test_taker_ques",$answer,array("id"=>$row['id']));
 				if($result->rowCount()>0) {
@@ -139,8 +139,6 @@ class testModel extends dbConnectModel{
 						return 0;
 					}	
 			} else {
-				$_SESSION['kk']="no";
-				$_SESSION['kk']="insert";
 					$result=$this->_db->insert("test_taker_ques",$arrArgs);
 					if($result->rowCount()>0) {
 						echo "inserted";
@@ -180,7 +178,7 @@ class testModel extends dbConnectModel{
 	 * fetchSpecificResult fetches the saved answer of the question(already answered)
 	*/
 	function fetchSpecificResult($arrArgs=array()) {
-		echo "->";print_r($arrArgs);
+		
 		$sql="select t.id,count(t.id) as score, 
 			tt.total_ques,t.first_name,t.start_time,
 			t.end_time,	t.last_name,t.email_enroll_no from
@@ -194,10 +192,12 @@ class testModel extends dbConnectModel{
 			where t.test_id='1' and qo.correct='1'
 			AND t.id='".$arrArgs['id']."'
 			group by t.id";
-			echo($sql);
+			
 		$result = $this->_db->query($sql);
 		$row=	$result->fetch(PDO::FETCH_ASSOC);
+		
 		if($row) {
+
 			return($row);
 		} else {
 			return -2;
