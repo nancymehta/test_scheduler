@@ -403,6 +403,7 @@ $(document).ready(function() {
             	},
             	
         });
+	
 	$("#contactus").validate({
 		rules: {
 			contact_name:{
@@ -586,36 +587,34 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$("#user_test_info_form").validate({
 		rules: {
-		firstName:{
+			firstName:{
 				required:true,
-				checkAlpha:true				
+					checkAlpha:true				
 			},
-		lastName:{
+			lastName:{
 				required:true,
-				checkAlpha:true				
+					checkAlpha:true				
 			},
-		email:{
-			required: true,
-			email:true
-		}
+			email:{
+				required: true,
+				email:true
+			}
 		},
 		messages: {
 			firstName:{
-				required:"Enter first name."
+				required:"Enter first name.",
 				checkAlpha:"Only character are required."
 			},
 			lastName:{
-				required:"Enter last name."
+				required:"Enter last name.",
 				checkAlpha:"Only character are required."
 			},
 			email:{
-				required:"Enter email."
+				required:"Enter email.",
 				email:"Invalid email."
 			}
 		}
 	});
-
-
 });
 
 

@@ -13,12 +13,12 @@
 <input type="text" id = "firstName" name="firstName" />
 <div class="space"></div>
 <label>	Second Name :</label><div class="space"></div>  
-<input type="text" id = lastName name="lastName"/>
+<input type="text" id = "lastName" name="lastName"/>
 <div class="space"></div>
 <label>	Email: </label><div class="space">
 </div> <input type="text" id = "email" name="email"/>
 <div class="space"></div><div class="space"></div>
-	<input type="submit" name="submit" class="submmit_button_generic">
+	<input type="submit" id="submit" name="submit" class="submmit_button_generic">
 </form>
 
 </div>
