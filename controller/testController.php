@@ -8,7 +8,7 @@ class testController extends mainController {
 		$url = explode ( "/", @$_REQUEST ['function'] );
 		if (count ( $url ) > 2) {
 			$testUrl=$url[2];
-			echo $testUrl;
+			$_SESSION['test_url']=$testUrl;
 			$test=$this->loadModel("test","getTestId",array("link"=>"$testUrl"));
 			$res=$this->loadModel("test","fetchTestDetails",$test);
 			$details=$res['details'];

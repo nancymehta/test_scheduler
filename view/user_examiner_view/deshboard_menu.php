@@ -1,7 +1,6 @@
 <div class="menu_container bg-mid-gray">
 
 <div class="links">
-					manageCertificate
 					<a id = "home" href ="<?php echo SITE_PATH; ?>">Home »</a>
 					<a id = "assign" class="services" href = "#">Assign »</a>
 					<a id = "test" class="tech" href = "#">Test »</a>

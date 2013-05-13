@@ -24,9 +24,8 @@ class mainController extends common{
 	}
 	function faq() {// function name need to be change
 		try {
-			//$arrValue=$this->loadModel('base','login');
-			
-	
+				$this->loadView("header");
+				$this->loadView("faq");
 		} catch (Exception $e) {
 			$this->handleException($e->getMessage());
 		}
