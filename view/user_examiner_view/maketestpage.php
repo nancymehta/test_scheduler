@@ -9,8 +9,8 @@
 		<div class="space"></div>
 		<a class="button_generic" href="#" id ="add_test">Create new test</a>
 
-	<div class="space"> </div>
-	<div class="add_test ">
+	<div class="space"> </div	>
+	<div class="add_test">
 		<form method="post"
 			action="http://test_scheduler.com/createTest/createNewTest"><div class="space"></div>
 			<label>Test Name :</label> <input type="text" class="text_right_generic" id="test_name" name="test_name" /><div class="space"> </div>

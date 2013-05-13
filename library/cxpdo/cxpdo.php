@@ -53,7 +53,7 @@ class cxpdo extends PDO {
 		. '('. $this->column_list($data). ')'
 		. ' VALUES '
 		. $this->value_list($data);
-echo($query);
+//echo($query);
 		//Return the results -or a query string?
 		return $return ? $this->query($query) : $query;
 
@@ -76,7 +76,7 @@ echo($query);
 		$query = 'UPDATE '. $this->table_list($tables). ' SET '
 		. $this->update_value_list($data)
 		.($conditions ? $this->where_list($conditions) : '');
-echo $query;
+//echo $query;
 		//Return the results -or a query string?
 		return $return ? $this->query($query) : $query;
 

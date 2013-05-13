@@ -150,15 +150,22 @@ class testController extends mainController {
 	function finishTest() {
 		/*call a function to give result using guest id 
 		and load it to the view*/
+		$_SESSION['total_question']=0; //indicates test is over
 		$this->loadView("header");
 	 	$this->loadView("user_header");
 	 	$arrData=array();
-	 	if(isset($_SESSION['guest_id'])) {
-	 		$arrData=$this->loadModel("test","fetchSpecificResult",array("id"=>@$_SESSION['guest_id']));
+	 	if(isset($_SESSION['guest_id']) && !empty($_SESSION['answers']) ) {
+	 		$arrData=$this->loadModel("test","fetchSpecificResult",array("id"=>$_SESSION['guest_id']));
 	 	 	$result=$this->loadModel("test","insertResult",$arrData);	
 	 	 }
-		$_SESSION['total_question']=0; //indicates test is over
-		$this->loadView("finish_test",$arrData);
+		
+		if(empty($_SESSION['answers'])) {
+			$arrData=$this->loadModel("test","fetchUser",array("id"=>$_SESSION['guest_id']));
+			$this->loadView("finish_test",$arrData);	
+		} else {
+			$this->loadView("finish_test",$arrData);
+		}
+		
 	}
 	function exitTest() {
 		$_SESSION['guest_id']="";

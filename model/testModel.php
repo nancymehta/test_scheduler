@@ -119,11 +119,6 @@ class testModel extends dbConnectModel{
 						return 0;
 					}		
 			}
-				
-			
-
-
-
 			
 		}
 	}
@@ -145,6 +140,7 @@ class testModel extends dbConnectModel{
 
 	}
 	function fetchSpecificResult($arrArgs=array()) {
+		echo "->";print_r($arrArgs);
 		$sql="select t.id,count(t.id) as score, 
 			tt.total_ques,t.first_name,t.start_time,
 			t.end_time,	t.last_name,t.email_enroll_no from
@@ -158,12 +154,13 @@ class testModel extends dbConnectModel{
 			where t.test_id='1' and qo.correct='1'
 			AND t.id='".$arrArgs['id']."'
 			group by t.id";
+			echo($sql);
 		$result = $this->_db->query($sql);
 		$row=	$result->fetch(PDO::FETCH_ASSOC);
 		if($row) {
 			return($row);
 		} else {
-			return -1;
+			return -2;
 		}
 	
 
@@ -208,6 +205,16 @@ class testModel extends dbConnectModel{
 				return 0;
 			} */
 		}
+	}
+	function fetchUser($arrArgs=array()) {
+		$id=$arrArgs['id'];
+		$data['tables']="test_taker";
+		$data['columns']=array("first_name","last_name","email_enroll_no",
+							"score");
+		$data['conditions']=array("id"=>"$id");
+		$result = $this->_db->select($data);
+		$row	=	$result->fetch(PDO::FETCH_ASSOC);
+		return ($row);
 	}
 }
 	

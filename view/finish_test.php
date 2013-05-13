@@ -13,10 +13,11 @@
 		<div class="space"></div>
 
 <?php
-
-// print_r($arrData);
-// print_r($_SESSION);
-if (! empty ( $arrData ) && isset ( $_SESSION ['guest_id'] )) {
+/*print_r($arrData);
+echo "S";
+ print_r($_SESSION);
+*/
+ if (! empty ( $arrData ) && isset ( $_SESSION ['guest_id'] )) {
     echo "Name : " . $arrData ['first_name'] . " " . $arrData ['last_name'] . "<br/><br/>";
     echo "Email/Enroll No : " . $arrData ['email_enroll_no'] . " <br/><br/>";
     

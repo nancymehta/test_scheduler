@@ -2,7 +2,8 @@
 <!-- midpanel Content gooes here  -->
 
 <?php
-// print_r($_SESSION);
+ //print_r($_SESSION);
+ //print_r($_REQUEST);
 // $_SESSION['question']=0;
 if (! empty ( $arrData )) {
     $quesNo = $_SESSION ['questions'] [$_SESSION ['question']];
