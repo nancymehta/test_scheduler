@@ -12,6 +12,11 @@
 
 ?>
 
+<div class="bigmid" >
+<div class="midpanel" >
+
+<!-- midpanel Content gooes here  -->
+
 <div id="certificate">
 	<form id="certificateEdit"  name="certificateEdit" action="http://test_scheduler.com/createTest/certificateCreate" method="post">
 		<h3>Certificate name</h3>
@@ -30,3 +35,11 @@
 	
 </div>
 
+
+</div>
+<div class="midright">
+
+<!-- right content goes here -->
+</div>
+
+</div>

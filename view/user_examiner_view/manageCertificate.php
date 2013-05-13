@@ -10,6 +10,12 @@
 *
 */
 ?>
+<div class="bigmid" >
+<div class="midpanel" >
+
+<!-- midpanel Content gooes here  -->
+
+
 
 <style type="text/css">
 #certificate_live_edit , #certificate {
@@ -114,3 +120,11 @@ table,tr,td,th,tbody,thead {
 	</form>
 </div>
 
+
+</div>
+<div class="midright">
+
+<!-- right content goes here -->
+</div>
+
+</div>

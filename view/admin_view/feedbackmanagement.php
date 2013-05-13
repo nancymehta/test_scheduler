@@ -1,3 +1,8 @@
+<div class="bigmid" >
+<div class="midpanel" >
+
+<!-- midpanel Content gooes here  -->
+
 <div>
 
 	<?php	
@@ -73,3 +78,10 @@
 	}
 	
 </script>
+</div>
+<div class="midright">
+
+<!-- right content goes here -->
+</div>
+
+</div>

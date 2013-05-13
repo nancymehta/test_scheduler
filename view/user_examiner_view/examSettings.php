@@ -1,4 +1,8 @@
-<html>
+<div class="bigmid" >
+<div class="midpanel" >
+
+<!-- midpanel Content gooes here  -->
+
 <?php //echo '<pre>';var_dump($arrData);?>
 EXAM SETTINGS
 <form action="http://test_scheduler.com/createTest/testSettings" method="post">
@@ -54,4 +58,10 @@ EXAM SETTINGS
 </table>
 </form>
 
-</html>
+</div>
+<div class="midright">
+
+<!-- right content goes here -->
+</div>
+
+</div>

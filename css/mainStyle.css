@@ -70,7 +70,7 @@ height: 20px;
 }
 
 
-input[type='text'],input[type='password'],.sel ,.loginc{
+input[type='text'],input[type='password'],input[type='email'],.sel ,.loginc{
    
     border: 1px solid #C3C3C3;
    

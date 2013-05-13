@@ -1,3 +1,8 @@
+<div class="bigmid" >
+<div class="midpanel" >
+
+<!-- midpanel Content gooes here  -->
+
 <h3>Test Settings</h3>
 <form name="testSettings"  id="testSettings" action="" >
 <div >
@@ -274,3 +279,11 @@
 </div>
 
 </form>
+
+</div>
+<div class="midright">
+
+<!-- right content goes here -->
+</div>
+
+</div>

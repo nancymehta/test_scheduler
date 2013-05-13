@@ -105,26 +105,29 @@ textarea{
    
   .bigmid{
 	
-  	height: auto;
+  	height: 100%;
   	width: auto;
-  	margin: 40px;
-  	margin-left: 10;
-
-
+  	z-index: 0;
+  	margin:20px;
+ 
+	margin-top:100px;
   }
   .midpanel{
 	
-  	height: 100%;
 
-  	width: 60%;
+  	width: 65%;  	border: 1px solid #ededed;
+
   	float:none;
-  	padding: 10px;
+  	padding: 5px;
 
   } 
   .midright{
 	
-  	height: 75%;
+  	height: 100%;
   	width: 30%;
+  	padding: 5px;
+
+  	border: 1px solid #ededed;
   	float: right;
   }
   
@@ -136,7 +139,7 @@ textarea{
   	left: 20px;
   	top:10px;
   }
-  
+
 /* css ends here  */
 
 /*************Start Dasboard Menu CSS by Pankaj********************/
@@ -264,8 +267,8 @@ opacity: 0.9;
 
 .midpanel{
 	
-  	height: 75%;
-  	width: 50%;
+  	height:100%;
+  
   	float:left;
   	
   	
@@ -438,27 +441,44 @@ clear: both;
 margin-top:1px; 
 
 }
-.table-generic{
+.table-generic,div table{
 	float:						 left;
 	clear						:both;
-	padding						: 15px;
+	padding						: 8px;
 	width						: 90%; 
 
 }
-.table-generic th{
+.table-generic th,div table th{
 	padding					: 15px;
 	border-radius				: 5px;
 	background-color: #295292;
 	color 				: white;
 
 }
-.table-generic tr, .table-generic td {
+.table-generic tr, .table-generic td,div table td {
 	text-align: center;
 	padding 					:6px;
 	border-radius				: 5px;
 	font-style: italic;
 	font-family: georgia;
 	font-size: 1em;
+
+}
+
+.table-generic a , div table a {
+
+	border                  :	1px solid #ddd;
+
+	padding					:	9px;
+	font-weight				: 	bold;
+	font-size 				:	0.7em;
+	background-color 		:   #295292;
+	color 					:   white; 	
+
+	float 					:	right;				
+
+	border-radius			:	5px;
+
 
 }
 .font-generic-default{
@@ -499,12 +519,14 @@ color:  #585858;
 }
 p{
 	border: 1px solid #eee;
-	width: 100%;
+	width: 99%;
 	font-family: georgia;
 font-style: italic;
 font-size: 0.8em;
 clear: both;
 margin: 10px;
+
+margin-left: 2px;
 
 font-weight: 100;
 }

@@ -1,3 +1,8 @@
+<div class="bigmid" >
+<div class="midpanel" >
+
+<!-- midpanel Content gooes here  -->
+
 <?php //print_r($arrData);?>
 <div class="add_test colorblue">
 	<form method="post"
@@ -23,4 +28,11 @@
 			type="submit" class="bluebutton" id="submit" name="submit"
 			value="Submit" />
 	</form>
+</div>
+</div>
+<div class="midright">
+
+<!-- right content goes here -->
+</div>
+
 </div>

@@ -1,3 +1,8 @@
+<div class="bigmid" >
+<div class="midpanel" >
+
+<!-- midpanel Content gooes here  -->
+
 <div class="user_overall_result">
 <div class="search_test">
 <span class="">Select Test </span> <div class="search_test" name="search_test" id="search_test">
@@ -48,3 +53,10 @@
 </div>
 
 </div> -->
+</div>
+<div class="midright">
+
+<!-- right content goes here -->
+</div>
+
+</div>

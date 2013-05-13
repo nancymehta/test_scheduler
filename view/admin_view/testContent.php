@@ -1,3 +1,8 @@
+<div class="bigmid" >
+<div class="midpanel" >
+
+<!-- midpanel Content gooes here  -->
+
 <?php
 	//echo "<pre>";
 	//print_r( $arrData);
@@ -34,3 +39,10 @@
 	}
 	
 ?>
+</div>
+<div class="midright">
+
+<!-- right content goes here -->
+</div>
+
+</div>

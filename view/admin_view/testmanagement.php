@@ -1,3 +1,10 @@
+<div class="bigmid" >
+<div class="midpanel" style="border:1px solid red">
+
+<!-- midpanel Content gooes here  -->
+
+
+
 <script type="text/javascript" >
 	function fetchTestContent(id) {
 		$("#hidden").toggle();
@@ -25,13 +32,12 @@
 		
 	}
 </script>
-<br/><br/><br/>
 <div class = "um">
 <?php 
 	if(isset($arrData) && !empty($arrData)) {
 		
 ?>
-		<table width="89%" border="1" cellpadding="0" cellspacing="0" >
+		<table width="89%" border="1" cellpadding="0" cellspacing="0"  class="table-generic">
 			<thead>
 				<tr style="background-color:#666666; color:#FFFFFF" valign="top">
 					<th style="font-size:13px" align="left"><?php echo "S. No.";?>
@@ -54,7 +60,7 @@
                         <td><?php echo $count; ?></td>
 						<td><?php echo $key['name']; ?></td>
 						<td><?php echo $key['created_on']; ?></td>
-						<td><a href="#" onClick="fetchTestContent(<?php echo $key['id']; ?>)">View</a> | <a href="#" onClick="deleteTest(<?php echo $key['id']; ?>)">DELETE</a>
+						<td><a href="#" onClick="fetchTestContent(<?php echo $key['id']; ?>)">View</a>  <a href="#" onClick="deleteTest(<?php echo $key['id']; ?>)">DELETE</a>
 						</td>
 						
 					</tr>
@@ -63,15 +69,27 @@
 				?>
 			</tbody>
 		</table>
+		
+
 		<pre>
 			
 			
 			
-		<div style="display: none;" id="hidden"></div>
+		
+	</div>
+
+
+</div>
+<div class="midright">
+<div style="display: none;" id="hidden"></div>
 		</pre>
 	<?php	
 		} else { // end of if start of else
 				echo "<strong>"."NO RECORDS FOUND"."</strong>";
 		  } // end of else
 	?> 
-	</div>
+<!-- right content goes here -->
+
+</div>
+
+</div>
