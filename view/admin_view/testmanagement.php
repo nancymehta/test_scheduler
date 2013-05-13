@@ -1,10 +1,3 @@
-<div class="bigmid" >
-<div class="midpanel" style="border:1px solid red">
-
-<!-- midpanel Content gooes here  -->
-
-
-
 <script type="text/javascript" >
 	function fetchTestContent(id) {
 		$("#hidden").toggle();
@@ -32,6 +25,14 @@
 		
 	}
 </script>
+<div class="bigmid" >
+<div class="midpanel">
+
+<!-- midpanel Content gooes here  -->
+
+
+
+
 <div class = "um">
 <?php 
 	if(isset($arrData) && !empty($arrData)) {
@@ -71,8 +72,7 @@
 		</table>
 		
 
-		<pre>
-			
+				
 			
 			
 		
@@ -82,7 +82,7 @@
 </div>
 <div class="midright">
 <div style="display: none;" id="hidden"></div>
-		</pre>
+		
 	<?php	
 		} else { // end of if start of else
 				echo "<strong>"."NO RECORDS FOUND"."</strong>";

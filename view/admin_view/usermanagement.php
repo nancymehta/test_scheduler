@@ -10,6 +10,10 @@
  *
 */
 ?>
+<div class="bigmid" >
+<div class="midpanel" >
+
+<!-- midpanel Content gooes here  -->
 <script>
 /*Function Name:submit1,parameter passed:1 ,to submit the id of the user*/
 		function submit1(id,request)
@@ -51,7 +55,7 @@
 					<tr valign="top">
                         			<td><?php echo $umanage['id']; ?></td>
 						<td><?php echo $umanage['username']; ?></td>
-						<td><a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'EDIT')">EDIT</a> | <a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'DELETE')">DELETE</a></td>
+						<td><a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'EDIT')">EDIT</a> <a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'DELETE')">DELETE</a></td>
 					</tr>
 				<?php 
 				} // end of foreach
@@ -64,3 +68,12 @@
 		  } // end of else
 	?> 
 	</div>
+
+</div>
+<div class="midright">
+
+<!-- right content goes here -->
+</div>
+
+</div>
+

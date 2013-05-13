@@ -28,12 +28,15 @@
                  
 	} 
 </script>
+
+		      <div class="contact-strip bg-mid-gray">Edit profile
+</div>
 <div class = "um">
 <?php 
 	if(isset($arrData) && !empty($arrData)){
 ?>
 		<form id="send">
-		<table width="89%" border="1" cellpadding="0" cellspacing="0" >
+		<table class="table-generic">
   			<tbody>
                			<?php 
 				$umanage=$arrData[0];
@@ -55,7 +58,7 @@
 					</td>
 					
 					<td>
-					<select name="user_type"> 
+					<select name="user_type" class="select_generic"> 
 						<option selected value="<?php echo $umanage['user_type']; ?>">USER</option>
 						<option value="0">ADMIN</option>
 					</select>
@@ -84,7 +87,7 @@
                         		<td><?php echo "Type Of Organisation: "; ?>
 					</td>
 					<td>
-					<select name="org_type"> 
+					<select name="org_type" class="select_generic"> 
 					<?php foreach($arrData['org_type'] as $org){?>
 						<option <?php if($umanage['code_value']==$org){print('selected');}?> value="<?php echo $org; ?>"><?php echo $org; ?></option>
 					<?php }
@@ -96,7 +99,7 @@
 
 			</tbody>
 		</table>
-		<input type="button" name="submit" value="submit" onclick="send_form(<?php echo $umanage['id'];?>)"/>
+		<input type="button" name="submit" class="submmit_button_generic" value="submit" onclick="send_form(<?php echo $umanage['id'];?>)"/>
 		</form>
 	<?php	
 		} else { // end of if start of else

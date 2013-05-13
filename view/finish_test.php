@@ -32,9 +32,9 @@ if(!empty($arrData) && isset($_SESSION['guest_id'])) {
 		echo " Percentage : 0.0%";
 	}
 	if(@$_SESSION['pass_marks']>$percentage) {
-		echo "RESULT : FAIL";
+		echo "<br><br>RESULT : <font style=color:red>FAIL</font>";
 	} else {
-		echo "RESULT : PASS";
+		echo "<br><br>RESULT : <font style=color:green> PASS </font>";
 	}
 	
 

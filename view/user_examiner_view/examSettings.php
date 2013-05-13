@@ -4,7 +4,9 @@
 <!-- midpanel Content gooes here  -->
 
 <?php //echo '<pre>';var_dump($arrData);?>
-EXAM SETTINGS
+
+
+  <div class="contact-strip bg-mid-gray">Exam setting </div>
 <form action="http://test_scheduler.com/createTest/testSettings" method="post">
 <table>
 <tr>
@@ -53,7 +55,7 @@ EXAM SETTINGS
 <input type="hidden" name="testId" id="testId" value="<?php if(isset($_REQUEST['test_id'])) {echo $_REQUEST['test_id'];}?>">
 <tr>
 <td>
-<input type="submit" value="submit">
+<input type="submit" value="submit" class="submmit_button_generic">
 </td>
 </table>
 </form>

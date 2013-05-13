@@ -41,7 +41,7 @@
 					</tr>
 					<tr>
 						<td width="480" align="center">
-					<label>Presented to:</label>		<span id="cert_user_name" style="visibility: visible;">John Smith</span>
+					<label>Presented to:</label>		<span id="cert_user_name" style="color:black;font-size:1.23em">John Smith</span>
 						</td>
 					</tr>
 					<tr>

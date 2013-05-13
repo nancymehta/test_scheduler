@@ -9,7 +9,7 @@
 
 	if(isset($arrData) && !empty($arrData)){
 	?>
-	<table>
+	<table class="table-generic">
 		<tr>
 			<th>
 				id
@@ -44,7 +44,7 @@
 					<?php echo $value['description'];?>
 				</td>
 				<td class="text<?php echo $i; ?>">
-						<a href="#" onClick="submit(<?php echo $value['id']; ?>)">Reply</a>
+						<a href="#" class="submmit_button_generic" onClick="submit(<?php echo $value['id']; ?>)">Reply</a>
 				</td>
 				
 		</tr>
@@ -57,7 +57,7 @@
 </div>
 <script>
 	function submit(id){
-		$('.text'+id).html('<input type=text name=feed'+id+' id=feed'+id+' /><input type=button value=send onclick=send('+id+'); />');
+		$('.text'+id).html('<input type=text name=feed'+id+' id=feed'+id+' /><input type=button value=send onclick=send('+id+'); class=button_generic />');
 	}
 
 	function send(id){
