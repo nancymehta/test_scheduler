@@ -39,7 +39,7 @@
 <?php 
 	if(isset($arrData) && !empty($arrData)){
 ?>
-		<table width="89%" border="1" cellpadding="0" cellspacing="0" >
+		<table class="table1 table-generic" width="89%" border="1" cellpadding="0" cellspacing="0" >
 			<thead>
 				<tr style="background-color:#666666; color:#FFFFFF" valign="top">
 					<th style="font-size:13px" align="left"><?php echo "User Id";?>

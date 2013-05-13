@@ -39,7 +39,7 @@
 	if(isset($arrData) && !empty($arrData)){
 ?>
 		<form id="send">
-		<table class="table-generic">
+		<table class="table-generic table1">
   			<tbody>
                			<?php 
 				$umanage=$arrData[0];

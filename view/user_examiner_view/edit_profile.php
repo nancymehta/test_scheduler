@@ -11,7 +11,7 @@
 	<a id="view1" href="#" class="button_generic">Click to view my profile</a>
 	<div id="divView1">
 <form method="post" id="editprofile">
-	<table class="table-generic table1">
+	<table class="table1 table-generic table1">
 	<tbody>
 		<tr><td>Name: </td> <td> Your Name</td></tr>
 		<tr><td>User Name: </td> <td> Your User Name</td></tr>

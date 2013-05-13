@@ -32,8 +32,8 @@ function send(id){
 
 	if(isset($arrData) && !empty($arrData)){
 	?>
-	<table class="table-generic">
-		<tr>
+	<table class="table-generic table1">
+		<thead><tr>
 			<th>
 				id
 			</th>
@@ -47,11 +47,12 @@ function send(id){
 				Description
 			</th>
 		</tr>
+		</thead>
 	<?php 	
 		$i=0;
 		foreach($arrData as $value){
 		$i++;
-	?>
+	?><tbody>
 		<tr>
 			<td>
 				<?php echo $value['id'];?>
@@ -73,6 +74,7 @@ function send(id){
 		</tr>
 		
 	<?php }?>
+	</tbody>
 	</table>
 	<?php }?>
 	

@@ -30,13 +30,15 @@
 		</form>
 	</div>
 	<div class="space"></div>
-		<table class="table-generic" id="shubh">
-			<tr>
+		<table class="table-generic table1" id="shubh">
+			<thead><tr>
 				<th>S.No.</th>
 				<th>Test</th>
 				<th colspan="3">Option</th>
 				<th>Test Link</th>
 			</tr>
+			</thead>
+			<tbody>
 			<?php
 			$i = 0;
 			$count = 0;
@@ -66,6 +68,7 @@
 				<td><a href="#">Manage assign test</a></td>
 			</tr>
  -->
+ </tbody>
 		</table>
 	
 </div>

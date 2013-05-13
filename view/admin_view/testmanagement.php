@@ -36,7 +36,7 @@ function fetchTestContent(id) {
 	if(isset($arrData) && !empty($arrData)) {
 		
 ?>
-		<table width="89%" border="1" cellpadding="0" cellspacing="0"  class="table-generic">
+		<table width="89%" border="1" cellpadding="0" cellspacing="0"  class="table-generic table1">
 			<thead>
 				<tr style="background-color:#666666; color:#FFFFFF" valign="top">
 					<th style="font-size:13px" align="left"><?php echo "S. No.";?>

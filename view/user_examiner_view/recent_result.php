@@ -29,7 +29,8 @@
   <div class="contact-strip bg-mid-gray">Fill one or more fields</div>
 			  <div class="space"></div>
       
-			<table>
+			<table class="table1 table-generic">
+				<tbody>
 				<tr cellspacing="2"><label>First Name</label></tr>
         				<tr><input type="text"  name="first_name" id="first_name"/></tr><div class="space"></div>
 				<tr><label>Last Name</label></tr></br>
@@ -37,6 +38,7 @@
 				<tr><label>Email Address</label></tr></br>
 				<tr><input type="text" name="email" id="email"/></tr><div class="space"></div>
 				<tr><input type="submit" value="Search" class="submmit_button_generic" /></tr>
+			</tbody>
 			</table>
 		</form>
 	</div>

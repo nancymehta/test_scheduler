@@ -8,7 +8,8 @@
 
   <div class="contact-strip bg-mid-gray">Exam setting </div>
 <form action="http://test_scheduler.com/createTest/testSettings" method="post">
-<table>
+<table class="table1 table-generic">
+	<tbody>
 <tr>
 <td>Random</td>
 <td><input type="radio"  <?php if(isset($arrData['random'])){if($arrData['random']=='0') echo 'checked';}?> name="random" value="yes">yes <input type="radio"  <?php if(isset($arrData['random'])){if($arrData['random']=='1') echo 'checked';}?> name="random" value="no">no</td>
@@ -56,7 +57,8 @@
 <tr>
 <td>
 <input type="submit" value="submit" class="submmit_button_generic">
-</td>
+</td></tr>
+</tbody>
 </table>
 </form>
 

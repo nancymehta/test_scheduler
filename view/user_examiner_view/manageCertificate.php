@@ -31,7 +31,7 @@
 		</div>
 		<h3>Customize Certificate</h3>
 		<div id="certificate_live_edit">
-			<table class="table-generic">
+			<table class="table-generic table1">
 				<tbody>
 					
 					<tr>

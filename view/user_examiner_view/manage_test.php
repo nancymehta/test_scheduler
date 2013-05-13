@@ -220,7 +220,7 @@ td.inplab {
 						Display random questions grouped and ordered by the category ordering above
 					<br>
 					</p>
-					<table cellspacing="0" cellpadding="0">
+					<table class="table-generic table1" cellspacing="0" cellpadding="0">
 						<tbody>
 						<tr>
 							<td>
