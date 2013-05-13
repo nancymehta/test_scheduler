@@ -1,5 +1,5 @@
 <script type="text/javascript" >
-	function fetchTestContent(id) {
+	/*function fetchTestContent(id) {
 		$("#hidden").toggle();
 		$("#hidden").load("<?php echo SITE_PATH;?>admin/fetchTestContents","id="+id);
 	}
@@ -23,7 +23,7 @@
 			alert("Invalid Command");
 		}
 		
-	}
+	}*/
 </script>
 <div class="bigmid" >
 <div class="midpanel">

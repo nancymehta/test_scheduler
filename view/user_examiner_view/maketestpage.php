@@ -72,9 +72,9 @@
 
 <script>
 $(document).ready(function() {
-	$("#add_test").click(function(){
+	/*$("#add_test").click(function(){
 		$(".add_test").show();
-	});
+	});*/
 });
 </script>
 

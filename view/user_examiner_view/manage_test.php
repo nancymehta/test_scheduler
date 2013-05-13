@@ -113,11 +113,10 @@ td.inplab {
 
 
 </style>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
-</script>
+
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#tog_random").click(function(){
+		/*$("#tog_random").click(function(){
   			$("#dotog_random").toggle();
 		});
 		$("#tog_randomopt1").click(function(){
@@ -128,7 +127,7 @@ td.inplab {
 		});
 		$('#tog_certs').click(function(){
 			$('#dotog_certs').toggle();
-		});
+		});*/
 	/*	$('#editLink_tn').click(function(){
 			$('#misc_cat hide').show();
 		});*/

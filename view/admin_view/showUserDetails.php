@@ -12,7 +12,7 @@
 ?>
 <script>
 /*Function Name:submit1,parameter passed:1 ,to submit the id of the user*/
-	function send_form(id)
+	/*function send_form(id)
         {
           
 		$.ajax({
@@ -26,7 +26,7 @@
     			     
     		}); // end of ajax
                  
-	} 
+	} */
 </script>
 
 		      <div class="contact-strip bg-mid-gray">Edit profile

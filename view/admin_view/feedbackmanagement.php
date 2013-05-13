@@ -56,7 +56,7 @@
 	
 </div>
 <script>
-	function submit(id){
+	/*function submit(id){
 		$('.text'+id).html('<input type=text name=feed'+id+' id=feed'+id+' /><input type=button value=send onclick=send('+id+'); class=button_generic />');
 	}
 
@@ -75,7 +75,7 @@
 					 }
 				 }
 		});
-	}
+	}*/
 	
 </script>
 </div>

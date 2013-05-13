@@ -1,7 +1,7 @@
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 <script type="text/javascript">
 	$(document).ready(function(){
-	    $("#divView1").hide();
+	   /* $("#divView1").hide();
 	    $("#divView2").hide();
 	    $("#divView3").hide();
 	    $("#divView4").hide();
@@ -17,7 +17,7 @@
 		});
 		$("#view4").click(function(){
   			$("#divView4").toggle("fast");
-		});
+		});*/
 		
 	});
 

@@ -10,7 +10,7 @@ class dbConnectModel extends cxpdo{
 	 function __construct() {
 		$config = array();
 		$config['user'] = 'root';
-		$config['pass'] = 'root';
+		$config['pass'] = '';
 		$config['name'] = 'test_scheduler';
 		$config['host'] = 'localhost';
 		$config['type'] = 'mysql';

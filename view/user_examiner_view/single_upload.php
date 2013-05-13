@@ -134,27 +134,7 @@
 		</form>
 	
 
-<script>
-$(document).ready(function(){
-	var valincr = 3;
-	   $("#addButton").click(function (){
-		  if(valincr>5){
-	            alert("Maximum 5");
-	            return false;
-			}   
-			$('.s_upload_table').append('<tr id="dynamic"><td><textarea class="text_right_generic" cols=15 rows=1 id=ques'+valincr+' name=ques'+valincr+'></textarea></td><td><input type="checkbox" id=check'+valincr+' name=check'+valincr+' /></td><td><textarea class="text_right_generic" cols=15 rows=1 id=feedback'+valincr+' name=feedback'+valincr+'></textarea> </td></tr>');
-			valincr++;	
-		});
-	   $("#removeButton").click(function () {
-		   if(valincr==3){
-			      alert("Minimum 2");
-		          return false;
-		       }
-	       valincr--;
-	        $("#dynamic").remove();  	
-		});
-});
-</script>
+
 </div>
 <div class="midright">
 
