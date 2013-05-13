@@ -7,7 +7,7 @@
 
 
   <div class="contact-strip bg-mid-gray">Exam setting </div>
-<form action="http://test_scheduler.com/createTest/testSettings" method="post">
+<form id = "exam_settings" name = "exam_settings" action="http://test_scheduler.com/createTest/testSettings" method="post">
 <table class="table1 table-generic">
 	<tbody>
 <tr>

@@ -299,6 +299,11 @@ $(document).ready(function() {
 }); 
 
 
+$(document).ready(function() {
+	$("#add_test").click(function(){
+		$(".add_test").show();
+	});
+});
 
 
 
@@ -397,7 +402,38 @@ $(document).ready(function() {
                  },
             	},
             	
-        });	
+        });
+	$("#contactus").validate({
+		rules: {
+			contact_name:{
+				required:true,
+				checkAlpha:true				
+			},
+		contact_email: {
+			required:true,
+			email:true
+		},
+		contact_suggestion :{
+			required : true,
+			checkAlpha :true
+		}
+		},
+		messages: {
+			test_name:{
+				required:"Please enter contact name.",
+				checkAlpha:"Only character are required."
+			},
+			contact_email: {
+				required:"Please enter email.",
+				email:"Invalid email."
+			},
+			contact_suggestion :{
+				required : "Enter suggestion",
+				checkAlpha :"Only character are required."
+			}
+		}
+	});
+	
 	});
 
 $(document).ready(function(){
@@ -476,6 +512,113 @@ function valid_search_user()
 		
 	}
 }
+
+
+
+/*
+//validating exam setting page
+$(document).ready(function(){
+	$.validator.addMethod("time", function(value, element) {  
+		return this.optional(element) || /^(([0-1]?[0-2])|([2][0-3])):([0-5]?[0-9])(a|p)m?$/i.test(value);  
+		}, "Please enter a valid time.");
+	});
+	$(document).ready(function(){
+		$("#exam_settings").validate({
+			rules: {
+				startTime:{
+					required:true,
+					time:true				
+				}
+			
+			},
+			messages: {
+				startTime:{
+					required:"Please enter Start time.",
+					time:"Invalid time."
+				},
+				
+			}
+		});
+		
+		});
+
+
+//validating manage_test page
+$(document).ready(function(){
+	$("#option1").validate({
+		rules: {
+			num_random:{
+				required:true,
+				digits:true				
+			}
+		
+		},
+		messages: {
+			num_random:{
+				required:"Please enter total no. of question.",
+				digits:"Invalid number."
+			}
+			
+		}
+	});
+	
+	$("#option2").validate({
+		rules: {
+			cat_id_0:{
+				required:true,
+				digits:true				
+			}
+		
+		},
+		messages: {
+			cat_id_0:{
+				required:"Please enter questions per category.",
+				digits:"Invalid number."
+			}
+			
+		}
+	});
+	
+	});
+
+*/
+//Validating user_test_info
+$(document).ready(function(){
+	$("#user_test_info_form").validate({
+		rules: {
+		firstName:{
+				required:true,
+				checkAlpha:true				
+			},
+		lastName:{
+				required:true,
+				checkAlpha:true				
+			},
+		email:{
+			required: true,
+			email:true
+		}
+		},
+		messages: {
+			firstName:{
+				required:"Enter first name."
+				checkAlpha:"Only character are required."
+			},
+			lastName:{
+				required:"Enter last name."
+				checkAlpha:"Only character are required."
+			},
+			email:{
+				required:"Enter email."
+				email:"Invalid email."
+			}
+		}
+	});
+
+
+});
+
+
 
 
 

@@ -100,4 +100,24 @@ class testuiController extends common{
  	$this->loadView("user_examiner_view/deshboard_menu");
  	$this->loadView("user_examiner_view/manageCertificate");
  }
+ 
+ function examSettings(){
+ 	$this->loadView("header");
+ 	//$this->loadView("user_header");
+ 	//$this->loadView("admin_view/deshboard_menu");
+ 	$this->loadView("user_examiner_view/examSettings");
+  }
+  
+  function test_settings(){
+  	$this->loadView("header");
+  	//$this->loadView("user_header");
+  	//$this->loadView("admin_view/deshboard_menu");
+  	$this->loadView("user_examiner_view/test_settings");
+  }
+  function user_test_info(){
+  	//$this->loadView("header");
+  	//$this->loadView("user_header");
+  	//$this->loadView("admin_view/deshboard_menu");
+  	$this->loadView("user_examiner_view/user_test_info");
+  }
 }

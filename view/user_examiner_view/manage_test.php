@@ -158,7 +158,7 @@ td.inplab {
 			<p>
 			<a id="tog_randomopt1" class="showcont" href="#">View option 1 settings</a>
 			<div class="dotted"></div>
-			<form id="option1" class="randomQuestionsForm-old" method="post" action="#">
+			<form id="option1" name = "option1" class="randomQuestionsForm-old" method="post" action="#">
 				<input type="hidden" value="option1" id="random_option1" name="random_option1">
 				<input type="hidden" value="341354" id="test_id" name="test_id">
 				<div id="dotog_randomopt1" class="hide">
@@ -205,7 +205,7 @@ td.inplab {
 				<div class="dotted"></div>
 				<div class="titlename">No. questions per category</div>
 				<div class="clearheight"></div>
-				<form id="option2" class="randomQuestionsForm-old" method="post" action="">
+				<form id="option2" name = "option2" class="randomQuestionsForm-old" method="post" action="">
 					<input type="hidden" value="option2" id="random_option2" name="random_option2">
 					<input type="hidden" value="341354" id="test_id" name="test_id">
 					<div class="userbox" >
