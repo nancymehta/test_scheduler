@@ -2,6 +2,8 @@
 "The TEst is finished NOw "<br/>
 <?php 
 	
+	
+	echo $eds;	
 //print_r($arrData); 
 //print_r($_SESSION); 
 if(!empty($arrData) && isset($_SESSION['guest_id'])) {

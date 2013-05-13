@@ -1,10 +1,53 @@
 <?php
 	require(LIBRARY_ROOT."server_validation/validation.php");
-
-	$validation =new validation();
-	
-function mailTest($to,$sub,$body) {
 	require(LIBRARY_ROOT."PHPMailer_5.2.4/class.phpmailer.php");
+	//setting custom handler
+	//$old_error_handler = set_error_handler("myErrorHandler");
+function myErrorHandler($errno, $errstr, $errfile, $errline) {
+    if (!(error_reporting() & $errno)) {
+        // This error code is not included in error_reporting
+        return;
+    }
+
+    switch ($errno) {
+    case E_USER_ERROR:
+        echo $message="<b>My ERROR</b> [$errno] $errstr<br />\n";
+        echo $message.="  Fatal error on line $errline in file $errfile";
+        echo $message.=", PHP " . PHP_VERSION . " (" . PHP_OS . ")<br />\n";
+        echo $message.="Aborting...<br />\n";
+        $subject="E_USER_ERROR";
+        mailTest("info.test.scheduler@gmail.com",$subject,$message);
+        exit(1);
+        break;
+
+    case E_USER_WARNING:
+    	$subject="E_USER_WARNING";
+        echo $message="<b>My WARNING</b> [$errno] $errstr<br />\n";
+          mailTest("info.test.scheduler@gmail.com",$subject,$message);
+        break;
+
+    case E_USER_NOTICE:
+    	$subject="E_USER_NOTICE";
+        echo $message="<b>My NOTICE</b> [$errno] $errstr<br />\n";
+          mailTest("info.test.scheduler@gmail.com",$subject,$message);
+        break;
+
+    default:
+    	$subject="Unknown ERROR";
+        echo $message="Unknown error type: [$errno] $errstr
+        at  file : $errfile,and line : $errline<br />\n";
+         mailTest("info.test.scheduler@gmail.com",$subject,$message);
+    	
+        break;
+    }
+
+    /* Don't execute PHP internal error handler */
+    return true;
+}
+	
+	/**function to Send Mails from test_scheduler*/
+function mailTest($to,$sub,$body) {
+	
 	$mail = new PHPMailer();
 	$mail->IsSMTP(); // send via SMTP 
 	$mail->Host = "smtp.gmail.com"; // SMTP servers 
@@ -28,6 +71,8 @@ function mailTest($to,$sub,$body) {
 
 echo "Message has been sent"; 
 }
+/*Common class holds the Common Method Such as
+loadView & loadModel*/
 class common {
 
 	function loadView($templateName,$arrPassValue='')
