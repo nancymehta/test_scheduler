@@ -59,22 +59,26 @@ class questionBankModel extends dbConnectModel {
 		    echo '<br/>';
 		    
 		    //inserting question-option into question_options table
-		    
 		    $i=1;
 		    while(!empty($arrArgs['option'.$i])){
 		    	//die('oye');
 		    	$data2=array(
 		    	"ques_id"=>$ques_id,
-		    	"option"=>$arrArgs['option'.$i],
-		    	"created_on"=> date("Y-m-d h:i:s",$t),
-		    	"created_by"=>$_SESSION ['SESS_USER_ID']
-		    );
+		    	"option"=>$arrArgs['option'.$i]
+		    	);
+		    	 if(isset($arrArgs['ans'.$i])){
 		    	if($arrArgs['ans'.$i]=='on'){
 		    		$data2['correct']=1;
 		    	}
+			}
 		    	$i++;
+		    	
+		    	$data2["created_on"]= date("Y-m-d h:i:s",$t);
+		    	$data2["created_by"]= $_SESSION ['SESS_USER_ID'];
+		    
+		    	
 		    	print_r($data2);
-		    	$result2 = $this->_db->insert('question_options', $data2);
+		    	$result2 = @$this->_db->insert('question_options', $data2);
 		    	
 		    }
 		    if($result1 && $result2){
