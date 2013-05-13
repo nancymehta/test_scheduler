@@ -77,7 +77,7 @@ function checkCategoryValue()
 }
 
 
-//js of admin view
+
 
 
 
