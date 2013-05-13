@@ -373,7 +373,7 @@ opacity: 0.9;
 
 	padding					:	9px;
 	font-weight				: 	bold;
-	font-size 				:	0.7em;
+	font-size 				:	0.6em;
 	background-color 		:   #295292;
 	color 					:   white; 	
 	float 					:	right;				
@@ -384,6 +384,28 @@ opacity: 0.9;
 
 
 
+.bg-fg-button-color{
+
+	background-color 		:   #295292;
+	color 					:   white; 	
+}
+
+.next_prev{
+	padding: 0;
+	text-align: center;
+	margin: 0;
+
+
+}
+input[type='radio']{
+padding: 5px;
+margin:10px;
+margin-left:20px;
+border: 1px solid red;
+background-color: blue;
+
+
+}
 .submmit_button_generic:hover {
 	
 	background-color 		:    #6C6C6C;

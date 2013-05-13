@@ -1,4 +1,6 @@
 
+<!-- midpanel Content gooes here  -->
+
 <?php 
 
 
@@ -12,12 +14,16 @@ $questionId=$arrData["$quesNo"]['question_id'];
 $options= $arrData[$quesNo."opt"];
 
 ?>
-<br/><br/><br/><br/><br/><br/>
 <form method="post" action="#" > 
 <input type='hidden' value='<?php echo $questionId; ?>' name='question_id'>
+
+
+  <div class="contact-strip bg-mid-gray">
 <?php
-echo ($_SESSION['question']+1); //serial no.
+echo "<font style=color:black;>  ".($_SESSION['question']+1)." .</font>"; //serial no.
 echo " Question ".$arrData["$quesNo"]['question']."<br/>";
+echo "</div>";
+echo "<br><br><br>";
 shuffle($options);
 
 foreach($options as $val) {
@@ -45,22 +51,25 @@ foreach($options as $val) {
 
 ?>
 <input type="hidden" name="controller" value="test" >
-<input type=submit name="function" value="prev">
-<input type=submit name="function" value="next">
+<div class="next_prev">
+<input type=submit name="function" value="prev"  class="submmit_button_generic bg-fg-button-color">
+<input type=submit name="function" value="next" class="submmit_button_generic bg-fg-button-color">
+</div>
 </form>
-
-<a href="<?php echo SITE_PATH."test/finishTest"; ?>" >FINISH TEST</a>
+<hr>
+<a href="<?php echo SITE_PATH."test/finishTest"; ?>" class="submmit_button_generic " >FINISH TEST</a>
+<div class="space"></div>
 <?php } else {
 	?>
  <br/> test Empty <br/>
- <form action="#" method="post<br/><br/><br/><br/><br/><br/>">
+ <form action="#" method="post">
 	<input type="hidden" name="controller" value="test" >
-	<input type="submit" name='function' value="exitTest">
+	<input type="submit" name='function' value="exitTest" class="submmit_button_generic">
 </form>
  <?php
 }
 ?>
-<button onclick="showAttempted()">Show Attempted</button>
+<button onclick="showAttempted()" class="submmit_button_generic">Show Attempted</button>
 <div id="showattemped"></div>
 
 
