@@ -55,12 +55,14 @@ if(file_exists($fn)){
 	require_once($fn);
 	$controllerClass=$controller.'Controller';
 	if(!method_exists($controllerClass,$function)){
+	header("location:".SITE_PATH."404.php?param=functionError");
 		die($function .' function not found');
 	}
 	$obj=new $controllerClass;
 	$obj-> $function();
 }
 else{
+	header("location:".SITE_PATH."404.php?param=controllerError");
 	die($controller .' controller not found');
 }
 

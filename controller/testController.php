@@ -125,6 +125,8 @@ class testController extends mainController {
 	function finishTest() {
 		/*call a function to give result using guest id 
 		and load it to the view*/
+		$this->loadView("header");
+	 	$this->loadView("user_header");
 		$arrData=$this->loadModel("test","fetchSpecificResult",array("id"=>@$_SESSION['guest_id']));
 		$_SESSION['total_question']=0; //indicates test is over
 		$this->loadView("finish_test",$arrData);

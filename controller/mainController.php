@@ -124,6 +124,7 @@ class mainController extends common{
 			echo "You are logged Out";
 	}
 	function __call($key,$index) {
+		header("location:".SITE_PATH."404.php?param=internalMethodError");
 		echo "yeah error";
 	}
 	
