@@ -1,7 +1,7 @@
 <?php
 /* @author 		 :Siddarth Chowdhary
  * @created on   :07-05-2013
-* @desc		 	 :Model to create a test.
+* @desc		 	 :Model for creating , updating and deleting a test.
 ****************Modifed Log ********************************
 *Name			Date			Description
 *Siddarth       9/5/13          added createNewTest,editTest,updateTest
@@ -9,6 +9,7 @@
 *Siddarth		11/5/13			created test settings
 *Siddarth		12/5/13			worked on test settings,getTestLinkValues
 *Ashwani 		12/5/13 		added methods related to certificate management
+*Siddarth		13/5/13			added getTestCategoryValues,updateTestCategory
 ************************************************************
 *
 */include MODEL_PATH . "db_connect.php";
@@ -17,11 +18,11 @@ class createTestModel extends dbConnectModel {
 		parent::__construct ();
 	}
 	
-	// creating a new test
+	#creating a new test
 	public function createNewTest($arrArgs) {
 		try {
 			if (! empty ( $arrArgs )) {
-				// query to insert data in table test
+				#query to insert data in table test
 				$data ['tables'] = 'test';
 				$data ['columns'] = array (
 						'name' => $arrArgs ['testName'],
@@ -33,7 +34,7 @@ class createTestModel extends dbConnectModel {
 				
 				$testId = $this->_db->lastInsertId ();
 				for($i = 0; $i < count ( $arrArgs [categoryName] ); $i ++) {
-					// query to select cat id from category table for a particular category name
+					#query to select cat id from category table for a particular category name
 					$data ['tables'] = 'category';
 					$data ['columns'] = array (
 							'id' 
@@ -48,7 +49,7 @@ class createTestModel extends dbConnectModel {
 					} else {
 						return false;
 					}
-					// query to insert data in the test_category table
+					#query to insert data in the test_category table
 					$data ['tables'] = 'test_category';
 					$data ['columns'] = array (
 							'test_id' => $testId,
@@ -75,7 +76,7 @@ class createTestModel extends dbConnectModel {
 		}
 	}
 	
-	// Viewing Tests categories
+	#Viewing Tests categories
 	public function getTestCategories($arrArgs) {
 		try {
 			$categoryArray = array ();
@@ -99,7 +100,7 @@ class createTestModel extends dbConnectModel {
 		}
 	}
 	
-	// Viewing Tests categories
+	#Viewing Tests categories
 	public function getTestNames($arrArgs) {
 		try {
 			$testArray = array ();
@@ -117,14 +118,13 @@ class createTestModel extends dbConnectModel {
 				$testArray ['testName'] [] = $row ['name'];
 				$testArray ['testId'] [] = $row ['id'];
 			}
-			// print_r($categoryArray);die("here");
 			return $testArray;
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}
 	}
 	
-	// Deleting Test
+	#Deleting Test
 	public function deleteTest() {
 		try {
 			//query needed
@@ -134,14 +134,14 @@ class createTestModel extends dbConnectModel {
 	}
 	
 	
-	// Test Settings
+	#Test Settings
 	public function testSettings($arrArgs) {
 		try {
 			if (! empty ( $arrArgs )) {
-				//select query to check whether data exists for particular test in test_link table
+				#select query to check whether data exists for particular test in test_link table
 				$row = $this->getTestLinkValues($arr=array('test_id'=>$arrArgs['test_id']));
 				if(empty($row)){
-					// query to insert data in the test_link table
+					#query to insert data in the test_link table
 					$data ['tables'] = 'test_link';
 					$data ['columns'] = array (
 							'test_id' => $arrArgs['test_id'],
@@ -191,33 +191,22 @@ class createTestModel extends dbConnectModel {
 		}
 	}
 	
-	// Updating Test
+	#Updating Test
 	public function updateTest($arrArgs) {
 		try {
-			echo '<pre>';
-			print_r ( $arrArgs );
-			// update in table test
-			$data = array (
-					'name' => $arrArgs ['testName'] 
-			);
-			$where = array (
-					'id' => $arrArgs ['test_id'] 
-			);
-			$result_update = $this->_db->update ( 'test', $data, $where );
-			// print_r($result_update);
+			#deleting then inserting coz of multiple issue used this strategy
 			$result_delete = $this->_db->delete ( 'test_category', array (
 					'test_id' => $arrArgs ['test_id'] 
 			) );
-			// print_r($result_delete);
-			
 			for($i = 0; $i < count ( $arrArgs ['categoryName'] ); $i ++) {
-				// query to select cat id from category table for a particular category name
+				#query to select cat id from category table for a particular category name
 				$data ['tables'] = 'category';
 				$data ['columns'] = array (
 						'id' 
 				);
 				$data ['conditions'] = array (
-						'name' => $arrArgs ['categoryName'] [$i] 
+						'name' => $arrArgs ['categoryName'] [$i],
+						'created_by'=>$arrArgs['user_id'] 
 				);
 				$result_select = $this->_db->select ( $data );
 				$row = $result_select->fetch ( PDO::FETCH_ASSOC );
@@ -226,7 +215,7 @@ class createTestModel extends dbConnectModel {
 				} else {
 					return false;
 				}
-				// query to insert data in the test_category table
+				#query to insert data in the test_category table
 				$data ['tables'] = 'test_category';
 				$data ['columns'] = array (
 						'test_id' => $arrArgs ['test_id'],
@@ -237,19 +226,18 @@ class createTestModel extends dbConnectModel {
 				);
 				
 				$result_insert = $this->_db->insert ( $data ['tables'], $data ['columns'] );
-				// print_r($result_insert);
-				if ($result_update && $result_delete && $result_insert) {
-					return true;
-				} else {
-					return false;
-				}
+			}
+			if ($result_delete && $result_insert) {
+				return true;
+			} else {
+				return false;
 			}
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}
 	}
 	
-	//getting test link table values for a particular test_id
+	#getting test link table values for a particular test_id
 	public function getTestLinkValues($arrArgs) {
 		try {
 			$data ['tables'] = 'test_link';
@@ -267,6 +255,76 @@ class createTestModel extends dbConnectModel {
 			$this->handleException ( $e->getMessage () );
 		}
 	}
+	
+	#getting test_category and category table values for a particular test_id
+	public function getTestCategoryValues($arrArgs) {
+		try {
+			$data ['tables'] = 'test_category';
+			$data ['conditions'] = array (
+					'test_id' => $arrArgs ['test_id']
+			);
+			$result_select = $this->_db->select ( $data );
+			$i=1;
+			while ($row = $result_select->fetch ( PDO::FETCH_ASSOC )) {
+				$testCategory[$i]['test_id']=$row['test_id'];
+				$testCategory[$i]['cat_id']=$row['cat_id'];
+				#fetch category name corresponding to cat_id
+				$data ['tables'] = 'category';
+				$data ['columns'] = array ('id','name');
+				$data ['conditions'] = array (
+						'id' => $testCategory [$i]['cat_id']
+				);
+				$result_select_inner = $this->_db->select ( $data );
+				$row_inner = $result_select_inner->fetch ( PDO::FETCH_ASSOC );
+				$testCategory[$i]['categoryName']=$row_inner['name'];
+				$testCategory[$i]['categoryId']=$row_inner['id'];
+				$testCategory[$i]['no_of_ques']=$row['no_of_ques'];
+				$i++;
+			}
+			if (! empty ( $testCategory )) {
+				return $testCategory;
+			} else {
+				return false;
+			}
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
+	#Updating test_category for manage question functionality no of qs for category
+	public function updateTestCategory($arrArgs) {
+	try {
+	$arrArgsValues=array_values($arrArgs);
+	array_pop($arrArgsValues);
+	$count=count($arrArgsValues);
+	$count =$count/2;
+	$j=0;
+	for($i=0;$i<$count;$i++){
+	
+	$data = array (
+	'no_of_ques' => $arrArgsValues[$j],
+	'updated_by'=>$_SESSION['SESS_USER_ID'],
+	'updated_on'=>'NOW()'
+	);
+	$j++;
+	$where = array (
+	'cat_id' => $arrArgsValues [$j],
+	'test_id' =>$arrArgs['test_id']
+	);
+	$j++;
+	$result_update = $this->_db->update ( 'test_category', $data, $where );
+	print_r($result_update);
+	}
+	if ($result_update) {
+		return true;
+	} else {
+	return false;
+	}
+	} catch ( Exception $e ) {
+	$this->handleException ( $e->getMessage () );
+	}
+	}
+	
 	
 	/*********************  Methods related to certificate managment **************/
 	

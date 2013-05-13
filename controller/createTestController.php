@@ -9,6 +9,7 @@
 *Siddarth							11/5/13			created test settings
 *Siddarth							12/5/13			worked on test settings
 *Ashwani		Certificate			12/5/13			Added methods for certificate management 
+*Siddarth		manage qs			13/5/13			added manageQuestion
 ************************************************************
 *
 */
@@ -47,7 +48,6 @@ class createTestController extends mainController {
 					'testName' => $_REQUEST ['test_name'],
 					'test_id' => $_REQUEST ['test_id'] 
 			);
-			echo 'test id : ' . $_REQUEST ['test_id'];
 			$this->loadView ( "header" );
 			$this->loadView ( "user_header" );
 			$this->loadView ( "user_examiner_view/deshboard_menu" );
@@ -125,6 +125,19 @@ class createTestController extends mainController {
 				echo 'could not update the test';
 			}
 					 
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
+	function manageQuestion() {
+		try {
+			$arrData = $this->loadModel ( 'createTest', 'updateTestCategory', $_POST);
+			if ($arrData){
+				header("location:http://test_scheduler.com/user/mytest");
+			} else {
+				throw new Exception();
+			}
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}

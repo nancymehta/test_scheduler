@@ -13,13 +13,13 @@ class userController extends mainController {
 		$this->loadView ( "user_examiner_view/category", $ArrData );
 		$this->loadView ( "header" );
 	}
-	/* provide view for category tab */
+	
+	/**
+	 * Created By : Siddarth Chowdhary
+	 * Description : provides functionality show test page with dynamic values
+	 * Date_of_creation :9-5-2013
+	 */
 	function mytest() {
-		/**
-		 * Created By : Siddarth Chowdhary
-		 * Description : provides functionality show test page with dynamic values
-		 * Date_of_creation :9-5-2013
-		 */
 		$arrData_1 = $this->loadModel ( 'createTest', 'getTestCategories', array (
 				"id" => $_SESSION ['SESS_USER_ID'] 
 		) );
@@ -77,17 +77,16 @@ class userController extends mainController {
 		$this->loadView ( "user_examiner_view/deshboard_menu" );
 
 	}
-	
+	/**
+	 * Created By : Siddarth Chowdhary
+	 * Description : provides functionality show exam Settings
+	 * Date_of_creation :10-5-2013
+	 */
 	function examSettings() {
-		//echo 'hi';
-		//echo $_GET ['test_id'];die;
 		$arrData = $this->loadModel ( 'createTest', 'getTestLinkValues', array (
 				"test_id" => $_GET ['test_id']
 		) );
-		//var_dump($arrData);die;
-		//die("here");
 		if (! empty ( $arrData )) {
-			// echo '<pre>';print_r($arrData);die;
 			$this->loadView ( "header" );
 			$this->loadView ( "user_header" );
 			$this->loadView ( "user_examiner_view/deshboard_menu" );
@@ -97,6 +96,27 @@ class userController extends mainController {
 			$this->loadView ( "user_header" );
 			$this->loadView ( "user_examiner_view/deshboard_menu" );
 			$this->loadView ( "user_examiner_view/examSettings" );
+		}
+	}
+	/**
+	 * Created By : Siddarth Chowdhary
+	 * Description : provides functionality show manage Qusetions Page
+	 * Date_of_creation :13-5-2013
+	 */
+	function manageQuestions() {
+		$arrData = $this->loadModel ( 'createTest', 'getTestCategoryValues', array (
+				"test_id" => $_GET ['test_id']
+		) );
+		if (! empty ( $arrData )) {
+			$this->loadView ( "header" );
+			$this->loadView ( "user_header" );
+			$this->loadView ( "user_examiner_view/deshboard_menu" );
+			$this->loadView ( "user_examiner_view/manageQuestions", $arrData );
+		} else {
+			$this->loadView ( "header" );
+			$this->loadView ( "user_header" );
+			$this->loadView ( "user_examiner_view/deshboard_menu" );
+			$this->loadView ( "user_examiner_view/manageQuestions" );
 		}
 	}
 	function allTest() {
