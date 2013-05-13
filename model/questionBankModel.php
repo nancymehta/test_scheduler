@@ -21,11 +21,12 @@ class questionBankModel extends dbConnectModel {
 		    $data['tables'] = 'master';
 		    $data['columns']= array('id');
 		    $data['conditions']	= array(
-		    		'code_value' => 'mcq',
-		    		'created_by' => $_SESSION ['SESS_USER_ID']
+		    		'code_value' => 'mcq'
+		    	//	'created_by' => $_SESSION ['SESS_USER_ID']
 		    );
 		    $result = $this->_db->select($data);
 		    $row = $result->fetch(PDO::FETCH_ASSOC);
+		    //    print_r($row);
 		    $ques_type_id=$row['id'];
 		   		   
 		    // Finding category_id from database
@@ -47,13 +48,15 @@ class questionBankModel extends dbConnectModel {
 		            "question"=>$arrArgs['question'],
 		    		"ques_type_id"=>$ques_type_id,
 		    		"category_id"=>$category_id,
-		    		'created_by'=>$_SESSION ['SESS_USER_ID'],
-		    		'created_on'=> date("Y-m-d h:i:s",$t)
+		    		"created_by"=>$_SESSION ['SESS_USER_ID'],
+		    		"created_on"=> date("Y-m-d h:i:s",$t)
 		    		
 		    );
 		    
 		    $result1 = $this->_db->insert('question', $data1);
 		    $ques_id=$this->_db->lastInsertId();
+		    echo 'question id---->'.  $ques_id;
+		    echo '<br/>';
 		    
 		    //inserting question-option into question_options table
 		    
@@ -63,8 +66,8 @@ class questionBankModel extends dbConnectModel {
 		    	$data2=array(
 		    	"ques_id"=>$ques_id,
 		    	"option"=>$arrArgs['option'.$i],
-		    	'created_on'=> date("Y-m-d h:i:s",$t),
-		    	'created_by'=>$_SESSION ['SESS_USER_ID']
+		    	"created_on"=> date("Y-m-d h:i:s",$t),
+		    	"created_by"=>$_SESSION ['SESS_USER_ID']
 		    );
 		    	if($arrArgs['ans'.$i]=='on'){
 		    		$data2['correct']=1;

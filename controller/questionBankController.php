@@ -1,6 +1,6 @@
 <?php
 include SITE_ROOT.'controller/mainController.php';
-include SITE_ROOT.'library/server_validation/validation.php';
+//include SITE_ROOT.'library/server_validation/validation.php';
 class questionBankController extends mainController {
     function bulkUploadController() {
 		try {
