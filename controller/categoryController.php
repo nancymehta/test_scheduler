@@ -65,7 +65,7 @@ class categoryController extends mainController {
 		}
 	}
 	
-	
+	//Default Function	
 	function home() {
 		$ArrData	=	$this->loadModel('category','viewCategory');
 
