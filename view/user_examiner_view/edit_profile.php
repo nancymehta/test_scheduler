@@ -11,7 +11,8 @@
 	<a id="view1" href="#" class="button_generic">Click to view my profile</a>
 	<div id="divView1">
 <form method="post" id="editprofile">
-	<table class="table-generic">
+	<table class="table-generic table1">
+	<tbody>
 		<tr><td>Name: </td> <td> Your Name</td></tr>
 		<tr><td>User Name: </td> <td> Your User Name</td></tr>
 		<tr><td>Password: </td> <td> Your Password</td></tr>
@@ -19,6 +20,7 @@
 		<tr><td>Email Status: </td> <td> Verified / Not Verified</td></tr>
 		<tr><td>Country: </td> <td>  Your Country</td></tr>
 		<tr><td>Display Name: </td> <td> display your first name</td></tr>
+	</tbody>
 	</table>
 <div class="space"></div>
 	<input type="submit" value="Edit my details" class="submmit_button_generic"/>

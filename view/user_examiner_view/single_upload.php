@@ -83,9 +83,8 @@
 						<div class="space"></div>
 				
 
-				<table class="s_upload_table table-generic font-generic-mid" >
-					<tr>
-					</tr>
+				<table class="table1 s_upload_table table-generic font-generic-mid" >
+					<thead>
 					<tr>
 						<th>
 							Options
@@ -97,6 +96,8 @@
 							Feedback
 						</th>
 					</tr>
+					</thead>
+					<tbody>
 					<tr>
 						<td>
 							<div class="test">
@@ -122,6 +123,7 @@
 							<textarea cols=15 rows=1 id="feedback2" name="feedback2" class="text_right_generic"></textarea> 
 						</td>
 					</tr>
+					</tbody>
 				</table>
 		</div>
 	

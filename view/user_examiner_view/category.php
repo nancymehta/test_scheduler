@@ -36,7 +36,7 @@
 	</form> 
 	</div> 
 	<div class = "catergory_list">
-		<table class = "table-generic">
+		<table class = "table-generic table1">
 			
 			<?php
 			$name	=	array();
@@ -48,12 +48,12 @@
 			$name	=	$arrData['name'];
 			$id		=	$arrData['id'];
 		
-		?><tr>
+		?><thead><tr>
 				<th>S.NO</th>
 				<th>Category</th>
 				<th>Edit</th>
 				<th>Delete</th>
-			</tr>
+			</tr></thead><tbody>
 		<?php
 		}
 			$count	=	count($name);
@@ -71,7 +71,7 @@
 			<?php
 			$sno++;
 			}
-			?>
+			?></tbody>
 		</table>
 	</div>
 </div>

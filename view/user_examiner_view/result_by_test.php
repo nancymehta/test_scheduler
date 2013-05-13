@@ -13,12 +13,14 @@
 		    	<option selected="selected">Show all test</option>
 		    	<option>Generic test</option>
 		    </select><br/><br/>
-		    <table cellpadding="2" border="1" class="table-generic">
-		    	<tr><th colspan="4">Overall Results</th><td>Percentage</td><td>Scores</td><td>Duration</td><td>Attempts</td></tr>
+		    <table cellpadding="2" border="1" class="table-generic table1">
+		    	<thead><tr><th colspan="4">Overall Results</th><td>Percentage</td><td>Scores</td><td>Duration</td><td>Attempts</td></tr></thead>
+		    	<tbody>
 		    	<tr><td colspan="4">Demo</td><td>--</td><td>--</td><td>--</td><td>--</td></tr>
 		    	<tr><td colspan="4">Dummy</td><td>--</td><td>--</td><td>--</td><td>--</td></tr>
 		    	<tr><td colspan="4">Dummy</td><td>--</td><td>--</td><td>--</td><td>--</td></tr>
 		    	<tr><td colspan="4">Dummy</td><td>--</td><td>--</td><td>--</td><td>--</td></tr>
+		    	</tbody>
 		    </table>
 		    
 		</div>

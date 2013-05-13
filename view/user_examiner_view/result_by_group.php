@@ -7,12 +7,14 @@
 		      <div class="contact-strip bg-mid-gray">Registered user groups results
 </div>
 		    
-		    <table cellpadding="2" border="1" class="table-generic">
-		    	<tr><th colspan="4">Group Name</th><td>Percentage</td><td>Attempts</td></tr>
+		    <table cellpadding="2" border="1" class="table-generic table1">
+		    	<thead><tr><th colspan="4">Group Name</th><td>Percentage</td><td>Attempts</td></tr></thead>
+		    	<tbody>
 		    	<tr><td colspan="4">Demo</td><td>--</td><td>--</td></tr>
 		    	<tr><td colspan="4">Result to be displayed</td><td>--</td><td>--</td></tr>
 		    	<tr><td colspan="4">Result to be displayed</td><td>--</td><td>--</td></tr>
 		    	<tr><td colspan="4">DummyDummyDummy</td><td>--</td><td>--</td></tr>
+		    	</tbody>
 		   
 		    </table>
 		  <div class="space"></div>  <label>You have no results at present</label>
@@ -35,7 +37,8 @@
   <div class="contact-strip bg-mid-gray">Fill one or more fields</div>
 			  <div class="space"></div>
       
-			<table>
+			<table class="table1">
+				<tbody>
 				<tr cellspacing="2"><label>First Name</label></tr><br></div>
 				<tr><input type="text"  name="first_name" id="first_name"/></tr><div class="space"></div>
 				<tr><label>Last Name</label></tr></br>
@@ -43,6 +46,7 @@
 				<tr><label>Email Address</label></tr></br>
 				<tr><input type="text" name="email" id="email"/></tr><div class="space"></div>
 				<tr><input type="submit" value="Search" class="submmit_button_generic" /></tr>
+			</tbody>
 			</table>
 		</form>
 		
