@@ -1,4 +1,8 @@
 <?php
+	require(LIBRARY_ROOT."server_validation/validation.php");
+
+	$validation =new validation();
+	
 function mailTest($to,$sub,$body) {
 	require(LIBRARY_ROOT."PHPMailer_5.2.4/class.phpmailer.php");
 	$mail = new PHPMailer();
