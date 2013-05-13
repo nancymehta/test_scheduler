@@ -6,7 +6,7 @@ $(document).ready(function(){
 	            alert("Maximum 5");
 	            return false;
 			}   
-			$('.s_upload_table').append('<tr id="dynamic"><td><textarea class="text_right_generic" cols=15 rows=1 id=ques'+valincr+' name=ques'+valincr+'></textarea></td><td><input type="checkbox" id=check'+valincr+' name=check'+valincr+' /></td><td><textarea class="text_right_generic" cols=15 rows=1 id=feedback'+valincr+' name=feedback'+valincr+'></textarea> </td></tr>');
+		$('.s_upload_table').append('<tr id="dynamic"><td><textarea class="text_right_generic" cols=15 rows=1 id=ques'+valincr+' name=ques'+valincr+'></textarea></td><td><input type="checkbox" id=check'+valincr+' name=check'+valincr+' /></td><td><textarea class="text_right_generic" cols=15 rows=1 id=feedback'+valincr+' name=feedback'+valincr+'></textarea> </td></tr>');
 			valincr++;	
 		});
 	   $("#removeButton").click(function () {
@@ -31,8 +31,8 @@ $(document).ready(function(){
 		});
 		$("#add_test").click(function(){
 		$(".add_test").show();
-	});
-		 $("#divView1").hide();
+		});
+		$("#divView1").hide();
 	    $("#divView2").hide();
 	    $("#divView3").hide();
 	    $("#divView4").hide();
@@ -79,81 +79,8 @@ function checkCategoryValue()
 
 //js of admin view
 
-function fetchTestContent(id) {
-		$("#hidden").toggle();
-		$("#hidden").load("<?php echo SITE_PATH;?>admin/fetchTestContents","id="+id);
-	}
-	function deleteTest(id) {
-		if(id) {
-			$.ajax( {
-				type: "POST",
-				url: "<?php echo SITE_PATH;?>admin/deleteTest",
-				data: "id="+id,
-			    success: function(response){
-					if(response=='DELETED'){
-						alert("The Test Has Been Successfully Deleted");
-						window.location.href="<?php echo SITE_PATH;?>admin/testmanagement";
-					}
-                },
-				error: function () {
-					alert("Error Occurred While Processing Your Request.");
-				},
-			});
-		} else {
-			alert("Invalid Command");
-		}
-		
-	}
-	function send_form(id)
-        {
-          
-		$.ajax({
-    			type: "POST",
-    			url:  "<?php echo SITE_PATH;?>admin/editUserDetails",
-    			data: $('#send').serialize() +"&id=" +id,
-    			success: function(response){
-				alert("the user details has been successfully changed" );
-				window.location.href="<?php echo SITE_PATH;?>admin/usermanagement";
-                        },
-    			     
-    		}); // end of ajax
-                 
-	} 
-function submit(id){
-		$('.text'+id).html('<input type=text name=feed'+id+' id=feed'+id+' /><input type=button value=send onclick=send('+id+'); />');
-	}
 
-	function send(id){
-		var body= $('#feed'+id).val();
-		$.ajax({ 
-				type:"POST",
-				url: "<?php echo SITE_PATH;?>admin/adminMailSend",
-				data: "id="+id+"&body="+body,
-				 success: function(response){
-					 if(response){
-						 alert("Mail Sent");
-					 }
-					 else{
-						 alert("Mail Not Sent");
-					 }
-				 }
-		});
-	}
 
-	/*Function Name:submit1,parameter passed:1 ,to submit the id of the user*/
-		function submit1(id,request)
-		{
-        	$.ajax( {
-				type: "POST",
-				url: "<?php echo SITE_PATH;?>admin/showUserDetails",
-				data: "id="+id+"&request="+request,
-			    success: function(response){
-					if(request=='DELETE'){
-						alert("the user has been successfully deleted");
-						window.location.href="<?php echo SITE_PATH;?>admin/usermanagement";
-					} else{
-                			$(".um").html(response);
-						}
-                			},
-			} );
-		} 
+	
+
+	

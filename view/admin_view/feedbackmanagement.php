@@ -1,3 +1,26 @@
+
+<script type="text/javascript">
+function submit(id){
+		$('.text'+id).html('<input type=text name=feed'+id+' id=feed'+id+' /><input type=button value=send onclick=send('+id+'); />');
+	}
+function send(id){
+		var body= $('#feed'+id).val();
+		$.ajax({ 
+				type:"POST",
+				url: "<?php echo SITE_PATH;?>admin/adminMailSend",
+				data: "id="+id+"&body="+body,
+				 success: function(response){
+					 if(response){
+						 alert("Mail Sent");
+					 }
+					 else{
+						 alert("Mail Not Sent");
+					 }
+				 }
+		});
+	}
+
+</script>
 <div class="bigmid" >
 <div class="midpanel" >
 
