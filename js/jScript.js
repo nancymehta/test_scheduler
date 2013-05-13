@@ -600,6 +600,7 @@ $(document).ready(function(){
 				email:true
 			}
 		},
+		
 		messages: {
 			firstName:{
 				required:"Enter first name.",

@@ -23,7 +23,7 @@
 
 	</div>
 	<div class="midright">
-<form action="#" id = "search_form" name = "search_form" method="" onsubmit="return valid_search_user()">
+<form action="#" id = "search_form" name = "search_form" method="post" onsubmit="return valid_search_user()">
 		
 
         <div class="space"></div>
