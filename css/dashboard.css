@@ -7,10 +7,11 @@
 }
 
 
-/*.middle_content{
+.middle_content{
 	position : relative;
+	width: auto;
 }
-*/
+
 
 /*.middle_content .test_list_div {
 	float :left;
@@ -108,29 +109,25 @@ textarea{
   	height: 100%;
   	width: auto;
   	z-index: 0;
-  	margin:20px;
- 
+  	margin:20px; 
 	margin-top:100px;
   }
   .midpanel{
-	
-
-  	width: 65%;  	border: 1px solid #ededed;
-
-
+	width: 100%;  
+  	border: 1px solid #ededed;
   	float:none;
   	padding: 5px;
 
+
   } 
-  .midright{
+  /*.midright{
 	
   	height: 100%;
   	width: 30%;
   	padding: 5px;
-
   	border: 1px solid #ededed;
   	float: right;
-  }
+  }*/
   
   .errdiv{
   	background-color:blue;

@@ -281,9 +281,5 @@
 </form>
 
 </div>
-<div class="midright">
-
-<!-- right content goes here -->
-</div>
 
 </div>
