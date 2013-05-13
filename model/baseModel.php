@@ -126,6 +126,17 @@ class baseModel extends dbConnectModel{
 	  return 0;
 	}		
 	}
-	
+	function fetchTests() {
+		$data['tables']="test";
+		$data['columns']=array("id","name","created_on");
+		$data['conditions']=array("status"=>"0",
+								  "created_by"=>$_SESSION['SESS_USER_ID']);
+		$result=$this->_db->select($data);
+		$row=array();
+		while($temp=$result->fetch(PDO::FETCH_ASSOC)) {
+			$row[]=$temp;
+		}
+		return $row;
+	}
 } 
 

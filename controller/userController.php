@@ -123,7 +123,11 @@ class userController extends mainController {
 		}
 	}
 	function allTest() {
-		
+		$this->loadView ( "header" );
+			$this->loadView ( "user_header" );
+			$this->loadView ( "user_examiner_view/deshboard_menu" );
+			$arrArgs = $this->loadModel ( "base", "fetchTests" );
+			$this->loadView ( "user_examiner_view/test_management", $arrArgs );			
 	}
 }
 ?>

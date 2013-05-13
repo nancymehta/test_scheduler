@@ -1,5 +1,5 @@
 <script type="text/javascript">
-function fetchTestContent(id) {
+	function fetchTestContent(id) {
 		$("#hidden").toggle();
 		$("#hidden").load("<?php echo SITE_PATH;?>admin/fetchTestContents","id="+id);
 	}
@@ -12,7 +12,6 @@ function fetchTestContent(id) {
 			    success: function(response){
 					if(response=='DELETED'){
 						alert("The Test Has Been Successfully Deleted");
-						//window.location.href="<?php echo SITE_PATH;?>admin/testmanagement";
 						window.location.reload();
 					}
                 },
@@ -60,7 +59,8 @@ function fetchTestContent(id) {
                         <td><?php echo $count; ?></td>
 						<td><?php echo $key['name']; ?></td>
 						<td><?php echo $key['created_on']; ?></td>
-						<td><a href="#" onClick="fetchTestContent(<?php echo $key['id']; ?>)">View</a>  <a href="#" onClick="deleteTest(<?php echo $key['id']; ?>)">DELETE</a>
+						<td><a href="#" onClick="fetchTestContent(<?php echo $key['id']; ?>)">View</a>
+						<a href="#" onClick="deleteTest(<?php echo $key['id']; ?>)">DELETE</a>
 						</td>
 						
 					</tr>
