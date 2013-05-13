@@ -20,9 +20,10 @@ $options= $arrData[$quesNo."opt"];
 
   <div class="contact-strip bg-mid-gray">
 <?php
+
 echo "<font style=color:black;>  ".($_SESSION['question']+1)." .</font>"; //serial no.
 echo " Question ".$arrData["$quesNo"]['question']."<br/>";
-echo "</div>";
+echo "<span class='floatr fg-mid-blue font-mid' >Time Left :  ".(($_SESSION['duration']*60)-(time()-$_SESSION['time']))."</span> </div>";
 echo "<br><br><br>";
 shuffle($options);
 
