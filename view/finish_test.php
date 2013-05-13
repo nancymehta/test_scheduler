@@ -9,7 +9,7 @@
 
 
 
-		<div class="contact-strip bg-mid-gray">The Test is finished NOw ..</div>
+		<div class="contact-strip bg-mid-gray"><?php echo TEST_FINISHED; ?></div>
 		<div class="space"></div>
 
 <?php
@@ -18,24 +18,24 @@ echo "S";
  print_r($_SESSION);
 */
  if (! empty ( $arrData ) && isset ( $_SESSION ['guest_id'] )) {
-    echo "Name : " . $arrData ['first_name'] . " " . $arrData ['last_name'] . "<br/><br/>";
-    echo "Email/Enroll No : " . $arrData ['email_enroll_no'] . " <br/><br/>";
+    echo NAME . $arrData ['first_name'] . " " . $arrData ['last_name'] . "<br/><br/>";
+    echo EMAIL_ENROL . $arrData ['email_enroll_no'] . " <br/><br/>";
     
-    echo " Correct Answer : " . $arrData ['score'] . " <br/><br/>";
+    echo CORRECT_ANSWER . $arrData ['score'] . " <br/><br/>";
     $percentage = "0";
     if ($arrData ['score'] != 0 && $arrData ['score'] != "") {
         $percentage = (($arrData ['score'] / $arrData ['total_ques']) * 100);
-        echo " Percentage : " . $percentage;
+        echo PERCENTAGE. $percentage;
     } else {
-        echo " Percentage : 0.0%";
+        echo ZERO_PERCENTAGE;
     }
     if (@$_SESSION ['pass_marks'] > $percentage) {
-        echo "<br><br>RESULT : <font style=color:red>FAIL</font>";
+        echo "<br><br>".RESULT." : <font style=color:red>".FAIL."</font>";
     } else {
-        echo "<br><br>RESULT : <font style=color:green> PASS </font>";
+        echo "<br><br>".RESULT." : <font style=color:green> ".PASS." </font>";
     }
 } else {
-    echo "Result Not Found";
+    echo RESULT_NOT_FOUND;
 }
 
 ?>

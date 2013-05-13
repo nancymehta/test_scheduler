@@ -23,8 +23,8 @@ if (! empty ( $arrData )) {
     echo "<font style=color:black;>  " . ($_SESSION ['question'] + 1) . " .</font>"; // serial
                                                                               // no.
     echo "  " . $arrData ["$quesNo"] ['question'] . "<br/>";
-    echo "<span class='floatr fg-mid-blue font-mid' >Time Left :  " . (($_SESSION ['duration'] * 60) - (time () - $_SESSION ['time'])) . "</span> </div>";
-    echo "Mark for Review <input type='checkbox' name='review' values='on'>";
+    echo "<span class='floatr fg-mid-blue font-mid' >".TIME_LEFT."  " . (($_SESSION ['duration'] * 60) - (time () - $_SESSION ['time'])) . "</span> </div>";
+    echo MARK_FOR_REVIEW." <input type='checkbox' name='review' values='on'>";
     echo "<br><br><br>";
     
     shuffle ( $options );
@@ -64,14 +64,14 @@ if (! empty ( $arrData )) {
 </form>
 <hr>
 <a href="<?php echo SITE_PATH."test/finishTest"; ?>"
-	class="submmit_button_generic ">FINISH TEST</a>
+	class="submmit_button_generic "><?php echo FINISH_TEST; ?></a>
 <div class="space"></div>
 <?php
 
 } else {
     ?>
 <br />
-test Empty
+<?php echo TEST_EMPTY; ?>
 <br />
 <form action="#" method="post">
 	<input type="hidden" name="controller" value="test"> <input
@@ -81,8 +81,7 @@ test Empty
 <?php
 }
 ?>
-<button onclick="showAttempted()" class="submmit_button_generic">Show
-	Attempted</button>
+<button onclick="showAttempted()" class="submmit_button_generic"><?php echo SHOW_ATTEMPTED; ?></button>
 <div id="showattemped"></div>
 
 

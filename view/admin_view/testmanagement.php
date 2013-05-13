@@ -11,17 +11,17 @@ function fetchTestContent(id) {
 				data: "id="+id,
 			    success: function(response){
 					if(response=='DELETED'){
-						alert("The Test Has Been Successfully Deleted");
+						alert("<?php echo SUCCESSFULLY_DELETED; ?>");
 						//window.location.href="<?php echo SITE_PATH;?>admin/testmanagement";
 						window.location.reload();
 					}
                 },
 				error: function () {
-					alert("Error Occurred While Processing Your Request.");
+					alert("<?php echo ERROR_WHILE_PROCESSING; ?>");
 				},
 			});
 		} else {
-			alert("Invalid Command");
+			alert("<?php echo INVALID_COMMAND; ?>");
 		}
 		
 	}
@@ -40,13 +40,13 @@ function fetchTestContent(id) {
 		<table width="89%" border="1" cellpadding="0" cellspacing="0"  class="table-generic table1">
 			<thead>
 				<tr style="background-color:#666666; color:#FFFFFF" valign="top">
-					<th style="font-size:13px" align="left"><?php echo "S. No.";?>
+					<th style="font-size:13px" align="left"><?php echo S_NO;?>
 					</th>
-					<th style="font-size:13px" align="left"><?php echo "Test Name"; ?>
+					<th style="font-size:13px" align="left"><?php echo TEST_NAME; ?>
 					</th>
-					<th style="font-size:13px" align="left"><?php echo "Created On"; ?>
+					<th style="font-size:13px" align="left"><?php echo CREATED_ON; ?>
 					</th>
-					<th style="font-size:13px" align="left"><?php echo "Options"; ?>
+					<th style="font-size:13px" align="left"><?php echo OPTIONS; ?>
 					</th>   
 				</tr>
 			</thead>
@@ -60,7 +60,8 @@ function fetchTestContent(id) {
                         <td><?php echo $count; ?></td>
 						<td><?php echo $key['name']; ?></td>
 						<td><?php echo $key['created_on']; ?></td>
-						<td><a href="#" onClick="fetchTestContent(<?php echo $key['id']; ?>)">View</a>  <a href="#" onClick="deleteTest(<?php echo $key['id']; ?>)">DELETE</a>
+						<td><a href="#" onClick="fetchTestContent(<?php echo $key['id']; ?>)"><?php echo VIEW; ?></a>
+						<a href="#" onClick="deleteTest(<?php echo $key['id']; ?>)"><?php echo DELETE; ?></a>
 						</td>
 						
 					</tr>
@@ -80,7 +81,7 @@ function fetchTestContent(id) {
 		
 	<?php	
 		} else { // end of if start of else
-				echo "<strong>"."NO RECORDS FOUND"."</strong>";
+				echo "<strong>".NO_RECORDS_FOUND."</strong>";
 		  } // end of else
 	?> 
 <!-- right content goes here -->

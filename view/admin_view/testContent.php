@@ -12,9 +12,9 @@
 		<table class="table1 table-generic" width="89%" border="1" cellpadding="0" cellspacing="0" >
 			<thead>
 				<tr style="background-color:#222222; color:#FFFFFF" valign="	">
-					<th style="font-size:13px" align="left"><?php echo "S.No.";?>
+					<th style="font-size:13px" align="left"><?php echo S_NO;?>
 					</th>
-					<th style="font-size:13px" align="left"><?php echo "Question"; ?>
+					<th style="font-size:13px" align="left"><?php echo QUESTION; ?>
 					</th>
 				<tr>
 			</thead>
@@ -35,7 +35,7 @@
 		</table>
 		
 	<?php } else {
-		echo "No Questions Found For This Test.";
+		echo NO_QUESTIONS_FOUND;
 	}
 	
 ?>
