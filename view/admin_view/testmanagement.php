@@ -48,7 +48,7 @@ function fetchTestContent(id) {
 					</th>
 					<th style="font-size:13px" align="left"><?php echo "Options"; ?>
 					</th>   
-				<tr>
+				</tr>
 			</thead>
   			<tbody>
                			<?php

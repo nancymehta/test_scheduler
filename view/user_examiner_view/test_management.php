@@ -41,13 +41,13 @@
 				<tr style="background-color:#666666; color:#FFFFFF" valign="top">
 					<th style="font-size:13px" align="left"><?php echo "S. No.";?>
 					</th>
-					<th style="font-size:13px" align="left"><?php echo "Test Name"; ?>
+					<th style="font-size:13px" align="left"> <?php echo "Test Name"; ?>
 					</th>
-					<th style="font-size:13px" align="left"><?php echo "Created On"; ?>
+					<th style="font-size:13px" align="left"> <?php echo "Created On"; ?>
 					</th>
-					<th style="font-size:13px" align="left"><?php echo "Options"; ?>
+					<th style="font-size:13px" align="left"> <?php echo "Options"; ?>
 					</th>   
-				<tr>
+				</tr>
 			</thead>
   			<tbody>
                			<?php
