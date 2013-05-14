@@ -14,7 +14,7 @@ class questionBankModel extends dbConnectModel {
 		 */
 		if(isset($arrArgs)){
 		    echo "single manage model";
-		    print_r($arrArgs);
+		    //print_r($arrArgs);
 		    		    
 		    // Finding question_type_id from master table 
 		    
@@ -42,7 +42,7 @@ class questionBankModel extends dbConnectModel {
 		   
 		   //inserting question into question table
 		   $t=time();
-		   echo date("Y-m-d h:i:s",$t);
+		   //echo date("Y-m-d h:i:s",$t);
 		   $data1=array(
 		            "question"=>$arrArgs['question'],
 		    		"ques_type_id"=>$ques_type_id,
@@ -71,7 +71,7 @@ class questionBankModel extends dbConnectModel {
 			    	}
 		    	}
 		    	$i++;
-		    	print_r($data2);
+		    	//print_r($data2);
 		    	$result2 = $this->_db->insert('question_options', $data2);
 		  //  	echo $result2;
 		    }

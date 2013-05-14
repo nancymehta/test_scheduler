@@ -1,8 +1,7 @@
 <?php
 include SITE_ROOT.'controller/mainController.php';
-//include SITE_ROOT.'library/server_validation/validation.php';
 class questionBankController extends mainController {
-    function bulkUploadController() {
+function bulkUploadController() {
 		try {
 			if(isset($_POST['submit'])){
 				$file=$_FILES["file"]["name"];
@@ -37,21 +36,6 @@ class questionBankController extends mainController {
 			if(isset($_POST['submit']))
 			{  
 				echo '<pre>';
-				//validation checking
-				$error=array();
-				$obj=new validation();
-				$str=$obj->testing();
-				//die($str);
-				if(empty($_POST['question']))
-					$error[]='Question field should not be empty';
-				if(empty($_POST['ques1']))
-					$error[]='First option field should not be empty';
-				if(empty($_POST['ques2']))
-					$error[]='Question should not be empty';
-				
-				
-				
-				
 				//print_r($_POST);
 				$arrArgs = array(
 						'question'=> @$_POST['question'],
@@ -59,7 +43,6 @@ class questionBankController extends mainController {
 						'option2'=> @$_POST['ques2']
 				);
 				if (!empty($_POST['check1'])){
-					
 					$arrArgs['ans1']= @$_POST['check1'];
 				}
 				if (!empty($_POST['check2'])){
@@ -99,14 +82,15 @@ class questionBankController extends mainController {
 						$arrArgs['feedback5']= @$_POST['feedback5'];
 					}
 				}
-		         //die(print_r($error));
+		
 				//print_r($arrArgs);
 			    $arrArgument=$this->loadModel('questionBank','singleUploadModel',$arrArgs);
 			    if( $arrArgument==1){
-			    	echo 'Question Inserted successfully';
+			    	$_SESSION['QUES_INSERTED']= 'Question Inserted successfully';
+			    	header("location:".SITE_PATH."user/questionbank");
 			    }
 			    else{
-			    	echo 'Question not Inserted';
+			    	$_SESSION['QUES_INSERTED']= 'Question not Inserted';
 			    }
 			}
 			else{ 

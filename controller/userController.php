@@ -54,7 +54,14 @@ class userController extends mainController {
 				"id" => $_SESSION ['SESS_USER_ID'] 
 		) );
 		// print_r($arrData);
-		$this->loadView ( "user_examiner_view/single_upload", $arrData );
+		if(isset($_SESSION['QUES_INSERTED'])){
+			echo $_SESSION['QUES_INSERTED'];
+		    $this->loadView ( "user_examiner_view/single_upload", $arrData );
+		    unset($_SESSION['QUES_INSERTED']);
+		}
+		else{
+			$this->loadView ( "user_examiner_view/single_upload", $arrData );
+		}
 	}
 	
 	/* provide view for category tab */
