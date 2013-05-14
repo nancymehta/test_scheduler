@@ -22,6 +22,26 @@ $(document).ready(function() {
 		
 		
 	});
+
+	$(".category_div").hide();
+	var flag=0;
+	$("#addCatergory").click(function(){
+		$(".category_div").slideToggle('slow');
+		if(!flag)
+		{
+			$("#addCatergory").text("Close New Test");
+			flag=1;
+		}
+		else
+		{
+			$("#addCatergory").text("Create New Test");
+			flag=0;
+		}
+		
+		
+	});
+
+
 	$(".innerdiv1").hide();
 	var flag=0;
 	$("#addOptions").click(function(){
