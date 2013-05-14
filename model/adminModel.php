@@ -20,7 +20,6 @@ class adminModel extends dbConnectModel{
 	
 	function usermanagement(){
 		$userResult=array();
-		echo "<br><br>";
 		$data['tables'] = 'validate_users';
 		$data['columns']= array(
 					'id',
@@ -41,8 +40,6 @@ class adminModel extends dbConnectModel{
 	}
 	function showUserDetails($id){
 		$userResult=array();
-		echo "<br><br>";
-		
 		$data['columns'] = array(
 					'validate_users.id',
 					'validate_users.username',
@@ -86,7 +83,6 @@ class adminModel extends dbConnectModel{
             		}
 			
 			return $userResult;
-		
 		
 	}
 
