@@ -14,7 +14,15 @@
  */
 
 class accountSettingsController extends common{	
-	
+	function home() {
+		try {
+			$userId		=	$_SESSION['SESS_USER_ID'];
+			$arrData	=	$this->loadModel('accountSettings','viewDetails',$userId);
+			$this->loadView('settings_home',$arrData);
+		} catch (Exception $e) {
+			$this->handleException($e->getMessage());
+		}
+	}
 	public $validationObj;
 
 	//Making the object of validation Class
@@ -65,14 +73,14 @@ class accountSettingsController extends common{
 
 		}else{
 			echo "its not OK";die();
-			header("location: ".SITE_PATH."accountSettings/accountSettings");
+			header("location: ".SITE_PATH."accountSettings/home");
 		}
 //		die("here");
 		if($this->validationObj->validateAlphabate($_REQUEST['lname']))
 		{
 		$arrArgs['lname']	=	$_REQUEST['lname'];
 		}else{
-			header("location: ".SITE_PATH."accountSettings/accountSettings");
+			header("location: ".SITE_PATH."accountSettings/home");
 		}
 		
 		if($this->validationObj->checkEmail($_REQUEST['email']))
@@ -88,7 +96,7 @@ class accountSettingsController extends common{
 	   	
 		if($arrData==true)
 		{
-			header("location: ".SITE_PATH."accountSettings/accountSettings");
+			header("location: ".SITE_PATH."accountSettings/home");
 		}
 		} catch (Exception $e) {
 		  	$this->handleException($e->getMessage());
@@ -116,7 +124,7 @@ class accountSettingsController extends common{
 		{
 		$arrArgs['oldPass']	=	$_REQUEST['oldPass'];
 		}else{
-			header("location: ".SITE_PATH."accountSettings/accountSettings");
+			header("location: ".SITE_PATH."accountSettings/home");
 		}
 
 		
@@ -124,16 +132,16 @@ class accountSettingsController extends common{
 		{
 		$arrArgs['newPass']	=	$_REQUEST['newPass'];
 		}else{
-			header("location: ".SITE_PATH."accountSettings/accountSettings");
+			header("location: ".SITE_PATH."home");
 		}
 		
 		
 		$arrData		=	$this->loadModel('accountSettings','confirmChangePassword',$arrArgs);
 		if($arrData==true)
 		{
-			header("location: ".SITE_PATH."accountSettings/accountSettings");
+			header("location: ".SITE_PATH."accountSettings/home");
 		}else{
-			header("location: ".SITE_PATH."accountSettings/changePassword");
+			header("location: ".SITE_PATH."accountSettings/home");
 		}
 	} catch (Exception $e) {
 	  	$this->handleException($e->getMessage());
