@@ -20,9 +20,13 @@
     			url:  "<?php echo SITE_PATH;?>admin/editUserDetails",
     			data: $('#send').serialize() +"&id=" +id,
     			success: function(response){
-					alert("the user details has been successfully changed" );
-					window.location.href="<?php echo SITE_PATH;?>admin/usermanagement";
-                        },
+					if(response==1){
+        				alert("The user details has been successfully changed");
+						window.location.href="<?php echo SITE_PATH;?>admin/usermanagement";
+					}else{
+                        alert(response);
+            			}
+    				},
     			     
     		}); // end of ajax
                  
@@ -91,7 +95,7 @@
 					</td>
 					<td>
 					<select name="org_type" class="select_generic"> 
-					<?php foreach($arrData['org_type'] as $org){?>
+					<?php foreach( $arrData['org_type'] as $org ){?>
 						<option <?php if($umanage['code_value']==$org){print('selected');}?> value="<?php echo $org; ?>"><?php echo $org; ?></option>
 					<?php }
 					?>

@@ -121,6 +121,11 @@ class adminModel extends dbConnectModel{
             	foreach($update_row2 as $row2) 
 			{		
 				$uresult = $this->_db->update('validate_users',$row2,$udata2['conditions']);
+				
+			}
+			if($uresult)
+			{
+				return true;
 			}		
 	}
 

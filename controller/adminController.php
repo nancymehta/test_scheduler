@@ -1,6 +1,17 @@
 <?php
 include SITE_ROOT . 'controller/mainController.php';
+
 class adminController extends mainController {
+	public $validationObj;
+
+	/**
+	* making object of server-side: Validation Class
+	*/
+	public function __construct()
+	{
+		$this->validationObj	=	new validation();
+	}
+
     function sendmail() {
         if ($_POST ['contactus']) {
             $sub = $_POST ['contact_name'] . " <-name   email-> " . $_POST ['contact_email'];
@@ -40,15 +51,34 @@ class adminController extends mainController {
      function editUserDetails() {
         if (isset ( $_POST )) {
         	$arredit=array();
+		if ($this->validationObj->validateUsername($_POST['username'])){
 	    	$arredit['username']= strip_tags($_POST['username']);
+		} else { die();
+		  }
+		if ($this->validationObj->validatePassword($_POST['password'])){
 	    	$arredit['password']= strip_tags($_POST['password']);
+		} else { die();
+		  }
+		if ($this->validationObj->firstName($_POST['first_name'])){
 	    	$arredit['first_name']= strip_tags($_POST['first_name']);
+		} else {  die();
+		  }
+		if ($this->validationObj->lastName($_POST['last_name'])){
 	    	$arredit['last_name']= strip_tags($_POST['last_name']);
+		} else { die();
+		  }
+		if ($this->validationObj->checkEmail($_POST['email'])){
 	    	$arredit['email']= strip_tags($_POST['email']);
+		} else { die();
+		  }
 	    	$arredit['org_type']=$_POST['org_type'];
 	    	$arredit['user_type']=$_POST['user_type'];
 	    	$arredit['id']=$_POST['id'];
             $userResult = $this->loadModel ( "admin", "editUserDetails", $arredit );
+            if($userResult==true)
+            {
+            	echo '1';
+            }
         }
     }
     function testmanagement() {
