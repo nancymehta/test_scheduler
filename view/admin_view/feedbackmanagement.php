@@ -1,6 +1,7 @@
 
 <script type="text/javascript">
-function submit(id){
+function submitfeedback(id){
+	
 		$('.text'+id).html('<input type=text name=feed'+id+' id=feed'+id+' /><input type=button value=send onclick=send('+id+'); />');
 	}
 function send(id){
@@ -49,9 +50,9 @@ function send(id){
 		</tr>
 		</thead>
 	<?php 	
-		$i=0;
+		
 		foreach($arrData as $value){
-		$i++;
+		
 	?><tbody>
 		<tr>
 			<td>
@@ -67,8 +68,8 @@ function send(id){
 				<td>
 					<?php echo $value['description'];?>
 				</td>
-				<td class="text<?php echo $i; ?>">
-						<a href="#" class="submmit_button_generic" onClick="submit(<?php echo $value['id']; ?>)">Reply</a>
+				<td class="text<?php echo $value['id']; ?>">
+						<a href="#" class="submmit_button_generic" onClick="submitfeedback(<?php echo $value['id']; ?>)">Reply</a>
 				</td>
 				
 		</tr>

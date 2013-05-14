@@ -155,6 +155,9 @@ class adminModel extends dbConnectModel{
 		$data['conditions']=array( 'id'=> $id);
 		$result=$this->_db->select($data);
 		if($row = $result->fetch(PDO::FETCH_ASSOC)){
+			$data = array('status' => '0');
+            $where = array('id'=> $id);
+            $result = $this->_db->update('contact_us', $data, $where);
 			return $row['email'];
 		}
 		else{
