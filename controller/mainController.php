@@ -83,7 +83,7 @@ class mainController extends common{
 			}
 			else{
 			    $_SESSION['SESS_ERROR']='Unauthorized access,you need to register first';
-			    header("location:".SITE_PATH);
+			    header("location:".SITE_PATH."user/home");
 			}
 		}catch (Exception $e) {
 			$this->handleException($e->getMessage());

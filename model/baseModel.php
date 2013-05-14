@@ -25,10 +25,11 @@ class baseModel extends dbConnectModel{
 
 		    $arrUser[]=array();
 			$data['tables'] = 'validate_users';
-			$data['columns']= array('username','id','password','session_id','user_type');
+			$data['columns']= array('username','id','password','session_id','user_type','status');
 			$data['conditions']	= array(
 									'username' => $arrArgs['username'],
-									'password' => $arrArgs['password']
+									'password' => $arrArgs['password'],
+					
 									);
 			//$data['joins']   =  array();
 			$result = $this->_db->select($data);
@@ -41,17 +42,22 @@ class baseModel extends dbConnectModel{
 				$_SESSION['SESS_USER_NAME']= $row['username'];
 				$_SESSION['SESS_USER_ID']= $row['id'];
 				echo "--->".$_SESSION['SESS_USER_TYPE']= $row['user_type'];
-				
-				//session_start();
-				$data= array(
-						"session_id"=> session_id(),
-					   );
-				$where = array('username'=>$arrArgs['username']);
-				$result = $this->_db->update('validate_users',$data);
-				if($result)
-				{
-					return 1;
-				}
+				if($row['status']==1){
+						
+					//session_start();
+					$data= array(
+							"session_id"=> session_id(),
+						   );
+					$where = array('username'=>$arrArgs['username']);
+					$result = $this->_db->update('validate_users',$data);
+					if($result)
+					{
+						return 1;
+					}
+				}else{
+					return 0;
+				} 
+					
 			}  
 		}
 			   

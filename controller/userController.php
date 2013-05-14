@@ -64,6 +64,24 @@ class userController extends mainController {
 		}
 	}
 	
+	function viewAllQuestion(){
+		/**
+		 * Created By : Amitesh Bharti
+		 * Description : provides functionality to show all question of that user categarywise
+		 * Date_of_creation :14-5-2013
+		 */
+		//echo('oye');
+		$this->loadView ( "header" );
+		$this->loadView ( "user_header" );
+		$this->loadView ( "user_examiner_view/deshboard_menu" );
+		$arrData = $this->loadModel ( 'createTest', 'getTestCategories', array (
+				"id" => $_SESSION ['SESS_USER_ID']
+		) );
+		$this->loadView ( "user_examiner_view/viewAllQuestion", $arrData );
+		//print_r($arrData);
+		//die();
+	}
+	
 	/* provide view for category tab */
 	function certificate() {
 		$this->loadView ( "header" );

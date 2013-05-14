@@ -34,6 +34,7 @@ class questionBankModel extends dbConnectModel {
 		   $data['columns']= array('id');
 		   $data['conditions']	= array(
 		   		'name' => 'php',
+		   		'status' =>'0',
 		   		'created_by' => $_SESSION ['SESS_USER_ID']
 		   );
 		   $result = $this->_db->select($data);
