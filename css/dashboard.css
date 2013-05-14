@@ -107,7 +107,7 @@ textarea{
   .bigmid{
 	
   	height: 100%;
-  	width: auto;
+  	width: 75%;
   	z-index: 0;
   	margin:20px; 
 	margin-top:100px;
@@ -120,7 +120,7 @@ textarea{
 
 
   } 
-  /*.midright{
+  .midright{
 	
   	height: 100%;
   	width: 30%;
