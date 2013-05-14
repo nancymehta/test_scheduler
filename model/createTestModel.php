@@ -316,36 +316,90 @@ class createTestModel extends dbConnectModel {
 	
 	#Updating test_category for manage question functionality no of qs for category
 	public function updateTestCategory($arrArgs) {
-	try {
-	$arrArgsValues=array_values($arrArgs);
-	array_pop($arrArgsValues);
-	$count=count($arrArgsValues);
-	$count =$count/2;
-	$j=0;
-	for($i=0;$i<$count;$i++){
-	
-	$data = array (
-	'no_of_ques' => $arrArgsValues[$j],
-	'updated_by'=>$_SESSION['SESS_USER_ID'],
-	'updated_on'=>'NOW()'
-	);
-	$j++;
-	$where = array (
-	'cat_id' => $arrArgsValues [$j],
-	'test_id' =>$arrArgs['test_id']
-	);
-	$j++;
-	$result_update = $this->_db->update ( 'test_category', $data, $where );
-	print_r($result_update);
-	}
-	if ($result_update) {
-		return true;
-	} else {
-	return false;
-	}
-	} catch ( Exception $e ) {
-	$this->handleException ( $e->getMessage () );
-	}
+		try {
+			$arrArgsValues = array_values ( $arrArgs );
+			array_pop ( $arrArgsValues );
+			$count = count ( $arrArgsValues );
+			$count = $count / 2;
+			$j = 0;
+			for($i = 0; $i < $count; $i ++) {
+				
+				$data = array (
+						'no_of_ques' => $arrArgsValues [$j],
+						'updated_by' => $_SESSION ['SESS_USER_ID'],
+						'updated_on' => 'NOW()' 
+				);
+				$j ++;
+				$where = array (
+						'cat_id' => $arrArgsValues [$j],
+						'test_id' => $arrArgs ['test_id'] 
+				);
+				$j ++;
+				$result_update = $this->_db->update ( 'test_category', $data, $where );
+			}
+			//write code here to insert into test_question table
+			//select query to fetch cat id and no of ques from test category for a test id
+			$data ['tables'] = 'test_category';
+			$data ['columns'] = array ('cat_id','no_of_ques');
+			$data ['conditions'] = array (
+					'test_id' => $arrArgs ['test_id']
+			);
+			$result_select = $this->_db->select ( $data );
+			$temp=0;
+			$testCategory=array();
+			while ( $row = $result_select->fetch ( PDO::FETCH_ASSOC ) ) {
+				$testCategory [$temp] ['cat_id'] = $row ['cat_id'];
+				$testCategory [$temp] ['no_of_ques'] = $row ['no_of_ques'];
+				$temp++;
+			}
+			$cnt=count ( $testCategory );
+			for($k = 0; $k < $cnt; $k ++) {
+				//select query to fetch id from question for a particular cat id
+				$data ['tables'] = 'question';
+				$data ['columns'] = array (
+						'id' 
+				);
+				$data ['conditions'] = array (
+						'category_id' => $testCategory [$k]['cat_id'] 
+				);
+				$result_select = $this->_db->select ( $data );
+				print_r ( $result_select );
+				$temp = 0;
+				$arrTemp=array();
+				while ( $row = $result_select->fetch ( PDO::FETCH_ASSOC ) ) {
+					$arrTemp[$temp] = $row['id'];
+					$temp++;
+				}
+				$testCategory[$k]['arrQuesIds'] = $arrTemp;
+				
+			}
+			
+			//delete the previous entries in the test_link table
+			$result_delete = $this->_db->delete ( 'test_question', array (
+					'test_id' => $arrArgs ['test_id']
+			) );
+			$result='';
+			for($i = 0; $i < count ( $testCategory ); $i ++) {
+				shuffle($testCategory[$i]['arrQuesIds']);
+				$cnt=$testCategory[$i]['no_of_ques'];
+				for($k=0;$k<$cnt;$k++){
+					//inserting into test_question
+					$data ['tables'] = 'test_question';
+					$data ['columns'] = array (
+							'test_id' => $arrArgs['test_id'],
+							'question_id' =>$testCategory[$i]['arrQuesIds'] [$k]
+					);
+					$result = $this->_db->insert ( $data ['tables'], $data ['columns'] );
+				}
+			}
+			if ($result_update && $result) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
 	}
 	
 	
