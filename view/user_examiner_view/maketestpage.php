@@ -1,6 +1,8 @@
+<div class="full-width bg-light-grey fg-dark-blue floatl font-large ">
+<div class="space"></div> Home </div>
 <div class="bigmid">
-<span class=""> Home</span>
-	<div class="midpanel">
+
+	<div class="midpanel" style="width: auto;">
 
 		<!-- midpanel Content gooes here  -->
 
@@ -101,9 +103,6 @@
 
 
 	</div>
-	<div class="midright">
-
-		<!-- right content goes here -->
-	</div>
+	
 </div>
 

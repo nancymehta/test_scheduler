@@ -961,6 +961,9 @@ background-color:#FF8040;
 	background-color: #FFEDFF;
 	
 }
+.bg-light-grey{
+	background-color:  #E1E1E1;
+}
 .bg-dark-black{
 background-color:#000;
 }
@@ -1041,6 +1044,9 @@ background-color: #9B9B9B;
 }
 .padding-xlarge{
 	padding:20px;
+}
+.full-width{
+	width: 100%;
 }
 /*----------------------- End of  Generic Classes ----------------------------------------*/
 

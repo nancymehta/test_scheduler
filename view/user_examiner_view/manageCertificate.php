@@ -35,6 +35,8 @@ function createCertificate()
    });
  }  
 </script>
+<div class="full-width bg-light-grey fg-dark-blue floatl font-large ">
+<div class="space"></div> Certificate</div>
 
 <div class="bigmid" >
 <div class="midpanel" >
