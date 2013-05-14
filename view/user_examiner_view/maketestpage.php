@@ -38,7 +38,7 @@
 								<?php
 								$i = 0;
 								while ( (! empty ( $arrData ['category'] ['category_name'] [$i] )) ) {
-									echo "<option>";
+									echo "<option selected>";
 									print_r ( $arrData ['category'] ['category_name'] [$i] );
 									echo "</option>";
 									$i ++;

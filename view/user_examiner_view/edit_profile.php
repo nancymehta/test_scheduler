@@ -26,14 +26,16 @@
 	<input type="submit" value="Edit my details" class="submmit_button_generic"/>
 
 <div class="space"></div>
-	</div>
+	
 </form>
+</div>
 
     <div class="space"></div>
     <div class="space"></div>
     <hr>
 
-	<a id="view2" href="#" class="button_generic">Click to view Registered users under my account</a><div id="divView2">
+	<a id="view2" href="#" class="button_generic">Click to view Registered users under my account</a>
+	<div id="divView2">
     <p>
     You currently have 1000 user places available to use.
 
@@ -51,7 +53,8 @@
        <div class="space"></div>
        <hr>
 
-	<a id="view3" href="#" class="button_generic">Click to Verify extra email addresses</a><div id="divView2">
+	<a id="view3" href="#" class="button_generic">Click to Verify extra email addresses</a>
+ 
  <div id="divView3">
     <p>
     
@@ -65,7 +68,7 @@
      <div class="space"></div>
      <hr>
 
-	<a id="view4" href="#" class="button_generic">Click to Close account</a><div id="divView2">
+	<a id="view4" href="#" class="button_generic">Click to Close account</a>
 
 
     <div id="divView4">

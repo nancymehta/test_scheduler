@@ -2,8 +2,9 @@
 plus=0;
 topvalue = 0;
 textval = 0;
-$(document).ready(function() {
 
+$(document).ready(function() {
+	/*------------ Js Gaurav Suman---------*/
 
 	$("#new_test_div").hide();
 	var flag=0;
@@ -211,7 +212,7 @@ $('.table1').dataTable();
 
 //js end suraj
 
-<!------------ Js Gaurav Suman---------!>
+
 
 
 	// Js by Bhanu
@@ -237,7 +238,7 @@ $('.table1').dataTable();
 	// js end here
 $('.inner-container-partner h1').css({
       "margin-top":'-350px',
-      "opacity" : "0.3" 
+      "opacity" : "0.3"
     });
 
 $('.videoSlider').css({
@@ -647,50 +648,48 @@ $(document).ready(function(){
 
 
 function valid_search_user()
-{
-	if(($("#first_name").val() == '') && ($("#last_name").val() == '') && ($("#email").val() == ''))
 	{
-			alert("Enter any field");
-			return false;
-	}
-	else 
-	{
-		
-		var valid = $("#search_form").validate({
-			rules: {
-			first_name:{
-					checkAlpha:true				
-				},
-			last_name:{
-					checkAlpha:true				
-				},
-			email:{
-				required: false,
-				email:true
+		if(($("#first_name").val() == '') && ($("#last_name").val() == '') && ($("#email").val() == ''))
+			{
+				alert("Enter any field");
+				return false;
 			}
-			},
-			messages: {
-			first_name:{
-					checkAlpha:"Only character are required."
-				},
-			last_name:{
-					checkAlpha:"Only character are required."
-				},
-				email:{
-					required: false,
-					email:"Invalid email."
+		else
+			{
+				var valid = $("#search_form").validate({
+					rules: {
+						first_name:{
+								checkAlpha:true
+						},
+						last_name:{
+							checkAlpha:true
+						},
+						email:{
+							required: false,
+							email:true
+						}
+					},
+					messages: {
+						first_name:{
+							checkAlpha:"Only character are required."
+						},
+						last_name:{
+							checkAlpha:"Only character are required."
+						},
+						email:{
+							required: false,
+							email:"Invalid email."
+						}
+					}
+				}).form();
+				
+				if(valid){
+					return true;
+				} else {
+					return false;
 				}
 			}
-		}).form();
-	
-		if(valid){
-			return true;
-		} else {
-			return false;
-		}
-		
 	}
-}
 
 
 

@@ -118,7 +118,7 @@ $( "#accordion" ).accordion();
             Old Password :
         </td>
         <td>
-            <input type="password" name="oldPass" id="oldPass" value="">
+            <input type="password" name="oldPass" id="oldPass" >
         </td>
     </tr>
     
@@ -162,6 +162,7 @@ $( "#accordion" ).accordion();
     //This function is used for the validation of Passwords
     function confirmChangePassword() {
         var passReg     =   /^[A-Za-z]\w{7,14}$/;
+        var oldPass      =   document.getElementById('oldPass').value;
         var newPass      =   document.getElementById('newPass').value;
         var cNewPass     =   document.getElementById('cNewPass').value;
         

@@ -1,5 +1,9 @@
 $(document).ready(function(){
-
+	
+	$("#divView1").css('display','none');
+    $("#divView2").hide();
+    $("#divView3").hide();
+    $("#divView4").hide();
 // ankit js for result
  $(".all_result_table").css({"display":"none"});
 	
@@ -53,10 +57,6 @@ $("#testSelect").change(function() {
 		$("#add_test").click(function(){
 		$(".add_test").show();
 		});
-		$("#divView1").hide();
-	    $("#divView2").hide();
-	    $("#divView3").hide();
-	    $("#divView4").hide();
 		$("#view1").click(function(){
   			$("#divView1").toggle("fast");
 		});
