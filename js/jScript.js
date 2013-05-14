@@ -6,7 +6,23 @@ $(document).ready(function() {
 	
 
 	$('#startTime').datetimepicker({ dateFormat: 'yy-mm-dd', timeFormat: 'hh:mm:ss' });
+	$('#endTime').datetimepicker({ dateFormat: 'yy-mm-dd', timeFormat: 'hh:mm:ss' });
 // jquery by pankaj
+	$("#tog_random").click(function(){
+		$("#dotog_random").toggle();
+		});
+		$("#tog_randomopt1").click(function(){
+		$('#dotog_randomopt1').toggle();
+		});
+		$('#tog_randomopt2').click(function(){
+		$('#dotog_randomopt2').toggle();
+		});
+		$('#tog_certs').click(function(){
+		$('#dotog_certs').toggle();
+		});
+		$('#editLink_tn').click(function(){
+		$('#misc_cat hide').show();
+		});
 	
 	$("#add_test").click(function(){
 		$("#new_test_div").show();
@@ -44,24 +60,35 @@ $(document).ready(function() {
 		}
 	});
 	
-	$.validator.addMethod("time", function(value, element) {  
-		return this.optional(element) || /^(([0-1]?[0-2])|([2][0-3])):([0-5]?[0-9])(a|p)m?$/i.test(value);  
-		}, "Please enter a valid time.");
-	});
-
-	$(document).ready(function(){
-		$("#exam_settings").validate({
+	
+	$("#exam_settings").validate({
 			rules: {
-				startTime:{
+				timeDuration:{
 					required:true,
-					time:true				
-				}
+					digits:true				
+				},
+				perPageQuestions:{
+					required:true,
+					digits:true				
+				},
+				passingMarks:{
+					required:true,
+					digits:true				
+				},
 			
 			},
 			messages: {
-				startTime:{
-					required:"Please enter Start time.",
-					time:"Invalid time."
+				timeDuration:{
+					required:"Please enter test duration.",
+					digits:"Invalid duration."
+				},
+				perPageQuestions:{
+					required:"Please enter test per page questions.",
+					digits:"Invalid number."
+				},
+				passingMarks:{
+					required:"Please enter passing marks.",
+					digits:"Invalid passing marks."
 				},
 				
 			}
@@ -574,31 +601,6 @@ function valid_search_user()
 
 
 /*
-//validating exam setting page
-$(document).ready(function(){
-	$.validator.addMethod("time", function(value, element) {  
-		return this.optional(element) || /^(([0-1]?[0-2])|([2][0-3])):([0-5]?[0-9])(a|p)m?$/i.test(value);  
-		}, "Please enter a valid time.");
-	});
-	$(document).ready(function(){
-		$("#exam_settings").validate({
-			rules: {
-				startTime:{
-					required:true,
-					time:true				
-				}
-			
-			},
-			messages: {
-				startTime:{
-					required:"Please enter Start time.",
-					time:"Invalid time."
-				},
-				
-			}
-		});
-		
-		});
 
 
 //validating manage_test page
@@ -640,7 +642,7 @@ $(document).ready(function(){
 	});
 
 */
-//Validating user_test_info
+
 
 
 
