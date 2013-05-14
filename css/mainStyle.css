@@ -53,8 +53,8 @@ background-color:#11446A;
 
 .error{
 
-    font-size: 0.5em;
-
+    font-size: 0.7em;
+	display: block;
 }
 .button-anchor{
     font-size: 1.3em;
@@ -731,7 +731,7 @@ opacity: 0.8;
        	float:right;
 		display : none;
         width: 35%;
-        z-index: 99999;
+        z-index: 9999999;
     	box-shadow:10px 40px 40px 50px #eee inset; 
     }
 .logindiv1{
@@ -757,6 +757,8 @@ opacity: 0.8;
     .registerdiv{
         width: 40%;
         right :50px;
+    	
+        z-index: 9999999;    	
     }
     .val {
         position: relative;

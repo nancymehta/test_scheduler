@@ -163,8 +163,8 @@ td.inplab {
 				<input type="hidden" value="341354" id="test_id" name="test_id">
 				<div id="dotog_randomopt1" class="hide">
 					<div class="titlename">
-					<input type="text" maxlength="3" size="3" value="" id="num_random" name="num_random">
 					<label>Total number of questions </label><br>
+					<input type="text" maxlength="3" size="3" value="" id="num_random" name="num_random">
 					</div>
 					<div class="clearheight"></div>
 					

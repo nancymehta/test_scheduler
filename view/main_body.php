@@ -86,15 +86,14 @@
             <div class=" val">
         
         	<form action="<?php echo SITE_PATH;?>admin/sendmail" id="contactus" method="post" >
-                <label class="label1"><?php echo "Name"; ?></label><input id="contact_name" name="contact_name" class="contact_name loginc"   type="text" /> 
-                <span class ="con_first"> </span><br><br>
-
-                <label class="label1"><?php echo "Email Address"; ?></label><input class=" loginc" name="contact_email"  id="contact_email" type="text" />
-                <span class ="con_email"> </span><br><br>
-
-                <label class="label1"><?php echo "Query / Suggestions"; ?></label><textarea  class=" loginc textarea" name="contact_suggestion"  rows="4" cols="50" class="textarea" id="contact_suggestion"></textarea><br><br><br>
-                <span class ="con_data"> </span><br>
-
+                <label class="label1"><?php echo "Name"; ?></label> <div class="space"></div>
+                <input id="contact_name" name="contact_name" class="contact_name loginc"   type="text" /> 
+                <div class="space"></div>
+				
+                <label class="label1"><?php echo "Email Address"; ?></label><div class="space"></div><input class=" loginc" name="contact_email"  id="contact_email" type="text" />
+                <div class="space"></div>
+                <label class="label1"><?php echo "Query / Suggestions"; ?></label><div class="space"></div><textarea  class=" loginc textarea" name="contact_suggestion"  rows="4" cols="50" class="textarea" id="contact_suggestion"></textarea><br><br><br>
+<div class="space"></div>
                 <input id="contactus" name="contactus" onclick="" type="submit" value="send" class="submmit_button_generic" />
 			</form>
             </div>

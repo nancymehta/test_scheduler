@@ -4,10 +4,11 @@ topvalue = 0;
 textval = 0;
 $(document).ready(function() {
 	
-
+	// jquery by pankaj
+	
 	$('#startTime').datetimepicker({ dateFormat: 'yy-mm-dd', timeFormat: 'hh:mm:ss' });
 	$('#endTime').datetimepicker({ dateFormat: 'yy-mm-dd', timeFormat: 'hh:mm:ss' });
-// jquery by pankaj
+
 	
 	$("#option1").validate({
 		rules: {
@@ -599,6 +600,7 @@ function valid_search_user()
 	}
 	else 
 	{
+		
 		var valid = $("#search_form").validate({
 			rules: {
 			first_name:{
@@ -625,6 +627,7 @@ function valid_search_user()
 				}
 			}
 		}).form();
+	
 		if(valid){
 			return true;
 		} else {
