@@ -27,8 +27,8 @@
 	
 
 </script>
-<div class="full-width bg-light-grey fg-dark-blue floatl font-large ">
-<div class="space"></div> Available Test </div>
+  <div class="contact-strip bg-mid-gray">
+ Available Test </div>
 <div class="bigmid" >
 <div class="midpanel">
 

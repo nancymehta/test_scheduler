@@ -1,5 +1,5 @@
-<div class="full-width bg-light-grey fg-dark-blue floatl font-large ">
-<div class="space"></div> Home </div>
+  <div class="contact-strip bg-mid-gray">
+ Home </div>
 <div class="bigmid">
 
 	<div class="midpanel" style="width: auto;">
