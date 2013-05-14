@@ -21,12 +21,11 @@ class questionBankModel extends dbConnectModel {
 		    $data['tables'] = 'master';
 		    $data['columns']= array('id');
 		    $data['conditions']	= array(
-		    		'code_value' => 'mcq'
-		    	//	'created_by' => $_SESSION ['SESS_USER_ID']
+		    		'code_value' => 'mcq',
+		    		'created_by' => $_SESSION ['SESS_USER_ID']
 		    );
 		    $result = $this->_db->select($data);
 		    $row = $result->fetch(PDO::FETCH_ASSOC);
-		    //    print_r($row);
 		    $ques_type_id=$row['id'];
 		   		   
 		    // Finding category_id from database
@@ -48,38 +47,33 @@ class questionBankModel extends dbConnectModel {
 		            "question"=>$arrArgs['question'],
 		    		"ques_type_id"=>$ques_type_id,
 		    		"category_id"=>$category_id,
-		    		"created_by"=>$_SESSION ['SESS_USER_ID'],
-		    		"created_on"=> date("Y-m-d h:i:s",$t)
+		    		'created_by'=>$_SESSION ['SESS_USER_ID'],
+		    		'created_on'=> date("Y-m-d h:i:s",$t)
 		    		
 		    );
 		    
 		    $result1 = $this->_db->insert('question', $data1);
 		    $ques_id=$this->_db->lastInsertId();
-		    echo 'question id---->'.  $ques_id;
-		    echo '<br/>';
 		    
 		    //inserting question-option into question_options table
+		    
 		    $i=1;
 		    while(!empty($arrArgs['option'.$i])){
 		    	//die('oye');
 		    	$data2=array(
 		    	"ques_id"=>$ques_id,
-		    	"option"=>$arrArgs['option'.$i]
-		    	);
-		    	 if(isset($arrArgs['ans'.$i])){
-		    	if($arrArgs['ans'.$i]=='on'){
-		    		$data2['correct']=1;
+		    	"`option`"=>$arrArgs['option'.$i],
+		    	'created_on'=> date("Y-m-d h:i:s",$t),
+		    	'created_by'=>$_SESSION ['SESS_USER_ID']
+		    );  if(isset($arrArgs['ans'.$i])){
+			    	if($arrArgs['ans'.$i]=='on'){
+			    		$data2['correct']=1;
+			    	}
 		    	}
-			}
 		    	$i++;
-		    	
-		    	$data2["created_on"]= date("Y-m-d h:i:s",$t);
-		    	$data2["created_by"]= $_SESSION ['SESS_USER_ID'];
-		    
-		    	
 		    	print_r($data2);
-		    	$result2 = @$this->_db->insert('question_options', $data2);
-		    	
+		    	$result2 = $this->_db->insert('question_options', $data2);
+		  //  	echo $result2;
 		    }
 		    if($result1 && $result2){
 		    	return 1;
