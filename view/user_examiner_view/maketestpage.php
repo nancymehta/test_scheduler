@@ -5,7 +5,7 @@
 
 
 		<div class="middle_content">
-<script>
+			<script>
 	function fncDelete(testId){
 		if(confirm('Are You Sure')) {
 			$.ajax({
@@ -22,7 +22,7 @@
 </script>
 			
 			<div class="space"></div>
-		<a class="button_generic" href="#" id="add_test">Create new test</a>
+			<a class="button_generic" href="#" id="add_test">Create new test</a>
 
 			<div class="space"></div>
 			<div class="add_test" id="new_test_div">
@@ -76,7 +76,7 @@
 					echo '<td><a href="http://test_scheduler.com/user/manageQuestions?test_id='.$arrData ['test'] ['testId'] [$i].'">Manage Questions</a></td>';
 					echo '<td><a href="http://test_scheduler.com/user/examSettings?test_id=' . $arrData ['test'] ['testId'] [$i] . '&test_name=' . $arrData ['test'] ['testName'] [$i] . '">Manage assign test</a></td>';
 					$temp=$arrData ['test'] ['testId'][$i].$arrData ['test'] ['testName'][$i];
-					echo "<td>test_scheduler.com/test/home/".md5($temp)."</td>";
+					echo "<td><input type='text' value='test_scheduler.com/test/home/".md5($temp)."' readonly></td>";
 					$i ++;
 					echo '</tr>';
 				}
