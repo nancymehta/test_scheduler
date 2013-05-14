@@ -21,9 +21,15 @@ $("#testSelect").change(function() {
 	            alert("Maximum 5");
 	            return false;
 			}   
-		$('.s_upload_table').append('<tr id="dynamic"><td><textarea class="text_right_generic" cols=15 rows=1 id=ques'+valincr+' name=ques'+valincr+'></textarea></td><td><input type="checkbox" id=check'+valincr+' name=check'+valincr+' /></td><td><textarea class="text_right_generic" cols=15 rows=1 id=feedback'+valincr+' name=feedback'+valincr+'></textarea> </td></tr>');
-			valincr++;	
-		});
+		  if(valincr % 2 == 0) {
+				$('.s_upload_table').append('<tr class ="even" id="dynamic"><td><textarea class="text_right_generic" cols=15 rows=1 id=ques'+valincr+' name=ques'+valincr+'></textarea></td><td><input type="checkbox" id=check'+valincr+' name=check'+valincr+' /></td><td><textarea class="text_right_generic" cols=15 rows=1 id=feedback'+valincr+' name=feedback'+valincr+'></textarea> </td></tr>');
+					valincr++;	
+				
+	   		} else {
+	   			$('.s_upload_table').append('<tr class ="odd" id="dynamic"><td><textarea class="text_right_generic" cols=15 rows=1 id=ques'+valincr+' name=ques'+valincr+'></textarea></td><td><input type="checkbox" id=check'+valincr+' name=check'+valincr+' /></td><td><textarea class="text_right_generic" cols=15 rows=1 id=feedback'+valincr+' name=feedback'+valincr+'></textarea> </td></tr>');
+				valincr++;	
+			}
+	   });
 	   $("#removeButton").click(function () {
 		   if(valincr==3){
 			      alert("Minimum 2");

@@ -74,7 +74,7 @@
 					<div class="space"></div>
 
 
-					<table class="table1 s_upload_table table-generic font-generic-mid">
+					<table class="s_upload_table table-generic font-generic-mid">
 						<thead>
 							<tr>
 								<th>Options</th>

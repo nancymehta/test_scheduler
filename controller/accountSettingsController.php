@@ -72,7 +72,6 @@ class accountSettingsController extends common{
 		$arrArgs['fname']	=	$_REQUEST['fname'];
 
 		}else{
-			echo "its not OK";die();
 			header("location: ".SITE_PATH."accountSettings/home");
 		}
 //		die("here");

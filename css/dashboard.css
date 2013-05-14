@@ -87,12 +87,7 @@ textarea{
 	padding-top: 20px;
 
 }
-.floatr{
-	float:right;	
-}
-.floatl{
-    float: left;
-}
+
 .marginl24{
     margin-left: 24px;
 }
@@ -113,10 +108,11 @@ textarea{
 	margin-top:100px;
   }
   .midpanel{
-	width: 65%;  
+	width: 85%;  
   	border: 1px solid #ededed;
-  	float:none;
+margin-left:1.5%;
   	padding: 5px;
+
 
 
   } 
@@ -127,6 +123,10 @@ textarea{
   	padding: 5px;
   	border: 1px solid #ededed;
   	float: right;
+  	margin-left: 50.5em;
+  	position: absolute;
+  	
+  
   }
   
   .errdiv{
@@ -532,19 +532,9 @@ margin-left: 2px;
 
 font-weight: 100;
 }
-
-
-
-
-
-
-th span{
-	color:#eee;
-	
+.floatr{
+	float:right;	
 }
-dd,dt
-{
-	color:gray;
-	font-size: 0.9em;
-	margin: 2px;
+.floatl{
+    float: left;
 }

@@ -7,7 +7,7 @@
 					<a id = "result" href = '<?php echo SITE_PATH."/result/result";?>'>Results »</a>
 					<a id = "test" class="tech" href = '<?php echo SITE_PATH."/faq";?>'>Faq's »</a>
 					<a id = "test" class="tech" href = "#">Test »</a>
-					<a id = "test" class="tech" href = '#'>Account Settings »</a>
+					<a id = "test" class="tech" href = '<?php echo SITE_PATH."settings_home";?>'>Account Settings »</a>
 				</div>	
 				<div class="menu-services ">
 						<ul>
@@ -17,15 +17,7 @@
 			<li><a href = "<?php echo SITE_PATH."certificate"; ?>">certificates</a></li>
 					</ul>
 					</div>			
-					<div class="tech-services">
-					<ul>
-							<li><a href="accountSettings/viewDetails">View Details</a></li>
-							<li><a href="accountSettings/editDetails">item1</a></li>
-							<li><a href="accountSettings/changePassword">item1</a></li>
-							<li><a href="">item1</a></li>
-							<li><a href="">item1</a></li>
-						</ul>
-					</div>	
+					
 
 
 

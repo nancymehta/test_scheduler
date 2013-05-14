@@ -7,6 +7,7 @@ class testuiController extends common{
  	$this->loadView("header");
  	$this->loadView("user_header");
  	$this->loadView("user_examiner_view/deshboard_menu");
+ 	$this->loadView("user_examiner_view/manage_test");
 
  }
   function mytest(){
@@ -40,7 +41,7 @@ class testuiController extends common{
  	$this->loadView("header");
  	$this->loadView("user_header");
  	$this->loadView("user_examiner_view/deshboard_menu");
- 	//$this->loadView("user_examiner_view/maketestpage");
+ //$this->loadView("user_examiner_view/maketestpage");
  // $this->loadView("user_examiner_view/showCertificateCreate");
   $this->loadView("user_examiner_view/manageCertificate");
 
@@ -103,29 +104,41 @@ class testuiController extends common{
  
  function examSettings(){
  	$this->loadView("header");
- 	$this->loadView("user_header");
+ 	//$this->loadView("user_header");
  	//$this->loadView("admin_view/deshboard_menu");
  	$this->loadView("user_examiner_view/examSettings");
   }
   
   function test_settings(){
   	$this->loadView("header");
-  	$this->loadView("user_header");
+  	//$this->loadView("user_header");
   	//$this->loadView("admin_view/deshboard_menu");
   	$this->loadView("user_examiner_view/test_settings");
   }
   
   function user_test_info(){
-  	$this->loadView("header");
-  	$this->loadView("user_header");
+  	//$this->loadView("header");
+  	//$this->loadView("user_header");
   	//$this->loadView("admin_view/deshboard_menu");
   	$this->loadView("user_examiner_view/user_test_info");
   }
-  
-  function manage_test(){
+  function settings()
+  {
+  	
   	$this->loadView("header");
   	$this->loadView("user_header");
-  	//$this->loadView("admin_view/deshboard_menu");
-  	$this->loadView("user_examiner_view/manage_test");
+  	$this->loadView("user_examiner_view/deshboard_menu");
+  	$this->loadView("settings_home");
+
+  //	header("location:".SITE_PATH."accountSettings/home");
   }
+  function correct_login()
+  {
+  	$this->loadView("header");
+  //	$this->loadView("user_examiner_view/confirmregister");
+
+  	$this->loadView("user_examiner_view/confirm_login");
+  	
+  }
+  
 }

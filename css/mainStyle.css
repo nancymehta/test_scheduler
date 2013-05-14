@@ -170,6 +170,10 @@ color:#3BB9FF;
 .bg-dark-orange{
 background-color:#FF8040;
 }
+.bg-light-pink{
+	background-color: #FFEDFF;
+	
+}
 .bg-dark-black{
 background-color:#000;
 }
@@ -881,10 +885,29 @@ opacity: 0.8;
         background-color:white;
        	float:right;
 		display : none;
-
         width: 35%;
         z-index: 99999;
     	box-shadow:10px 40px 40px 50px #eee inset; 
+    }
+.logindiv1{
+    	position: absolute;
+    	top:150px;
+		left:8%;    	
+        background-color:white;
+        width: 50%;
+        z-index: 99999;
+    	box-shadow:10px 40px 40px 50px #eee inset; 
+	    border:1px solid #eee; 
+    }
+.registerdiv1{
+    	position: absolute;
+    	top:150px;
+		left:8%;    	
+        background-color:white;
+        width: 50%;
+        z-index: 99999;
+    	box-shadow:10px 40px 40px 50px #eee inset; 
+	    border:1px solid #eee; 
     }
     .registerdiv{
         width: 40%;
@@ -991,6 +1014,9 @@ a{
 a:hover{
 	color:white;
 	
+}.fg-dark-orange{
+color:#9B899B;
+		
 }
 
 /*-----------End by Bhanu --------*/
@@ -998,6 +1024,7 @@ a:hover{
 
 
 
+/* --------------------- Error css -----------------------*/
 
 
 
