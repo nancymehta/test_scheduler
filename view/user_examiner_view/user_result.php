@@ -33,7 +33,7 @@ if(isset($arrData['test_taker_details'])){
 		echo $key['score']." out of ".$key['total_ques']; 	
    		}
 	} else {
-   			echo "No records Found";
+   			echo NO_RECORDS_FOUND;
    		}
    ?> 
    
@@ -86,7 +86,7 @@ if(isset($arrData['test_taker_details'])){
 				}
 				echo "<br/><pre>	Correct Option :" , $correct."</pre>";
 			} else {
-				echo "No Questions Found";
+				echo NO_RECORDS_FOUND;
 			}			 
 		?>		
 		 

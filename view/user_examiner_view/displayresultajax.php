@@ -57,7 +57,7 @@ if (isset ( $arrData )) {
 		echo "<tr><td>" . $key ['first_name'] . " " . $key ['last_name'] . "</td><td>" . $data_perc . "</td><td>" . $key ['score'] . "/" . $key ['total_ques'] . "</td><td>" . $diff_time->format ( '%hh :%mm: %ss' ) . "</td><td><a href='getIndividualResults?id=" . $key ['id'] . "'>click  to View</a></td></tr>";
 	}
 } else {
-	echo "No Records Found";
+	echo NO_RECORDS_FOUND;
    }
 
 ?>
