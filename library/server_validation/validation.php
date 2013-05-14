@@ -18,6 +18,7 @@
 
 
 ini_set("display_errors","1");
+include_once 'lang.en.php';
 class validation
 {
 	
@@ -194,24 +195,30 @@ class validation
 	* */
 	public function validatePassword($pass)
 	{
-		$passLength=strlen($pass);
-		if($passLength >=6 && $passLength <= 20)
+		if(!$pass == '')
 		{
-		   $str=$pass;
-		   $pattern='/^[a-zA-Z0-9\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\]+$/';
-		   if(preg_match($pattern,$str))
-		   {
-		   	return true;
-		   }
-		   else
-		   {
-			echo INVALID_PASS;
-			return false;
-		   }
-		}
-		else
-		{
-			echo INVALID_PASS_LENGTH;
+			$passLength=strlen($pass);
+			if($passLength >=6 && $passLength <= 20)
+			{
+			   $str=$pass;
+			   $pattern='/^[a-zA-Z0-9\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\]+$/';
+			   if(preg_match($pattern,$str))
+			   {
+			   	return true;
+			   }
+			   else
+			   {
+				echo INVALID_PASS;
+				return false;
+			   }
+			}
+			else
+			{
+				echo INVALID_PASS_LENGTH;
+				return false;
+			}
+		} else {
+			echo ENTER_PASSWORD;
 			return false;
 		}
 	}
@@ -480,11 +487,18 @@ class validation
 				return false;
 		  }
 	}	
-	
-	public function testing(){
-		
-		return "hello";
-		}		
+
+	public function validate_time24($value)
+	 {
+		if(preg_match("/^([0-2][0-3]|[01]?[1-9]):([0-5]?[0-9]):([0-5]?[0-9])$/", $value)){
+			return true;
+		}
+		else
+		{
+			echo INVALID_TIME;
+			return false;
+		}
+	}
 }
 
 
@@ -510,6 +524,7 @@ class validation
 //$answer	=	$obj->ageValidator("12/17/1983");
 //$answer	=	$obj->chk_FilesUpload("https://github.com/nancymehta/test_scheduler");
 //$answer=$obj->checkLength('deofjweifj',3,1);
+//$answer=$obj->validate_time24('24:59:59');
 //echo $answer;
 ?>
 
