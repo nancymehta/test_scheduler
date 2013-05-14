@@ -371,3 +371,8 @@ alter table user_profile drop foreign key user_profile_ibfk_45;
 alter table user_profile drop column created_by;
 
 alter table user_profile drop column updated_by;
+
+/*altering category table on 15-05-2013*/
+alter table category drop index `name`;
+
+alter table category add constraint unique_name_createdby unique(name,created_by);
