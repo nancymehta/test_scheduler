@@ -30,9 +30,9 @@ class categoryController extends mainController {
 		
 		if(isset($_POST['categoryName'])) 	//This is to Add Category
 			{
-				if($this->validationObj->validateAlphabate($_REQUEST['categoryName']))
+				if($this->validationObj->validateAlphabate($_POST['categoryName']))
 				{
-				$ArrArgs['catName']		=	$_REQUEST['categoryName'];
+				$ArrArgs['catName']		=	strip_tags($_POST['categoryName']);
 				}else {
 					header("location:".SITE_PATH."category/home");
 					die();
@@ -50,13 +50,13 @@ class categoryController extends mainController {
 			{
 				if($this->validationObj->validateAlphabate($_REQUEST['catName']))
 				{
-				$arrArgs['catName']		=	$_REQUEST['catName'];
+				$arrArgs['catName']		=	strip_tags($_GET['catName']);
 				}else {
 					header("location:".SITE_PATH."category/home");
 					die();
 				}
 								
-				$arrArgs['id']			=	$_REQUEST['id'];
+				$arrArgs['id']			=	strip_tags($_GET['id']);
 				$arrArgs['userId']		=	$_SESSION['SESS_USER_ID'];
 				
 				$arrData	=	$this->loadModel('category','updateCategory',$arrArgs);
@@ -68,7 +68,7 @@ class categoryController extends mainController {
 				}
 			}elseif(isset($_GET['id']))	//This is to delete the category
 			{
-				$arrArgs	=	$_REQUEST['id'];
+				$arrArgs	=	$_GET['id'];
 				 
 				$arrData	=	$this->loadModel('category','deleteCategory',$arrArgs);
 				if($arrData=="done")

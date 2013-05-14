@@ -35,7 +35,7 @@ class accountSettingsController extends common{
 
 	//This is the main function which shows the options for user
 	function accountSettings() {
-	try {
+		try {
 		$this->loadView('user_account_settings');
 	} catch (Exception $e) {
 	  	$this->handleException($e->getMessage());
@@ -44,7 +44,7 @@ class accountSettingsController extends common{
 	
 	//This function is used to show the details to the user
 	public function viewDetails() {
-	try {
+		try {
 		$userId		=	$_SESSION['SESS_USER_ID'];
 		$arrData	=	$this->loadModel('accountSettings','viewDetails',$userId);
 		$this->loadView('view_user_details',$arrData);
@@ -66,12 +66,12 @@ class accountSettingsController extends common{
 	
 	//This function is used to save the values of the users which are edited by them
 	function processDetails() {
-	try {
+		try {
 		
 		if($this->validationObj->validateAlphabate($_POST['fname']))
 		{
 //			echo "ok";die();
-		$arrArgs['fname']	=	$_POST['fname'];
+		$arrArgs['fname']	=	strip_tags($_POST['fname']);
 
 		}else{
 			header("location: ".SITE_PATH."accountSettings/home");
@@ -80,7 +80,7 @@ class accountSettingsController extends common{
 //		die("here");
 		if($this->validationObj->validateAlphabate($_POST['lname']))
 		{
-		$arrArgs['lname']	=	$_POST['lname'];
+		$arrArgs['lname']	=	strip_tags($_POST['lname']);
 		}else{
 			header("location: ".SITE_PATH."accountSettings/home");
 			die();
@@ -88,7 +88,7 @@ class accountSettingsController extends common{
 		
 		if($this->validationObj->checkEmail($_POST['email']))
 		{
-		$arrArgs['email']	=	$_POST['email'];	
+		$arrArgs['email']	=	strip_tags($_POST['email']);	
 		}else{
 			header("location: ".SITE_PATH."accountSettings/accountSettings");
 			die();
@@ -109,7 +109,7 @@ class accountSettingsController extends common{
 	
 	//This function loads a page for user on which user enter old and new password for updation
 	function changePassword() {
-	try {
+		try {
 		$this->loadView('change_password');
    	
 	} catch (Exception $e) {
@@ -120,13 +120,13 @@ class accountSettingsController extends common{
 	
 	//This function is used for the updation of new password
 	function processChangePassword() {
-	try {
+		try {
 		//print_r($_REQUEST);die();
 		$arrArgs['id']		=	$_SESSION['SESS_USER_ID'];
 
 		if($this->validationObj->validatePassword($_POST['oldPass']))
 		{
-		$arrArgs['oldPass']	=	$_POST['oldPass'];
+		$arrArgs['oldPass']	=	strip_tags($_POST['oldPass']);
 		}else{
 			header("location: ".SITE_PATH."accountSettings/home");
 		}
@@ -134,7 +134,7 @@ class accountSettingsController extends common{
 		
 		if($this->validationObj->validatePassword($_POST['newPass']))
 		{
-		$arrArgs['newPass']	=	$_POST['newPass'];
+		$arrArgs['newPass']	=	strip_tags($_POST['newPass']);
 		}else{
 			header("location: ".SITE_PATH."home");
 		}
@@ -154,7 +154,7 @@ class accountSettingsController extends common{
 	
 	
 	function deactivateAccount() {
-	try {
+		try {
 		$arrArgs	=	$_SESSION['SESS_USER_ID'];
 		$arrData	=	$this->loadModel('accountSettings','deactivateAccount',$arrArgs);
 		if($arrData	==	true)
