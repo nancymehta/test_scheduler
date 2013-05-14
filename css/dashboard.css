@@ -109,7 +109,7 @@ textarea{
   }
   .midpanel{
 	width: 85%;  
-  	border: 1px solid #ededed;
+  	border: 1px solid #cdcdcd;
 margin-left:1.5%;
   	padding: 5px;
 
@@ -121,7 +121,7 @@ margin-left:1.5%;
   	height: 100%;
   	width: 30%;
   	padding: 5px;
-  	border: 1px solid #ededed;
+  	border: 1px solid #cdcdcd;
   	float: right;
   	margin-left: 50.5em;
   	position: absolute;
@@ -455,6 +455,7 @@ margin-top:1px;
 	border-radius				: 5px;
 	background-color: #295292;
 	color 				: white;
+	
 
 }
 .table-generic tr, .table-generic td,div table td {

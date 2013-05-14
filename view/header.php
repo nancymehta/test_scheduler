@@ -31,4 +31,16 @@
     <script src="<?php echo JS_PATH;?>jquery-ui-timepicker-addon.js"></script>
 	</head>
 	
-	<body>
+	<body>      
+          <div class="err_display">
+           <?php
+
+				
+				if(isset($_SESSION['SESS_ERROR'])) {
+					echo $_SESSION['SESS_ERROR'];
+					unset($_SESSION['SESS_ERROR']);
+				}
+			?>
+			
+			</div>
+          

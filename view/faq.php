@@ -21,8 +21,8 @@ Frequently Asked Questions
 
 <div id="tabs">
   <ul>
-    <li><a href="#tabs-1">General</a></li>
-    <li><a href="#tabs-2">aaa</a></li>
+    <li><a href="#tabs-1">Q1</a></li>
+    <li><a href="#tabs-2">Q2</a></li>
     <li><a href="#tabs-3">bbbbbb	</a></li>
   </ul>
   <div id="tabs-1">

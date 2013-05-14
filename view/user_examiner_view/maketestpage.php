@@ -22,7 +22,7 @@
 </script>
 			
 			<div class="space"></div>
-			<a class="button_generic" href="#" id="add_test">Create new test</a>
+		<a class="button_generic" href="#" id="add_test">Create new test</a>
 
 			<div class="space"></div>
 			<div class="add_test" id="new_test_div">

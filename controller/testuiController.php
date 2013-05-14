@@ -137,7 +137,7 @@ class testuiController extends common{
   	$this->loadView("header");
   //	$this->loadView("user_examiner_view/confirmregister");
 
-  	$this->loadView("user_examiner_view/confirm_login");
+  	$this->loadView("confirm_login");
   	
   }
   

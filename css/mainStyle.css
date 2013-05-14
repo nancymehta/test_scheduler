@@ -869,6 +869,19 @@ color:#9B899B;
 /*-----------End by Bhanu --------*/
 
 
+.err_display{
+	position: absolute;
+	top:75px;
+	left:100px;
+	width: 60%;
+	height: 1.8%;
+	font-size:0.8em;
+	
+	z-index: 9999;
+	
+	
+}
+
 
 
 /* --------------------- Error css -----------------------*/
