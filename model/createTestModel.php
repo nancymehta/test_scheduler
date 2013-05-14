@@ -128,9 +128,20 @@ class createTestModel extends dbConnectModel {
 	}
 	
 	#Deleting Test
-	public function deleteTest() {
+	public function deleteTest($testId) {
 		try {
-			//query needed
+			$data = array (
+					'status' => '1' 
+			);
+			$where = array (
+					'id' => $testId 
+			);
+			$result_update = $this->_db->update ( 'test', $data, $where );
+			if ($result_update) {
+				return true;
+			} else {
+				return false;
+			}
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}

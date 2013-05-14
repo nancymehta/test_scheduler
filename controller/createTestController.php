@@ -166,6 +166,19 @@ class createTestController extends mainController {
 		}
 	}
 	
+	function deleteTest() {
+		try {
+			$arrData = $this->loadModel ( 'createTest', 'deleteTest', $_POST['id']);
+			if ($arrData){
+				echo 'Test Deleted';
+			} else {
+				throw new Exception();
+			}
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
 	/********Methods related to certificate management **************/
 
 	# method to show certificate create view
