@@ -3,8 +3,18 @@
  * This Form is used to show the values t0 the users for editing.
 */
 ?>
+ <script>
+$(function() {
+$( "#accordion" ).accordion();
+});
+</script>
+<div class="space"></div><div class="space"></div>
+<div class="space"></div><div class="space"></div>
+<div id="accordion" >
+<h3>View Details</h3>
+<div >
 <form>
-<table>
+<table class="font-small">
     <?php
     if(isset($arrData))
     {
@@ -48,14 +58,13 @@
     <?php } ?>
    </table>
 </form>
-<?php
-/**
- * This Form is used to show the values t0 the users for editing.
-*/
-?>
 
+</div>
+
+<h3>Edit Details</h3>
+<div class="font-small">
 <form action="<?php echo SITE_PATH .'accountSettings/processDetails'?>" method="post" onsubmit=" return confirmSubmitDetais()">
-<table>
+<table class="font-small">
     <?php
     if(isset($arrData))
     {
@@ -87,24 +96,23 @@
             <input type="text" name="email" id="email" value="<?php echo $arrData['email']; ?>">
         </td>
     </tr>
+    
     <?php } ?>
-    <tr>
-        <td>
-           <input type='submit' value="Submit">
+    </table>
+    <div class="space"></div><div class="space"></div><div class="space"></div><div class="space"></div>
+           <input value="Save" class="submmit_button_generic" type='submit' value="Submit">
          
-        </td>
-    </tr>
-</table>
+       
+
 </form>
 
-<?php
-/**
- * This Form is used to Change the Password.
-*/
-?>
 
+</div>
+
+<h3>Change Password</h3>
+<div>
 <form action="<?php echo SITE_PATH .'accountSettings/processChangePassword'?>" method="post" onsubmit="return confirmChangePassword()">
-<table>
+<table class="font-small">
     <tr>
         <td>
             Old Password :
@@ -131,23 +139,24 @@
             <input type="password" name="cNewPass" id="cNewPass">
         </td>
     </tr>
-    <tr>
-        <td>
-           <input type='submit' value="Submit">
+   </table>
+   <div class="space"></div><div class="space"></div>
+           <input class="submmit_button_generic" type='submit' value="Submit">
          
-        </td>
-    </tr>
-</table>
+     
+
 
 </form>
-<table>
-<tr>
-        <td>
-            <a href="#" onclick="deactivateAccount()">Deactivate Account</a>
-        </td>
-    </tr>
-</table>
+</div>
+<!--  -->
+<h3> Account Deactivate</h3>
+<div>
 
+        
+           <a  href="#" onclick="deactivateAccount()"> <span class="fg-dark-blue font-mid floatl">Deactivate Account</span></a>
+       
+</div>
+</div>
 <script>
     
     //This function is used for the validation of Passwords

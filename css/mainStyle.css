@@ -102,161 +102,6 @@ input[type='text'],input[type='password'],input[type='email'],.sel ,.loginc{
     font-weight: bold; 
     font-style: italic;
 }
-/* --------------------------   Generic Classes ----------------------------------------*/
-
-.margin-left-10{
-	margin-left:10px;
-}
-.margin-left-40{
-	margin-left:40px;
-}
-
-.margin-left-50{
-	margin-left:50px;
-	
-}
-.margin-left-100{
-	margin-left:100px;
-	
-}
-.margin-left-150{
-	margin-left:150px;
-	
-}
-.margin-right-10{
-	margin-right:10px;
-	
-}
-.margin-right-30{
-	margin-right:30px;
-	
-}
-
-.margin-right-40{
-	margin-right:40px;
-	
-}
-.margin-right-60{
-	margin-right:60px;
-	
-}
-.margin-right-100{
-	margin-right:100px;
-	
-}
-
-
-.para {
-    clear: both;
-    height: 40px;
-}
-.fg-dark-orange{
-color:#FF8040;
-		
-}
-.fg-dark-black{
-color:#000;
-}
-
-.fg-dark-white{
-color:#fff;
-}
-.fg-dark-blue{
-color:#295292;
-}
-.fg-mid-blue{
-color:#3BB9FF;
-}
-.bg-dark-orange{
-background-color:#FF8040;
-}
-.bg-light-pink{
-	background-color: #FFEDFF;
-	
-}
-.bg-dark-black{
-background-color:#000;
-}
-.bg-dark-white{
-background-color:#fff;
-}
-.bg-dark-blue{
-background-color:#0000FF;
-}
-.bg-mid-blue{
-background-color:#3BB9FF;
-}
-.bg-vib-blue{
-	background-color: #295292;
-}
-.bg-mid-gray{
-background-color: #9B9B9B;
-}
-.border-small-radius{
-	border-radius:4px;
-}
-.border-mid-radius{
-	border-radius:6px;
-}
-.border-large-radius{
-	border-radius:8px;
-}
-.border-small-small-style-blue{
-	border:1px solid #295292;
-}
-.border-small-small-style-gray{
-	border:1px solid #AFB3C7;
-}
-.border-small-small-style-orange{
-	border:1px solid #FF8040;
-}
-.clear-float{
-	clear:both;
-}
-.fontsize24{
-	font-size: 24px;
-} 
-.float-right{
-	float:right;	
-}
-.float-left{
-    float: left;
-}
-.font-small{
-	font-size:0.8em;
-}
-.font-mid{
-	font-size:1.2em;
-}
-.font-large{
-	font-size:1.4em;
-}
-.font-family-italic{
-	font-style:italic;
-}
-.font-family-light{
-	font-weight:100;
-	
-}
-.font-family-mid{
-	font-weight:400;
-}
-.font-family-heavy{
-	font-weight:900;
-}
-.padding-small{
-	padding:2px;
-}
-.padding-mid{
-	padding:8px;
-}.padding-large{
-	padding:15px;
-}
-.padding-xlarge{
-	padding:20px;
-}
-/*----------------------- End of  Generic Classes ----------------------------------------*/
-
 .mainContainer {
 	margin : 0px;
 	padding : 0px;
@@ -1028,4 +873,159 @@ color:#9B899B;
 
 
 
+
+/* --------------------------   Generic Classes ----------------------------------------*/
+
+.margin-left-10{
+	margin-left:10px;
+}
+.margin-left-40{
+	margin-left:40px;
+}
+
+.margin-left-50{
+	margin-left:50px;
+	
+}
+.margin-left-100{
+	margin-left:100px;
+	
+}
+.margin-left-150{
+	margin-left:150px;
+	
+}
+.margin-right-10{
+	margin-right:10px;
+	
+}
+.margin-right-30{
+	margin-right:30px;
+	
+}
+
+.margin-right-40{
+	margin-right:40px;
+	
+}
+.margin-right-60{
+	margin-right:60px;
+	
+}
+.margin-right-100{
+	margin-right:100px;
+	
+}
+
+
+.para {
+    clear: both;
+    height: 40px;
+}
+.fg-dark-orange{
+color:#FF8040;
+		
+}
+.fg-dark-black{
+color:#000;
+}
+
+.fg-dark-white{
+color:#fff;
+}
+.fg-dark-blue{
+color:#295292;
+}
+.fg-mid-blue{
+color:#3BB9FF;
+}
+.bg-dark-orange{
+background-color:#FF8040;
+}
+.bg-light-pink{
+	background-color: #FFEDFF;
+	
+}
+.bg-dark-black{
+background-color:#000;
+}
+.bg-dark-white{
+background-color:#fff;
+}
+.bg-dark-blue{
+background-color:#0000FF;
+}
+.bg-mid-blue{
+background-color:#3BB9FF;
+}
+.bg-vib-blue{
+	background-color: #295292;
+}
+.bg-mid-gray{
+background-color: #9B9B9B;
+}
+.border-small-radius{
+	border-radius:4px;
+}
+.border-mid-radius{
+	border-radius:6px;
+}
+.border-large-radius{
+	border-radius:8px;
+}
+.border-small-small-style-blue{
+	border:1px solid #295292;
+}
+.border-small-small-style-gray{
+	border:1px solid #AFB3C7;
+}
+.border-small-small-style-orange{
+	border:1px solid #FF8040;
+}
+.clear-float{
+	clear:both;
+}
+.fontsize24{
+	font-size: 24px;
+} 
+.float-right{
+	float:right;	
+}
+.float-left{
+    float: left;
+}
+.font-small{
+	font-size:0.8em;
+}
+.font-mid{
+	font-size:1.2em;
+}
+.font-large{
+	font-size:1.4em;
+}
+.font-family-italic{
+	font-style:italic;
+}
+.font-family-light{
+	font-weight:100;
+	
+}
+.font-family-mid{
+	font-weight:400;
+}
+.font-family-heavy{
+	font-weight:900;
+}
+.padding-small{
+	padding:2px;
+}
+.padding-mid{
+	padding:8px;
+}.padding-large{
+	padding:15px;
+}
+.padding-xlarge{
+	padding:20px;
+}
+/*----------------------- End of  Generic Classes ----------------------------------------*/
 

@@ -16,6 +16,8 @@
 class accountSettingsController extends common{	
 	function home() {
 		try {
+			$this->loadView("header");
+			$this->loadView("user_header");
 			$userId		=	$_SESSION['SESS_USER_ID'];
 			$arrData	=	$this->loadModel('accountSettings','viewDetails',$userId);
 			$this->loadView('settings_home',$arrData);
