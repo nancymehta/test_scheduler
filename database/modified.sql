@@ -352,3 +352,7 @@ CREATE TABLE `contact_us` (
 alter table category modify name varchar(50) unique not null;
 
 
+/*altering validate_users table on 15-05-2013*/
+alter table validate_users drop foreign key validate_users_ibfk_42;
+
+alter table validate_users drop foreign key validate_users_ibfk_1;
