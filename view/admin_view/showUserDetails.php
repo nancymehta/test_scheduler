@@ -26,7 +26,7 @@
 					}else{
                         alert(response);
             			}
-    				},
+    				}
     			     
     		}); // end of ajax
                  

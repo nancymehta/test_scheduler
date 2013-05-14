@@ -107,10 +107,9 @@ class adminModel extends dbConnectModel{
 					'type_of_org_id' => $row['id'],
 					
 					);
-            	foreach($update_row1 as $row1) 
-			{		
-				$uresult = $this->_db->update('user_profile',$row1,$udata1['conditions']);
-			}	
+		foreach($update_row1 as $row1) {		
+			$uresult = $this->_db->update('user_profile',$row1,$udata1['conditions']);
+		}	
 			
 		$udata2['conditions'] = array('id'=> $editData['id']);	   
 		$update_row2[] = array(
@@ -118,15 +117,12 @@ class adminModel extends dbConnectModel{
 					'password' => $editData['password'],
 					'user_type' => $editData['user_type'],
 					);
-            	foreach($update_row2 as $row2) 
-			{		
-				$uresult = $this->_db->update('validate_users',$row2,$udata2['conditions']);
-				
-			}
-			if($uresult)
-			{
-				return true;
-			}		
+		foreach($update_row2 as $row2) {		
+			$uresult = $this->_db->update('validate_users',$row2,$udata2['conditions']);
+		}
+		if($uresult){
+			return true;
+		}		
 	}
 
 	function deleteUser($id){
@@ -134,10 +130,9 @@ class adminModel extends dbConnectModel{
 		$data['conditions'] = array('id'=> $id);	   
 		$update_row[] = array('status' => '1',
 					);
-            	foreach($update_row as $row) 
-			{		
-				$result = $this->_db->update('validate_users',$row,$data['conditions']);
-			}	
+        foreach($update_row as $row) {		
+			$result = $this->_db->update('validate_users',$row,$data['conditions']);
+		}	
 		
 	}
 		
@@ -147,7 +142,7 @@ class adminModel extends dbConnectModel{
 		$data['columns']= array('id','name','email','description');
 		$data['conditions']=array( 'status'=> '1');
 		$result=$this->_db->select($data);
-		while($row = $result->fetch(PDO::FETCH_ASSOC)){
+		while( $row = $result->fetch(PDO::FETCH_ASSOC) ){
 			$feedbackResult[]=$row;
 			
 		}

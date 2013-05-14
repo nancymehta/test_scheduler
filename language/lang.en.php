@@ -58,4 +58,16 @@ define('INVALID_RANGE','Enter valid range min should be less than max');
 define('INVALID_DATE_FORMAT','Enter date as YYYY-MM-DD and all should be digit');
 define('ENTER_PASSWORD','Password should not be Empty');
 define('INVALID_TIME','Enter the Time value in HH:MM:SS format');
+define("USER_NAME","User Name: ");
+define("PASSWORD","Password: ");
+define("USER_TYPE","Type Of User: ");
+define("USER","User");
+define("ADMIN","Admin");
+define("FIRST_NAME","First Name: ");
+define("LAST_NAME","Last Name: ");
+define("EMAIL_ID","Email ID: ");
+define("TYPE_OF_ORG","Type Of Organisation: ");
+define("USER_ID","User Id");
+define("USER_NAME1","User Name");
+define("EDIT","Edit");
 ?>
