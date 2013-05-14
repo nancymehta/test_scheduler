@@ -376,3 +376,6 @@ alter table user_profile drop column updated_by;
 alter table category drop index `name`;
 
 alter table category add constraint unique_name_createdby unique(name,created_by);
+
+/*altering status table on 15-05-2013*/
+ALTER TABLE `contact_us` CHANGE `status` `status` ENUM( '0', '1' ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '0 is Active and 1 is Inactive';
