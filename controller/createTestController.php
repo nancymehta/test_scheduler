@@ -251,15 +251,18 @@ class createTestController extends mainController {
 				print_r($userDetails);	
 					#loading model to dynamically generate certificate 
 					$certificate=$this->loadModel ( 'createTest', 'drawCertificate', $userDetails ); 
-					echo $certificate;
-					
 					if($certificate){
-						$this->loadView("header");
-						$this->loadView("user_header");
-						$this->loadView("user_examiner_view/showCertificateCreate",$certificate);
+					//	$this->loadView("header");
+					//	$this->loadView("user_header");
+					//	$this->loadView("user_examiner_view/showCertificateCreate",$certificate);
 						foreach($userDetails as $key=>$value){
 								$email=$value['email_enroll_no'];
+								$certficateName=$value['name'];
 								$body="asdasdadasd";
+								$output = shell_exec("chmod 777 misc -R");
+								echo "$output";
+								$attach=SITE_PATH.'misc/SavedCertificate/'.$certficateName.'.jpeg';
+								$attach="'".$attach."'";
 								mailTest ( $email, 'info.test.scheduler@gmail.com', $body);
 						 }
 					}
@@ -288,7 +291,10 @@ class createTestController extends mainController {
 						foreach($userDetails as $key=>$value){
 								$email=$value['email_enroll_no'];
 								$body="asdasdadasd";
-								mailTest ( $email, 'info.test.scheduler@gmail.com', $body);
+								$attach=SITE_PATH.'misc/SavedCertificate/'.$email;
+								echo $attach;
+								die();
+								mailTest ( $email, 'info.test.scheduler@gmail.com', $body,$attach);
 						 }
 					}
 					else{

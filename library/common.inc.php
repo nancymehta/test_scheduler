@@ -63,6 +63,7 @@ function mailTest($to,$sub,$body) {
 	$mail->Subject = "$sub"; 
 	$mail->Body = "$body"; 
 	$mail->AltBody = "Mail Form test Scheduler";
+	$mail->AddAttachment('var/www/test_scheduler/trunk/misc/SavedCertificate/MySql Certificate.jpeg');
 	if(!$mail->Send()) 
 	{ 
 	echo "Message was not sent <p>"; 
