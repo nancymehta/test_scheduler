@@ -157,5 +157,17 @@ class userController extends mainController {
 			$arrArgs = $this->loadModel ( "base", "fetchTests" );
 			$this->loadView ( "user_examiner_view/test_management", $arrArgs );			
 	}
+	function settings() {
+		try {
+			$this->loadView("header");
+			$this->loadView("user_header");
+			$this->loadView ( "user_examiner_view/deshboard_menu" );
+			$userId		=	$_SESSION['SESS_USER_ID'];
+			$arrData	=	$this->loadModel('accountSettings','viewDetails',$userId);
+			$this->loadView('settings_home',$arrData);
+		} catch (Exception $e) {
+			$this->handleException($e->getMessage());
+		}
+	}
 }
 ?>
