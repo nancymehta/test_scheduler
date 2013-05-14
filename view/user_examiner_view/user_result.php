@@ -1,7 +1,10 @@
 
-<?php //print_r($arrData); ?>
-<?php 
-   foreach($arrData as $key)
+<?php
+	echo "<pre>"; 
+print_r($arrData); ?>
+<?php
+	$test_taker_result=$arrData['test_taker_details']; 
+   foreach($test_taker_result as $key)
    {
    	$end_time = new DateTime($key['end_time']);
  	$start_time = new DateTime($key['start_time']);

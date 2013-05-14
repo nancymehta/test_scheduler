@@ -30,11 +30,11 @@ class resultController extends mainController {
 	}
 
 	function getIndividualResults() {
-		//$testId=$_REQUEST['testId'];
+		$testId=$_REQUEST['id'];
 		$this->loadView("header");
 		$this->loadView("user_header");
 		$this->loadView("user_examiner_view/deshboard_menu");
-		$result=$this->loadModel("result","individualResults");
+		$result=$this->loadModel("result","individualResults",array('id'=>$testId));
 		$this->loadView("user_examiner_view/user_result",$result);
 	}
 }
