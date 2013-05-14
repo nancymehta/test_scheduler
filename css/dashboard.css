@@ -113,7 +113,7 @@ textarea{
 	margin-top:100px;
   }
   .midpanel{
-	width: 100%;  
+	width: 65%;  
   	border: 1px solid #ededed;
   	float:none;
   	padding: 5px;
@@ -127,7 +127,7 @@ textarea{
   	padding: 5px;
   	border: 1px solid #ededed;
   	float: right;
-  }*/
+  }
   
   .errdiv{
   	background-color:blue;
