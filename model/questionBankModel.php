@@ -131,7 +131,7 @@ class questionBankModel extends dbConnectModel {
 				$arrOption= explode(",", $options);
 				$arrOption=array_filter($arrOption);
 				$countOp=count($arrOption);
-				$createdBy=4;//supposed to be from session
+				$createdBy=$_SESSION['SESS_USER_ID'];
 				$status =1;
 				if(($questionType==6 && $countOp==2) || (($questionType==5 || $questionType==7) && $countOp>2)){
 					$data2= array('id'=>'',
@@ -174,11 +174,13 @@ class questionBankModel extends dbConnectModel {
 									$corr=0;
 								}
 							}
+
 							$data4= array('id'=>'',
 									'ques_id'=>$questionId,
-									'option'=>$value,
+									'`option`'=>$value,
 									'correct'=>$corr,
-									'status'=>'1'
+									'status'=>'1',
+									'created_by'=>"$createdBy",
 									);
 							$result = $this->_db->insert('question_options', $data4);
 							

@@ -89,7 +89,7 @@ class baseModel extends dbConnectModel{
 			$result = $this->_db->count('user_profile',$datax);
 			
 			$count=$result->fetchColumn();
-			echo $count;
+			//echo $count;
 			
 			if($count<10)
 			{
@@ -97,9 +97,9 @@ class baseModel extends dbConnectModel{
 				"username"=>$arrArgs['username'],
 				"password"=>$arrArgs['password']);
 		
-		
+		                
 				$result1 = $this->_db->insert('validate_users', $data1);
-		
+		                 
 		
 		  $user_id=$this->_db->lastInsertId();
 		  $ip= $_SERVER['REMOTE_ADDR'];
