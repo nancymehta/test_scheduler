@@ -358,13 +358,14 @@ class createTestModel extends dbConnectModel {
 				$data ['tables'] = 'certificate_master';
 				$data ['columns'] = array (
 										'name'				=> $arrArgs ['name'],
-										'certificate_title' => $arrArgs ['certificate_title'],
 										'certificate_body'  => $arrArgs ['certificate_body'],
-										'created_on' 		=> 'NOW()',
-										'updated_on' 		=> 'NOW()',
+										'created_on' 		=> 'now()',
+										'updated_on' 		=> 'now()',
 										'created_by' 		=> 1,
-										'upload_path'		=> "http://test_scheduler.com/misc/certificateUploads/certificate.jpg"
+										'upload_path'		=> SITE_PATH."misc/certificateUploads/certificate.jpg"
 									);
+								
+
 				$result_query = $this->_db->insert ( $data ['tables'], $data ['columns'] );
 				
 				if ($result_query) {
@@ -382,9 +383,8 @@ class createTestModel extends dbConnectModel {
 	
 	# Method to show certificate
 	public function showCertificate($arrArgs) {
-		try {
-			if (! empty ( $arrArgs )) {
-									
+		try {	
+			if (! empty ( $arrArgs )) {	
 				$data ['tables'] 	 = 'certificate_master';
 				$data ['conditions'] = array(
 											'id' => $arrArgs ['id']
@@ -393,6 +393,7 @@ class createTestModel extends dbConnectModel {
 				#selecting certificate details from certificate_master table					  
 				$result_select = $this->_db->select ( $data ); 
 				$row = $result_select->fetch ( PDO::FETCH_ASSOC );
+				
 				if (!empty ( $row ) == 1) { 
 					return $row; # returning certificate details 
 				} else {
@@ -408,25 +409,27 @@ class createTestModel extends dbConnectModel {
 	
 	# Method to dynamically create certificate
 	public function drawCertificate($arrArgs) {
-		try {
+		try {  
 			if (! empty ( $arrArgs )) {
 									
 				$imagePath = $arrArgs['upload_path'];     # getting certificate path 
-				
+
 				$certficateName = $arrArgs['name'];
 				$userName 		= $arrArgs['userName'];
 				$marksObtained	= $arrArgs['marksObtained'];
 				$totralMarks 	= $arrArgs['totalMarks'];
 				$testDate		= $arrArgs['testDate'];
-				
+	
 				#setting path for saved certificates
-				$imageSavePath = "misc/SavedCertificate/".$certficateName.$userName.".jpeg";
-				
-				header ("Content-type: image/jpeg");
+			
+				$imageSavePath=DOC_ROOT."/misc/SavedCertificate/".$userName.".jpeg";
+				$imageShowPath=SITE_PATH."misc/SavedCertificate/".$userName.".jpeg";
+			
+			//	header ("Content-type: image/jpeg");
 				
 				$font = 8;		#fontsize for writing details on certificate
 				$im = ImageCreateFromJPEG( $imagePath );
-				
+			
 				$backgroundColor = imagecolorallocate ($im, 255, 255, 255);
 				$textColor = imagecolorallocate ($im, 0, 0,0);
 				
@@ -435,14 +438,16 @@ class createTestModel extends dbConnectModel {
 				imagestring ($im, $font, 50 , 100,  $certficateName, $textColor);
 				imagestring ($im, $font, 70 , 120,  $marksObtained , $textColor);
 				imagestring ($im, $font, 100, 120,  $totralMarks   , $textColor);
-				imagestring ($im, $font, 90 , 140,  $testDate      , $textColor);
 				
 				#displaying certificate
-				imagejpeg($im,NULL, 100);
+				echo "<img src=$imageShowPath />";
 				
 				#saving certificate image
-				imagejpeg($im, $imageSavePath, 100); 
-				
+				if(imagejpeg($im, $imageSavePath, 100)) {
+					//echo "image";
+				} else {
+					 echo "no image";
+				}
 				
 			} else {
 				return false;

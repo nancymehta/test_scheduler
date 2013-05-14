@@ -10,6 +10,8 @@
 *
 */
 
+
+
 ?>
 
 <div class="bigmid" >
@@ -18,7 +20,7 @@
 <!-- midpanel Content gooes here  -->
 
 <div id="certificate">
-	<form id="certificateEdit"  name="certificateEdit" action="http://test_scheduler.com/createTest/certificateCreate" method="post">
+	<form id="certificateEdit"  name="certificateEdit" action="<?php echo SITE_PATH;?>createTest/certificateCreate" method="post">
 		<h3>Certificate name</h3>
 		<br>
 			<input type="text" value="" size="30" maxlength="30" id="certificate_name" name="certificate_name">
@@ -31,7 +33,7 @@
 	<br><br><br><input type="submit" value="Save certificate" class="submmit_button_generic"/>
 	<br><input type="submit" value="Cancel" class="submmit_button_generic" />
 	</form>
-	<form id="certificateEdit"  name="certificateEdit" action="http://test_scheduler.com/createTest/showCertificate" method="post">
+	<form id="certificateEdit"  name="certificateEdit" action="<?php echo SITE_PATH;?>createTest/showCertificate" method="post">
 		<input type="submit" value="preview certificate" class="submmit_button_generic"/>
 	</form>
 	

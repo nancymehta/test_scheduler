@@ -197,14 +197,11 @@ class createTestController extends mainController {
 	function certificateCreate() { 
 		try { 
 			if ((! empty ($_POST ['certificate_name'])) && 
-				(! empty ($_POST ['certificate_title'])) &&
 				(! empty ($_POST ['certificate_body'])))	{
 				$certificateName	 = strip_tags ($_POST ['certificate_name']);
-				$certificateTitle 	 = strip_tags ($_POST ['certificate_title']);
 				$certificateBody 	 = strip_tags ($_POST ['certificate_body']);
 				$arrArgs = array (
-						'name' 				=> $certificateName,
-						'certificate_title' => $certificateTitle,
+						'name' 				=> $certificateName,			
 						'certificate_body' 	=> $certificateBody 
 				);
 				$boolResult = $this->loadModel ( 'createTest', 'createNewCertificate', $arrArgs );
@@ -226,11 +223,11 @@ class createTestController extends mainController {
 		try {  
 				#create array containg user details like name, marks , total marks 
 				$arrArgs = array(  
-									'userName'			=> 'Dean Winchester',
-									'marksObtained'		=> '99',
+									'userName'			=> 'Dean_Winchester',
+									'marksObtained'		=> '97',
 									'totalMarks'		=> '100',
 									'testDate'			=> '12/05/13',
-									'id' 		=> 10, 
+									'id' 		=> 1, 
 							); 
 							
 				#loading model to retrieve certificate details			

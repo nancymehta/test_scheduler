@@ -36,19 +36,7 @@ class mainController extends common{
 
 	function register() {
 		//die("asd");
-		require_once(LIBRARY_ROOT.'/recaptcha/recaptchalib.php');
-  			$privatekey = "6LeCCOESAAAAAAGYv2C7L0q5iHz0B7Re-q_frmLw";
-  			$resp = recaptcha_check_answer ($privatekey,
-                                $_SERVER["REMOTE_ADDR"],
-                                $_POST["recaptcha_challenge_field"],
-                                $_POST["recaptcha_response_field"]);
-
-  		if (!$resp->is_valid) {
-    // What happens when the CAPTCHA was entered incorrectly
-    		$_SESSION['error_msg']="error";
-    		die ("The reCAPTCHA wasn't entered correctly. Go back and try it again." .
-         "(reCAPTCHA said: " . $resp->error . ")");
-  } else {
+		
 		try {
 			$reg_values=array (
 					"username"=>strip_tags($_REQUEST['username']),
@@ -69,7 +57,6 @@ class mainController extends common{
 			$this->handleException($e->getMessage());
 		}
 	}
-}
 	function loginView()
 	{
 		$this->loadView('login');
