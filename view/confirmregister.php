@@ -1,26 +1,9 @@
-<?php 
-/* @author 		 :Shashank Verma
- * @created on   :07-05-2013
- * @desc		 :Create Main header of login and register 
- ****************Modifed Log ********************************
- *Name			Task			Date			Description
- *			
- *
- ************************************************************	
- *
- * 
-*/
-?>
-
-		<div class = "mainContainer">
+<div class = "mainContainer">
 		
 			<div class = "header bg-vib-blue">
 				<div class="logo"><img src="<?php echo IMAGE_PATH;?>/logo.png"></div><h1>testscheduler</h1>
 				<div class = "sign-register">
-			
-				<a href = "#" id = "login"  class=" button_generic margin-left-10 ">Sign-in</a>
-				<a href = "#" id = "register"  class=" button_generic margin-left-10"  >Register</a>
-				
+						
 				</div>
 			
 				<div class = "menu">
@@ -32,40 +15,24 @@
           
 				</div>
 			</div>
+			
+			
+		<div class="space"> </div>
+		<div class="space"> </div>
+		<div class="space"> </div>
+		<div class="space"> </div>
+		<div class="midpanel">
 		
-		
-<div id="logindiv" class="logindiv">
-<form action="<?php echo SITE_PATH .'main/login';?>" id = "login_form" name="login_form" method="post">
-    <div class="login-strip bg-mid-gray">Login <span id="bclose" class="close"><img src="<?php echo IMAGE_PATH;?>/close.png"/></span></div>
-        <div class=" val">
-            <label class="label1"><?php echo "UserName"; ?></label>
-            <input id="username" name="user_name" type="text" />
-            
 
-                    
-                    <label class="label1"><?php echo "Password"; ?>  </label><input class="loginc" id="login_password" name="password" type="password"   />
-                    
-                      <span class ="log_data"> </span>
-
-                    <div class"space"></div>
-                        <br>
-                           
-              <input id="b1"  class="submmit_button_generic"  type="submit" value="Login"/>
-                
-              
-         </div>
-
-            
-                <div class="para"></div>
-     
-</form>
+		     <div class="contact-strip bg-light-pink fg-dark-orange"> *Registered sucessfully! continue with login
+ 
 </div>
-<div id="registerdiv" class="registerdiv logindiv">
+<div id="registerdiv"  class="registerdiv1 ">
 
 <form action="http://test_scheduler.com/main/register" id="register_form" name="register_form" method="post">
       
 
-    <div class="login-strip bg-mid-gray ">Register<span id="close1" class="close"> <img src="<?php echo IMAGE_PATH;?>/close.png"/></span></div>
+    <div class="login-strip bg-mid-gray ">Register</div>
             <div class=" val">
                 <label class="label1"><?php echo "UserName" ?></label>
                 <input id="username" name="username" class="loginc" type="text" />
@@ -114,8 +81,10 @@
         
        </form> 
         </div>
+
+
         <div class="space"></div>
-        
         <div class="space"></div>
         <div class="space"></div>
-				
+     </div>
+</div>

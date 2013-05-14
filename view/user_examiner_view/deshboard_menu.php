@@ -19,9 +19,9 @@
 					</div>			
 					<div class="tech-services">
 					<ul>
-							<li><a href="">item1</a></li>
-							<li><a href="">item1</a></li>
-							<li><a href="">item1</a></li>
+							<li><a href="accountSettings/viewDetails">View Details</a></li>
+							<li><a href="accountSettings/editDetails">item1</a></li>
+							<li><a href="accountSettings/changePassword">item1</a></li>
 							<li><a href="">item1</a></li>
 							<li><a href="">item1</a></li>
 						</ul>
