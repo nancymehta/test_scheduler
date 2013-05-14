@@ -12,6 +12,7 @@ class userController extends mainController {
 		$ArrData	=	$this->loadModel('category','viewCategory',$userId);
 
 	 	$this->loadView("header");
+		$this->loadView ( "user_header" );
 	 	$this->loadView("user_examiner_view/deshboard_menu");
 	 	$this->loadView("user_examiner_view/category",$ArrData);
 	}
