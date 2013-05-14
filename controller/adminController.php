@@ -28,59 +28,71 @@ class adminController extends mainController {
             $this->loadModel ( "admin", "contactUs", $arrArgument );
         }
     }
+    
     function home() {
         $this->usermanagement();
     }
+    
     function usermanagement() {
-        $this->loadView ( "header" );
-        $this->loadView ( "user_header" );
-        $this->loadView ( "admin_view/admin_deshboard_menu" );
-        $userResult = $this->loadModel ( "admin", "usermanagement" );
-        $this->loadView ( "admin_view/usermanagement", $userResult );
+        try{
+        	$this->loadView ( "header" );
+        	$this->loadView ( "user_header" );
+       		$this->loadView ( "admin_view/admin_deshboard_menu" );
+        	$userResult = $this->loadModel ( "admin", "usermanagement" );
+        	$this->loadView ( "admin_view/usermanagement", $userResult );
+        } catch (Exception $e) {
+			$this->handleException($e->getMessage());
+        	}
     }
+    
     function showUserDetails() {
-        if (isset ( $_POST ['id'] ) && isset ( $_POST ['request'] )) {
-            if ($_POST ['request'] == 'EDIT') {
-                $userResult = $this->loadModel ( "admin", "showUserDetails", $_POST ['id'] );
-                $this->loadView ( "admin_view/showUserDetails", $userResult );
-            } else if ($_POST ['request'] == 'DELETE') {
-                $userResult = $this->loadModel ( "admin", "deleteUser", $_POST ['id'] );
-            }
-        }
+    	try{
+    		if (isset ( $_POST ['id'] ) && isset ( $_POST ['request'] )) {
+            	if ($_POST ['request'] == 'EDIT') {
+                	$userResult = $this->loadModel ( "admin", "showUserDetails", $_POST ['id'] );
+                	$this->loadView ( "admin_view/showUserDetails", $userResult );
+            	} else if ($_POST ['request'] == 'DELETE') {
+                	$userResult = $this->loadModel ( "admin", "deleteUser", $_POST ['id'] );
+            		}
+        	}
+    	} catch (Exception $e) {
+			$this->handleException($e->getMessage());
+			}
     }
-     function editUserDetails() {
-        if (isset ( $_POST )) {
-        	$arredit=array();
-		if ($this->validationObj->validateUsername($_POST['username'])){
-	    	$arredit['username']= strip_tags($_POST['username']);
-		} else { die();
-		  }
-		if ($this->validationObj->validatePassword($_POST['password'])){
-	    	$arredit['password']= strip_tags($_POST['password']);
-		} else { die();
-		  }
-		if ($this->validationObj->firstName($_POST['first_name'])){
-	    	$arredit['first_name']= strip_tags($_POST['first_name']);
-		} else {  die();
-		  }
-		if ($this->validationObj->lastName($_POST['last_name'])){
-	    	$arredit['last_name']= strip_tags($_POST['last_name']);
-		} else { die();
-		  }
-		if ($this->validationObj->checkEmail($_POST['email'])){
-	    	$arredit['email']= strip_tags($_POST['email']);
-		} else { die();
-		  }
-	    	$arredit['org_type']=$_POST['org_type'];
-	    	$arredit['user_type']=$_POST['user_type'];
-	    	$arredit['id']=$_POST['id'];
-            $userResult = $this->loadModel ( "admin", "editUserDetails", $arredit );
-            if($userResult==true)
-            {
-            	echo '1';
-            }
-        }
-    }
+    
+	function editUserDetails() {
+        try{
+        	if (isset ( $_POST )) {
+        		$arredit=array();
+				if ($this->validationObj->validateUsername($_POST['username'])){
+	    			$arredit['username']= strip_tags($_POST['username']);
+				} else { die();
+					}
+				if ($this->validationObj->firstName($_POST['first_name'])){
+	    			$arredit['first_name']= strip_tags($_POST['first_name']);
+				} else {  die();
+		  			}
+				if ($this->validationObj->lastName($_POST['last_name'])){
+	    			$arredit['last_name']= strip_tags($_POST['last_name']);
+				} else { die();
+		  			}
+				if ($this->validationObj->checkEmail($_POST['email'])){
+	    			$arredit['email']= strip_tags($_POST['email']);
+				} else { die();
+		  			}
+	    		$arredit['org_type']=$_POST['org_type'];
+	    		$arredit['user_type']=$_POST['user_type'];
+	    		$arredit['id']=$_POST['id'];
+            	$userResult = $this->loadModel ( "admin", "editUserDetails", $arredit );
+            	if($userResult==true){
+            		echo '1';
+            	}
+        	}
+        } catch (Exception $e) {
+			$this->handleException($e->getMessage());
+			}
+	}
+    
     function testmanagement() {
         $this->loadView ( "header" );
         $this->loadView ( "user_header" );

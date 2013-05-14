@@ -114,7 +114,6 @@ class adminModel extends dbConnectModel{
 		$udata2['conditions'] = array('id'=> $editData['id']);	   
 		$update_row2[] = array(
 					'username' => $editData['username'],
-					'password' => $editData['password'],
 					'user_type' => $editData['user_type'],
 					);
 		foreach($update_row2 as $row2) {		

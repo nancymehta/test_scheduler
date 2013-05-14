@@ -55,24 +55,6 @@
 					</td>
 				</tr>
 				<tr valign="top">
-                        		<td><?php echo PASSWORD; ?>
-					</td>
-					<td><input type="text" name="password" />
-					</td>
-				</tr>
-				<tr valign="top">
-                        		<td><?php echo USER_TYPE; ?>
-					</td>
-					
-					<td>
-					<select name="user_type" class="select_generic"> 
-						<option selected value="<?php echo $umanage['user_type']; ?>"><?php echo USER;?></option>
-						<option value="0"><?php echo ADMIN;?></option>
-					</select>
-					</td>
-				</tr>
-				
-				<tr valign="top">
                         		<td><?php echo FIRST_NAME; ?>
 					</td>
 					<td><input type="text" name="first_name" value="<?php echo $umanage['first_name']; ?>" />
@@ -100,6 +82,17 @@
 					<?php }
 					?>
 						
+					</select>
+					</td>
+				</tr>
+				<tr valign="top">
+                        		<td><?php echo USER_TYPE; ?>
+					</td>
+					
+					<td>
+					<select name="user_type" class="select_generic"> 
+						<option selected value="<?php echo $umanage['user_type']; ?>"><?php echo USER;?></option>
+						<option value="0"><?php echo ADMIN;?></option>
 					</select>
 					</td>
 				</tr>

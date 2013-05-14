@@ -70,4 +70,6 @@ define("TYPE_OF_ORG","Type Of Organisation: ");
 define("USER_ID","User Id");
 define("USER_NAME1","User Name");
 define("EDIT","Edit");
+define("OPTIONS","Options");
+define("DELETE","Delete");
 ?>
