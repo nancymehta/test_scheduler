@@ -37,10 +37,18 @@ class adminController extends mainController {
             }
         }
     }
-    function editUserDetails() {
-        print_r ( $_POST );
+     function editUserDetails() {
         if (isset ( $_POST )) {
-            $userResult = $this->loadModel ( "admin", "editUserDetails", $_POST );
+        	$arredit=array();
+	    	$arredit['username']= strip_tags($_POST['username']);
+	    	$arredit['password']= strip_tags($_POST['password']);
+	    	$arredit['first_name']= strip_tags($_POST['first_name']);
+	    	$arredit['last_name']= strip_tags($_POST['last_name']);
+	    	$arredit['email']= strip_tags($_POST['email']);
+	    	$arredit['org_type']=$_POST['org_type'];
+	    	$arredit['user_type']=$_POST['user_type'];
+	    	$arredit['id']=$_POST['id'];
+            $userResult = $this->loadModel ( "admin", "editUserDetails", $arredit );
         }
     }
     function testmanagement() {

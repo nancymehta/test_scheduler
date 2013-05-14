@@ -42,11 +42,11 @@
 		<table class="table1 table-generic" width="89%" border="1" cellpadding="0" cellspacing="0" >
 			<thead>
 				<tr style="background-color:#666666; color:#FFFFFF" valign="top">
-					<th style="font-size:13px" align="left"><?php echo "User Id";?>
+					<th style="font-size:13px" align="left"><?php echo USER_ID;?>
 					</th>
-					<th style="font-size:13px" align="left"><?php echo "User Name"; ?>
+					<th style="font-size:13px" align="left"><?php echo USER_NAME1; ?>
 					</th>
-					<th style="font-size:13px" align="left"><?php echo "Options"; ?>
+					<th style="font-size:13px" align="left"><?php echo OPTIONS; ?>
 					</th>   
 				</tr>
 			</thead>
@@ -57,7 +57,7 @@
 					<tr valign="top">
                         			<td><?php echo $umanage['id']; ?></td>
 						<td><?php echo $umanage['username']; ?></td>
-						<td><a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'EDIT')">EDIT</a> <a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'DELETE')">DELETE</a></td>
+						<td><a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'EDIT')"><?php echo EDIT;?></a> <a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'DELETE')"><?php echo DELETE;?></a></td>
 					</tr>
 				<?php 
 				} // end of foreach

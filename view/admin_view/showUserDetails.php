@@ -20,8 +20,8 @@
     			url:  "<?php echo SITE_PATH;?>admin/editUserDetails",
     			data: $('#send').serialize() +"&id=" +id,
     			success: function(response){
-				alert("the user details has been successfully changed" );
-				window.location.href="<?php echo SITE_PATH;?>admin/usermanagement";
+					alert("the user details has been successfully changed" );
+					window.location.href="<?php echo SITE_PATH;?>admin/usermanagement";
                         },
     			     
     		}); // end of ajax
@@ -45,49 +45,49 @@
 				$umanage=$arrData[0];
 				?>
 				<tr valign="top">
-                        		<td><?php echo "User Name: "; ?>
+                        		<td><?php echo USER_NAME; ?>
 					</td>
 					<td><input type="text" name="username" value="<?php echo $umanage['username']; ?>" />
 					</td>
 				</tr>
 				<tr valign="top">
-                        		<td><?php echo "Password: "; ?>
+                        		<td><?php echo PASSWORD; ?>
 					</td>
-					<td><input type="text" name="password" value="<?php echo $umanage['password']; ?>" />
+					<td><input type="text" name="password" />
 					</td>
 				</tr>
 				<tr valign="top">
-                        		<td><?php echo "Type Of User: "; ?>
+                        		<td><?php echo USER_TYPE; ?>
 					</td>
 					
 					<td>
 					<select name="user_type" class="select_generic"> 
-						<option selected value="<?php echo $umanage['user_type']; ?>">USER</option>
-						<option value="0">ADMIN</option>
+						<option selected value="<?php echo $umanage['user_type']; ?>"><?php echo USER;?></option>
+						<option value="0"><?php echo ADMIN;?></option>
 					</select>
 					</td>
 				</tr>
 				
 				<tr valign="top">
-                        		<td><?php echo "First Name: "; ?>
+                        		<td><?php echo FIRST_NAME; ?>
 					</td>
 					<td><input type="text" name="first_name" value="<?php echo $umanage['first_name']; ?>" />
 					</td>
 				</tr>
 				<tr valign="top">
-                        		<td><?php echo "Last Name: "; ?>
+                        		<td><?php echo LAST_NAME; ?>
 					</td>
 					<td><input type="text" name="last_name" value="<?php echo $umanage['last_name']; ?>" />
 					</td>
 				</tr>
 				<tr valign="top">
-                        		<td><?php echo "Email ID: "; ?>
+                        		<td><?php echo EMAIL_ID; ?>
 					</td>
 					<td><input type="text" name="email" value="<?php echo $umanage['email']; ?>" />
 					</td>
 				</tr>
 				<tr valign="top">
-                        		<td><?php echo "Type Of Organisation: "; ?>
+                        		<td><?php echo TYPE_OF_ORG; ?>
 					</td>
 					<td>
 					<select name="org_type" class="select_generic"> 

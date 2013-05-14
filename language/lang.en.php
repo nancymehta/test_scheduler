@@ -83,5 +83,16 @@ define("DELETE","Delete");
 define("NO_RECORDS_FOUND","NO RECORDS FOUND");
 define("QUESTION","Question");
 define("NO_QUESTIONS_FOUND","No Questions Found For This Test.");
-
+define("USER_NAME","User Name: ");
+define("PASSWORD","Password: ");
+define("USER_TYPE","Type Of User: ");
+define("USER","User");
+define("ADMIN","Admin");
+define("FIRST_NAME","First Name: ");
+define("LAST_NAME","Last Name: ");
+define("EMAIL_ID","Email ID: ");
+define("TYPE_OF_ORG","Type Of Organisation: ");
+define("USER_ID","User Id");
+define("USER_NAME1","User Name");
+define("EDIT","Edit");
 ?>
