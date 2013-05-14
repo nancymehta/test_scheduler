@@ -90,6 +90,7 @@ class createTestModel extends dbConnectModel {
 			);
 			
 			$result = $this->_db->select ( $data );
+			
 			while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
 				$categoryArray ['category_name'] [] = $row ['name'];
 				$categoryArray ['category_id'] [] = $row ['id'];
@@ -110,10 +111,12 @@ class createTestModel extends dbConnectModel {
 					'id' 
 			);
 			$data ['conditions'] = array (
-					'created_by' => $arrArgs ['id'] 
+					'created_by' => $arrArgs ['id'],
+					'status'=>'0' 
 			);
 			
 			$result = $this->_db->select ( $data );
+			//print_r($result);die;
 			while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
 				$testArray ['testName'] [] = $row ['name'];
 				$testArray ['testId'] [] = $row ['id'];
@@ -227,7 +230,16 @@ class createTestModel extends dbConnectModel {
 				
 				$result_insert = $this->_db->insert ( $data ['tables'], $data ['columns'] );
 			}
-			if ($result_delete && $result_insert) {
+			
+			#query to update the test name in the test table
+			$data = array (
+					'name' =>$arrArgs ['testName']
+			);
+			$where = array (
+					'id' => $arrArgs ['test_id']
+			);
+			$result_update = $this->_db->update ( 'test', $data, $where );
+			if ($result_delete && $result_insert && $result_update) {
 				return true;
 			} else {
 				return false;

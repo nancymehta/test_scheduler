@@ -15,24 +15,39 @@
 */
 include SITE_ROOT . 'controller/mainController.php';
 class createTestController extends mainController {
+	public $validationObj;
+	
+	//Making the object of validation Class
+	public function __construct()
+	{
+		$this->validationObj	=	new validation();
+	}
+	
 	function createNewTest() {
 		try {
 			
 			if ((! empty ( $_POST ['test_name'] )) && (! empty ( $_POST ['category_name'] ))) {
 				$testName = strip_tags ( $_POST ['test_name'] );
 				$categoryName = $_POST ['category_name'];
-				$arrArgs = array (
-						'testName' => $testName,
-						'categoryName' => $categoryName,
-						'user_id' => $_SESSION ['SESS_USER_ID'] 
-				);
-				$boolResult = $this->loadModel ( 'createTest', 'createNewTest', $arrArgs );
-				if ($boolResult) {
-					echo 'created the test successfully';
-					header ( "location:http://test_scheduler.com/user/mytest" );
+				#server side validation - alphabetic for test name
+				if ($this->validationObj->validateAlphabate ( $testName )) {
+					$arrArgs = array (
+							'testName' => $testName,
+							'categoryName' => $categoryName,
+							'user_id' => $_SESSION ['SESS_USER_ID']
+					);
+					$boolResult = $this->loadModel ( 'createTest', 'createNewTest', $arrArgs );
+					if ($boolResult) {
+						echo 'created the test successfully';
+						header ( "location:http://test_scheduler.com/user/mytest" );
+					} else {
+						throw new Exception;
+					}
 				} else {
-					echo 'could not create the test';
+					echo ' for test name';
+					throw new Exception;
 				}
+				
 			}
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
@@ -61,19 +76,27 @@ class createTestController extends mainController {
 			if ((! empty ( $_POST ['test_name'] )) && (! empty ( $_POST ['category_name'] ))) {
 				$testName = strip_tags ( $_POST ['test_name'] );
 				$categoryName = $_POST ['category_name'];
-				$arrArgs = array (
-						'testName' => $testName,
-						'categoryName' => $categoryName,
-						'test_id' => $_POST ['testId'],
-						'user_id' => $_SESSION ['SESS_USER_ID'] 
-				);
-				$boolResult = $this->loadModel ( 'createTest', 'updateTest', $arrArgs );
-				if ($boolResult) {
-					echo 'updated the test successfully';
-					header ( "location:http://test_scheduler.com/user/mytest" );
+				#server side validation for - test name - alphabetic validation
+				if ($this->validationObj->validateAlphabate ( $testName )) {
+					$arrArgs = array (
+							'testName' => $testName,
+							'categoryName' => $categoryName,
+							'test_id' => $_POST ['testId'],
+							'user_id' => $_SESSION ['SESS_USER_ID'] 
+					);
+					$boolResult = $this->loadModel ( 'createTest', 'updateTest', $arrArgs );
+					if ($boolResult) {
+						echo 'updated the test successfully';
+						header ( "location:http://test_scheduler.com/user/mytest" );
+					} else {
+						echo 'could not update the test';
+					}
 				} else {
-					echo 'could not update the test';
+					echo ' for test name';
+					throw new Exception ();
 				}
+			} else {
+				echo 'please select test name and category';
 			}
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );

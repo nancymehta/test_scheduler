@@ -121,4 +121,11 @@ class testuiController extends common{
   	//$this->loadView("admin_view/deshboard_menu");
   	$this->loadView("user_examiner_view/user_test_info");
   }
+  
+  function manage_test(){
+  	$this->loadView("header");
+  	$this->loadView("user_header");
+  	//$this->loadView("admin_view/deshboard_menu");
+  	$this->loadView("user_examiner_view/manage_test");
+  }
 }
