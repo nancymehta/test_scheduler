@@ -3,6 +3,41 @@ plus=0;
 topvalue = 0;
 textval = 0;
 $(document).ready(function() {
+
+
+	$("#new_test_div").hide();
+	var flag=0;
+	$("#add_test").click(function(){
+		$("#new_test_div").slideToggle('slow');
+		if(!flag)
+		{
+			$("#add_test").text("Close New Test");
+			flag=1;
+		}
+		else
+		{
+			$("#add_test").text("Create New Test");
+			flag=0;
+		}
+		
+		
+	});
+	$(".innerdiv1").hide();
+	var flag=0;
+	$("#addOptions").click(function(){
+		$(".innerdiv1").slideToggle('slow');
+		if(!flag)
+		{
+			$("#addOptions").text("Hide Option");
+			flag=1;
+		}
+		else
+		{
+			$("#addOptions").text("Add Option");
+			flag=0;
+		}
+	});
+
 	
 	// jquery by pankaj
 	
@@ -61,9 +96,7 @@ $(document).ready(function() {
 		$('#misc_cat hide').show();
 		});
 	
-	$("#add_test").click(function(){
-		$("#new_test_div").show();
-	});
+
 	
 	$("#user_test_info_form").validate({
 		rules: {
@@ -157,6 +190,8 @@ $('.table1').dataTable();
 
 
 //js end suraj
+
+<!------------ Js Gaurav Suman---------!>
 
 
 	// Js by Bhanu

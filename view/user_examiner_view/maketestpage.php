@@ -20,8 +20,7 @@
 		}
 	}
 </script>
-			<label>Search : </label><input type="text" class="text_right_generic"
-				id="search-test" name="search-test" />
+			
 			<div class="space"></div>
 			<a class="button_generic" href="#" id="add_test">Create new test</a>
 

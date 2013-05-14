@@ -60,8 +60,10 @@
 				</div>
 				<div class="space"></div>
 				<div class="space"></div>
+			<a class="button_generic" href="#" id="addOptions">Click to add option</a>
 				<div class="space"></div>
-				<div class="innerdiv">
+				
+				<div class="innerdiv innerdiv1">
 					<div class="contact-strip bg-mid-gray">Add Options Here</div>
 
 
