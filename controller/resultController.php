@@ -24,13 +24,13 @@ class resultController extends mainController {
 	
 	}
 	function getResults() {
-		$testId=$_REQUEST['testId'];
+		$testId=$_GET['testId'];
 		$result=$this->loadModel("result","overAllResults",array('testid'=>$testId));
 		$this->loadView("user_examiner_view/displayresultajax",$result);
 	}
 
 	function getIndividualResults() {
-		$testId=$_REQUEST['id'];
+		$testId=$_GET['id'];
 		$this->loadView("header");
 		$this->loadView("user_header");
 		$this->loadView("user_examiner_view/deshboard_menu");

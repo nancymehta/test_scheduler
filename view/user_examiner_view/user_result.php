@@ -1,4 +1,5 @@
 <?php
+if(isset($arrData['test_taker_details'])){
 	$test_taker_result=$arrData['test_taker_details']; 
    foreach($test_taker_result as $key)
    {
@@ -23,50 +24,74 @@
 
 	<span class="">Date Finished : </span> <label class="" id="user-result-dateend" name="user-result-dateend"><?php echo $key['end_time'];?></label>  <br>
 	<hr>
-	<span class="">Email : </span> <label class="" id="user-result-mail" name="user-result-mail">sourab@gmail.com</label>  <br>
+	<span class="">Email : </span> <label class="" id="user-result-mail" name="user-result-mail"><?php echo $key['email_enroll_no'];?></label>  <br>
 	<br>
 	
 	<div class="wrong-right-questions" style="text-align:center; height:20px; width:100%; background-color:#eee">
 
-	<?php echo $key['score']." out of ".$key['total_ques'];?> 
+	<?php 
+		echo $key['score']." out of ".$key['total_ques']; 	
+   		}
+	} else {
+   			echo "No records Found";
+   		}
+   ?> 
+   
 
 
 </div>
-<br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 	<div class="questionanswers">
 		<?php
-			$question_details=$arrData['question_details'];
-			$count=0;
-			$question_num=1;
-			$correct="";
-			foreach($question_details as $key =>$value) {
-				if(!$count) {
-					$question=$value['question'];
-					echo "<br/>Q".$question_num."  ".$question."<br/>";
-					echo "<pre>		".$value['option']."</pre>";
-					$question_num++;
-					$count++;
-				} else if($question==$value['question']) {
-					echo "<pre>		".$value['option']."</pre>";
-				} else {
-					//$count=0;
-					echo "<br/><pre>	Correct Option :" , $correct."</pre>";
-					$question=$value['question'];
-					echo "<br/><br/>Q".$question_num."  ".$question."<br/>";
-					echo "<pre>		".$value['option']."</pre>";
-					$question_num++;
-				}
-				if($value['correct']) {
-					$correct=$value['option'];
+			if(isset($arrData['question_details'])) {
+				$question_details=$arrData['question_details'];
+				echo "<pre>";
+				//print_r($question_details);echo "</pre>";
+				$count=0;
+				$question_num=1;
+				$correct="";
+				foreach($question_details as $key =>$value) {
+					if(!$count) {
+						$question=$value['question'];
+						echo "<br/>Q".$question_num."  ".$question."<br/>";
+						if($value['id']==$value['answer_given']) {
+							echo "<h6 style='font-weight:bold;'><pre>	      ".$value['option']."</h6></pre>";						
+						} else {
+							echo "<pre>		".$value['option']."</pre>";
+						}
+						$question_num++;
+						$count++;
+					} else if($question==$value['question']) {
+							if($value['id']==$value['answer_given']) {
+								echo "<h6 style='font-weight:bold;'><pre>	      ".$value['option']."</h6></pre>";
+							} else {
+								echo "<pre>		".$value['option']."</pre>";
+							}
+					} else {
+						//$count=0;
+						echo "<br/><pre>	Correct Option :" , $correct."</pre>";
+						$question=$value['question'];
+						echo "<br/><br/>Q".$question_num."  ".$question."<br/>";
+						if($value['id']==$value['answer_given']) {
+									echo "<h6 style='font-weight:bold;'><pre>	     ".$value['option']."</h6></pre>";						
+								} else {
+									echo "<pre>		".$value['option']."</pre>";
+								}
+						$question_num++;
+					}
+					if($value['correct']) {
+						$correct=$value['option'];
+					}
 					
 				}
-				
-			}
-			echo "<br/><pre>	Correct Option :" , $correct."</pre>";			 
+				echo "<br/><pre>	Correct Option :" , $correct."</pre>";
+			} else {
+				echo "No Questions Found";
+			}			 
 		?>		
 		 
 	</div>
-	<?php } ?>
+	
 
 
 
