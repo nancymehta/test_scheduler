@@ -356,3 +356,18 @@ alter table category modify name varchar(50) unique not null;
 alter table validate_users drop foreign key validate_users_ibfk_42;
 
 alter table validate_users drop foreign key validate_users_ibfk_1;
+
+alter table validate_users drop column terms_conditions;
+
+alter table validate_users drop column created_by;
+
+alter table validate_users drop column updated_by;
+
+/*altering user_profile table on 15-05-2013*/
+alter table user_profile drop foreign key user_profile_ibfk_10;
+
+alter table user_profile drop foreign key user_profile_ibfk_45;
+
+alter table user_profile drop column created_by;
+
+alter table user_profile drop column updated_by;
