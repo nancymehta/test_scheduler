@@ -1,4 +1,5 @@
 <div class="bigmid">
+<span class=""> Home</span>
 	<div class="midpanel">
 
 		<!-- midpanel Content gooes here  -->
