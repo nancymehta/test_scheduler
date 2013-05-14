@@ -3,7 +3,9 @@ plus=0;
 topvalue = 0;
 textval = 0;
 $(document).ready(function() {
-
+	$("#add_test").click(function(){
+		$("#new_test_div").show();
+	});
 //js suraj
 
 
@@ -299,11 +301,6 @@ $(document).ready(function() {
 }); 
 
 
-$(document).ready(function() {
-	$(".add_test").click(function(){
-		$(".add_test").show();
-	});
-});
 
 
 
