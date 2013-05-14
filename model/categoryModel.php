@@ -24,14 +24,35 @@ class categoryModel extends dbConnectModel {
 	//Adding Category
 	public function addCategory($category)
 	{	$time	=	date('Y-m-d H:i:s');
-	//echo $time;
-	//die();
-		$cat_name	=	$category['cat_name'];
-		$user_id	=	$category['user_id'];
-		echo $user_id;
+		$catName	=	$category['catName'];
+		$userId	=	$category['userId'];
 		try {
+			
+			$data['tables']		=	'category';
+			$data['columns']	=	array('name','id');
+			$result				=	$this->_db->select($data);
+			
+			while($row			=	$result->fetch(PDO::FETCH_ASSOC))
+			{
+				if($catName		==	$row['name'])
+				{
+					$catId				=	$row['id'];
+					$data['tables']		=	'category';
+					$data['columns']	=	array('status'=>0);
+					$data['conditions']	=	array('id'=>$catId);
+			
+					$result				=	$this->_db->update($data['tables'],$data['columns'],$data['conditions']);
+					if($result)
+					{
+						return "done";
+					}
+			
+				}
+			}
+				
+			
 		$data['tables'] = 'category';
-		$data['columns']= array('name'=>$cat_name,'created_by'=>$user_id,'updated_by'=>$user_id);
+		$data['columns']= array('name'=>$catName,'created_by'=>$userId,'updated_by'=>$userId);
 		
 		
 		$result = $this->_db->insert($data['tables'],$data['columns']);
@@ -78,13 +99,13 @@ class categoryModel extends dbConnectModel {
 	}
 	
 	// Deleting Category
-	public function deleteCategory($cat_id)
+	public function deleteCategory($catId)
 	{
 	try {
 		//echo "hi";
 		$data['tables'] 	= 	'category';
 		$data['columns']	=	array('status'=>1);
-		$data['conditions']	=	array('id'=>$cat_id);
+		$data['conditions']	=	array('id'=>$catId);
 		
 		$result = $this->_db->update($data['tables'],$data['columns'],$data['conditions']);
 		if($result)
@@ -103,15 +124,13 @@ class categoryModel extends dbConnectModel {
 	public function updateCategory($category)
 	{
 	try {
-		$cat_name	=	$category['cat_name'];
+		$catName	=	$category['catName'];
 		
 		$id			=	$category['id'];
-		$user_id	=	$category['user_id'];
-		echo $user_id;
-		//die();
+		$userId	=	$category['userId'];
 		
 		$data['tables'] = 'category';
-		$data['columns']= array('name'=>$cat_name,'updated_by'=>$user_id);
+		$data['columns']= array('name'=>$catName,'updated_by'=>$userId);
 		$data['conditions']=array('id'=>$id);
 				
 		$result = $this->_db->update($data['tables'],$data['columns'],$data['conditions']);
