@@ -90,8 +90,7 @@ class mainController extends common{
 				'password'=> @$_POST['password']
 				);
 			
-			$arrData=$this->loadmodel('base','login',$arrArgs);
-			//die($arrData);
+			$arrData = $this->loadmodel('base','login',$arrArgs);
 			if($arrData == 1){
 			    header("location:".SITE_PATH);
 			}

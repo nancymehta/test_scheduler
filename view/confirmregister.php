@@ -32,7 +32,7 @@
 				}
 			?>
  
-</div>
+			</div>
 <div id="registerdiv"  class="registerdiv1 ">
 
 <form action="http://test_scheduler.com/main/register" id="register_form" name="register_form" method="post">

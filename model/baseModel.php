@@ -20,42 +20,37 @@ class baseModel extends dbConnectModel{
 		 */
 		/* this method is intended to check the login activity of authorized user*/
 		if(!empty($arrArgs)){
-			//print_r($arrArgs);
-			//die('fsdfffs');
-
-		    $arrUser[]=array();
+			$arrUser[]=array();
 			$data['tables'] = 'validate_users';
 			$data['columns']= array('username','id','password','session_id','user_type','status');
 			$data['conditions']	= array(
 									'username' => $arrArgs['username'],
 									'password' => $arrArgs['password'],
-					
 									);
-			//$data['joins']   =  array();
 			$result = $this->_db->select($data);
-	
-			$row = $result->fetch(PDO::FETCH_ASSOC);
 			
-		     //In case of success
-		    if ($row)
-			{
-				$_SESSION['SESS_USER_NAME']= $row['username'];
-				$_SESSION['SESS_USER_ID']= $row['id'];
-				echo "--->".$_SESSION['SESS_USER_TYPE']= $row['user_type'];
-				
-				if($row['status']== 1){
-					die($row['status']);
-					//session_start();
-					$data= array(
-							"session_id"=> session_id(),
-						   );
+			$row = $result->fetch(PDO::FETCH_ASSOC);
+			print_r($row);
+			 if ($row)	{
+				 if($row['status']== 0){
+					$data= array("session_id"=> session_id());
 					$where = array('username'=>$arrArgs['username']);
-					$result = $this->_db->update('validate_users',$data);
-					if($result)
-					{
+					$result = $this->_db->update('validate_users',$data,$where);
+					//~ var_dump($result);die;
+					if($result) {
+						print_r($result);
+						$_SESSION['SESS_USER_NAME']= $row['username'];
+						$_SESSION['SESS_USER_ID']= $row['id'];
+						$_SESSION['SESS_USER_TYPE']= $row['user_type'];
 						return 1;
 					}
-				}else{
+					else 
+					{
+						return 0;
+					} 
+				} 
+				else 
+				{
 					return 0;
 				} 
 					

@@ -76,7 +76,7 @@ class cxpdo extends PDO {
 		$query = 'UPDATE '. $this->table_list($tables). ' SET '
 		. $this->update_value_list($data)
 		.($conditions ? $this->where_list($conditions) : '');
-//echo $query;
+echo $query;
 		//Return the results -or a query string?
 		return $return ? $this->query($query) : $query;
 
@@ -104,7 +104,7 @@ die;*/
 		. (!empty($data['conditionslike']) ? $this->like($data['conditionslike']) : '')
 		. (!empty($data['limit']) ? $this->limit($data['limit'], (!empty($data['offset']) ? $data['offset'] : '')) : '');
 		
-			//echo $query.'<br/>';
+			echo $query.'<br/>';
 		//Return the results -or a query string?
 		return $return ? $this->query($query) : $query;
 	}
