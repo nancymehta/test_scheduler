@@ -78,6 +78,7 @@ class mainController extends common{
 				);
 			
 			$arrData=$this->loadmodel('base','login',$arrArgs);
+			//die($arrData);
 			if($arrData == 1){
 			    header("location:".SITE_PATH);
 			}

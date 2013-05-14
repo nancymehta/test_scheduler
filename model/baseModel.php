@@ -42,8 +42,9 @@ class baseModel extends dbConnectModel{
 				$_SESSION['SESS_USER_NAME']= $row['username'];
 				$_SESSION['SESS_USER_ID']= $row['id'];
 				echo "--->".$_SESSION['SESS_USER_TYPE']= $row['user_type'];
-				if($row['status']==1){
-						
+				
+				if($row['status']== 1){
+					die($row['status']);
 					//session_start();
 					$data= array(
 							"session_id"=> session_id(),
