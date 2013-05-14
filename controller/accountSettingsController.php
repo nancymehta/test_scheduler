@@ -100,6 +100,7 @@ class accountSettingsController extends common{
 	   	
 		if($arrData==true)
 		{
+			$_SESSION['SESS_ERROR']	= "Information Updated";
 			header("location: ".SITE_PATH."accountSettings/home");
 		}
 		} catch (Exception $e) {
@@ -143,6 +144,7 @@ class accountSettingsController extends common{
 		$arrData		=	$this->loadModel('accountSettings','confirmChangePassword',$arrArgs);
 		if($arrData==true)
 		{
+			$_SESSION['SESS_ERROR']	= "Password has been Updated";
 			header("location: ".SITE_PATH."accountSettings/home");
 		}else{
 			header("location: ".SITE_PATH."accountSettings/home");
@@ -159,6 +161,7 @@ class accountSettingsController extends common{
 		$arrData	=	$this->loadModel('accountSettings','deactivateAccount',$arrArgs);
 		if($arrData	==	true)
 		{
+			$_SESSION['SESS_ERROR']	= "Account has been activated";
 			header("location: ".SITE_PATH."logout");
 		}
    	

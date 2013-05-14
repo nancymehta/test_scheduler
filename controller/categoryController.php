@@ -40,7 +40,8 @@ class categoryController extends mainController {
 				$ArrArgs['userId']		=	$_SESSION['SESS_USER_ID'];
 				$ArrData	=	$this->loadModel('category','addCategory',$ArrArgs);
 				if($ArrData=="done")
-				{
+				{	
+					$_SESSION['SESS_ERROR']	=	"Category has been added";
 					header("location:".SITE_PATH."category");
 				
 				}
@@ -62,6 +63,7 @@ class categoryController extends mainController {
 				$arrData	=	$this->loadModel('category','updateCategory',$arrArgs);
 				if($arrData=="done")
 				{
+					$_SESSION['SESS_ERROR']	= "Category Updated";
 					header("location:".SITE_PATH."category/home");
 				}else{
 					echo $arrData;
@@ -72,7 +74,7 @@ class categoryController extends mainController {
 				 
 				$arrData	=	$this->loadModel('category','deleteCategory',$arrArgs);
 				if($arrData=="done")
-				{
+				{	$_SESSION['SESS_ERROR']	= "Category Deleted";
 					header("location:".SITE_PATH."category");
 				}else{
 					echo $arrData;

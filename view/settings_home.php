@@ -172,7 +172,7 @@ $( "#accordion" ).accordion();
         {  
         alert('Invalid old Password');  
         return false;  
-        }*/
+        }
         
         if(newPass.match(passReg))  
         {  
