@@ -97,9 +97,9 @@ define("INVALID_COMMAND","Invalid Command");
 define("S_NO","S. No.");
 define("TEST_NAME","Test Name");
 define("CREATED_ON","Created On");
-define("OPTIONS","Options");
+
 define("VIEW","View");
-define("DELETE","Delete");
+
 define("NO_RECORDS_FOUND","NO RECORDS FOUND");
 define("QUESTION","Question");
 define("NO_QUESTIONS_FOUND","No Questions Found For This Test."); 
