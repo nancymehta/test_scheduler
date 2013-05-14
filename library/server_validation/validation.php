@@ -338,13 +338,13 @@ class validation
 			}
 			else
 			{
-				echo INVALID_FNAME;
+				echo INVALID_MNAME;
 				return false;
 			}
 		}
 		else
 		{
-			echo INVALID_FNAME_LENGTH;
+			echo INVALID_MNAME_LENGTH;
 			return false;
 		}
 	}
@@ -366,13 +366,13 @@ class validation
 			}
 			else
 			{
-				echo INVALID_FNAME;
+				echo INVALID_LNAME;
 				return false;
 			}
 		}
 		else
 		{
-			echo INVALID_FNAME_LENGTH;
+			echo INVALID_LNAME_LENGTH;
 			return false;
 		}
 	}
