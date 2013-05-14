@@ -18,7 +18,7 @@
 
 <tr>
 <td>Start Time</td>
-<td><input type="text" value="<?php if(isset($arrData['start_time'])){echo $arrData['start_time'];}?>" name="startTime" id="startTime">
+<td><input type="text"  value="<?php if(isset($arrData['start_time'])){echo $arrData['start_time'];}?>" name="startTime" id="startTime">
 </tr>
 
 <tr>

@@ -3,9 +3,69 @@ plus=0;
 topvalue = 0;
 textval = 0;
 $(document).ready(function() {
+	
+
+	$('#startTime').datetimepicker({ dateFormat: 'yy-mm-dd', timeFormat: 'hh:mm:ss' });
+// jquery by pankaj
+	
 	$("#add_test").click(function(){
 		$("#new_test_div").show();
 	});
+	
+	$("#user_test_info_form").validate({
+		rules: {
+			firstName:{
+				required:true,
+					checkAlpha:true				
+			},
+			lastName:{
+				required:true,
+					checkAlpha:true				
+			},
+			email:{
+				required: true,
+				email:true
+			}
+		},
+		
+		messages: {
+			firstName:{
+				required:"Enter first name.",
+				checkAlpha:"Only character are required."
+			},
+			lastName:{
+				required:"Enter last name.",
+				checkAlpha:"Only character are required."
+			},
+			email:{
+				required:"Enter email.",
+				email:"Invalid email."
+			}
+		}
+	});
+	
+	$.validator.addMethod("time", function(value, element) {  
+		return this.optional(element) || /^(([0-1]?[0-2])|([2][0-3])):([0-5]?[0-9])(a|p)m?$/i.test(value);  
+		}, "Please enter a valid time.");
+	});
+
+	$(document).ready(function(){
+		$("#exam_settings").validate({
+			rules: {
+				startTime:{
+					required:true,
+					time:true				
+				}
+			
+			},
+			messages: {
+				startTime:{
+					required:"Please enter Start time.",
+					time:"Invalid time."
+				},
+				
+			}
+		});
 //js suraj
 
 
@@ -581,39 +641,7 @@ $(document).ready(function(){
 
 */
 //Validating user_test_info
-$(document).ready(function(){
-	$("#user_test_info_form").validate({
-		rules: {
-			firstName:{
-				required:true,
-					checkAlpha:true				
-			},
-			lastName:{
-				required:true,
-					checkAlpha:true				
-			},
-			email:{
-				required: true,
-				email:true
-			}
-		},
-		
-		messages: {
-			firstName:{
-				required:"Enter first name.",
-				checkAlpha:"Only character are required."
-			},
-			lastName:{
-				required:"Enter last name.",
-				checkAlpha:"Only character are required."
-			},
-			email:{
-				required:"Enter email.",
-				email:"Invalid email."
-			}
-		}
-	});
-});
+
 
 
 

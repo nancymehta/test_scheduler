@@ -26,8 +26,9 @@
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
         <script type="text/javascript" src = "<?php echo JS_PATH;?>jquery.validate.min.js"></script>
-         <script type="text/javascript" src = "<?php echo JS_PATH;?>jquery.dataTables.min.js"></script>
-		
+         <script type="text/javascript" src = "http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+
+    <script src="<?php echo JS_PATH;?>jquery-ui-timepicker-addon.js"></script>
 	</head>
 	
 	<body>

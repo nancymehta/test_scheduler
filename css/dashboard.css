@@ -532,3 +532,19 @@ margin-left: 2px;
 
 font-weight: 100;
 }
+
+
+
+
+
+
+th span{
+	color:#eee;
+	
+}
+dd,dt
+{
+	color:gray;
+	font-size: 0.9em;
+	margin: 2px;
+}
