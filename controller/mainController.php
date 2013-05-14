@@ -36,7 +36,18 @@ class mainController extends common{
 
 	function register() {
 		//die("asd");
-		
+		  require_once(LIBRARY_ROOT.'/recaptcha/recaptchalib.php');
+        $privatekey = "6LeCCOESAAAAAAGYv2C7L0q5iHz0B7Re-q_frmLw";
+        $resp = recaptcha_check_answer ($privatekey,
+                                $_SERVER["REMOTE_ADDR"],
+                                $_POST["recaptcha_challenge_field"],
+                                $_POST["recaptcha_response_field"]);
+
+      if (!$resp->is_valid) {
+    // What happens when the CAPTCHA was entered incorrectly
+       $_SESSION['SESS_ERROR']="The reCAPTCHA wasn't entered correctly. Go back and try it again.";
+       
+  } else { 
 		try {
 			$reg_values=array (
 					"username"=>strip_tags($_REQUEST['username']),
@@ -46,16 +57,18 @@ class mainController extends common{
 				     "email"=>strip_tags($_REQUEST['email']));
 		 $arrData=$this->loadModel('base','register',$reg_values);	
 		if($arrData == 1){
-			echo 'You are successfully registered';
-			//header("location:".SITE_PATH."index.php");
+			$_SESSION['SESS_ERROR'] ='chal hogaya be';
+			header("location:".SITE_PATH."loadLogin");
 		}
 		else{
-			die('OOPS unable to register');
+			$_SESSION['SESS_ERROR'] ='chal be';
+			header("location:".SITE_PATH."registeration");	
 		}
 		
 		} catch (Exception $e) {
 			$this->handleException($e->getMessage());
 		}
+	}
 	}
 	function loginView()
 	{
@@ -83,8 +96,8 @@ class mainController extends common{
 			    header("location:".SITE_PATH);
 			}
 			else{
-			    $_SESSION['SESS_ERROR']='Unauthorized access,you need to register first';
-			    header("location:".SITE_PATH."user/home");
+			    $_SESSION['SESS_ERROR'] ='chal  be';
+			header("location:".SITE_PATH."loadLogin");
 			}
 		}catch (Exception $e) {
 			$this->handleException($e->getMessage());
@@ -117,5 +130,21 @@ class mainController extends common{
 		echo "yeah error";
 	}
 	
+	function registeration()
+	{
+		$this->loadView("header");
+		
+		
+		$this->loadView("confirmregister");
+		
+	}
 	
+	function loadLogin()
+	{
+		$this->loadView("header");
+		
+		
+		$this->loadView("confirm_login");
+		
+	}
 }

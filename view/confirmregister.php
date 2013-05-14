@@ -24,7 +24,13 @@
 		<div class="midpanel">
 		
 
-		     <div class="contact-strip bg-light-pink fg-dark-orange"> *Registered sucessfully! continue with login
+		     <div class="contact-strip bg-light-pink fg-dark-orange"> 
+		     <?php
+				if(isset($_SESSION['SESS_ERROR'])) {
+					echo $_SESSION['SESS_ERROR'];
+					unset($_SESSION['SESS_ERROR']);
+				}
+			?>
  
 </div>
 <div id="registerdiv"  class="registerdiv1 ">

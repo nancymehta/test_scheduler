@@ -108,16 +108,17 @@ class baseModel extends dbConnectModel{
 				$result1 = $this->_db->insert('validate_users', $data1);
 		                 
 		
-		  $user_id=$this->_db->lastInsertId();
-		  $ip= $_SERVER['REMOTE_ADDR'];
+				$user_id=$this->_db->lastInsertId();
+				$ip= $_SERVER['REMOTE_ADDR'];
 		
-		$data2=array(
-				"user_id"=>$user_id,
-				"first_name"=>$arrArgs['firstName'],
-				"last_name"=>$arrArgs['lastName'],
-				"email"=>$arrArgs['email'],
-				"type_of_org_id"=>4,
-				"ip_address"=>$ip);
+				$data2=array(
+					"user_id"=>$user_id,
+					"first_name"=>$arrArgs['firstName'],
+					"last_name"=>$arrArgs['lastName'],
+					"email"=>$arrArgs['email'],
+					"type_of_org_id"=>4,
+					"ip_address"=>$ip
+					);
 		
 		$result2 = $this->_db->insert('user_profile', $data2);
 		if($result1 && $result2)
