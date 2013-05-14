@@ -151,9 +151,11 @@ class createTestModel extends dbConnectModel {
 	#Test Settings
 	public function testSettings($arrArgs) {
 		try {
+			//var_dump($arrArgs);die;
 			if (! empty ( $arrArgs )) {
 				#select query to check whether data exists for particular test in test_link table
 				$temp = $arrArgs ['test_id'] . $arrArgs ['test_name'];
+				//echo $temp;die('here');
 				$row = $this->getTestLinkValues($arr=array('test_id'=>$arrArgs['test_id']));
 				if(empty($row)){
 					#query to insert data in the test_link table

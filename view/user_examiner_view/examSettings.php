@@ -54,6 +54,7 @@
 <!--  no of attempts -->
 
 <input type="hidden" name="testId" id="testId" value="<?php if(isset($_REQUEST['test_id'])) {echo $_REQUEST['test_id'];}?>">
+<input type="hidden" name="testName" id="testName" value="<?php if(isset($_REQUEST['test_name'])) {echo $_REQUEST['test_name'];}?>">
 <tr>
 <td>
 <input type="submit" value="submit" class="submmit_button_generic">

@@ -104,11 +104,12 @@ class createTestController extends mainController {
 	}
 	function testSettings() {
 		try {
+			//print_r($_REQUEST);die("here");
 			$testId = strip_tags ( $_POST ['testId'] );
 			$random = strip_tags ( $_POST ['random'] );
 			$testName='';
-			if (isset($_GET ['test_name'])){
-				$testName = strip_tags ( $_GET ['test_name'] );
+			if (!empty($_REQUEST ['testName'])){
+				$testName = strip_tags ( $_REQUEST ['testName'] );
 			}
 			if ($random == 'yes') {
 				$random = '0';
@@ -145,6 +146,7 @@ class createTestController extends mainController {
 					'created_by' =>$_SESSION['SESS_USER_ID'],
 					'per_page_ques' =>$perPageQuestions
 					 );
+			//print_r($arrArgs);die("here");
 			$boolResult = $this->loadModel ( 'createTest', 'testSettings', $arrArgs );
 			if ($boolResult) {
 				echo 'updated the test successfully';
