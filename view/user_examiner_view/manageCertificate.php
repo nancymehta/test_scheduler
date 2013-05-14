@@ -11,6 +11,31 @@
 */
 
 ?>
+<script>
+
+function createCertificate()
+{	
+	$.ajax({ 
+      type: "POST",
+      url : '<?php echo SITE_PATH.'/createTest/certificateCreate'; ?>',                                             
+      data: $('#certificateEdit').serialize(),
+       beforeSend: function() {
+
+        },
+       success: function(data){
+           alert(data);
+        },
+       complete: function () {
+            
+        },
+      error: function(){
+            
+        }
+  
+   });
+ }  
+</script>
+
 <div class="bigmid" >
 <div class="midpanel" >
 
@@ -57,10 +82,10 @@
 				</tbody>
 			</table>
 		</div>
-		<input type="submit" value="Save certificate" class="submmit_button_generic" />
+		<input type="button" value="Save certificate" class="submmit_button_generic" onclick="createCertificate()" />
 	</form>
 </div>
-<form id="certificateEdit"  name="certificateEdit" action="<?php echo SITE_PATH.'/createTest/showCertificate'; ?>" method="post">
+<form id="certificateEdit"  name="certificateEdit" action="<?php echo SITE_PATH.'createTest/showCertificate'; ?>" method="post">
 	<input type="submit" value="preview certificate" class="submmit_button_generic" />
 </form>
 </div>

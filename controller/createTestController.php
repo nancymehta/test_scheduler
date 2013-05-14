@@ -217,6 +217,7 @@ class createTestController extends mainController {
 		}
 	}
 	
+	
 	# method to create certificate 
 	function certificateCreate() { 
 		try { 
@@ -244,28 +245,59 @@ class createTestController extends mainController {
 	
 	#method to show certificate 
 	function showCertificate() {  
+		try {   
+				#create array containg user details like name, marks , total marks 
+				$userDetails=$this->loadModel("createTest","userDetails");
+				print_r($userDetails);	
+					#loading model to dynamically generate certificate 
+					$certificate=$this->loadModel ( 'createTest', 'drawCertificate', $userDetails ); 
+					echo $certificate;
+					
+					if($certificate){
+						$this->loadView("header");
+						$this->loadView("user_header");
+						$this->loadView("user_examiner_view/showCertificateCreate",$certificate);
+						foreach($userDetails as $key=>$value){
+								$email=$value['email_enroll_no'];
+								$body="asdasdadasd";
+								mailTest ( $email, 'info.test.scheduler@gmail.com', $body);
+						 }
+					}
+					else{
+						echo 'could not show certificate';
+						
+					}
+		  
+	
+		  
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
+	function issueCertificate() {  
 		try {  
 				#create array containg user details like name, marks , total marks 
-				$arrArgs = array(  
-									'userName'			=> 'Dean_Winchester',
-									'marksObtained'		=> '97',
-									'totalMarks'		=> '100',
-									'testDate'			=> '12/05/13',
-									'id' 		=> 1, 
-							); 
-							
-				#loading model to retrieve certificate details			
-				$Result = $this->loadModel ( 'createTest', 'showCertificate', $arrArgs ); 
-				if ($Result) {
+				$userDetails=$this->loadModel("createTest","userDetails");
+				print_r($userDetails);
 					
-					#merging userdetails and certificate details
-					$result_data = array_merge($arrArgs,$Result); 
-					 
-					#loading model to dynamically generate certificate 
-					$this->loadModel ( 'createTest', 'drawCertificate', $result_data ); 
-				} else {
-					echo 'could not show certificate';
-				}	
+				    #loading model to dynamically generate certificate 
+					$certificate=$this->loadModel ( 'createTest', 'drawCertificate', $userDetails );
+					if($certificate){
+						
+						foreach($userDetails as $key=>$value){
+								$email=$value['email_enroll_no'];
+								$body="asdasdadasd";
+								mailTest ( $email, 'info.test.scheduler@gmail.com', $body);
+						 }
+					}
+					else{
+						echo 'could not show certificate';
+						
+					}
+		  
+	
+		  
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}

@@ -467,53 +467,91 @@ class createTestModel extends dbConnectModel {
 	# Method to dynamically create certificate
 	public function drawCertificate($arrArgs) {
 		try {  
+			$error=array();
+				echo "<pre/>";
+				print_r($arrArgs);
 			if (! empty ( $arrArgs )) {
-									
-				$imagePath = $arrArgs['upload_path'];     # getting certificate path 
-
-				$certficateName = $arrArgs['name'];
-				$userName 		= $arrArgs['userName'];
-				$marksObtained	= $arrArgs['marksObtained'];
-				$totralMarks 	= $arrArgs['totalMarks'];
-				$testDate		= $arrArgs['testDate'];
-	
-				#setting path for saved certificates
+				foreach( $arrArgs as $key => $value)  {		
 			
-				$imageSavePath=DOC_ROOT."/misc/SavedCertificate/".$userName.".jpeg";
-				$imageShowPath=SITE_PATH."misc/SavedCertificate/".$userName.".jpeg";
+					$certficateName = $value['name'];
+					$firstName 		= $value['first_name'];
+					$lastName 		= $value['last_name'];
+					$marksObtained	= $value['score'];
+					$imagePath		= $value['upload_path'];
+					$email			= $value['email_enroll_no'];
+					$imageSavePath=DOC_ROOT."/misc/SavedCertificate/".$certficateName.".jpeg";	
+				 
+					$font = 8;		#fontsize for writing details on certificate
+					$im = ImageCreateFromJPEG( $imagePath );
 			
-			//	header ("Content-type: image/jpeg");
+					$backgroundColor = imagecolorallocate ($im, 255, 255, 255);
+					$textColor = imagecolorallocate ($im, 0, 0,0);
 				
-				$font = 8;		#fontsize for writing details on certificate
-				$im = ImageCreateFromJPEG( $imagePath );
-			
-				$backgroundColor = imagecolorallocate ($im, 255, 255, 255);
-				$textColor = imagecolorallocate ($im, 0, 0,0);
+					#writing user specific details on the certificate
+					imagestring ($im, $font, 60 , 100 ,  $firstName      , $textColor);
+					imagestring ($im, $font, 50 , 100,  $certficateName, $textColor);
+				//	imagestring ($im, $font, 70 , 120,  $marksObtained , $textColor);
+				//	imagestring ($im, $font, 100, 120,  $totralMarks   , $textColor);
+				//	imagestring ($im, $font, 100, 144,  $testDate      , $textColor);
 				
-				#writing user specific details on the certificate
-				imagestring ($im, $font, 60 , 80 ,  $userName      , $textColor);
-				imagestring ($im, $font, 50 , 100,  $certficateName, $textColor);
-				imagestring ($im, $font, 70 , 120,  $marksObtained , $textColor);
-				imagestring ($im, $font, 100, 120,  $totralMarks   , $textColor);
 				
-				#displaying certificate
-				echo "<img src=$imageShowPath />";
 				
-				#saving certificate image
-				if(imagejpeg($im, $imageSavePath, 100)) {
-					//echo "image";
-				} else {
-					 echo "no image";
-				}
+					#saving certificate image
+					imagejpeg($im, $imageSavePath, 100);				
+					$error="";
+				}	
+				
 				
 			} else {
-				return false;
+				return 0;
 			}		
-		} catch ( Exception $e ) {
+			if(empty($error)){
+				return 1;
+			}
+		} 
+		catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}
-	}
+}
+	
+public function userDetails() {
+	$data['tables'] = 'test_link';
+	$data['columns']   = array('first_name','last_name','pass_marks','certificate_id',
+								'test_taker.score','certificate_master.name',
+								'certificate_master.upload_path','test_taker.email_enroll_no'
+						  );
+	/*$data['conditions']	= array(
+								'test_taker.test_id' => $arrArgument['testid']
+								); */
+	$data['joins'][] = array(
+							'table' => 'test_taker', 
+							'type'	=> 'inner',
+							'conditions' => array('test_link.id' => 'test_taker.test_link_id')
+							);
+	$data['joins'][] = array(
+							'table' => 'certificate_master', 
+							'type'	=> 'inner',
+							'conditions' => array('certificate_master.id' => 'test_link.certificate_id')
+							);						
+							
+	$result = $this->_db->select($data);
+
+	while($temp = $result->fetch(PDO::FETCH_ASSOC)) {
+	//	if($temp['score'] >= $temp['pass_marks']) {
+					
+					$row[]=$temp;
+	 //	}
+	} 	   
+	if(isset($row)) {
+	
+		return $row;		
+	
+	} else {
+		echo "No Record Found";
+		return 0;
+	}	
 	
 	
-	
+ }
+
 }

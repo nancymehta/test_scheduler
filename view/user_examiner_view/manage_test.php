@@ -264,7 +264,7 @@ td.inplab {
 		<p class="gray">You can allow users to download a certificate when they complete their test.</p>
 		<ol class="gray plain">
 			<li>
-				<a href="#">Create a certificate</a>
+				<a href="<?php echo SITE_PATH.'/testui/suraj'; ?>">Create a certificate</a>
 			</li>
 			<li>
 				Now each time you

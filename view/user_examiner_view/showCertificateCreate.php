@@ -18,28 +18,10 @@
 <div class="midpanel" >
 
 <!-- midpanel Content gooes here  -->
+<img src= <?php echo $arrData;?> height="500" width="500"/>
 
-<div id="certificate">
-	<form id="certificateEdit"  name="certificateEdit" action="<?php echo SITE_PATH;?>createTest/certificateCreate" method="post">
-		<h3>Certificate name</h3>
-		<br>
-			<input type="text" value="" size="30" maxlength="30" id="certificate_name" name="certificate_name">
-			<span >Limit 30 characters.</span><br><br>
-		
-		<h3>Customize Certificate</h3>
-<br><br>
-		<input id="certificate_title" type="text" value="Certificate of Achievement" maxlength="100" name="certificate_title" original-title="You can edit the certificate title. Maximum 100 characters. Example: Certificate of Achievement">
-	<br><input id="certificate_body" type="text" value="Enter body content of certificate" maxlength="100" name="certificate_body" />
-	<br><br><br><input type="submit" value="Save certificate" class="submmit_button_generic"/>
-	<br><input type="submit" value="Cancel" class="submmit_button_generic" />
-	</form>
-	<form id="certificateEdit"  name="certificateEdit" action="<?php echo SITE_PATH;?>createTest/showCertificate" method="post">
-		<input type="submit" value="preview certificate" class="submmit_button_generic"/>
-	</form>
-	
-</div>
+<a href="<?php echo SITE_PATH.'/testui/suraj'; ?>" > back </a>
 
-</div>
 <div class="midright">
 
 <!-- right content goes here -->
