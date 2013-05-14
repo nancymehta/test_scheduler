@@ -44,13 +44,11 @@ class baseModel extends dbConnectModel{
 						$_SESSION['SESS_USER_TYPE']= $row['user_type'];
 						return 1;
 					}
-					else 
-					{
+					else {
 						return 0;
 					} 
 				} 
-				else 
-				{
+				else {
 					return 0;
 				} 
 					
@@ -105,13 +103,14 @@ class baseModel extends dbConnectModel{
 		
 				$user_id=$this->_db->lastInsertId();
 				$ip= $_SERVER['REMOTE_ADDR'];
-		
+				//$datetime =date("d/m/y h:i:s");
 				$data2=array(
 					"user_id"=>$user_id,
 					"first_name"=>$arrArgs['firstName'],
 					"last_name"=>$arrArgs['lastName'],
 					"email"=>$arrArgs['email'],
 					"type_of_org_id"=>4,
+					"created_on"=>'now()',
 					"ip_address"=>$ip
 					);
 		

@@ -37,8 +37,8 @@ class mainController extends common{
 	function register() {
 		//die("asd");
 		  require_once(LIBRARY_ROOT.'/recaptcha/recaptchalib.php');
-        $privatekey = "6LeCCOESAAAAAAGYv2C7L0q5iHz0B7Re-q_frmLw";
-        $resp = recaptcha_check_answer ($privatekey,
+        	$privatekey = "6LeCCOESAAAAAAGYv2C7L0q5iHz0B7Re-q_frmLw";
+        	$resp = recaptcha_check_answer ($privatekey,
                                 $_SERVER["REMOTE_ADDR"],
                                 $_POST["recaptcha_challenge_field"],
                                 $_POST["recaptcha_response_field"]);
@@ -46,7 +46,8 @@ class mainController extends common{
       if (!$resp->is_valid) {
     // What happens when the CAPTCHA was entered incorrectly
        $_SESSION['SESS_ERROR']="The reCAPTCHA wasn't entered correctly. Go back and try it again.";
-       
+   
+   	header("location:".SITE_PATH."registeration");
   } else { 
 		try {
 			$reg_values=array (
@@ -57,11 +58,11 @@ class mainController extends common{
 				     "email"=>strip_tags($_REQUEST['email']));
 		 $arrData=$this->loadModel('base','register',$reg_values);	
 		if($arrData == 1){
-			$_SESSION['SESS_ERROR'] ='chal hogaya be';
+			$_SESSION['SESS_ERROR'] ='You are Successfully Registerd';
 			header("location:".SITE_PATH."loadLogin");
 		}
 		else{
-			$_SESSION['SESS_ERROR'] ='chal be';
+			$_SESSION['SESS_ERROR'] ='Registration Failed Try Again';
 			header("location:".SITE_PATH."registeration");	
 		}
 		
@@ -95,7 +96,7 @@ class mainController extends common{
 			    header("location:".SITE_PATH);
 			}
 			else{
-			    $_SESSION['SESS_ERROR'] ='chal  be';
+			    $_SESSION['SESS_ERROR'] ='Not a Valid UserName/password';
 			header("location:".SITE_PATH."loadLogin");
 			}
 		}catch (Exception $e) {
