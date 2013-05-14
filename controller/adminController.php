@@ -13,24 +13,32 @@ class adminController extends mainController {
 	}
 
     function sendmail() {
-        if ($_POST ['contactus']) {
-            $sub = $_POST ['contact_name'] . " <-name   email-> " . $_POST ['contact_email'];
-            $to = "info.test.scheduler@gmail.com";
-            $body = $_POST ['contact_suggestion'];
-            $name = $_POST ['contact_name'];
-            $email = $_POST ['contact_email'];
-            mailTest ( $to, $sub, $body );
-            $arrArgument = array (
-                    'name' => $name,
-                    'email' => $email,
-                    'body' => $body 
-            );
-            $this->loadModel ( "admin", "contactUs", $arrArgument );
-        }
+        try{
+        	if ($_POST ['contactus']) {
+        		$sub = strip_tags($_POST ['contact_name']) . " <-name   email-> " . strip_tags($_POST ['contact_email']);
+            	$to = "info.test.scheduler@gmail.com";
+            	$body = strip_tags($_POST ['contact_suggestion']);
+            	$name = strip_tags($_POST ['contact_name']);
+            	$email = strip_tags($_POST ['contact_email']);
+            	mailTest ( $to, $sub, $body );
+            	$arrArgument = array (
+                    			'name' => $name,
+                    			'email' => $email,
+                    			'body' => $body 
+            					);
+            	$this->loadModel ( "admin", "contactUs", $arrArgument );
+        	}
+        }catch (Exception $e) {
+			$this->handleException($e->getMessage());
+        	}
     }
     
     function home() {
-        $this->usermanagement();
+        try{
+        	$this->usermanagement();
+        }catch (Exception $e) {
+			$this->handleException($e->getMessage());
+        	}
     }
     
     function usermanagement() {
@@ -94,42 +102,62 @@ class adminController extends mainController {
 	}
     
     function testmanagement() {
-        $this->loadView ( "header" );
-        $this->loadView ( "user_header" );
-        $this->loadView ( "admin_view/admin_deshboard_menu" );
-        $arrArgs = $this->loadModel ( "admin", "fetchTests" );
-        $this->loadView ( "admin_view/testmanagement", $arrArgs );
+        try{
+        	$this->loadView ( "header" );
+        	$this->loadView ( "user_header" );
+        	$this->loadView ( "admin_view/admin_deshboard_menu" );
+        	$arrArgs = $this->loadModel ( "admin", "fetchTests" );
+        	$this->loadView ( "admin_view/testmanagement", $arrArgs );
+    	}catch (Exception $e) {
+			$this->handleException($e->getMessage());
+        	}
     }
+    
     function feedbackmanagement() {
-        $this->loadView ( "header" );
-        $this->loadView ( "user_header" );
-        $this->loadView ( "admin_view/admin_deshboard_menu" );
-        $result = $this->loadModel ( "admin", "feedbackManagementModel" );
-        $this->loadView ( "admin_view/feedbackmanagement", $result );
+        try{
+        	$this->loadView ( "header" );
+        	$this->loadView ( "user_header" );
+        	$this->loadView ( "admin_view/admin_deshboard_menu" );
+        	$result = $this->loadModel ( "admin", "feedbackManagementModel" );
+        	$this->loadView ( "admin_view/feedbackmanagement", $result );
+        }catch (Exception $e) {
+			$this->handleException($e->getMessage());
+        	}
     }
+    
     function adminMailSend() {
-        $id = $_POST ['id'];
-        $body = $_POST ['body'];
-        $result = $this->loadModel ( "admin", "fetchFeedEmail", $id );
-        if ($result) {
-            mailTest ( $result, 'info.test.scheduler@gmail.com', $body );
-        } else {
-            return 0;
-        }
+        try{
+        	$id = strip_tags($_POST ['id']);
+        	$body = strip_tags($_POST ['body']);
+        	$result = $this->loadModel ( "admin", "fetchFeedEmail", $id );
+        	if ($result) {
+            	mailTest ( $result, 'info.test.scheduler@gmail.com', $body );
+        	} else {
+            	return 0;
+        		}
+		}catch (Exception $e) {
+			$this->handleException($e->getMessage());
+        	}
     }
+    
     function deleteTest() {
-        $result = $this->loadModel ( "admin", "deleteTest", array (
-                "id" => $_REQUEST ['id'] 
-        ) );
-        if ($result) {
-            echo "DELETED";
-        }
+        try{
+        	$result = $this->loadModel ( "admin", "deleteTest", array ("id" => strip_tags($_POST ['id']) ) );
+        	if ($result) {
+            	$_SESSION['SESS_ERROR']="Test Successfully Deleted";
+        	}
+        }catch (Exception $e) {
+			$this->handleException($e->getMessage());
+        	}
     }
+    
     function fetchTestContents() {
-        $arrArgs = $this->loadModel ( "admin", "fetchTestContent", array (
-                "id" => $_REQUEST ['id'] 
-        ) );
-        $this->loadView ( "admin_view/testContent", $arrArgs );
+        try{
+        	$arrArgs = $this->loadModel ( "admin", "fetchTestContent", array ("id" => strip_tags($_POST ['id'])) );
+        	$this->loadView ( "admin_view/testContent", $arrArgs );
+        }catch (Exception $e) {
+			$this->handleException($e->getMessage());
+        	}
     }
 }
 // set error handler

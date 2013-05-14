@@ -10,11 +10,7 @@ function fetchTestContent(id) {
 				url: "<?php echo SITE_PATH;?>admin/deleteTest",
 				data: "id="+id,
 			    success: function(response){
-					if(response=='DELETED'){
-						alert("<?php echo SUCCESSFULLY_DELETED; ?>");
-						//window.location.href="<?php echo SITE_PATH;?>admin/testmanagement";
 						window.location.reload();
-					}
                 },
 				error: function () {
 					alert("<?php echo ERROR_WHILE_PROCESSING; ?>");
