@@ -51,7 +51,7 @@
 				</tr>
 			</thead>
   			<tbody>
-               			<?php 
+            	<?php 
 				foreach($arrData as $umanage){ 
 				?>
 					<tr valign="top">
@@ -64,12 +64,12 @@
 				?>
 			</tbody>
 		</table>
-	<?php	
-		} else { // end of if start of else
+<?php	
+	} else { // end of if start of else
 				echo "<strong>".UMSG1."</strong>";
 		  } // end of else
 	?> 
-	</div>
+</div>
 
 </div>
 <div class="midright">
