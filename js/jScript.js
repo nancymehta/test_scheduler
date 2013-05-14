@@ -8,6 +8,42 @@ $(document).ready(function() {
 	$('#startTime').datetimepicker({ dateFormat: 'yy-mm-dd', timeFormat: 'hh:mm:ss' });
 	$('#endTime').datetimepicker({ dateFormat: 'yy-mm-dd', timeFormat: 'hh:mm:ss' });
 // jquery by pankaj
+	
+	$("#option1").validate({
+		rules: {
+			num_random:{
+				required:true,
+				digits:true				
+			}
+		
+		},
+		messages: {
+			num_random:{
+				required:"Please enter total no. of question.",
+				digits:"Invalid number."
+			}
+			
+		}
+	});
+	
+	$("#option2").validate({
+		rules: {
+			cat_id_0:{
+				required:true,
+				digits:true				
+			}
+		
+		},
+		messages: {
+			cat_id_0:{
+				required:"Please enter questions per category.",
+				digits:"Invalid number."
+			}
+			
+		}
+	});
+	
+	
 	$("#tog_random").click(function(){
 		$("#dotog_random").toggle();
 		});
@@ -598,50 +634,6 @@ function valid_search_user()
 	}
 }
 
-
-
-/*
-
-
-//validating manage_test page
-$(document).ready(function(){
-	$("#option1").validate({
-		rules: {
-			num_random:{
-				required:true,
-				digits:true				
-			}
-		
-		},
-		messages: {
-			num_random:{
-				required:"Please enter total no. of question.",
-				digits:"Invalid number."
-			}
-			
-		}
-	});
-	
-	$("#option2").validate({
-		rules: {
-			cat_id_0:{
-				required:true,
-				digits:true				
-			}
-		
-		},
-		messages: {
-			cat_id_0:{
-				required:"Please enter questions per category.",
-				digits:"Invalid number."
-			}
-			
-		}
-	});
-	
-	});
-
-*/
 
 
 
