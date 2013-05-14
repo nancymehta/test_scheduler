@@ -5,7 +5,6 @@
 
 <div class="user_overall_result">
 <div class="search_test">
-	<?php //print_r($arrData);?>
 <span class="">Select Test </span> <div class="search_test" name="search_test" id="search_test">
 	<select name="dddv" id="testSelect">
 	<option value="0">select</option>

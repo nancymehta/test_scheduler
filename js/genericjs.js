@@ -9,7 +9,7 @@ $("#testSelect").change(function() {
        var a=$("#testSelect").val();
        $("#show_result").load("index.php","controller=result&function=getResults&testId="+a);
        
-       alert(a);
+      
   
     });
 

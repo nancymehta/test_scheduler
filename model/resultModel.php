@@ -66,8 +66,7 @@ return $row;		}
 				
 		//-----------------
 				
-		 $result1 = $this->_db->query('select q.question,qo.option,qo.correct,ttq.answer_given from question q join question_options qo on q.id=qo.ques_id join test_taker_ques ttq on ttq.ques_id=q.id where ttq.test_taker_id="1"');
-				
+		 $result1 = $this->_db->query('select q.question,qo.option,qo.correct,ttq.answer_given from question q join question_options qo on q.id=qo.ques_id join test_taker_ques ttq on ttq.ques_id=q.id where ttq.test_taker_id="1" order by ttq.id');				
 		 while($temp = $result1->fetch(PDO::FETCH_ASSOC)){
 		 	$row["question_details"][]=$temp;
 		 }

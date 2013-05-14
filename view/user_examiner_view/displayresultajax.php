@@ -1,10 +1,8 @@
 <div class="overall" style="text-align:center">
 
 <?php
-	echo "<pre>"; 	
-print_r($arrData);
+	
 $data_sum=0;$data_perc=0;$diff_time=0;
-//echo"$key['first_name].$key['last_name']";
 $diff=0;
 foreach($arrData as $key){
 	/* TIME STAMP DIFF
@@ -23,7 +21,7 @@ foreach($arrData as $key){
 $total_perc=(float)($data_sum/$total_ques)*100;
 $total_attempt=count($arrData);
 $totalDuration=$diff/$total_attempt;
-echo $totalDuration; 
+
 
 ?>
 </div>

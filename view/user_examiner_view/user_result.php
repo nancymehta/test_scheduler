@@ -1,7 +1,3 @@
-
-<?php
-	echo "<pre>"; 
-print_r($arrData); ?>
 <?php
 	$test_taker_result=$arrData['test_taker_details']; 
    foreach($test_taker_result as $key)
@@ -38,7 +34,36 @@ print_r($arrData); ?>
 </div>
 <br>
 	<div class="questionanswers">
-		Q1. blah blah ... 
+		<?php
+			$question_details=$arrData['question_details'];
+			$count=0;
+			$question_num=1;
+			$correct="";
+			foreach($question_details as $key =>$value) {
+				if(!$count) {
+					$question=$value['question'];
+					echo "<br/>Q".$question_num."  ".$question."<br/>";
+					echo "<pre>		".$value['option']."</pre>";
+					$question_num++;
+					$count++;
+				} else if($question==$value['question']) {
+					echo "<pre>		".$value['option']."</pre>";
+				} else {
+					//$count=0;
+					echo "<br/><pre>	Correct Option :" , $correct."</pre>";
+					$question=$value['question'];
+					echo "<br/><br/>Q".$question_num."  ".$question."<br/>";
+					echo "<pre>		".$value['option']."</pre>";
+					$question_num++;
+				}
+				if($value['correct']) {
+					$correct=$value['option'];
+					
+				}
+				
+			}
+			echo "<br/><pre>	Correct Option :" , $correct."</pre>";			 
+		?>		
 		 
 	</div>
 	<?php } ?>
@@ -46,3 +71,4 @@ print_r($arrData); ?>
 
 
 </div>
+
