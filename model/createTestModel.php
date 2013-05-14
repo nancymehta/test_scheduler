@@ -153,6 +153,7 @@ class createTestModel extends dbConnectModel {
 		try {
 			if (! empty ( $arrArgs )) {
 				#select query to check whether data exists for particular test in test_link table
+				$temp = $arrArgs ['test_id'] . $arrArgs ['test_name'];
 				$row = $this->getTestLinkValues($arr=array('test_id'=>$arrArgs['test_id']));
 				if(empty($row)){
 					#query to insert data in the test_link table
@@ -162,7 +163,7 @@ class createTestModel extends dbConnectModel {
 							'random' => $arrArgs['random'],
 							'start_time' => $arrArgs['start_time'],
 							'end_time' => $arrArgs['end_time'],
-							'link' => md5($arrArgs['test_id']),
+							'link' => md5($temp),
 							'time_limit' => $arrArgs ['time_limit'],
 							'feedback' => $arrArgs ['feedback'],
 							'email_results' => $arrArgs ['email_results'],
@@ -374,7 +375,7 @@ class createTestModel extends dbConnectModel {
 				
 			}
 			
-			//delete the previous entries in the test_link table
+			//delete the previous entries in the test_question table
 			$result_delete = $this->_db->delete ( 'test_question', array (
 					'test_id' => $arrArgs ['test_id']
 			) );

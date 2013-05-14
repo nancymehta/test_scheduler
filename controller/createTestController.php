@@ -106,6 +106,10 @@ class createTestController extends mainController {
 		try {
 			$testId = strip_tags ( $_POST ['testId'] );
 			$random = strip_tags ( $_POST ['random'] );
+			$testName='';
+			if (isset($_GET ['test_name'])){
+				$testName = strip_tags ( $_GET ['test_name'] );
+			}
 			if ($random == 'yes') {
 				$random = '0';
 			} else {
@@ -129,6 +133,7 @@ class createTestController extends mainController {
 				$emailScore = '1';
 			}
 			$arrArgs = array (
+					'test_name' => $testName,
 					'test_id' => $testId, 
 					'random' => $random, 
 					'start_time' => $startTime, 

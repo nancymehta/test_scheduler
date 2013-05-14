@@ -76,7 +76,8 @@
 					echo "<td><a href='#' onclick=fncDelete(".$arrData ['test'] ['testId'] [$i].")>Delete</a></td>";
 					echo '<td><a href="http://test_scheduler.com/user/manageQuestions?test_id='.$arrData ['test'] ['testId'] [$i].'">Manage Questions</a></td>';
 					echo '<td><a href="http://test_scheduler.com/user/examSettings?test_id=' . $arrData ['test'] ['testId'] [$i] . '&test_name=' . $arrData ['test'] ['testName'] [$i] . '">Manage assign test</a></td>';
-					echo "<td>test_scheduler.com/path/to/test/".md5($arrData ['test'] ['testId'][$i])."</td>";
+					$temp=$arrData ['test'] ['testId'][$i].$arrData ['test'] ['testName'][$i];
+					echo "<td>test_scheduler.com/test/home/".md5($temp)."</td>";
 					$i ++;
 					echo '</tr>';
 				}
