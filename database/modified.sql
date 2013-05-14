@@ -348,6 +348,7 @@ CREATE TABLE `contact_us` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='contact us table';
 
-
+/*altering category table on 15-05-2013*/
+alter table category modify name varchar(50) unique not null;
 
 
