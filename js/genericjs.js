@@ -1,6 +1,6 @@
 $(document).ready(function(){
-	
-	$("#divView1").css('display','none');
+	alert("sdfjklasdjf");
+	$("#divView1").css("display","none");
     $("#divView2").hide();
     $("#divView3").hide();
     $("#divView4").hide();
