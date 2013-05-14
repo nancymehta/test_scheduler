@@ -103,4 +103,7 @@ define("VIEW","View");
 define("NO_RECORDS_FOUND","NO RECORDS FOUND");
 define("QUESTION","Question");
 define("NO_QUESTIONS_FOUND","No Questions Found For This Test."); 
+define("UMSG","the user has been successfully deleted");
+define("UMSG1","NO USER RECORDS FOUND");
+define("UMSG2","The user details has been successfully changed");
 ?>

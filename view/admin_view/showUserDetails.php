@@ -21,7 +21,7 @@
     			data: $('#send').serialize() +"&id=" +id,
     			success: function(response){
 					if(response==1){
-        				alert("The user details has been successfully changed");
+        				alert("<?php echo UMSG2;?>");
 						window.location.href="<?php echo SITE_PATH;?>admin/usermanagement";
 					}else{
                         alert(response);
@@ -103,7 +103,7 @@
 		</form>
 	<?php	
 		} else { // end of if start of else
-				echo "<strong>"."NO RECORDS FOUND"."</strong>";
+				echo "<strong>".UMSG1."</strong>";
 		  } // end of else
 	?> 
 	</div>

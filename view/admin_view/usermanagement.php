@@ -20,7 +20,7 @@
 				data: "id="+id+"&request="+request,
 			    success: function(response){
 					if(request=='DELETE'){
-						alert("the user has been successfully deleted");
+						alert("<?php echo UMSG;?>");
 						window.location.href="<?php echo SITE_PATH;?>admin/usermanagement";
 					} else{
                 			$(".um").html(response);
@@ -55,7 +55,7 @@
 				foreach($arrData as $umanage){ 
 				?>
 					<tr valign="top">
-                        			<td><?php echo $umanage['id']; ?></td>
+                        <td><?php echo $umanage['id']; ?></td>
 						<td><?php echo $umanage['username']; ?></td>
 						<td><a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'EDIT')"><?php echo EDIT;?></a> <a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'DELETE')"><?php echo DELETE;?></a></td>
 					</tr>
@@ -66,7 +66,7 @@
 		</table>
 	<?php	
 		} else { // end of if start of else
-				echo "<strong>"."NO RECORDS FOUND"."</strong>";
+				echo "<strong>".UMSG1."</strong>";
 		  } // end of else
 	?> 
 	</div>
