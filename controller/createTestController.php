@@ -38,7 +38,8 @@ class createTestController extends mainController {
 					);
 					$boolResult = $this->loadModel ( 'createTest', 'createNewTest', $arrArgs );
 					if ($boolResult) {
-						echo 'created the test successfully';
+						//echo 'created the test successfully';
+						$_SESSION['SESS_ERROR'] = 'created the test successfully';
 						header ( "location:http://test_scheduler.com/user/mytest" );
 					} else {
 						throw new Exception;
@@ -86,7 +87,8 @@ class createTestController extends mainController {
 					);
 					$boolResult = $this->loadModel ( 'createTest', 'updateTest', $arrArgs );
 					if ($boolResult) {
-						echo 'updated the test successfully';
+						//echo 'updated the test successfully';
+						$_SESSION['SESS_ERROR'] = 'updated the test successfully';
 						header ( "location:http://test_scheduler.com/user/mytest" );
 					} else {
 						echo 'could not update the test';
@@ -104,9 +106,10 @@ class createTestController extends mainController {
 	}
 	function testSettings() {
 		try {
-			//print_r($_REQUEST);die("here");
 			$testId = strip_tags ( $_POST ['testId'] );
-			$random = strip_tags ( $_POST ['random'] );
+			if (! empty ( $_POST ['random'] )) {
+				$random = strip_tags ( $_POST ['random'] );
+			}
 			$testName='';
 			if (!empty($_REQUEST ['testName'])){
 				$testName = strip_tags ( $_REQUEST ['testName'] );
@@ -118,16 +121,27 @@ class createTestController extends mainController {
 			}
 			$startTime = strip_tags ( $_POST ['startTime'] );
 			$endTime = strip_tags ( $_POST ['endTime'] );
-			$timeDuration = strip_tags ( $_POST ['timeDuration'] );
-			$perPageQuestions = strip_tags ( $_POST ['perPageQuestions'] );
-			$feedback = strip_tags ( $_POST ['feedback'] );
+			
+			if (! empty ( $_POST ['timeDuration'] )) {
+				$timeDuration = strip_tags ( $_POST ['timeDuration'] );
+			}
+			if (! empty ( $_POST ['perPageQuestions'] )) {
+				$perPageQuestions = strip_tags ( $_POST ['perPageQuestions'] );
+			}
+			if (! empty ( $_POST ['feedback'] )) {
+				$feedback = strip_tags ( $_POST ['feedback'] );
+			}
 			if ($feedback == 'yes') {
 				$feedback = '0';
 			} else {
 				$feedback = '1';
 			}
-			$emailScore = strip_tags ( $_POST ['emailScore'] );
-			$passingMarks = strip_tags($_POST['passingMarks']);
+			if (! empty ( $_POST ['emailScore'] )) {
+				$emailScore = strip_tags ( $_POST ['emailScore'] );
+			}
+			if (! empty ( $_POST ['passingMarks'] )) {
+				$passingMarks = strip_tags ( $_POST ['passingMarks'] );
+			}
 			if ($emailScore == 'yes') {
 				$emailScore = '0';
 			} else {
@@ -149,7 +163,8 @@ class createTestController extends mainController {
 			//print_r($arrArgs);die("here");
 			$boolResult = $this->loadModel ( 'createTest', 'testSettings', $arrArgs );
 			if ($boolResult) {
-				echo 'updated the test successfully';
+				//echo 'updated the test successfully';
+				$_SESSION['SESS_ERROR'] = 'updated the test successfully';
 				header ( "location:http://test_scheduler.com/user/mytest" );
 			} else {
 				echo 'could not update the test';
@@ -164,6 +179,7 @@ class createTestController extends mainController {
 		try {
 			$arrData = $this->loadModel ( 'createTest', 'updateTestCategory', $_POST);
 			if ($arrData){
+				$_SESSION['SESS_ERROR'] = 'Question managed!!';
 				header("location:http://test_scheduler.com/user/mytest");
 			} else {
 				throw new Exception();
@@ -177,7 +193,8 @@ class createTestController extends mainController {
 		try {
 			$arrData = $this->loadModel ( 'createTest', 'deleteTest', $_POST['id']);
 			if ($arrData){
-				echo 'Test Deleted';
+				//echo 'Test Deleted';
+				$_SESSION['SESS_ERROR'] = 'Test Deleted!!';
 			} else {
 				throw new Exception();
 			}
