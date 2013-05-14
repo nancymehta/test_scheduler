@@ -27,7 +27,9 @@ class categoryModel extends dbConnectModel {
 		$catName	=	$category['catName'];
 		$userId	=	$category['userId'];
 		try {
-			
+			/*Checking that wheter the category aleready exists in table
+			 * If exists then change the status to 0
+			 */
 			$data['tables']		=	'category';
 			$data['columns']	=	array('name','id');
 			$result				=	$this->_db->select($data);
@@ -50,7 +52,9 @@ class categoryModel extends dbConnectModel {
 				}
 			}
 				
-			
+			/*
+			 * Adding new Category if not already exists
+			 */
 		$data['tables'] = 'category';
 		$data['columns']= array('name'=>$catName,'created_by'=>$userId,'updated_by'=>$userId);
 		
@@ -70,12 +74,14 @@ class categoryModel extends dbConnectModel {
 	
 	
 	//Viewing Category
-	public function viewCategory()
+	public function viewCategory($userId)
 	{
 	try {
-		$categoryArray	=	array();
-		$data['tables'] = 'category';
-		$data['columns']= array('name','id','status');
+		$data['tables'] 		= 	'category';
+		$data['columns']		= 	array('name','id','status');
+		//echo $userId;
+		//die();
+		$data['conditions']		=	array('created_by'=>$userId);
 		
 		
 		$result = $this->_db->select($data);

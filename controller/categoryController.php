@@ -33,14 +33,14 @@ class categoryController extends mainController {
 			
 			if(isset($_REQUEST['id'])&&isset($_REQUEST['catName']))
 			{
-				$arrArgs['catName']	=	$_REQUEST['catName'];
+				$arrArgs['catName']		=	$_REQUEST['catName'];
 				$arrArgs['id']			=	$_REQUEST['id'];
 				$arrArgs['userId']		=	$_SESSION['SESS_USER_ID'];
 				
 				$arrData	=	$this->loadModel('category','updateCategory',$arrArgs);
 				if($arrData=="done")
 				{
-					header("location:".SITE_PATH."category");
+					header("location:".SITE_PATH."category/home");
 				}else{
 					echo $arrData;
 				}
@@ -65,7 +65,11 @@ class categoryController extends mainController {
 	
 	//Default Function	
 	function home() {
-		$ArrData	=	$this->loadModel('category','viewCategory');
+		$userId		=	$_SESSION['SESS_USER_ID'];
+		//echo $userId;
+		//die();
+		
+		$ArrData	=	$this->loadModel('category','viewCategory',$userId);
 
 	 	$this->loadView("header");
 	 	$this->loadView("user_examiner_view/deshboard_menu");
