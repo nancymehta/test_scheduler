@@ -5,7 +5,7 @@ class adminModel extends dbConnectModel{
 		parent::__construct();
 	}
 	
-		function contactUs($arrArgument){
+	function contactUs($arrArgument){
 			$name=$arrArgument['name'];
 			$email=$arrArgument['email'];
 			$body=$arrArgument['body'];
@@ -13,6 +13,7 @@ class adminModel extends dbConnectModel{
 					"name"=>$name,
 					"email"=>$email,
 					"description"=>$body,
+					"status"=>"1"
 					);
 			$result = $this->_db->insert('contact_us',$data);
 	
@@ -139,6 +140,7 @@ class adminModel extends dbConnectModel{
 		$feedbackResult=array();
 		$data['tables'] = 'contact_us';
 		$data['columns']= array('id','name','email','description');
+		$data['conditions']=array( 'status'=> '1');
 		$result=$this->_db->select($data);
 		while($row = $result->fetch(PDO::FETCH_ASSOC)){
 			$feedbackResult[]=$row;
