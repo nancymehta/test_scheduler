@@ -63,25 +63,32 @@ return $row;		}
 		 while($temp = $result->fetch(PDO::FETCH_ASSOC)){
 		 	$row["test_taker_details"][]=$temp;
 		 }
+		 
+		 $data = array();
 				//-----------------join using cxpdo------
 		 $data['tables'] = 'question';
-		 $data['columns']= array('question','question_options.id','option','correct','answer_given');
+		 $data['columns']= array('question','question_options.id','`option`','correct','answer_given');
 		 $data['conditions']	= array(
 		 		'test_taker_ques.test_taker_id' => $arrArgument['id']
 		 );
+		 $data['order_by'] = 'test_taker_ques.id';
 		 $data['joins'][] = array(
-		 		'table' => 'test',
+		 		'table' => 'question_options',
 		 		'type'	=> 'inner',
-		 		'conditions' => array('test_taker.test_id' => 'test.id'));
+		 		'conditions' => array('question.id' => 'question_options.ques_id'));
 		 
+		 $data['joins'][] = array(
+		 		'table' => 'test_taker_ques',
+		 		'type'	=> 'inner',
+		 		'conditions' => array('test_taker_ques.id' => 'question.id'));
 		 
-		 
+		 $result = $this->_db->select($data);
 		//-----------------end of join----------------------------------------
 				
-		 $result1 = $this->_db->query("select q.question,qo.option,qo.id,qo.correct,".
+		/* $result1 = $this->_db->query("select q.question,qo.option,qo.id,qo.correct,".
 		 		"ttq.answer_given from question q join question_options qo on q.id=qo.ques_id ".
-		 		"join test_taker_ques ttq on ttq.ques_id=q.id where ttq.test_taker_id='".$arrArgument['id']."' order by ttq.id");				
-		 while($temp = $result1->fetch(PDO::FETCH_ASSOC)){
+		 		"join test_taker_ques ttq on ttq.ques_id=q.id where ttq.test_taker_id='".$arrArgument['id']."' order by ttq.id");*/				
+		 while($temp = $result->fetch(PDO::FETCH_ASSOC)){
 		 	$row["question_details"][]=$temp;
 		 }
 		    	return $row;
