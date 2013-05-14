@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 /**
  * @classname            accountSettingsController
@@ -68,27 +68,30 @@ class accountSettingsController extends common{
 	function processDetails() {
 	try {
 		
-		if($this->validationObj->validateAlphabate($_REQUEST['fname']))
+		if($this->validationObj->validateAlphabate($_POST['fname']))
 		{
 //			echo "ok";die();
-		$arrArgs['fname']	=	$_REQUEST['fname'];
+		$arrArgs['fname']	=	$_POST['fname'];
 
 		}else{
 			header("location: ".SITE_PATH."accountSettings/home");
+			die();
 		}
 //		die("here");
-		if($this->validationObj->validateAlphabate($_REQUEST['lname']))
+		if($this->validationObj->validateAlphabate($_POST['lname']))
 		{
-		$arrArgs['lname']	=	$_REQUEST['lname'];
+		$arrArgs['lname']	=	$_POST['lname'];
 		}else{
 			header("location: ".SITE_PATH."accountSettings/home");
+			die();
 		}
 		
-		if($this->validationObj->checkEmail($_REQUEST['email']))
+		if($this->validationObj->checkEmail($_POST['email']))
 		{
-		$arrArgs['email']	=	$_REQUEST['email'];	
+		$arrArgs['email']	=	$_POST['email'];	
 		}else{
 			header("location: ".SITE_PATH."accountSettings/accountSettings");
+			die();
 		}
 		
 		$arrArgs['id']		=	$_SESSION['SESS_USER_ID'];
@@ -121,17 +124,17 @@ class accountSettingsController extends common{
 		//print_r($_REQUEST);die();
 		$arrArgs['id']		=	$_SESSION['SESS_USER_ID'];
 
-		if($this->validationObj->validatePassword($_REQUEST['oldPass']))
+		if($this->validationObj->validatePassword($_POST['oldPass']))
 		{
-		$arrArgs['oldPass']	=	$_REQUEST['oldPass'];
+		$arrArgs['oldPass']	=	$_POST['oldPass'];
 		}else{
 			header("location: ".SITE_PATH."accountSettings/home");
 		}
 
 		
-		if($this->validationObj->validatePassword($_REQUEST['newPass']))
+		if($this->validationObj->validatePassword($_POST['newPass']))
 		{
-		$arrArgs['newPass']	=	$_REQUEST['newPass'];
+		$arrArgs['newPass']	=	$_POST['newPass'];
 		}else{
 			header("location: ".SITE_PATH."home");
 		}

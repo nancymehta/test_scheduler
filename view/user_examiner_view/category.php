@@ -26,7 +26,13 @@
 
 <div class="space"></div>
 	<div class = "category_div">
-<!-- abhishek -->
+
+
+<?php 
+/*
+ * @Auther	--	Abhishek Arora
+ * This form is used for adding new Category
+ */?>
 	<form id="addCategoryForm" action="<?php echo SITE_PATH .'category/manageCategory';?>" name="addCategoryForm" method="post">
 		<label>Category Name:</label>
 		<input type = "text" class="text_right_generic" id = "categoryName" name="categoryName" />

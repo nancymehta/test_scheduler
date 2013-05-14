@@ -16,12 +16,27 @@
 
 include SITE_ROOT.'controller/mainController.php';
 class categoryController extends mainController {
+	
+	public $validationObj;
+	//Making the object of validation Class
+	public function __construct()
+	{
+		$this->validationObj	=	new validation();
+	}
+	
 	// This is the main function which calls other functions
 	function manageCategory() {
 	try {
-		if(isset($_REQUEST['categoryName'])) 	//This is to Add Category
+		
+		if(isset($_POST['categoryName'])) 	//This is to Add Category
 			{
+				if($this->validationObj->validateAlphabate($_REQUEST['categoryName']))
+				{
 				$ArrArgs['catName']		=	$_REQUEST['categoryName'];
+				}else {
+					header("location:".SITE_PATH."category/home");
+					die();
+				}
 				$ArrArgs['userId']		=	$_SESSION['SESS_USER_ID'];
 				$ArrData	=	$this->loadModel('category','addCategory',$ArrArgs);
 				if($ArrData=="done")
@@ -31,9 +46,16 @@ class categoryController extends mainController {
 				}
 			}
 			
-			if(isset($_REQUEST['id'])&&isset($_REQUEST['catName']))
+			if(isset($_GET['id'])&&isset($_GET['catName']))
 			{
+				if($this->validationObj->validateAlphabate($_REQUEST['catName']))
+				{
 				$arrArgs['catName']		=	$_REQUEST['catName'];
+				}else {
+					header("location:".SITE_PATH."category/home");
+					die();
+				}
+								
 				$arrArgs['id']			=	$_REQUEST['id'];
 				$arrArgs['userId']		=	$_SESSION['SESS_USER_ID'];
 				
@@ -44,7 +66,7 @@ class categoryController extends mainController {
 				}else{
 					echo $arrData;
 				}
-			}elseif(isset($_REQUEST['id']))	//This is to delete the category
+			}elseif(isset($_GET['id']))	//This is to delete the category
 			{
 				$arrArgs	=	$_REQUEST['id'];
 				 
@@ -63,11 +85,9 @@ class categoryController extends mainController {
 		}
 	}
 	
-	//Default Function	
+	//Default Function	Which load the view of all categories
 	function home() {
 		$userId		=	$_SESSION['SESS_USER_ID'];
-		//echo $userId;
-		//die();
 		
 		$ArrData	=	$this->loadModel('category','viewCategory',$userId);
 
