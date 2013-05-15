@@ -10,6 +10,7 @@
 *Siddarth							12/5/13			worked on test settings
 *Ashwani		Certificate			12/5/13			Added methods for certificate management 
 *Siddarth		manage qs			13/5/13			added manageQuestion
+*Ashwani 		Create Certificate  15/5/13			Serverside validation added
 ************************************************************
 *
 */
@@ -221,23 +222,34 @@ class createTestController extends mainController {
 	# method to create certificate 
 	function certificateCreate() { 
 		try { 
-			if ((! empty ($_POST ['certificate_name'])) && 
-				(! empty ($_POST ['certificate_body'])))	{
-				$certificateName	 = strip_tags ($_POST ['certificate_name']);
-				$certificateBody 	 = strip_tags ($_POST ['certificate_body']);
-				$arrArgs = array (
-						'name' 				=> $certificateName,			
-						'certificate_body' 	=> $certificateBody 
-				);
-				$boolResult = $this->loadModel ( 'createTest', 'createNewCertificate', $arrArgs );
-				if ($boolResult) {
-					echo 'created the certificate successfully';
-				} else {
-					echo 'could not create certificate';
+			$validation =new validation();
+			
+			if ($validation->checkRequired($_POST ['certificate_name']) &&
+				$validation->checkRequired($_POST ['certificate_body'])) {
+				
+				if ($validation->validateAlphabate($_POST ['certificate_name']) && 
+					$validation->validateAlphabate($_POST ['certificate_body'])) {
+					
+						if ($validation->checkLength($_POST ['certificate_name'],1,30) && 
+							$validation->checkLength($_POST ['certificate_body'],1,100)) {
+						
+							$certificateName	 = strip_tags ($_POST ['certificate_name']);
+							$certificateBody 	 = strip_tags ($_POST ['certificate_body']);
+							$arrArgs = array (
+										'name' 				=> $certificateName,			
+										'certificate_body' 	=> $certificateBody 
+										);
+							$boolResult = $this->loadModel ( 'createTest', 'createNewCertificate', $arrArgs );
+							if ($boolResult) {
+								echo 'created the certificate successfully';
+							} else {
+								echo 'could not create certificate';
+							}
+						}	
+					} else {
+					echo "please enter valid input";
 				}
-			} else {
-					echo "no input";
-			}
+			} 
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}
@@ -261,7 +273,7 @@ class createTestController extends mainController {
 								$body="asdasdadasd";
 								$output = shell_exec("chmod 777 misc -R");
 								echo "$output";
-								$attach=SITE_PATH.'misc/SavedCertificate/'.$certficateName.'.jpeg';
+								$attach=SITE_PATH.'misc/SavedCertificate/'.$email.'.jpeg';
 								$attach="'".$attach."'";
 								mailTest ( $email, 'info.test.scheduler@gmail.com', $body);
 						 }

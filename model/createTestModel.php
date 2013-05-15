@@ -479,18 +479,19 @@ class createTestModel extends dbConnectModel {
 					$marksObtained	= $value['score'];
 					$imagePath		= $value['upload_path'];
 					$email			= $value['email_enroll_no'];
-					$imageSavePath=DOC_ROOT."/misc/SavedCertificate/".$certficateName.".jpeg";	
+					$completeName	= $firstName." ".$lastName ;
+					$imageSavePath=DOC_ROOT."/misc/SavedCertificate/".$email.".jpeg";	
 				 
 					$font = 8;		#fontsize for writing details on certificate
 					$im = ImageCreateFromJPEG( $imagePath );
 			
 					$backgroundColor = imagecolorallocate ($im, 255, 255, 255);
 					$textColor = imagecolorallocate ($im, 0, 0,0);
-				
+
 					#writing user specific details on the certificate
-					imagestring ($im, $font, 60 , 100 ,  $firstName      , $textColor);
-					imagestring ($im, $font, 50 , 100,  $certficateName, $textColor);
-				//	imagestring ($im, $font, 70 , 120,  $marksObtained , $textColor);
+					imagestring ($im, $font, 60 , 80,  $completeName   , $textColor);
+					imagestring ($im, $font, 50 , 110,  $certficateName , $textColor);
+					imagestring ($im, $font, 70 , 130,  $marksObtained  , $textColor);
 				//	imagestring ($im, $font, 100, 120,  $totralMarks   , $textColor);
 				//	imagestring ($im, $font, 100, 144,  $testDate      , $textColor);
 				
