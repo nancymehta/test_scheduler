@@ -89,48 +89,48 @@ function bulkUploadController() {
 				
 				if($flag){
 					$arrArgs = array(
-							'question'=> @$_POST['question'],
-							'option1'=> @$_POST['ques1'],
-							'option2'=> @$_POST['ques2']
+							'question'=> htmlentities($_POST['question']),
+							'option1'=> htmlentities($_POST['ques1']),
+							'option2'=> htmlentities($_POST['ques2'])
 					);
 					if (!empty($_POST['check1'])){
-						$arrArgs['ans1']= @$_POST['check1'];
+						$arrArgs['ans1']= $_POST['check1'];
 					}
 					if (!empty($_POST['check2'])){
-						$arrArgs['ans2']= @$_POST['check2'];
+						$arrArgs['ans2']= $_POST['check2'];
 					}
 					if (!empty($_POST['feedback1'])){
-						$arrArgs['feedback1']= @$_POST['feedback1'];
+						$arrArgs['feedback1']= strip_tags($_POST['feedback1']);
 					}	
 					if (!empty($_POST['feedback2'])){
-						$arrArgs['feedback2']= @$_POST['feedback2'];
+						$arrArgs['feedback2']= strip_tags($_POST['feedback2']);
 					}	
 					
 					if (!empty($_POST['ques3'])){
-						$arrArgs['option3']= @$_POST['ques3'];
+						$arrArgs['option3']= htmlentities($_POST['ques3']);
 						if (!empty($_POST['check3'])){
 							$arrArgs['ans3']= @$_POST['check3'];
 						}
 						if (!empty($_POST['feedback3'])){
-							$arrArgs['feedback3']= @$_POST['feedback3'];
+							$arrArgs['feedback3']= strip_tags($_POST['feedback3']);
 						}	
 					}
 					if (!empty($_POST['ques4'])){
-						$arrArgs['option4']= @$_POST['ques4'];
+						$arrArgs['option4']= htmlentities($_POST['ques4']);
 						if (!empty($_POST['check4'])){
 							$arrArgs['ans4']= @$_POST['check4'];
 						}
 						if (!empty($_POST['feedback4'])){
-							$arrArgs['feedback4']= @$_POST['feedback4'];
+							$arrArgs['feedback4']= strip_tags($_POST['feedback4']);
 						}
 					}
 					if (!empty($_POST['ques5'])){
-						$arrArgs['option5']= @$_POST['ques5'];
+						$arrArgs['option5']= htmlentities($_POST['ques5']);
 						if (!empty($_POST['check5'])){
 							$arrArgs['ans5']= @$_POST['check5'];
 						}
 						if (!empty($_POST['feedback5'])){
-							$arrArgs['feedback5']= @$_POST['feedback5'];
+							$arrArgs['feedback5']= strip_tags($_POST['feedback5']);
 						}
 					}
 			
