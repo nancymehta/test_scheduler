@@ -33,7 +33,19 @@ $("#testSelect").change(function() {
 	   			$('.s_upload_table').append('<tr class ="odd" id="dynamic"><td><textarea class="text_right_generic" cols=15 rows=1 id=ques'+valincr+' name=ques'+valincr+'></textarea></td><td><input type="checkbox" id=check'+valincr+' name=check'+valincr+' /></td><td><textarea class="text_right_generic" cols=15 rows=1 id=feedback'+valincr+' name=feedback'+valincr+'></textarea> </td></tr>');
 				valincr++;	
 			}
+			
+  /*---- modified by : Amithesh bharti */
+			$("#hiddenValue").val(valincr-1);
+			var vv= $("#hiddenValue").val();
+            
+            $("#aReload").click(function (){
+			
+			      alert('Back');
+			      window.history.back(-1);
+			});
+            
 	   });
+ /*................................................*/	   
 	   $("#removeButton").click(function () {
 		   if(valincr==3){
 			      alert("Minimum 2");
@@ -70,7 +82,6 @@ $("#testSelect").change(function() {
 		$("#view4").click(function(){
   			$("#divView4").toggle("fast");
 		});
-	
 
 });
 

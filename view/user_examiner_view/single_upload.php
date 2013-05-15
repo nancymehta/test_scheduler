@@ -1,3 +1,16 @@
+<?php 
+/*
+ * 
+    modified by :amitesh bharti
+    Date :6-5-13
+    Description : PHP coding added
+    modified by :amitesh bharti
+    Date :14-5-13
+    Description : A hidden element added 
+    * 
+    * */
+?>
+
 <div class="space"></div><div class="space"></div>
   <div class="contact-strip bg-mid-gray"> Question Bank</div>
 <div class="bigmid">
@@ -19,6 +32,7 @@
 				<a href="<?php echo SITE_PATH ?>user/viewAllQuestion">Show question
 					Category wise</a> <br>
 				<div class="innerdiv">
+					<input type='hidden' name='hiddenValue' id='hiddenValue'/>
 					<label> Question type: </label> <select class="select_generic">
 						<option value="0">mcq</option>
 						<option value="1">true/false</option>

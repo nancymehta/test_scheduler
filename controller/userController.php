@@ -57,10 +57,10 @@ class userController extends mainController {
 				"id" => $_SESSION ['SESS_USER_ID'] 
 		) );
 		// print_r($arrData);
-		if(isset($_SESSION['QUES_INSERTED'])){
-			echo $_SESSION['QUES_INSERTED'];
+		if(isset($_SESSION['SESSION_ERROR'])){
+			echo $_SESSION['SESSION_ERROR'];
 		    $this->loadView ( "user_examiner_view/single_upload", $arrData );
-		    unset($_SESSION['QUES_INSERTED']);
+		    unset($_SESSION['SESSION_ERROR']);
 		}
 		else{
 			$this->loadView ( "user_examiner_view/single_upload", $arrData );
