@@ -84,6 +84,23 @@ class userController extends mainController {
 		//print_r($arrData);
 		//die();
 	}
+	function viewedAllQuestions(){
+		/**
+		 * Created By : Amitesh Bharti
+		 * Description : provides functionality to show all question of that user categarywise
+		 * Date_of_creation :14-5-2013
+		 */
+	
+		//print_r($_POST);
+		//echo $_POST['category'];
+		$category= $_POST['category'];
+		$arrData = $this->loadModel ( 'viewAllQuestion','viewAllQuestion', array (
+				"id" => $_SESSION ['SESS_USER_ID'],
+				"category" => $category
+		) );
+		$this->loadView ( "user_examiner_view/viewQuestions", $arrData );
+		//die();
+	}
 	
 	/* provide view for category tab */
 	function certificate() {

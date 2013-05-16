@@ -13,7 +13,7 @@ class questionBankModel extends dbConnectModel {
 		 * Date_of_creation :9-5-2013
 		 */
 		if(isset($arrArgs)){
-		    echo "single manage model";
+			echo "single manage model";
 		    //print_r($arrArgs);
 		    		    
 		    // Finding question_type_id from master table 
