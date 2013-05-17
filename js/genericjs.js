@@ -1,4 +1,20 @@
-$(document).ready(function(){
+/*
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * TRANSFERED WHOLE CODE TO jScript.js BY PANKAJ
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * $(document).ready(function() {
 	//alert("sdfjklasdjf");
 	$("#divView1").css("display","none");
     $("#divView2").hide();
@@ -34,7 +50,7 @@ $("#testSelect").change(function() {
 				valincr++;	
 			}
 			
-  /*---- modified by : Amithesh bharti */
+  ---- modified by : Amithesh bharti 
 			$("#hiddenValue").val(valincr-1);
 			var vv= $("#hiddenValue").val();
             
@@ -45,7 +61,7 @@ $("#testSelect").change(function() {
 			});
             
 	   });
- /*................................................*/	   
+ ................................................	   
 	   $("#removeButton").click(function () {
 		   if(valincr==3){
 			      alert("Minimum 2");
@@ -82,8 +98,7 @@ $("#testSelect").change(function() {
 		$("#view4").click(function(){
   			$("#divView4").toggle("fast");
 		});
-
-});
+});*/
 
 
 

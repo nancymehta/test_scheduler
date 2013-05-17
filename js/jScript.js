@@ -5,11 +5,7 @@ textval = 0;
 
 $(document).ready(function() {
 	/*------------ Js Gaurav Suman---------*/
-	$.validator.addMethod("checkAlpha", function(value, element) 
-			{
-				return this.optional(element) || /^[a-z \-,]+$/i.test(value);
-	    	}
-	    );
+	
 	$("#new_test_div").hide();
 	var flag=0;
 	$("#add_test").click(function(){
@@ -64,11 +60,154 @@ $(document).ready(function() {
 	});
 
 	
-	// jquery by pankaj
+/************************jquery by pankaj**********************************/
 	
+	$("#addCategoryForm").validate({
+		rules: {
+			categoryName:{
+				required:true,
+				checkAlpha:true,				
+			}
+		},
+		messages:{
+			required:"Please enter category name.",
+			checkAlpha:"Only character are required.",
+		},
+	});
+	
+	 $("#login_form").validate({
+         rules: {
+             user_name: {
+                 required: true,
+                 
+             },
+             password : {
+                 required: true,
+               
+             }
+         },
+             
+         messages: {
+             user_name: {
+                 required:"User name is required.<br/>",
+               
+             },
+             password: {
+                 required:"Password is required.<br/>",
+               
+             }
+        },
+     });
+	 
+	$("#register_form").validate( {
+		 rules: {
+         	username:  {
+                 required:true,
+                 checkAlpha:true
+                 },
+                 password:{
+                	 required:true
+                 },
+                 confirm_password: {
+                	 required:true,
+                 	equalTo:"#password"
+                 },
+                 first_name:{
+                	 required:true,
+                	 checkAlpha:true
+                 },
+                 last_name:{
+                	 required:true,
+                	 checkAlpha:true
+                 },
+                 email:{
+                	 required:true,
+                	 email:true
+                 },
+            	},
+              
+         messages: {
+         	username:  {
+         		required:"Please enter user name.", 
+                 checkAlpha:"Only character are required."
+                 },
+            password:{
+                	 required:"Please enter password."
+                 },
+                 confirm_password: {
+                	 required:"Please enter confirm password.",
+                 	equalTo:"Password does't match."
+                 },
+                 first_name:{
+                	 required:"Please enter first name.",
+                	 checkAlpha:"Only character are required."
+                 },
+                 last_name:{
+                	 required:"Please enter last name.",
+                	 checkAlpha:"Only character are required."
+                 },
+                 email:{
+                	 required:"Please enter email.",
+                	 email:"Invalid email."
+                 },
+            	},
+            	
+        });
+	
+	$("#contactus").validate({
+		rules: {
+			contact_name:{
+				required:true,
+				checkAlpha:true				
+			},
+		contact_email: {
+			required:true,
+			email:true
+		},
+		contact_suggestion :{
+			required : true,
+			checkAlpha :true
+		}
+		},
+		messages: {
+			test_name:{
+				required:"Please enter contact name.",
+				checkAlpha:"Only character are required."
+			},
+			contact_email: {
+				required:"Please enter email.",
+				email:"Invalid email."
+			},
+			contact_suggestion :{
+				required : "Enter suggestion",
+				checkAlpha :"Only character are required."
+			}
+		}
+	});
+	
+	
+	$.validator.addMethod("checkAlpha", function(value, element) 
+			{
+				return this.optional(element) || /^[a-z \-,]+$/i.test(value);
+	    	}
+	    );
 	$('#startTime').datetimepicker({ dateFormat: 'yy-mm-dd', timeFormat: 'hh:mm:ss' });
 	$('#endTime').datetimepicker({ dateFormat: 'yy-mm-dd', timeFormat: 'hh:mm:ss' });
 
+	$("#add_test_form").validate({
+		rules: {
+			test_name:{
+				required:true,
+				checkAlpha:true				
+			}
+		},
+		messages: {
+			test_name:{
+				required:"Please enter test name.",
+				checkAlpha:"Only character are required."
+			},
+		}
+	});
 	
 	$("#option1").validate({
 		rules: {
@@ -105,7 +244,7 @@ $(document).ready(function() {
 	});
 	
 	
-	$("#tog_random").click(function(){
+	/*$("#tog_random").click(function(){
 		$("#dotog_random").toggle();
 		});
 		$("#tog_randomopt1").click(function(){
@@ -119,7 +258,7 @@ $(document).ready(function() {
 		});
 		$('#editLink_tn').click(function(){
 		$('#misc_cat hide').show();
-		});
+		});*/
 	
 
 	
@@ -190,9 +329,127 @@ $(document).ready(function() {
 				
 			}
 		});
+	
+	$("#edit-delete").validate({
+		rules: {
+			reason:{
+				required:true,
+					checkAlpha:true				
+			},
+			userName:{
+				required:true,
+				checkAlpha:true				
+			},
+			userPassword:{
+				required: true,				
+			}
+		},
+		
+		messages: {
+			reason:{
+				required:"Enter reason for leaving.",
+				checkAlpha:"Only character are required."
+			},
+			userName:{
+				required:"Enter user name.",
+				checkAlpha:"Only character are required."
+			},
+			userPassword:{
+				required:"Enter password.",
+			}
+		}
+	});
+	
 
 //js suraj
+	$("#divView1").css("display","none");
+    $("#divView2").hide();
+    $("#divView3").hide();
+    $("#divView4").hide();
+// ankit js for result
+ $(".all_result_table").css({"display":"none"});
+	
 
+$("#testSelect").change(function() {
+       $(".all_result_table").css({"display":"block"});
+       var a=$("#testSelect").val();
+       $("#show_result").load("index.php","controller=result&function=getResults&testId="+a);
+       
+      
+  
+    });
+
+//--------------------------------------------------------------------------------
+	// js of user_examiner view...
+	var valincr = 3;
+	   $("#addButton").click(function (){
+		  if(valincr>5){
+	            alert("Maximum 5");
+	            return false;
+			}   
+		  if(valincr % 2 == 0) {
+				$('.s_upload_table').append('<tr class ="even" id="dynamic"><td><textarea class="text_right_generic" cols=15 rows=1 id=ques'+valincr+' name=ques'+valincr+'></textarea></td><td><input type="checkbox" id=check'+valincr+' name=check'+valincr+' /></td><td><textarea class="text_right_generic" cols=15 rows=1 id=feedback'+valincr+' name=feedback'+valincr+'></textarea> </td></tr>');
+					valincr++;	
+				
+	   		} else {
+	   			$('.s_upload_table').append('<tr class ="odd" id="dynamic"><td><textarea class="text_right_generic" cols=15 rows=1 id=ques'+valincr+' name=ques'+valincr+'></textarea></td><td><input type="checkbox" id=check'+valincr+' name=check'+valincr+' /></td><td><textarea class="text_right_generic" cols=15 rows=1 id=feedback'+valincr+' name=feedback'+valincr+'></textarea> </td></tr>');
+				valincr++;	
+			}
+			
+  /*---- modified by : Amithesh bharti */
+			$("#hiddenValue").val(valincr-1);
+			var vv= $("#hiddenValue").val();
+            
+            $("#aReload").click(function (){
+			
+			      alert('Back');
+			      window.history.back(-1);
+			});
+            
+	   });
+ /*................................................*/	   
+	   $("#removeButton").click(function () {
+		   if(valincr==3){
+			      alert("Minimum 2");
+		          return false;
+		       }
+	       valincr--;
+	        $("#dynamic").remove();  	
+		});
+	   
+	   $("#tog_random").click(function(){
+  			$("#dotog_random").toggle();
+		});
+	   
+		$("#tog_randomopt1").click(function(){
+			$('#dotog_randomopt1').toggle();
+		});
+		
+		$('#tog_randomopt2').click(function(){
+			$('#dotog_randomopt2').toggle();
+		});
+		
+		$('#tog_certs').click(function(){
+			$('#dotog_certs').toggle();
+		});
+		
+		$("#add_test").click(function(){
+		$(".add_test").show();
+		});
+		
+		$("#view1").click(function(){
+  			$("#divView1").toggle("fast");
+		});
+		
+		$("#view2").click(function(){
+  			$("#divView2").toggle("fast");
+		});
+		$("#view3").click(function(){
+  			$("#divView3").toggle("fast");
+		});
+		$("#view4").click(function(){
+  			$("#divView4").toggle("fast");
+		});
 
     $('body').click(function(){
     
@@ -499,157 +756,6 @@ $(document).ready(function() {
 
 /************************Validations by pankaj**********************************/
 
-//Registration form
-
-	
-
-
-$(document).ready(function() {
-	 $("#login_form").validate({
-         rules: {
-             user_name: {
-                 required: true,
-                 
-             },
-             password : {
-                 required: true,
-               
-             }
-         },
-             
-         messages: {
-             user_name: {
-                 required:"User Name Is Required.<br/>",
-               
-             },
-             password: {
-                 required:"Password Is Required.<br/>",
-               
-             }
-        },
-     });
-	 
-	$("#register_form").validate( {
-		 rules: {
-         	username:  {
-                 required:true,
-                 checkAlpha:true
-                 },
-                 password:{
-                	 required:true
-                 },
-                 confirm_password: {
-                	 required:true,
-                 	equalTo:"#password"
-                 },
-                 first_name:{
-                	 required:true,
-                	 checkAlpha:true
-                 },
-                 last_name:{
-                	 required:true,
-                	 checkAlpha:true
-                 },
-                 email:{
-                	 required:true,
-                	 email:true
-                 },
-            	},
-              
-         messages: {
-         	username:  {
-         		required:"Please enter user name.", 
-                 checkAlpha:"Only character are required."
-                 },
-            password:{
-                	 required:"Please enter password."
-                 },
-                 confirm_password: {
-                	 required:"Please enter confirm password.",
-                 	equalTo:"Password does't match."
-                 },
-                 first_name:{
-                	 required:"Please enter first name.",
-                	 checkAlpha:"Only character are required."
-                 },
-                 last_name:{
-                	 required:"Please enter last name.",
-                	 checkAlpha:"Only character are required."
-                 },
-                 email:{
-                	 required:"Please enter email.",
-                	 email:"Invalid email."
-                 },
-            	},
-            	
-        });
-	
-	$("#contactus").validate({
-		rules: {
-			contact_name:{
-				required:true,
-				checkAlpha:true				
-			},
-		contact_email: {
-			required:true,
-			email:true
-		},
-		contact_suggestion :{
-			required : true,
-			checkAlpha :true
-		}
-		},
-		messages: {
-			test_name:{
-				required:"Please enter contact name.",
-				checkAlpha:"Only character are required."
-			},
-			contact_email: {
-				required:"Please enter email.",
-				email:"Invalid email."
-			},
-			contact_suggestion :{
-				required : "Enter suggestion",
-				checkAlpha :"Only character are required."
-			}
-		}
-	});
-	
-	});
-
-$(document).ready(function(){
-	$("#addCategoryForm").validate({
-		rules: {
-			categoryName:{
-				required:true,
-				checkAlpha:true,				
-			}
-		},
-		messages:{
-			required:"Please enter category name.",
-			checkAlpha:"Only character are required.",
-		},
-	});
-});
-
-$(document).ready(function(){
-	$("#add_test_form").validate({
-		rules: {
-			test_name:{
-				required:true,
-				checkAlpha:true				
-			}
-		},
-		messages: {
-			test_name:{
-				required:"Please enter test name.",
-				checkAlpha:"Only character are required."
-			},
-		}
-	});
-});  
-
-
 function valid_search_user()
 	{
 		if(($("#first_name").val() == '') && ($("#last_name").val() == '') && ($("#email").val() == ''))
@@ -693,7 +799,6 @@ function valid_search_user()
 				}
 			}
 	}
-
 
 
 function validateCertificate()

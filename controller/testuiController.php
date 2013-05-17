@@ -184,4 +184,18 @@ class testuiController extends common{
   	$this->loadView("user_examiner/user_result");
   }
   
+  function confirm_login()
+  {
+  	$this->loadView("header");
+  	
+  	$this->loadView("confirm_login");
+  }
+  
+  function confirm_register()
+  {
+  	$this->loadView("header");
+  	 
+  	$this->loadView("confirmregister");
+  }
+  
 }
