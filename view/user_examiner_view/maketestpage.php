@@ -35,6 +35,7 @@
 					<label>Test Name :</label> <input type="text"
 						class="text_right_generic" id="test_name" name="test_name" />
 					<div class="space"></div>
+					
 					<label>Category Type :</label> <select id="category_name"
 						class="select_generic" name="category_name[]" multiple>
 								<?php
@@ -47,10 +48,12 @@
 								}
 								?>
 							</select>
+						
 					<div class="space"></div>
 					<input type="submit" id="submit" name="submit" value="Submit"
 						class="submmit_button_generic" />
-				</form>
+						
+						</form>
 			</div>
 			<div class="space"></div>
 			<table class="table-generic table1" id="shubh">

@@ -5,7 +5,11 @@ textval = 0;
 
 $(document).ready(function() {
 	/*------------ Js Gaurav Suman---------*/
-
+	$.validator.addMethod("checkAlpha", function(value, element) 
+			{
+				return this.optional(element) || /^[a-z \-,]+$/i.test(value);
+	    	}
+	    );
 	$("#new_test_div").hide();
 	var flag=0;
 	$("#add_test").click(function(){
@@ -152,6 +156,8 @@ $(document).ready(function() {
 	});
 	
 	
+	
+	
 	$("#exam_settings").validate({
 			rules: {
 				timeDuration:{
@@ -184,6 +190,7 @@ $(document).ready(function() {
 				
 			}
 		});
+
 //js suraj
 
 
@@ -493,13 +500,9 @@ $(document).ready(function() {
 /************************Validations by pankaj**********************************/
 
 //Registration form
-$(document).ready(function(){
-	$.validator.addMethod("checkAlpha", function(value, element) 
-		{
-			return this.optional(element) || /^[a-z \-,]+$/i.test(value);
-    	}
-    );
-});
+
+	
+
 
 $(document).ready(function() {
 	 $("#login_form").validate({
@@ -693,8 +696,41 @@ function valid_search_user()
 
 
 
-
-
+function validateCertificate()
+{
+	var valid = $("#certificateEdit").validate({
+		rules: {
+			certificate_name:{
+				required:true,
+				checkAlpha:true,
+				maxlength:30
+			},
+			certificate_body:{
+				required:true,
+				checkAlpha:true,
+				maxlength:100
+			}
+		
+		},
+		messages: {
+			certificate_name:{
+				required:"Please enter certificate name.",
+				checkAlpha:"Only character value are required.",
+				maxlength:"Only 30 character are required."
+			},
+			certificate_body:{
+				required:"Please enter certificate body.",
+				checkAlpha:"Only character value are required.",
+				maxlength:"Only 100 character are required."
+			}
+			
+		}
+	}).form();
+	
+	if(valid) {
+		createCertificate();
+	}
+}
 
 
 

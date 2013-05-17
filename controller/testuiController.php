@@ -144,4 +144,44 @@ class testuiController extends common{
   	
   }
   
+  function feedback()
+  {
+  	$this->loadView("header");
+  	$this->loadView("user_header");
+  	//$this->loadView("admin_view/deshboard_menu");
+  	$this->loadView("admin_view/feedbackmanagement");
+  }
+  
+  function showUserDetails()
+  {
+  	$this->loadView("header");
+  	$this->loadView("user_header");
+  	//$this->loadView("admin_view/deshboard_menu");
+  	$this->loadView("admin_view/showUserDetails");
+  }
+  
+  function manageQuestions()
+  {
+  	$this->loadView("header");
+  	$this->loadView("user_header");
+  	//$this->loadView("admin_view/deshboard_menu");
+  	$this->loadView("user_examiner/manageQuestions");
+  }
+  
+  function test_management()
+  {
+  	$this->loadView("header");
+  	$this->loadView("user_header");
+  	//$this->loadView("admin_view/deshboard_menu");
+  	$this->loadView("user_examiner/test_management");
+  }
+  
+  function user_result()
+  {
+  	$this->loadView("header");
+  	$this->loadView("user_header");
+  	//$this->loadView("admin_view/deshboard_menu");
+  	$this->loadView("user_examiner/user_result");
+  }
+  
 }

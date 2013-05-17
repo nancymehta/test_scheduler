@@ -53,7 +53,7 @@ function createCertificate()
 		<h3>Certificate name</h3>
 		<div>
 			<p>
-			<input type="text" value="" size="30" maxlength="30" id="certificate_name" name="certificate_name">
+			<input type="text" value=""  id="certificate_name" name="certificate_name">
 			<span >Limit 30 characters.</span>
 			</p>
 		</div>
@@ -84,7 +84,7 @@ function createCertificate()
 				</tbody>
 			</table>
 		</div>
-		<input type="button" value="Save certificate" class="submmit_button_generic" onclick="createCertificate()" />
+		<input type="button" value="Save certificate" class="submmit_button_generic" onclick="validateCertificate()" />
 	</form>
 </div>
 <form id="certificateEdit"  name="certificateEdit" action="<?php echo SITE_PATH.'createTest/showCertificate'; ?>" method="post">

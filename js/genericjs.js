@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	alert("sdfjklasdjf");
+	//alert("sdfjklasdjf");
 	$("#divView1").css("display","none");
     $("#divView2").hide();
     $("#divView3").hide();
