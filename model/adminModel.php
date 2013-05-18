@@ -134,7 +134,26 @@ class adminModel extends dbConnectModel{
 		}	
 		
 	}
+	function banUser($id){
+		$userResult=array();
+		$data['conditions'] = array('id'=> $id);
+		$update_row[] = array('status' => '2');
+		foreach($update_row as $row) {
+		     $result = $this->_db->update('validate_users',$row,$data['conditions']);
+		}
 		
+		$banUsers=array();
+		$data['tables'] = 'validate_users';
+		$data['columns']= array('id','username');
+		$data['conditions']=array( 'status'=> '2');
+		$result=$this->_db->select($data);
+		while( $row = $result->fetch(PDO::FETCH_ASSOC) ){
+			$banUsers[]=$row;
+		
+		}
+		return $banUsers;
+	}
+	
 	function feedbackManagementModel(){
 		$feedbackResult=array();
 		$data['tables'] = 'contact_us';

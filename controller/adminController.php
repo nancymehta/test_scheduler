@@ -53,7 +53,7 @@ class adminController extends mainController {
         	}
     }
     
-    function showUserDetails() {
+   function showUserDetails() {
     	try{
     		if (isset ( $_POST ['id'] ) && isset ( $_POST ['request'] )) {
             	if ($_POST ['request'] == 'EDIT') {
@@ -61,13 +61,15 @@ class adminController extends mainController {
                 	$this->loadView ( "admin_view/showUserDetails", $userResult );
             	} else if ($_POST ['request'] == 'DELETE') {
                 	$userResult = $this->loadModel ( "admin", "deleteUser", $_POST ['id'] );
+            		}else if ($_POST ['request'] == 'BANUSER') {
+                	$userResult = $this->loadModel ( "admin", "banUser", $_POST ['id'] );
+                	$this->loadView ( "admin_view/banusereview", $userResult );
             		}
         	}
     	} catch (Exception $e) {
 			$this->handleException($e->getMessage());
 			}
     }
-    
 	function editUserDetails() {
         try{
         	if (isset ( $_POST )) {

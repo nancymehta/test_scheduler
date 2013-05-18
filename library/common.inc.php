@@ -97,7 +97,7 @@ function myErrorHandler($errno, $errstr, $errfile, $errline) {
 		}
 	}
 	/**function to Send Mails from test_scheduler*/
-function mailTest($to,$sub,$body,$attach) {
+function mailTest($to,$sub,$body,$attach='') {
 	
 	$mail = new PHPMailer();
 	$mail->IsSMTP(); // send via SMTP 
