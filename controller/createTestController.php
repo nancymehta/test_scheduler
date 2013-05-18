@@ -205,6 +205,21 @@ class createTestController extends mainController {
 		}
 	}
 	
+	function enableDisableTest() {
+		try {
+			$arrData = $this->loadModel ( 'createTest', 'enableDisableTest', $_POST);
+			if ($arrData){
+				//$_SESSION['SESS_ERROR'] = 
+				echo 'Test Status Changed!!';
+			} else {
+				//$_SESSION['SESS_ERROR'] = 
+				echo 'Test Could not be Enabled/Disabled!!';
+			}
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
 	/********Methods related to certificate management **************/
 
 	# method to show certificate create view

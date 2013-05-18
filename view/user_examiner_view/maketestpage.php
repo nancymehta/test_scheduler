@@ -21,6 +21,20 @@
 			});//ajax function ends here
 		}
 	}
+	
+	function fncEnableDisable(testId,status){
+		if(confirm('Are You Sure')) {
+			$.ajax({
+				type:"POST",
+				url:"http://test_scheduler.com/createTest/enableDisableTest",
+				data:"test_id="+testId+"&status="+status,
+				success:function(result){
+					alert(result);
+					location.reload();
+					}
+			});//ajax function ends here
+		}
+	}
 </script>
 			
 			<div class="space"></div>
@@ -68,7 +82,6 @@
 			<?php
 			$i = 0;
 			$count = 0;
-			echo '<pre>';
 			if (isset ( $arrData ['test'] ['testName'] )) {
 				while ( (! empty ( $arrData ['test'] ['testName'] [$i] )) ) {
 					echo '<tr>';
@@ -77,6 +90,12 @@
 					print_r ( $arrData ['test'] ['testName'] [$i] );
 					echo '</td>';
 					echo '<td><a href="http://test_scheduler.com/createTest/editTest?test_id=' . $arrData ['test'] ['testId'] [$i] . '&test_name=' . $arrData ['test'] ['testName'] [$i] . '">Edit</a></td>';
+					if($arrData ['test'] ['testStatus'] [$i] == '0'){
+						echo "<td><a href='#' onclick=fncEnableDisable(".$arrData ['test'] ['testId'] [$i].",2".")>Disable Test</a></td>";
+					} elseif ($arrData ['test'] ['testStatus'] [$i] == '2') {
+						#first arguement is test id and next is status
+						echo "<td><a href='#' onclick=fncEnableDisable(".$arrData ['test'] ['testId'] [$i].",0".")>Enable Test</a></td>";
+					}
 					echo "<td><a href='#' onclick=fncDelete(".$arrData ['test'] ['testId'] [$i].")>Delete</a></td>";
 					echo '<td><a href="http://test_scheduler.com/user/manageQuestions?test_id='.$arrData ['test'] ['testId'] [$i].'">Manage Questions</a></td>';
 					echo '<td><a href="http://test_scheduler.com/user/examSettings?test_id=' . $arrData ['test'] ['testId'] [$i] . '&test_name=' . $arrData ['test'] ['testName'] [$i] . '">Manage assign test</a></td>';

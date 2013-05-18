@@ -104,11 +104,13 @@ class createTestModel extends dbConnectModel {
 	#Viewing Tests categories
 	public function getTestNames($arrArgs) {
 		try {
+			//enabled tests
 			$testArray = array ();
 			$data ['tables'] = 'test';
 			$data ['columns'] = array (
 					'name',
-					'id' 
+					'id',
+					'status'
 			);
 			$data ['conditions'] = array (
 					'created_by' => $arrArgs ['id'],
@@ -117,10 +119,35 @@ class createTestModel extends dbConnectModel {
 			
 			$result = $this->_db->select ( $data );
 			//print_r($result);die;
-			while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
-				$testArray ['testName'] [] = $row ['name'];
-				$testArray ['testId'] [] = $row ['id'];
+			if ($result) {
+				while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
+					$testArray ['testName'] [] = $row ['name'];
+					$testArray ['testId'] [] = $row ['id'];
+					$testArray ['testStatus'] [] = $row ['status'];
+				}
 			}
+			//disabled tests
+			$data ['tables'] = 'test';
+			$data ['columns'] = array (
+					'name',
+					'id',
+					'status'
+			);
+			$data ['conditions'] = array (
+					'created_by' => $arrArgs ['id'],
+					'status'=>'2'
+			);
+				
+			$result = $this->_db->select ( $data );
+			//print_r($result);die;
+			if ($result) {
+				while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
+					$testArray ['testName'] [] = $row ['name'];
+					$testArray ['testId'] [] = $row ['id'];
+					$testArray ['testStatus'] [] = $row ['status'];
+				}
+			}
+			//echo '<pre>';print_r($testArray);die;
 			return $testArray;
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
@@ -408,6 +435,24 @@ class createTestModel extends dbConnectModel {
 		}
 	}
 	
+	function enableDisableTest($arrArgs) {
+		try {
+			$data = array (
+					'status' =>$arrArgs ['status']
+			);
+			$where = array (
+					'id' => $arrArgs ['test_id']
+			);
+			$result_update = $this->_db->update ( 'test', $data, $where );
+			if ($result_update) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
 	
 	/*********************  Methods related to certificate managment **************/
 	
