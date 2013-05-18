@@ -388,3 +388,9 @@ create table email_template (id int(11) primary key auto_increment, email_type  
 ALTER TABLE `email_template` CHANGE `email_type` `email_type` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
 CHANGE `email_content` `email_content` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
 CHANGE `status` `status` ENUM( '0', '1' ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '0 for active and 1 for inactive';
+
+
+/*altering certificate_master table on 18-05-2013*/
+alter table certificate_master add column test_id int(11)  after name;
+alter table certificate_master add foreign key(test_id) references test(id);
+
