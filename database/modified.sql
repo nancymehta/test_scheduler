@@ -382,4 +382,9 @@ alter table contact_us add status enum('0','1') not null default '0';
 
 ALTER TABLE `contact_us` CHANGE `status` `status` ENUM( '0', '1' ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '0 is Active and 1 is Inactive';
 
+/* table created for email_template on 18-05-2013*/
+create table email_template (id int(11) primary key auto_increment, email_type  varchar(100) unique, email_content text not null, status enum('0','1') not null default '0');
 
+ALTER TABLE `email_template` CHANGE `email_type` `email_type` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `email_content` `email_content` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+CHANGE `status` `status` ENUM( '0', '1' ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '0 for active and 1 for inactive';

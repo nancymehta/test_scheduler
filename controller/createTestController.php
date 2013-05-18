@@ -178,13 +178,13 @@ class createTestController extends mainController {
 	
 	function manageQuestion() {
 		try {
-			$arrData = $this->loadModel ( 'createTest', 'updateTestCategory', $_POST);
-			if ($arrData){
-				$_SESSION['SESS_ERROR'] = 'Question managed!!';
-				header("location:http://test_scheduler.com/user/mytest");
+			$arrData = $this->loadModel ( 'createTest', 'updateTestCategory', $_POST );
+			if ($arrData) {
+				$_SESSION ['SESS_ERROR'] = 'Question managed!!';
+				header ( "location:http://test_scheduler.com/user/mytest" );
 			} else {
-				$_SESSION['SESS_ERROR'] = 'Question could not be managed,you might not have sufficent questions in the question bank!!';
-				header("location:http://test_scheduler.com/user/mytest");
+				$_SESSION ['SESS_ERROR'] = 'Question could not be managed,you might not have sufficent questions in the question bank!!';
+				header ( "location:http://test_scheduler.com/user/mytest" );
 			}
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
