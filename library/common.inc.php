@@ -1,6 +1,7 @@
 <?php
 	require(LIBRARY_ROOT."server_validation/validation.php");
 	require(LIBRARY_ROOT."PHPMailer_5.2.4/class.phpmailer.php");
+	include MODEL_PATH."db_connect.php";
 	//setting custom handler
 	//$old_error_handler = set_error_handler("myErrorHandler");
 function myErrorHandler($errno, $errstr, $errfile, $errline) {
@@ -44,7 +45,57 @@ function myErrorHandler($errno, $errstr, $errfile, $errline) {
     /* Don't execute PHP internal error handler */
     return true;
 }
-	
+	/*
+	 * 
+	 * */
+	function createEmailTemplate($arrData=array()) {
+		if($arrData) {
+			$emailBody="";
+			/*
+			 * Fetching User Name
+			 * */
+			$data=array();
+			$data['tables'] = 'user_profile';
+			$data['columns']= array('first_name','last_name');
+			$data['conditions']	= array(
+					"user_id" => $arrData['id'],
+			);
+			$result = $this->_db->select($data);
+			$row = $result->fetch(PDO::FETCH_ASSOC);
+			$userName=$row['first_name']. " " . $row['last_name'];
+			
+			/*
+			 * Fetching Email Template Content
+			 * */
+			$data=array();
+			$data['tables'] = 'email_template';
+			$data['columns']= array('email_content');
+			$data['conditions']	= array(
+					"email_type" => $arrData['email_type'],
+					"status" => "0"
+			);
+			$result = $this->_db->select($data);
+			
+			$row = $result->fetch(PDO::FETCH_ASSOC);
+			$emailContent=$row['email_content'];
+			$emailBody=str_replace("<USER>",$userName,$emailContent);
+			
+			/*
+			 * Use the following code in case more parameters are needed to be replaced in the
+			 * email content.
+			 * */
+/* 			if($arrData['type']=="registration") {
+				
+			} else  if($arrData['type']=="feedback") {
+				
+			} else  if($arrData['type']=="contactus") {
+				
+			} */
+			return $emailBody; 
+		} else {
+			$_SESSION['SESS_ERROR']="No Data Recieved For Email Template.<br/>";
+		}
+	}
 	/**function to Send Mails from test_scheduler*/
 function mailTest($to,$sub,$body,$attach) {
 	
