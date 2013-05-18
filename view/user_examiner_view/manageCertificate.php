@@ -14,7 +14,7 @@
 <script>
 
 function createCertificate()
-{	
+{	//if(validateCertificate()=="true") { 
 	$.ajax({ 
       type: "POST",
       url : '<?php echo SITE_PATH.'/createTest/certificateCreate'; ?>',                                             
@@ -31,8 +31,8 @@ function createCertificate()
       error: function(){
             
         }
-  
-   });
+	 });
+	//}
  }  
 </script>
 
@@ -47,7 +47,7 @@ function createCertificate()
 
 
 <div id="certificate">
-	<form id="certificateEdit"  name="certificateEdit" action="<?php echo SITE_PATH.'/createTest/certificateCreate'; ?>" method="post">
+	<form id="certificateEdit"  name="certificateEdit" action="<?php echo SITE_PATH.'/certificate/certificateCreate'; ?>" method="post">
 		<input type="hidden" value="" name="certificate_id">
 		<h3>Certificate name</h3>
 		<div>
@@ -83,7 +83,7 @@ function createCertificate()
 				</tbody>
 			</table>
 		</div>
-		<input type="button" value="Save certificate" class="submmit_button_generic" onclick="validateCertificate()" />
+		<input type="button" value="Save certificate" class="submmit_button_generic" onclick="createCertificate()" />
 	</form>
 </div>
 <form id="certificateEdit"  name="certificateEdit" action="<?php echo SITE_PATH.'createTest/showCertificate'; ?>" method="post">

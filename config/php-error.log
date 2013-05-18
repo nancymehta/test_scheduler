@@ -159,3 +159,4 @@
 [18-May-2013 10:52:19 UTC] PHP Warning:  PDO::query(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test_scheduler.activity_log' doesn't exist in /var/www/test_scheduler/trunk/library/cxpdo/cxpdo.php on line 58
 [18-May-2013 10:52:33 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 36
 [18-May-2013 10:52:33 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 36
+[18-May-2013 11:40:53 UTC] PHP Warning:  PDO::query(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test_scheduler.activity_log' doesn't exist in /var/www/test_scheduler/trunk/library/cxpdo/cxpdo.php on line 58
