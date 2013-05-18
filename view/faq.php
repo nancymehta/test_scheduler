@@ -6,6 +6,9 @@
   .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
   .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
   .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
+	.ui-accordion-content {
+	max-height:30%;
+}
   </style>
  
  <script>
