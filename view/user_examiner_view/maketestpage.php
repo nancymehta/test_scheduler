@@ -74,7 +74,7 @@
 					<tr>
 						<th>S.No.</th>
 						<th>Test</th>
-						<th colspan="4">Option</th>
+						<th colspan="5">Option</th>
 						<th>Test Link</th>
 					</tr>
 				</thead>
