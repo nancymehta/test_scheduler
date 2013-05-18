@@ -14,19 +14,33 @@
 /*Function Name:submit1,parameter passed:1 ,to submit the id of the user*/
 		function submit1(id,request)
 		{
-        	$.ajax( {
-				type: "POST",
-				url: "<?php echo SITE_PATH;?>admin/showUserDetails",
-				data: "id="+id+"&request="+request,
-			    success: function(response){
-					if(request=='DELETE'){
-						alert("<?php echo UMSG;?>");
-						window.location.href="<?php echo SITE_PATH;?>admin/usermanagement";
-					} else{
-                			$(".um").html(response);
-						}
-                			},
-			} );
+			if(request=='DELETE'){
+				if(confirm("<?php echo UMSG3;?>")){
+			
+	        		$.ajax( {
+					type: "POST",
+					url: "<?php echo SITE_PATH;?>admin/showUserDetails",
+					data: "id="+id+"&request=DELETE",
+				    success: function(response){
+							alert("<?php echo UMSG;?>");
+							window.location.href="<?php echo SITE_PATH;?>admin/usermanagement";
+						
+	                		},
+					} );
+				}
+			}else {
+				if(request=='EDIT'){
+				$.ajax( {
+					type: "POST",
+					url: "<?php echo SITE_PATH;?>admin/showUserDetails",
+					data: "id="+id+"&request=EDIT",
+				    success: function(response){
+	                			$(".um").html(response);
+	                		},
+				} );
+				}
+			}
+				
 		} 
 
 </script>
