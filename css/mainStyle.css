@@ -160,7 +160,7 @@ a{
      left: 0;
      margin-bottom:100px; 
      opacity: 0.98;
-     z-index: 9999999999;
+     z-index: 0;
 
 }
 .mainContainer .header  h1{
@@ -434,7 +434,7 @@ h1 {
     color: #000;
     font-family: verdana;
     font-weight: bold;
-    font-size: 1.8em;
+    font-size: 1.4em;
     text-align: left;
     margin: 2px;
     font-style: italic;
@@ -977,7 +977,10 @@ background-color:#0000FF;
 background-color:#3BB9FF;
 }
 .bg-vib-blue{
-	background-color: #295292;
+	background-color: #336699;
+-webkit-box-shadow: #336699 0px -1px 0px;
+-moz-box-shadow: #336699 0px -1px 0px;
+box-shadow: #336699 0px -1px 0px;
 }
 .bg-mid-gray{
 background-color: #9B9B9B;
@@ -1049,4 +1052,5 @@ background-color: #9B9B9B;
 	width: 100%;
 }
 /*----------------------- End of  Generic Classes ----------------------------------------*/
+
 

@@ -144,7 +144,7 @@ margin-left:1.5%;
 
 .menu_container{
 	width: 100%;
-	height: 118px;
+	height: 50px;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -153,10 +153,10 @@ opacity: 0.9;
 }
 .links {
 	position: fixed;
-	top 				: 	75;
-	float 					:   left;
-	left 			:  200px;
-
+	top 	: 	18px;
+	float	:   left;
+	left 	:  300px;
+    z-index: 50;
 
 }
 
@@ -169,7 +169,7 @@ opacity: 0.9;
 	display 				: 	inline-block;
 	background-color 		:   #585858;
 	text-decoration 		:   none;
-	color 					:   white; 	
+	color 					:   #FFAB68; 	
 	float 					:	left;				
 
 	border-radius			:	5px;
@@ -196,7 +196,8 @@ opacity: 0.9;
 	display 				: 	inline-block;
 	background-color 		:   #585858;
 	text-decoration 		:   none;
-	color 					:   white; 	
+	color 					:   #FFAB68;
+		
 	float 					:	left;				
 
 	border-radius			:	5px;
@@ -218,7 +219,7 @@ opacity: 0.9;
 .menu-services  {
 
 	list-style-type			: none;
-	left					:   295;
+	left					:   340;
 	padding					:	1px;
 	font-size 				:	0.5em;
 	display 				: 	inline-block;
@@ -230,9 +231,9 @@ opacity: 0.9;
     text-align				: 	left;
     height                  :   auto;
 	position 				:   fixed;
-	top 				: 	115px;
+	top 				    : 	54px;
 	color 					:   black;
-	z-index					:	999999;
+	z-index					:	50px;
 	border                  :   1px solid 	white;
 	background-color		: #9B9B9B;
 
@@ -354,10 +355,9 @@ opacity: 0.9;
 	padding					:	9px;
 	font-weight				: 	bold;
 	font-size 				:	0.6em;
-	background-color 		:   #295292;
-	color 					:   white; 	
+	background-color 		:  #336699;
+	color 					:   #FFAB68; 	
 	float 					:	right;				
-
 	border-radius			:	5px;
 
 }
@@ -453,7 +453,7 @@ margin-top:1px;
 .table-generic th,div table th{
 	padding					: 15px;
 	border-radius				: 5px;
-	background-color: #295292;
+	background-color:#336699	;
 	color 				: white;
 	
 
@@ -475,7 +475,7 @@ margin-top:1px;
 	padding					:	9px;
 	font-weight				: 	bold;
 	font-size 				:	0.7em;
-	background-color 		:   #295292;
+	background-color 		:  #336699;
 	color 					:   white; 	
 
 	float 					:	right;				
