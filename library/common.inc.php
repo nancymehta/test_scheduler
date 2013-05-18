@@ -1,7 +1,7 @@
 <?php
 	require(LIBRARY_ROOT."server_validation/validation.php");
 	require(LIBRARY_ROOT."PHPMailer_5.2.4/class.phpmailer.php");
-	include MODEL_PATH."db_connect.php";
+	//include_once(MODEL_PATH."db_connect.php");
 	//setting custom handler
 	//$old_error_handler = set_error_handler("myErrorHandler");
 function myErrorHandler($errno, $errstr, $errfile, $errline) {
