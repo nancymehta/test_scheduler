@@ -436,3 +436,6 @@ CURRENT_TIMESTAMP , '2', NULL
 NULL , 'activity_log_type', 'registration', '0', '2013-05-18 13:00:00',
 CURRENT_TIMESTAMP , '2', NULL
 );
+
+/*altering activity_log table on 18-05-2013*/
+ALTER TABLE `activity_log` ADD `ip_address` VARCHAR( 40 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER `type`;
