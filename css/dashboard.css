@@ -537,3 +537,8 @@ font-weight: 100;
 .floatl{
     float: left;
 }
+
+
+a:focus,a:active,a:visited{
+	 outline: 0px solid white;
+}

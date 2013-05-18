@@ -1,4 +1,4 @@
-<div class="menu_container bg-mid-gray">
+<div class="menu_container">
 
 <div class="links">
 	<a id = "home" href ="<?php echo SITE_PATH; ?>">Home</a>
