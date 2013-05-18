@@ -439,3 +439,12 @@ CURRENT_TIMESTAMP , '2', NULL
 
 /*altering activity_log table on 18-05-2013*/
 ALTER TABLE `activity_log` ADD `ip_address` VARCHAR( 40 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER `type`;
+
+
+/* insertion in email_template table on 18-05-2013*/
+INSERT INTO `email_template` VALUES (1,'registration','<b>Congratulation ! <USER> .</b><br/>You have been successfully registered with Test_Scheduler.<br/>You now may use your registered UserName and Password to continue with the Login.<br/><pre>        Login Link: http://test_scheduler.com/loadLogin</pre><br/>','0'),(2,'feedback','<b>Hello ! <USER> </b><br/>\r\nWe are grateful to recieve your precious feedback.<br/>\r\nWe will try our best to respond to your query as soon as possible.<br/>\r\n<br/>\r\nThank You.\r\n','0'),(3,'contactus','<b>Hello ! <USER> </b><br/>\r\nHope you are doing well.<br/>\r\nWe are pleasured to have you as our precious member.<br/>\r\nFor any queries you can contact us at : http://test_scheduler.com\r\n<br/>\r\nThank You\r\n<br/>\r\n','0');
+
+
+
+
+
