@@ -27,8 +27,7 @@
 	
 
 </script>
-  <div class="contact-strip bg-mid-gray">
- Available Test </div>
+
 <div class="bigmid" >
 <div class="midpanel">
 

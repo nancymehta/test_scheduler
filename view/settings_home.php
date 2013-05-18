@@ -8,10 +8,7 @@ $(function() {
 $( "#accordion" ).accordion();
 });
 </script>
- <div class="full-width bg-light-grey fg-dark-blue floatl font-large ">
-<div class="space"></div> Account Settings </div>
-<div class="space"></div><div class="space"></div>
-
+ 
 <div id="accordion" >
 <h3>View Details</h3>
 <div >

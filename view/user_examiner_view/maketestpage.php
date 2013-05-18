@@ -1,5 +1,4 @@
-  <div class="contact-strip bg-mid-gray">
- Home </div>
+  
 <div class="bigmid">
 
 	<div class="midpanel" style="width: auto;">

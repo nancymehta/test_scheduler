@@ -12,7 +12,7 @@
 ?>
 
 <div class="space"></div><div class="space"></div>
-  <div class="contact-strip bg-mid-gray"> Question Bank</div>
+ 
 <div class="bigmid">
 	<div class="midpanel">
 

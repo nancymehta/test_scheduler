@@ -1,5 +1,4 @@
-  <div class="contact-strip bg-mid-gray">
-Result</div>
+  
 <div class="bigmid" >
 <div class="midpanel" >
 

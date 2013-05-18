@@ -230,7 +230,11 @@ margin-left:1.5%;
 	top 				    : 	72;
 	color 					:   black;
 	z-index					:	50px;
-background-color:#336699 ;
+
+	background-color: #336699;
+-webkit-box-shadow: #336699 10px -1px 0px;
+-moz-box-shadow: #336699 10px -1px 10px;
+box-shadow: #336699 0px -1px 10px;	
 }
 
 .tech-services  {	
