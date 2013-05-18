@@ -27,26 +27,20 @@ if(isset($arrData)){
 while ( $row = $arrData->fetch ( PDO::FETCH_ASSOC ) ) {
 //print_r( $row );	
 	?>
-				<tr>
+			<tr>
 
 				<td width='24%'><?php echo $row['question'];?></td>
-			<!--	<td width='14%'><?//php echo $row['A'];?></td>
-				<td width='14%'><?php // echo $row['B'];?></td>
+				<td width='14%'><?php //echo $row['id'];?></td>
+		    <!--    <td width='14%'><?php // echo $row['B'];?></td>
 				<td width='14%'><?php // echo $row['C'];?></td>
 				<td width='14%'><?php // echo $row['D'];?></td>
 				<td width='3%'><?php // echo $row['ans'];?></td> -->
-
-				<td width='13%'><a href=<?php echo SITE_PATH;?>
-					index.php?controller=managetest&function=deleteQues&testname=
-					<?php echo $_SESSION['test'];?>&value=delete&qid=
-					<?php echo $row['qno'];?>>delete</a>&nbsp; <a
-					href=<?php echo SITE_PATH;?>
-					index.php?controller=managetest&function=editQues&testname=
-					<?php echo $_SESSION['test'];?>&value=edit&qid=
-					<?php echo $row['qno'];?>>edit</a></td>
-			</tr>
-					 <?php }}?>
-                                        </table>
+				<?php $_SESSION['SESS_CATEGORY_ID']= $row['category_id']; ?>
+             	<td width='13%'><a href="<?php  echo SITE_PATH; ?>questionBank/deleteQues?qid=<?php echo $row['id'];?>&category=<?php echo $row['category_id'];?>">delete</a>&nbsp;
+				</td>
+		   </tr>
+<?php }}?>
+        </table>
 	</div>
 </body>
 </html>

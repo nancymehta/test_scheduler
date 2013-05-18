@@ -154,5 +154,64 @@ function bulkUploadController() {
 			$this->handleException($e->getMessage());
 		}
 	}
+	
+	 /*function will delete questions from particular test*/   
+    public function deleteQues()
+    {
+		//die('delete');
+	     //print_r($_GET);
+			
+		     $qid	= $_GET['qid'];
+		   	 $arrData['qid']=$qid;
+			 $result=$this->loadModel('viewAllQuestion','deleteQues',$arrData);
+			 // $result =	this->loadModel('viewAllQuestion','deleteQues',$arrArgs);
+						 
+			 if($result==1){
+			     $_SESSION['SESSION_ERROR']= 'Question Deleted successfully';
+					  // header("location: ".SITE_PATH."index.php?controller=managetest&function=showQues");
+					$category_id=$_SESSION['SESS_CATEGORY_ID'];
+				    unset($_SESSION['SESS_CATEGORY_ID']);
+				    header("location:".SITE_PATH."user/viewedAllQuestions?category= $category_id");	
+					
+					  
+				}
+				else{
+				    $_SESSION['SESSION_ERROR']= 'Question Deleted Unsuccessful';	 
+				    $category_id=$_SESSION['SESS_CATEGORY_ID'];
+				    unset($_SESSION['SESS_CATEGORY_ID']);
+				    header("location:".SITE_PATH."user/viewedAllQuestions?category= $category_id");	
+					}
+				    
+    }
+    /*function will edit questions from particular test*/   
+    public function editQues()
+    {
+		die('edit');
+//      print_r($_REQUEST);
+        $qid	=	$_REQUEST['qid'];
+		$result	=	loadModel('managetest','editQues',$qid);
+//      print_r($result);
+        loadView('editques.php',$result);
+		
+    }
+    /*function will update questions from particular test*/       
+    public function quesUpdate(){
+		die('edited');
+		//	print_r($_REQUEST);
+        $questionAnswers['qid']		=	$_REQUEST['qid'];
+        $questionAnswers['question']	=	$_REQUEST['question'];
+        $questionAnswers['A']		=	$_REQUEST['A'];
+        $questionAnswers['B']		=	$_REQUEST['B'];
+        $questionAnswers['C']		=	$_REQUEST['C'];
+        $questionAnswers['D']		=	$_REQUEST['D'];
+        $questionAnswers['ans']		=	$_REQUEST['ans'];
+		//      print_r($questionAnswers);
+        $result	=	loadModel('managetest','quesUpdate',$questionAnswers);
+        	
+        if($result=="updated"){
+				header("location: ".SITE_PATH."index.php?controller=managetest&function=showQues");
+			}
+        
+        }
 }
 ?>

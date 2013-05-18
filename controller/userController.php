@@ -87,19 +87,31 @@ class userController extends mainController {
 	function viewedAllQuestions(){
 		/**
 		 * Created By : Amitesh Bharti
-		 * Description : provides functionality to show all question of that user categarywise
+		 * Description : provides functionality to show all question with delete and edit option
 		 * Date_of_creation :14-5-2013
 		 */
 	
-		//print_r($_POST);
-		//echo $_POST['category'];
-		$category= $_POST['category'];
-		$arrData = $this->loadModel ( 'viewAllQuestion','viewAllQuestion', array (
-				"id" => $_SESSION ['SESS_USER_ID'],
-				"category" => $category
-		) );
-		$this->loadView ( "user_examiner_view/viewQuestions", $arrData );
-		//die();
+	    if(isset($_SESSION['SESSION_ERROR'])){
+			echo $_SESSION['SESSION_ERROR'];
+			//print_r($_POST);
+			//echo $_POST['category'];
+			  echo '----------->'.$category= $_REQUEST['category'];
+			$arrData = $this->loadModel ( 'viewAllQuestion','viewAllQuestion', array (
+					"id" => $_SESSION ['SESS_USER_ID'],
+					"category" => $category
+					
+			) );
+				unset($_SESSION['SESSION_ERROR']);
+			$this->loadView ( "user_examiner_view/viewQuestions", $arrData );
+			//die();
+	   }else{
+		    $category= $_REQUEST['category'];
+			$arrData = $this->loadModel ( 'viewAllQuestion','viewAllQuestion', array (
+					"id" => $_SESSION ['SESS_USER_ID'],
+					"category" => $category
+			) );
+			$this->loadView ( "user_examiner_view/viewQuestions", $arrData );    
+		}
 	}
 	
 	/* provide view for category tab */

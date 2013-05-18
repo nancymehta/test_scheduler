@@ -16,7 +16,7 @@ class viewAllQuestionModel extends dbConnectModel {
 			
 			//print_r($arrArgs);
 			//find category_id using the selected dropdown list
-			
+			if(!isset($_SESSION['SESSION_ERROR'])){
 			$data['tables'] = 'category';
 			$data['columns']= array('id');
 			$data['conditions']	= array(
@@ -28,6 +28,10 @@ class viewAllQuestionModel extends dbConnectModel {
 			$row = $result->fetch(PDO::FETCH_ASSOC);
 			//print_r($result);
 			$category_id = $row['id'];
+		    }
+		    else{
+			    $category_id = $arrArgs['category'];	
+			}
 			//echo $category_id;
 			
 			// select question  using categry id  of that user.
@@ -53,7 +57,7 @@ class viewAllQuestionModel extends dbConnectModel {
 			
 			*/
 			$data ['columns'] = array (
-					'question'
+					'question','id','category_id'
 			);
 			$data ['tables'] = 'question';
 			$data ['conditions'] = array (
@@ -76,6 +80,21 @@ class viewAllQuestionModel extends dbConnectModel {
 		}
 		
 	 }
+	 
+	 public function deleteQues($arrArgs=array()) {
+	    print_r($arrArgs);
+	       if(isset($arrArgs)){
+				$qid=$arrArgs['qid'];
+				//die('oye model');
+				$data = array('status' => '1');
+				$where = array('id' => $qid);
+				$result =  $this->_db->update('question', $data, $where);
+				if($result){
+					return 1;  
+					
+					}
+		    }
+	   	 }
 	
 	
 }
