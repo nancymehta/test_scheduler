@@ -394,3 +394,5 @@ CHANGE `status` `status` ENUM( '0', '1' ) CHARACTER SET utf8 COLLATE utf8_genera
 alter table certificate_master add column test_id int(11)  after name;
 alter table certificate_master add foreign key(test_id) references test(id);
 
+/*altering validate_users table on 18-05-2013*/
+alter table validate_users modify status enum ('0','1','2') default '1' comment "0 for active and 1 for inactive for 2 for banned";
