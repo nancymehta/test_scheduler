@@ -381,3 +381,5 @@ alter table category add constraint unique_name_createdby unique(name,created_by
 alter table contact_us add status enum('0','1') not null default '0';
 
 ALTER TABLE `contact_us` CHANGE `status` `status` ENUM( '0', '1' ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '0 is Active and 1 is Inactive';
+
+

@@ -183,7 +183,8 @@ class createTestController extends mainController {
 				$_SESSION['SESS_ERROR'] = 'Question managed!!';
 				header("location:http://test_scheduler.com/user/mytest");
 			} else {
-				throw new Exception();
+				$_SESSION['SESS_ERROR'] = 'Question could not be managed,you might not have sufficent questions in the question bank!!';
+				header("location:http://test_scheduler.com/user/mytest");
 			}
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );

@@ -374,6 +374,9 @@ class createTestModel extends dbConnectModel {
 					$temp++;
 				}
 				$testCategory[$k]['arrQuesIds'] = $arrTemp;
+				if ((count($testCategory[$k]['arrQuesIds'])) < ($testCategory[$k]['no_of_ques'])){
+					return false;
+				}
 				
 			}
 			
