@@ -74,7 +74,7 @@
 					<tr>
 						<th>S.No.</th>
 						<th>Test</th>
-						<th colspan="5">Option</th>
+						<th colspan="6">Option</th>
 						<th>Test Link</th>
 					</tr>
 				</thead>
@@ -100,6 +100,7 @@
 					echo '<td><a href="http://test_scheduler.com/user/manageQuestions?test_id='.$arrData ['test'] ['testId'] [$i].'">Manage Questions</a></td>';
 					echo '<td><a href="http://test_scheduler.com/user/examSettings?test_id=' . $arrData ['test'] ['testId'] [$i] . '&test_name=' . $arrData ['test'] ['testName'] [$i] . '">Manage assign test</a></td>';
 					$temp=$arrData ['test'] ['testId'][$i].$arrData ['test'] ['testName'][$i];
+					echo '<td><a href="#">Mail Link</a></td>';
 					echo "<td><input type='text' value='test_scheduler.com/test/home/".md5($temp)."' readonly></td>";
 					$i ++;
 					echo '</tr>';
