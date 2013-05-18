@@ -30,7 +30,7 @@
 			<div class="space"></div>
 			<div class="add_test" id="new_test_div">
 				<form method="post"
-					action="http://test_scheduler.com/createTest/createNewTest">
+					action="http://test_scheduler.com/createTest/createNewTest" id = "add_test_form">
 					<div class="space"></div>
 					<label>Test Name :</label> <input type="text"
 						class="text_right_generic" id="test_name" name="test_name" />
