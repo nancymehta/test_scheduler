@@ -198,5 +198,28 @@ class userController extends mainController {
 			$this->handleException($e->getMessage());
 		}
 	}
+	
+	function questionFeedback(){
+	 	$arrData= $this->loadModel("base","fetchQuestionFeedback",array ("id" => strip_tags($_POST ['id']) ));
+	 	
+	 	
+	 	foreach($arrData as $key => $value)
+	 	{
+	 		if (empty($value['feedback'])) {
+	 			unset($arrData[$key]);
+	 		}
+	 	}
+	 	$this->loadView("questionFeedback",$arrData);
+	}
+	function testQuestionFeedback() {
+		$this->loadView ( "header" );
+		$this->loadView ( "user_header" );
+		$this->loadView ( "user_examiner_view/deshboard_menu" );
+		$arrArgs = $this->loadModel ( "base", "fetchAllTest" );
+		$this->loadView ( "testQuestionFeedback", $arrArgs );
+	}
+	
 }
+
+
 ?>

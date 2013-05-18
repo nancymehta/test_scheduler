@@ -165,5 +165,40 @@ class baseModel extends dbConnectModel{
 		
 		
 	}
+	/*Created By : DEEPIKA SOLANKI
+	 * */
+	function fetchQuestionFeedback($id) {
+		$data['tables']="test_taker_ques";
+		$data['columns']=array("test_taker_ques.id","test_taker_ques.test_taker_id","test_taker. first_name","test_taker.last_name","test_taker_ques.ques_id","test_taker_ques.feedback");
+		$data['joins'][] = array(
+				'table' => 'test_taker',
+				'type'        => 'right',
+				'conditions' => array('test_taker_ques.test_taker_id' => 'test_taker.id')
+		);
+		$data['conditions']=array('test_taker.test_id'=>$id);
+		
+		$result=$this->_db->select($data);
+		$row=array();
+		while($temp=$result->fetch(PDO::FETCH_ASSOC)) {
+			$row[]=$temp;
+		}
+// 		if(!empty($row['feedback'])) {
+		return $row;
+// 		}
+		
+	}
+	/*Created By : DEEPIKA SOLANKI
+	 * */
+	function fetchAllTest() {
+		$data['tables']="test";
+		$data['columns']=array("id","name","created_on");
+		$data['conditions']=array("status"=>"0");
+		$result=$this->_db->select($data);
+		$row=array();
+		while($temp=$result->fetch(PDO::FETCH_ASSOC)) {
+			$row[]=$temp;
+		}
+		return $row;
+	}
 } 
 

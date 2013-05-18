@@ -1,33 +1,19 @@
 <script type="text/javascript">
-	function fetchTestContent(id) {
-		$("#hidden").toggle();
-		$("#hidden").load("<?php echo SITE_PATH;?>admin/fetchTestContents","id="+id);
-	}
-	function deleteTest(id) {
-		if(id) {
-			$.ajax( {
-				type: "POST",
-				url: "<?php echo SITE_PATH;?>admin/deleteTest",
-				data: "id="+id,
-			    success: function(response){
-					if(response=='DELETED'){
-						alert("<?php echo SUCCESSFULLY_DELETED; ?>");
-						window.location.reload();
-					}
-                },
-				error: function () {
-					alert("<?php echo ERROR_WHILE_PROCESSING; ?>");
-				},
-			});
-		} else {
-			alert("<?php echo INVALID_COMMAND; ?>");
-		}
-		
-	}
-	
-
+function fetchFeedback(id) {
+		$.ajax( {
+			type: "POST",
+			url: "<?php echo SITE_PATH;?>user/questionFeedback",
+			data: "id=" +id,
+		    success: function(response){
+			$(".um").html(response);
+            },
+			error: function () {
+			},
+		});
+}
 </script>
-
+  <div class="contact-strip bg-mid-gray">
+ Available Test </div>
 <div class="bigmid" >
 <div class="midpanel">
 
@@ -45,10 +31,6 @@
 					<th style="font-size:13px" align="left"> <?php echo TEST_NAME; ?>
 					</th>
 					<th style="font-size:13px" align="left"> <?php echo CREATED_ON; ?>
-					</th>
-					<th style="font-size:13px" align="left"> <?php echo OPTIONS; ?>
-					</th>   
-					<th>Print Result</th>
 				</tr>
 			</thead>
   			<tbody>
@@ -62,12 +44,7 @@
 						<td><?php echo $key['name']; ?></td>
 						<td><?php echo $key['created_on']; ?></td>
 					
-						<td><a href="#" onClick="fetchTestContent(<?php echo $key['id']; ?>)"><?php echo VIEW; ?></a>
-						<a href="#" onClick="deleteTest(<?php echo $key['id']; ?>)"><?php echo DELETE; ?></a>
-						</td>
-						<td>
-						<a href="#" onClick="deleteTest(<?php echo $key['id']; ?>)"><?php echo 'generate PDF'; ?></a>
-						</td>
+						<td><a href="#" onClick="fetchFeedback(<?php echo $key['id']; ?>);"><?php echo "View Feedback" ?></a></td>
 						
 					</tr>
 				<?php 
