@@ -41,11 +41,11 @@
     <div class="login-strip bg-mid-gray ">Register</div>
             <div class=" val">
                 <label class="label1"><?php echo "UserName" ?></label>
-                <input id="username" name="username" class="loginc" type="text" />
+                <input id="username" name="username" class="loginc max-length" type="text" />
                 
                
                 <label class="label1">
-                <?php echo "Password" ?></label><br> <input id="password" name="password" type="password" class="loginc"/>
+                <?php echo "Password" ?></label><br> <input id="password" name="password" type="password" class="loginc max-length"/>
              
        
 
@@ -53,14 +53,14 @@
 
 
                 <label class="label1"><?php echo "ConfirmPassword"; ?></label><br><input id="confirm_password" name="confirm_password" type="password"
-			       	class="loginc" />
+			       	class="loginc max-length" />
 
                 <label class="label1"><?php echo "FirstName"; ?></label> <br> <input id="first_name" name="first_name" type=
-                "text" class="loginc" />
+                "text" class="loginc max-length" />
                
-                <label class="label1"><?php echo "LastName"; ?></label><br> <input id="last_name" name="last_name" type="text" class="loginc" />
+                <label class="label1"><?php echo "LastName"; ?></label><br> <input id="last_name" name="last_name" type="text" class="loginc max-length" />
     	                        
-                <label class="label1"><?php echo "Email"; ?></label> <br><input id="email" name="email" type="text" class="loginc" />
+                <label class="label1"><?php echo "Email"; ?></label> <br><input id="email" name="email" type="text" class="loginc max-length" />
                 <label class="label1">Type of Organization</label> 
                 <select class="select_generic floatl margin-left-10">
                 <option selected="selected">Choose</option>

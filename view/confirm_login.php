@@ -38,11 +38,11 @@
     <div class="login-strip bg-mid-gray">Login </div>
         <div class=" val">
             <label class="label1"><?php echo "UserName"; ?></label>
-            <input id="username" name="user_name" type="text" />
+            <input id="username" name="user_name" type="text" class = "max-length"/>
             
 
                     
-                    <label class="label1"><?php echo "Password"; ?>  </label><input class="loginc" id="login_password" name="password" type="password"   />
+                    <label class="label1"><?php echo "Password"; ?>  </label><input class="loginc max-length" id="login_password" name="password" type="password"   />
                     
                       <span class ="log_data"> </span>
 

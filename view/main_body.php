@@ -87,14 +87,14 @@
         
         	<form action="<?php echo SITE_PATH;?>admin/sendmail" id="contactus" method="post" >
                 <label class="label1"><?php echo "Name"; ?></label> <div class="space"></div>
-                <input id="contact_name" name="contact_name" class="contact_name loginc"   type="text" /> 
+                <input id="contact_name" name="contact_name" class="contact_name loginc max-length"   type="text" /> 
                 <div class="space"></div>
 				
-                <label class="label1"><?php echo "Email Address"; ?></label><div class="space"></div><input class=" loginc" name="contact_email"  id="contact_email" type="text" />
+                <label class="label1"><?php echo "Email Address"; ?></label><div class="space"></div><input class=" loginc max-length" name="contact_email"  id="contact_email" type="text" />
                 <div class="space"></div>
-                <label class="label1"><?php echo "Query / Suggestions"; ?></label><div class="space"></div><textarea  class=" loginc textarea" name="contact_suggestion"  rows="4" cols="50" class="textarea" id="contact_suggestion"></textarea><br><br><br>
+                <label class="label1"><?php echo "Query / Suggestions"; ?></label><div class="space"></div><textarea  class=" loginc textarea max-length" name="contact_suggestion"  rows="4" cols="50" class="textarea" id="contact_suggestion"></textarea><br><br><br>
 <div class="space"></div>
-                <input id="contactus" name="contactus" onclick="" type="submit" value="send" class="submmit_button_generic" />
+                <input id="contactus" name="contactus" onclick="" type="submit" value="send" class="submmit_button_generic max-length" />
 			</form>
             </div>
 

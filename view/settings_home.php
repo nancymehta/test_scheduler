@@ -74,7 +74,7 @@ $( "#accordion" ).accordion();
             First Name :
         </td>
         <td>
-            <input type="text" name="fname" id="fname" value="<?php echo $arrData['firstname'];?>">
+            <input type="text" name="fname" id="fname" value="<?php echo $arrData['firstname'];?>" class="max-length">
         </td>
     </tr>
     
@@ -83,7 +83,7 @@ $( "#accordion" ).accordion();
             Last Name :
         </td>
         <td>
-            <input type="text" name="lname" id="lname" value="<?php echo $arrData['lastname']; ?>">
+            <input type="text" name="lname" id="lname" value="<?php echo $arrData['lastname']; ?>" class="max-length">
         </td>
     </tr>
     
@@ -92,7 +92,7 @@ $( "#accordion" ).accordion();
             Email :
         </td>
         <td>
-            <input type="text" name="email" id="email" value="<?php echo $arrData['email']; ?>">
+            <input type="text" name="email" id="email" value="<?php echo $arrData['email']; ?>" class="max-length">
         </td>
     </tr>
     

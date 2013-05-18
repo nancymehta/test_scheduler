@@ -62,6 +62,10 @@ $(document).ready(function() {
 	
 /************************jquery by pankaj**********************************/
 	
+	jQuery.validator.addClassRules("max-length", {
+	    maxlength: 200
+	  });
+	
 	$("#addCategoryForm").validate({
 		rules: {
 			categoryName:{
@@ -807,13 +811,12 @@ function validateCertificate()
 		rules: {
 			certificate_name:{
 				required:true,
-				checkAlpha:true,
-				maxlength:30
+				checkAlpha:true,				
 			},
 			certificate_body:{
 				required:true,
 				checkAlpha:true,
-				maxlength:100
+				
 			}
 		
 		},
@@ -821,12 +824,12 @@ function validateCertificate()
 			certificate_name:{
 				required:"Please enter certificate name.",
 				checkAlpha:"Only character value are required.",
-				maxlength:"Only 30 character are required."
+				
 			},
 			certificate_body:{
 				required:"Please enter certificate body.",
 				checkAlpha:"Only character value are required.",
-				maxlength:"Only 100 character are required."
+
 			}
 			
 		}
