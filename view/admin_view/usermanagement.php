@@ -28,7 +28,22 @@
 	                		},
 					} );
 				}
-			}else {
+			}else if(request=='BANUSER'){
+				$.ajax( {
+					type: "POST",
+					url: "<?php echo SITE_PATH;?>admin/showUserDetails",
+					data: "id="+id+"&request=BANUSER",
+				    success: function(response){
+	                			$(".um").html(response);
+	                		},
+				} );
+				}
+			
+				
+		
+	
+			
+			else {
 				if(request=='EDIT'){
 				$.ajax( {
 					type: "POST",
@@ -42,6 +57,8 @@
 			}
 				
 		} 
+	
+			
 
 </script>
 <div class="bigmid" >
@@ -71,7 +88,7 @@
 					<tr valign="top">
                         <td><?php echo $umanage['id']; ?></td>
 						<td><?php echo $umanage['username']; ?></td>
-						<td><a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'EDIT')"><?php echo EDIT;?></a> <a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'DELETE')"><?php echo DELETE;?></a></td>
+						<td><a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'EDIT')"><?php echo EDIT;?></a> <a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'DELETE')"><?php echo DELETE;?></a><a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'BANUSER')"><?php echo 'BANUSER';?></a></td>
 					</tr>
 				<?php 
 				} // end of foreach
