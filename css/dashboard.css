@@ -148,12 +148,11 @@ margin-left:1.5%;
 	position: fixed;
 	top: 0;
 	left: 0;
-opacity: 0.9;
 
 }
 .links {
 	position: fixed;
-	top 	: 	18px;
+	top 	: 	23px;
 	float	:   left;
 	left 	:  300px;
     z-index: 50;
@@ -167,7 +166,6 @@ opacity: 0.9;
 	font-weight				: 	bold;
 	font-size 				:	0.7em;
 	display 				: 	inline-block;
-	background-color 		:   #585858;
 	text-decoration 		:   none;
 	color 					:   #FFAB68; 	
 	float 					:	left;				
@@ -194,7 +192,6 @@ opacity: 0.9;
 	font-weight				: 	bold;
 	font-size 				:	1.3em;
 	display 				: 	inline-block;
-	background-color 		:   #585858;
 	text-decoration 		:   none;
 	color 					:   #FFAB68;
 		
@@ -219,24 +216,21 @@ opacity: 0.9;
 .menu-services  {
 
 	list-style-type			: none;
-	left					:   340;
+	left					:   380;
 	padding					:	1px;
 	font-size 				:	0.5em;
 	display 				: 	inline-block;
 	text-decoration 		:   none; 	
-
 	float 					:	left;				
 	width					:   auto;
 	border-radius			:	5px;
     text-align				: 	left;
     height                  :   auto;
 	position 				:   fixed;
-	top 				    : 	54px;
+	top 				    : 	72;
 	color 					:   black;
 	z-index					:	50px;
-	border                  :   1px solid 	white;
-	background-color		: #9B9B9B;
-
+background-color:#336699 ;
 }
 
 .tech-services  {	
