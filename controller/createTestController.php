@@ -274,9 +274,8 @@ class createTestController extends mainController {
 								$body="asdasdadasd";
 								$output = shell_exec("chmod 777 misc -R");
 								echo "$output";
-								$attach=SITE_PATH.'misc/SavedCertificate/'.$email.'.jpeg';
-								$attach="'".$attach."'";
-								mailTest ( $email, 'info.test.scheduler@gmail.com', $body);
+								$attach='/var/www/test_scheduler/trunk/misc/SavedCertificate/'.$email.'.jpeg';
+								mailTest ( $email, 'info.test.scheduler@gmail.com', $body, $attach);
 						 }
 					}
 					else{

@@ -46,7 +46,7 @@ function myErrorHandler($errno, $errstr, $errfile, $errline) {
 }
 	
 	/**function to Send Mails from test_scheduler*/
-function mailTest($to,$sub,$body) {
+function mailTest($to,$sub,$body,$attach) {
 	
 	$mail = new PHPMailer();
 	$mail->IsSMTP(); // send via SMTP 
@@ -63,7 +63,7 @@ function mailTest($to,$sub,$body) {
 	$mail->Subject = "$sub"; 
 	$mail->Body = "$body"; 
 	$mail->AltBody = "Mail Form test Scheduler";
-	$mail->AddAttachment('var/www/test_scheduler/trunk/misc/SavedCertificate/MySql Certificate.jpeg');
+	$mail->AddAttachment($attach);
 	if(!$mail->Send()) 
 	{ 
 	echo "Message was not sent <p>"; 
