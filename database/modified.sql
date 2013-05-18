@@ -396,3 +396,43 @@ alter table certificate_master add foreign key(test_id) references test(id);
 
 /*altering validate_users table on 18-05-2013*/
 alter table validate_users modify status enum ('0','1','2') default '1' comment "0 for active and 1 for inactive for 2 for banned";
+
+/*altering test_taker table on 18-05-2013*/
+alter table test_taker add feedback text;
+
+/* table created for activity_log on 18-05-2013*/
+CREATE TABLE `activity_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+
+/*altering activity_log table on 18-05-2013*/
+ALTER TABLE `activity_log` ADD FOREIGN KEY ( `user_id` ) REFERENCES `test_scheduler`.`validate_users` (
+`id`
+) ON DELETE CASCADE ON UPDATE CASCADE ;
+
+ALTER TABLE `activity_log` ADD FOREIGN KEY ( `type` ) REFERENCES `test_scheduler`.`master` (
+`id`
+) ON DELETE CASCADE ON UPDATE CASCADE ;
+
+/* insertion in master table on 18-05-2013*/
+INSERT INTO `test_scheduler`.`master` (
+`id` ,
+`code_type` ,
+`code_value` ,
+`status` ,
+`created_on` ,
+`updated_on` ,
+`created_by` ,
+`updated_by`
+)
+VALUES (
+NULL , 'activity_log_type', 'login', '0', '2013-05-18 13:00:00',
+CURRENT_TIMESTAMP , '2', NULL
+), (
+NULL , 'activity_log_type', 'registration', '0', '2013-05-18 13:00:00',
+CURRENT_TIMESTAMP , '2', NULL
+);
