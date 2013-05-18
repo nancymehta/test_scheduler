@@ -7,6 +7,7 @@
 					<a id = "result" href = '<?php echo SITE_PATH."/result/result";?>'>Results </a>
 					<a id = "test" class="tech" href = '<?php echo SITE_PATH."/faq";?>'>Faq's </a>
 					<a id = "test" class="tech" href = "#">Test </a>
+					<a id = "test" class="tech" href = '<?php echo SITE_PATH."/certificate/issueCertificateView";?>'>Certificate </a>
 					<a id = "test" class="tech" href = '<?php echo SITE_PATH."settings";?>'>Account Settings </a>
 				</div>	
 				<div class="menu-services ">
