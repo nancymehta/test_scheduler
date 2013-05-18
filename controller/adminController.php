@@ -153,7 +153,7 @@ class adminController extends mainController {
     
     function fetchTestContents() {
         try{
-        	$arrArgs = $this->loadModel ( "admin", "fetchTestContent", array ("id" => strip_tags($_POST ['id'])) );
+        	$arrArgs = $this->loadModel ( "admin", "fetchTestContent", array ("id" => strip_tags($_GET ['id'])) );
         	$this->loadView ( "admin_view/testContent", $arrArgs );
         }catch (Exception $e) {
 			$this->handleException($e->getMessage());
