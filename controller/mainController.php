@@ -93,6 +93,7 @@ class mainController extends common{
 			
 			$arrData = $this->loadmodel('base','login',$arrArgs);
 			if($arrData == 1){
+				$result=$this->loadModel('base','insert_log',"login");
 			    header("location:".SITE_PATH);
 			}
 			else{

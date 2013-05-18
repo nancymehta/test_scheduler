@@ -140,5 +140,30 @@ class baseModel extends dbConnectModel{
 		}
 		return $row;
 	}
+	
+	function insert_log($type){
+		$ip= $_SERVER['REMOTE_ADDR'];
+		$user_id=$_SESSION['SESS_USER_ID'];
+		$data1['tables'] = 'master';
+		$data1['columns']= array(
+					'id',
+					);
+		$data1['conditions']= array(
+					'code_type' => 'activity_log_type',
+					'code_value' => $type,
+					);
+		$result1 = $this->_db->select($data1);
+		$row1 = $result1->fetch(PDO::FETCH_ASSOC);
+		
+		$data2=array(
+				"user_id" => $user_id,
+				"type" => $row1['id'],
+				"ip_address" => $ip,
+				);
+		$result2 = $this->_db->insert('activity_log',$data2);
+		return $result2;
+		
+		
+	}
 } 
 
