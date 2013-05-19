@@ -82,7 +82,7 @@ class viewAllQuestionModel extends dbConnectModel {
 	 }
 	 
 	 public function deleteQues($arrArgs=array()) {
-	    print_r($arrArgs);
+	   // print_r($arrArgs);
 	       if(isset($arrArgs)){
 				$qid=$arrArgs['qid'];
 				//die('oye model');
@@ -95,7 +95,60 @@ class viewAllQuestionModel extends dbConnectModel {
 					}
 		    }
 	   	 }
+		public function editQues($arrArgs) {
+	       $data ['columns'] = array (
+				'id',
+				'question',
+				'category_id',
+						);
+		$data ['tables'] = "question";
+		$data ['conditions'] = array (
+				"id" => $arrArgs['id']
+		);
+		
+		$result = $this->_db->select ( $data );
+		$result1 = $result->fetchAll();
+		//print '<pre>';
+		//print_r($result1);
+		$arrArgs['question']=$result1[0]['question'];
+		
+		//~ /*   selecting respective question option  */
+		
+		//print_r($arrArgs);
+		
+		$data ['columns'] = array (
+				'id','`option`','correct'
+			);
+		$data ['tables'] = "question_options";
+		$data ['conditions'] = array (
+				"status"=>'0',
+				"ques_id" => $arrArgs['id']
+		);
+		
+		$results = $this->_db->select ( $data );
+		$result2 = $results->fetchAll();
+		//print '<pre>';
+		//print_r($result2);
+		  $i=0;
+		  while ( (!empty($result2[$i]['option'] ))){
+			$option[$i] = $result2[$i]['option'];
+
+			
+			if($result2[$i]['correct']=='1'){
+				$answer[]=$result2[$i]['option'];
+				}
+			$i++;
+			}
+			
+		$arrArgs['option']=$option;	
+		$arrArgs['answer']=$answer;	
+		//print_r($option);	
+		//print_r($answer);
+		//print_r($arrArgs);
+		//die();
+		return $arrArgs;
 	
+	   }
 	
 }
 ?>	

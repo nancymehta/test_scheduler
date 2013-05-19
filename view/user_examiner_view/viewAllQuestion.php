@@ -13,6 +13,7 @@
 						<!--<option value="0">PHP</option>
 							<option value="1">MYSQL</option> 
 						-->
+						     <option>Select</option>
 						<?php
 						if(isset($arrData)){
 								
@@ -21,6 +22,7 @@
 						}
 						if(isset($arrData)){
 			                 $i = 0;
+			                
 			                 while ( (! empty($arrData['category_name'][$i] )) ) {
 			                 echo "<option>";
 			                 echo ($arrData['category_name'] [$i] );

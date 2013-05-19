@@ -184,16 +184,15 @@ function bulkUploadController() {
 				    
     }
     /*function will edit questions from particular test*/   
-    public function editQues()
-    {
-		die('edit');
-//      print_r($_REQUEST);
-        $qid	=	$_REQUEST['qid'];
-		$result	=	loadModel('managetest','editQues',$qid);
-//      print_r($result);
-        loadView('editques.php',$result);
-		
+    public function editQues(){
+	
+        $arrData['id']  =	$_REQUEST['qid'];
+		$arrArgument	=	$this->loadModel('viewAllQuestion','editQues',$arrData);
+        //print_r($arrArgument);
+        $this->loadView("user_examiner_view/editques",$arrArgument);
+       	//$this->loadView("user_examiner_view/deshboard_menu");
     }
+    
     /*function will update questions from particular test*/       
     public function quesUpdate(){
 		die('edited');
