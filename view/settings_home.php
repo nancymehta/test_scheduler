@@ -164,6 +164,9 @@ $( "#accordion" ).accordion();
     ?>
     
     <tr>
+	<td>
+            S.NO.
+        </td>
         <td>
             IP ADDRESS
         </td>
@@ -172,9 +175,15 @@ $( "#accordion" ).accordion();
         </td>
     </tr>
    <?php
+	$i=1;
 	foreach($arrData['activity_log'] as $log){
     ?>
     <tr>
+	<td>
+	<?php
+	echo $i;
+	?>
+	</td>
         <td>
 	<?php
 	echo $log['ip_address'];
@@ -189,6 +198,7 @@ $( "#accordion" ).accordion();
     
     
     <?php 
+	$i++;
 	} 
     }
     ?>
