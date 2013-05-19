@@ -83,7 +83,7 @@ $("#testSelect").change(function() {
 			$('#dotog_certs').toggle();
 		});
 		$("#add_test").click(function(){
-		$(".add_test").show();
+				$(".add_test").show();
 		});
 		$("#view1").click(function(){
   			$("#divView1").toggle("fast");

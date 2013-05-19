@@ -1,11 +1,9 @@
 
+
 /*********Start Add Test********/
 .middle_content .add_test {
-	display : none;
-	
-	
+	display : none;	
 }
-
 
 .middle_content{
 	position : relative;
@@ -13,9 +11,9 @@
 }
 
 
-/*.middle_content .test_list_div {
+.middle_content .test_list_div {
 	float :left;
-}*/
+}
 
 
 /*********End Add Test********/
@@ -137,7 +135,14 @@ margin-left:1.5%;
   	left: 20px;
   	top:10px;
   }
+.result_question{
 
+	width: 700px;
+	border:1px outset;
+	float: left;
+	margin-left: 200px;
+	box-shadow: 1px 2px 2px 2px #ededed;
+}
 /* css ends here  */
 
 /*************Start Dasboard Menu CSS by Pankaj********************/
