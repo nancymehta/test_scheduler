@@ -155,23 +155,47 @@ $( "#accordion" ).accordion();
            <a  href="#" onclick="deactivateAccount()"> <span class="fg-dark-blue font-mid floatl">Deactivate Account</span></a>
        
 </div>
+<h3> Activity Log</h3>
+<div>
+<table class="font-small">
+    <?php
+    if(isset($arrData))
+    {  
+    ?>
+    
+    <tr>
+        <td>
+            IP ADDRESS
+        </td>
+        <td>
+            DATE AND TIME
+        </td>
+    </tr>
+   <?php
+	foreach($arrData['activity_log'] as $log){
+    ?>
+    <tr>
+        <td>
+	<?php
+	echo $log['ip_address'];
+	?>
+	</td>
+	<td>
+	<?php
+	echo $log['time'];
+	?>
+	</td>
+    </tr>
+    
+    
+    <?php 
+	} 
+    }
+    ?>
+   </table>
+        
 </div>
-
-<?php
-
-print_r($arrData['here']);
-?>
-
-
-
-
-
-
-
-
-
-
-
+</div>
 <script>
     
     //This function is used for the validation of Passwords

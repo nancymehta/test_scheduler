@@ -144,7 +144,35 @@ class accountSettingsModel extends dbConnectModel {
 	  	$this->handleException($e->getMessage());
 	} 		
 	}
-
+//created by jasleen
+	function viewLog($type){
+		$arrLog=array();
+		$userId=$_SESSION['SESS_USER_ID'];
+		$data1['tables'] = 'master';
+		$data1['columns']= array(
+					'id',
+					);
+		$data1['conditions']= array(
+					'code_type' => 'activity_log_type',
+					'code_value' => $type,
+					);
+		$result1 = $this->_db->select($data1);
+		$row1 = $result1->fetch(PDO::FETCH_ASSOC);
+		$data2['tables'] = 'activity_log';
+		$data2['columns']= array(
+					'ip_address',
+					'time',
+					);
+		$data2['conditions']= array(
+					'user_id' => $userId,
+					'type' => $row1['id'],
+					);
+		$result2 = $this->_db->select($data2);
+		while($row2 = $result2->fetch(PDO::FETCH_ASSOC)){
+			$arrLog[]=$row2;
+		}
+		return $arrLog;
+	}
 
 
 
