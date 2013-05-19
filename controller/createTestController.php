@@ -225,10 +225,11 @@ class createTestController extends mainController {
 	# method to show certificate create view
 	function showCertificateCreate() {
 		try {
+			$result=$this->loadModel('certificate','populateDropDown');
 			$this->loadView("header" );
 			$this->loadView("user_header" );
 			$this->loadView("user_examiner_view/deshboard_menu" ); 
-			$this->loadView("user_examiner_view/showCertificateCreate");
+			//$this->loadView("user_examiner_view/showCertificateCreate",$result);
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}

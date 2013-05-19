@@ -25,8 +25,9 @@ class certificateModel extends dbConnectModel {
 										'certificate_body'  => $arrArgs ['certificate_body'],
 										'created_on' 		=> 'now()',
 										'updated_on' 		=> 'now()',
-										'created_by' 		=> 1,
-										'upload_path'		=> SITE_PATH."misc/certificateUploads/certificate.jpg"
+										'created_by' 		=> $_SESSION ['SESS_USER_ID'],
+										'upload_path'		=> SITE_PATH."misc/certificateUploads/certificate.jpg",
+										'test_id'			=> $arrArgs ['test_id']
 									);
 								
 
@@ -75,8 +76,6 @@ class certificateModel extends dbConnectModel {
 	public function drawCertificate($arrArgs) {
 		try {  
 			$error=array();
-				//echo "<pre/>";
-				//print_r($arrArgs);
 			if (! empty ( $arrArgs )) {
 				foreach( $arrArgs as $key => $value)  {		
 			
@@ -122,19 +121,19 @@ class certificateModel extends dbConnectModel {
 		}
 }
 	
-	public function userDetails() {
+	public function userDetails($arrArgument) {
 		$data['tables'] = 'test_link';
 		$data['columns']   = array('first_name','last_name','pass_marks','certificate_id',
-								'test_taker.score','certificate_master.name',
+								'test_taker.score','certificate_master.name','test_taker.test_id',
 								'certificate_master.upload_path','test_taker.email_enroll_no'
 						  );
-	/*$data['conditions']	= array(
-								'test_taker.test_id' => $arrArgument['testid']
-								); */
+		$data['conditions']	= array(
+								'test_taker.test_id' => $arrArgument['test_id']
+								); 
 		$data['joins'][] = array(
 							'table' => 'test_taker', 
 							'type'	=> 'inner',
-							'conditions' => array('test_link.id' => 'test_taker.test_link_id')
+							'conditions' => array('test_link.id' => 'test_taker.test_id')
 							);
 		$data['joins'][] = array(
 							'table' => 'certificate_master', 
@@ -145,10 +144,10 @@ class certificateModel extends dbConnectModel {
 		$result = $this->_db->select($data);
 
 		while($temp = $result->fetch(PDO::FETCH_ASSOC)) {
-		//	if($temp['score'] >= $temp['pass_marks']) {
+			if($temp['score'] >= $temp['pass_marks']) {
 					
 					$row[]=$temp;
-		 //	}
+			}
 		} 	   
 		if(isset($row)) {
 	
@@ -161,56 +160,52 @@ class certificateModel extends dbConnectModel {
 	
  	}
  	
- 	
- 	#Viewing Tests categories
- 	public function getTestCategories($arrArgs) {
- 		try {
- 			$categoryArray = array ();
- 			$data ['tables'] = 'category';
- 			$data ['columns'] = array (
- 					'name',
- 					'id'
- 			);
- 			$data ['conditions'] = array (
- 					'created_by' => $arrArgs ['id']
- 			);
- 				
- 			$result = $this->_db->select ( $data );
- 				
- 			while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
- 				$categoryArray ['category_name'] [] = $row ['name'];
- 				$categoryArray ['category_id'] [] = $row ['id'];
- 			}
- 			return $categoryArray;
- 		} catch ( Exception $e ) {
- 			$this->handleException ( $e->getMessage () );
- 		}
- 	}
- 	
- 	
- 	#Viewing Tests categories
- 	public function getTestNames($arrArgs) {
- 		try {
+ 	#method to get test detail - testid and test name
+ 	public function getTestDetails($arrArgs) {
+		try {
  			$testArray = array ();
  			$data ['tables'] = 'test';
- 			$data ['columns'] = array (
- 					'name',
- 					'id'
- 			);
+ 			$data ['columns'] = array ('name','id');
  			$data ['conditions'] = array (
  					'created_by' => $arrArgs ['id'],
  					'status'=>'0'
  			);
  				
  			$result = $this->_db->select ( $data );
- 			//print_r($result);die;
+ 			
  			while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
- 				$testArray ['testName'] [] = $row ['name'];
+ 				$testArray ['testName'][] = $row ['name'];
  				$testArray ['testId'] [] = $row ['id'];
  			}
+			
  			return $testArray;
  		} catch ( Exception $e ) {
  			$this->handleException ( $e->getMessage () );
  		}
  	}
+ 	
+ 	#Method to populate Test name Dropdown
+ 	function populateDropDown() {
+		try {
+		    $data['tables'] = 'test';
+		    $data['columns']= array('test.id','name','test.created_by');
+		    $data['conditions']	= array( 'test.created_by' => $_SESSION ['SESS_USER_ID']);
+		    $data['joins'][]  = array('table'   	=> 'validate_users', 
+									  'type'		=> 'inner',
+									  'conditions'  => array('validate_users.id' => 'test.created_by')
+								);
+		    $result = $this->_db->select($data);
+
+		    while($temp = $result->fetch(PDO::FETCH_ASSOC)) {
+					$row[]=$temp;   	
+		    }
+		   return $row;
+		 } catch ( Exception $e ) {
+ 			$this->handleException ( $e->getMessage () );
+ 		}  
+		   
+	}
+
+ 	
+ 	
 }

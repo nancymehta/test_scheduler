@@ -1,7 +1,7 @@
 <?php
 /* @author 		 :Ashwani Singh	
 *  @created on   :09-05-2013
-*  @desc		 :Controller to create a test.
+*  @desc		 :View for creating certificate.
 *********************************************Modifed Log ********************************
 *Name				Task						Date			Description
 *
@@ -17,7 +17,7 @@ function createCertificate()
 {	//if(validateCertificate()=="true") { 
 	$.ajax({ 
       type: "POST",
-      url : '<?php echo SITE_PATH.'/createTest/certificateCreate'; ?>',                                             
+      url : '<?php echo SITE_PATH.'/certificate/certificateCreate'; ?>',                                             
       data: $('#certificateEdit').serialize(),
        beforeSend: function() {
 
@@ -49,6 +49,20 @@ function createCertificate()
 <div id="certificate">
 	<form id="certificateEdit"  name="certificateEdit" action="<?php echo SITE_PATH.'/certificate/certificateCreate'; ?>" method="post">
 		<input type="hidden" value="" name="certificate_id">
+		<h3>Select Test</h3>
+		<div>
+			<p>
+			<div class="search_test" name="search_test" id="search_test">
+				<select name="test_select" id="test_select">
+					<option value="0"><h3>Select Test</h3></option>
+					<?php foreach($arrData as $key) {
+					echo "<option value=".$key['id'].">".$key['name']."</option>";
+					}?>
+		
+				</select>
+			</p>
+		</div>	
+		
 		<h3>Certificate name</h3>
 		<div>
 			<p>

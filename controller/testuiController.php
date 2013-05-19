@@ -44,7 +44,7 @@ class testuiController extends common{
  //$this->loadView("user_examiner_view/maketestpage");
  // $this->loadView("user_examiner_view/showCertificateCreate");
   //	$this->loadView("user_examiner_view/bulk_upload");
-	$this->loadView("user_examiner_view/manageCertificate");
+	//$this->loadView("user_examiner_view/manageCertificate");
   
  	//$this->loadView("user_examiner_view/edit_profile");
  	

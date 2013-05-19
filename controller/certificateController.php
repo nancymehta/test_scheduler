@@ -27,17 +27,12 @@ class certificateController extends mainController {
 	function issueCertificateView() {
 		try {
 			
+			$arrData = $this->loadModel ( 'certificate', 'getTestDetails', array (
+						"id" => $_SESSION ['SESS_USER_ID']
+						) );
 			
-			$arrData_1 = $this->loadModel ( 'certificate', 'getTestCategories', array (
-					"id" => $_SESSION ['SESS_USER_ID']
-			) );
-			$arrData_2 = $this->loadModel ( 'certificate', 'getTestNames', array (
-					"id" => $_SESSION ['SESS_USER_ID']
-			) );
-			$arrData = array (
-					'category' => $arrData_1,
-					'test' => $arrData_2
-			);
+			
+			//echo"<pre>"; print_r($arrData); die("here");
 			if (! empty ( $arrData )) {
 				
 				$this->loadView("header" );
@@ -55,10 +50,11 @@ class certificateController extends mainController {
 	# method to show certificate create view
 	function showCertificateCreate() {
 		try {
+			$result=$this->loadModel('certificate','populateDropDown');
 			$this->loadView("header" );
 			$this->loadView("user_header" );
 			$this->loadView("user_examiner_view/deshboard_menu" );
-			$this->loadView("user_examiner_view/showCertificateCreate");
+			$this->loadView("user_examiner_view/showCertificateCreate",$result);
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}
@@ -70,10 +66,11 @@ class certificateController extends mainController {
 		try {
 			$validation =new validation();
 		
-			if ($validation->checkRequired($_POST ['certificate_name']) &&
-					$validation->checkRequired($_POST ['certificate_body'])) {
+			if ($validation->checkRequired($_POST ['certificate_name']) && 
+				$validation->checkRequired($_POST ['certificate_body']) && 
+					$validation->checkRequired($_POST ['test_select'])) {
 
-				if ($validation->validateAlphabate($_POST ['certificate_name']) &&
+				if (//$validation->validateAlphabate($_POST ['certificate_name']) &&
 					$validation->validateAlphabate($_POST ['certificate_body'])) {
 			
 					if ($validation->checkLength($_POST ['certificate_name'],1,30) &&
@@ -81,9 +78,13 @@ class certificateController extends mainController {
 
 						$certificateName	 = strip_tags ($_POST ['certificate_name']);
 						$certificateBody 	 = strip_tags ($_POST ['certificate_body']);
+						$testId				 = strip_tags ($_POST ['test_select']);
+						//echo($testId); die("here");
 						$arrArgs = array (
 								   	'name' 				=> $certificateName,
-									'certificate_body' 	=> $certificateBody
+									'certificate_body' 	=> $certificateBody,
+									'test_id'			=> $testId,
+									'created_by'		=> $_SESSION ['SESS_USER_ID']
 									);
 						$boolResult = $this->loadModel ( 'certificate', 'createNewCertificate', $arrArgs );
 						if ($boolResult) {
@@ -131,25 +132,27 @@ class certificateController extends mainController {
 
 	function issueCertificate() {
 		try {
+			$testId = $_REQUEST['test_id'];
 			#create array containg user details like name, marks , total marks
-			$userDetails=$this->loadModel("certificate","userDetails");
-			//print_r($userDetails);
+			$userDetails=$this->loadModel("certificate","userDetails",$testId);
+			//print_r($userDetails); die("c c");
 				
 			#loading model to dynamically generate certificate
 			$certificate=$this->loadModel ( 'certificate', 'drawCertificate', $userDetails );
-		if($certificate){
-			foreach($userDetails as $key=>$value) {
+			if($certificate){
+				foreach($userDetails as $key=>$value) {
 					$email=$value['email_enroll_no'];
 					$certficateName=$value['name'];
 					$body="Your certificate has been send. Kindly find the attachment";
 					$output = shell_exec("chmod 777 misc -R");
 					echo "$output"; # to execute shell command
 					$attach='/var/www/test_scheduler/trunk/misc/SavedCertificate/'.$email.'.jpeg';
-		
+					mailTest ( $email, 'info.test.scheduler@gmail.com', $body, $attach);
+		 /*
 				$output = shell_exec('crontab -l');    //show current cronjob
 				echo $output;
 				
-			/*	if(print(shell_exec('crontab /var/www/cron_mail_test.txt'))) { //working congrats :)
+				if(print(shell_exec('crontab /var/www/cron_mail_test.txt'))) { //working congrats :)
 					echo "pass";
 				} else {
 					echo "failed";

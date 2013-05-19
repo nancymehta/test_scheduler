@@ -14,7 +14,7 @@
 			$.ajax({
 				type:"POST",
 				url:"http://test_scheduler.com/certificate/issueCertificate",
-				data:"id="+testId,
+				data:"test_id="+testId,
 				success:function(result){
 					alert(result);
 					location.reload();
@@ -40,15 +40,15 @@
 			$i = 0;
 			$count = 0;
 			echo '<pre>';
-			if (isset ( $arrData ['test'] ['testName'] )) {
-				while ( (! empty ( $arrData ['test'] ['testName'] [$i] )) ) {
+			if (isset ( $arrData ['testName'] )) {
+				while ( (! empty ( $arrData ['testName'] [$i] )) ) {
 					echo '<tr>';
 					echo '<td>' . ++ $count . '</td>';
 					echo '<td>';
-					print_r ( $arrData ['test'] ['testName'] [$i] );
+					print_r ( $arrData ['testName'] [$i] );
 					echo '</td>';
-					echo "<td><a href='#' onclick=fncIssueCertificate(".$arrData ['test'] ['testId'] [$i].")>Issue Certificate</a></td>";
-					$temp=$arrData ['test'] ['testId'][$i].$arrData ['test'] ['testName'][$i];
+					echo "<td><a href='#' onclick=fncIssueCertificate(".$arrData ['testId'] [$i].")>Issue Certificate</a></td>";
+					//$temp=$arrData['testId'][$i].$arrData['testName'][$i];
 					$i ++;
 					echo '</tr>';
 				}

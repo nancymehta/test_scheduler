@@ -114,12 +114,13 @@ class userController extends mainController {
 		}
 	}
 	
-	/* provide view for category tab */
+	/* provide view for certificatetab */
 	function certificate() {
+		$result=$this->loadModel('certificate','populateDropDown');
 		$this->loadView ( "header" );
 		$this->loadView ( "user_header" );
 		$this->loadView ( "user_examiner_view/deshboard_menu" );
-		$this->loadView ( "user_examiner_view/manageCertificate" );
+		$this->loadView ( "user_examiner_view/manageCertificate",$result );
 	}
 	/* provide view for result tab */
 	function result() {
