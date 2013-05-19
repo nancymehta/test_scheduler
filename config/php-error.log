@@ -160,3 +160,42 @@
 [18-May-2013 10:52:33 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 36
 [18-May-2013 10:52:33 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 36
 [18-May-2013 11:40:53 UTC] PHP Warning:  PDO::query(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test_scheduler.activity_log' doesn't exist in /var/www/test_scheduler/trunk/library/cxpdo/cxpdo.php on line 58
+[19-May-2013 03:30:14 UTC] PHP Fatal error:  Call to a member function select() on a non-object in /var/www/test_scheduler/trunk/model/baseModel.php on line 30
+[19-May-2013 03:34:20 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 36
+[19-May-2013 03:34:20 UTC] PHP Notice:  Use of undefined constant categoryName - assumed 'categoryName' in /var/www/test_scheduler/trunk/model/createTestModel.php on line 36
+[19-May-2013 05:03:39 UTC] PHP Notice:  Undefined index: SESS_USER_ID in /var/www/test_scheduler/trunk/controller/certificateController.php on line 32
+[19-May-2013 05:03:39 UTC] PHP Notice:  Undefined index: SESS_USER_ID in /var/www/test_scheduler/trunk/controller/certificateController.php on line 35
+[19-May-2013 08:11:45 UTC] PHP Parse error:  syntax error, unexpected '{' in /var/www/test_scheduler/trunk/controller/certificateController.php on line 150
+[19-May-2013 08:59:15 UTC] PHP Parse error:  syntax error, unexpected ')' in /var/www/test_scheduler/trunk/controller/cronController.php on line 34
+[19-May-2013 09:41:15 UTC] PHP Parse error:  syntax error, unexpected ';' in /var/www/test_scheduler/trunk/controller/cronController.php on line 45
+[19-May-2013 09:47:46 UTC] PHP Notice:  Undefined index: cron_mins in /var/www/test_scheduler/trunk/controller/cronController.php on line 49
+[19-May-2013 09:47:46 UTC] PHP Notice:  Undefined index: cron_day in /var/www/test_scheduler/trunk/controller/cronController.php on line 52
+[19-May-2013 09:49:41 UTC] PHP Notice:  Undefined index: cron_mins in /var/www/test_scheduler/trunk/controller/cronController.php on line 49
+[19-May-2013 09:49:41 UTC] PHP Notice:  Undefined index: cron_months in /var/www/test_scheduler/trunk/controller/cronController.php on line 52
+[19-May-2013 09:49:41 UTC] PHP Notice:  Undefined index: cron_day in /var/www/test_scheduler/trunk/controller/cronController.php on line 53
+[19-May-2013 09:49:41 UTC] PHP Notice:  Undefined variable: cronMonth in /var/www/test_scheduler/trunk/controller/cronController.php on line 55
+[19-May-2013 09:51:04 UTC] PHP Notice:  Undefined index: cron_min in /var/www/test_scheduler/trunk/controller/cronController.php on line 49
+[19-May-2013 09:51:04 UTC] PHP Notice:  Undefined index: cron_months in /var/www/test_scheduler/trunk/controller/cronController.php on line 52
+[19-May-2013 09:51:04 UTC] PHP Notice:  Undefined index: cron_day in /var/www/test_scheduler/trunk/controller/cronController.php on line 53
+[19-May-2013 10:01:10 UTC] PHP Notice:  Undefined variable: cronFile in /var/www/test_scheduler/trunk/controller/cronController.php on line 62
+[19-May-2013 10:06:32 UTC] PHP Warning:  fopen(/cron/q.txt): failed to open stream: No such file or directory in /var/www/test_scheduler/trunk/model/cronModel.php on line 26
+[19-May-2013 10:07:23 UTC] PHP Warning:  fopen(/cron/q.txt): failed to open stream: No such file or directory in /var/www/test_scheduler/trunk/model/cronModel.php on line 26
+[19-May-2013 10:08:24 UTC] PHP Warning:  fopen(/cron/.txt): failed to open stream: No such file or directory in /var/www/test_scheduler/trunk/model/cronModel.php on line 26
+[19-May-2013 10:09:20 UTC] PHP Warning:  fopen(/cron.txt): failed to open stream: Permission denied in /var/www/test_scheduler/trunk/model/cronModel.php on line 26
+[19-May-2013 10:09:42 UTC] PHP Warning:  fopen(/'cron.txt): failed to open stream: Permission denied in /var/www/test_scheduler/trunk/model/cronModel.php on line 26
+[19-May-2013 10:10:51 UTC] PHP Warning:  fopen(/cron/.txt): failed to open stream: No such file or directory in /var/www/test_scheduler/trunk/model/cronModel.php on line 28
+[19-May-2013 10:11:11 UTC] PHP Warning:  fopen(/cron/asf.txt): failed to open stream: No such file or directory in /var/www/test_scheduler/trunk/model/cronModel.php on line 28
+[19-May-2013 10:12:21 UTC] PHP Warning:  fopen(/cron/asf .txt): failed to open stream: No such file or directory in /var/www/test_scheduler/trunk/model/cronModel.php on line 28
+[19-May-2013 10:14:41 UTC] PHP Notice:  Undefined variable: c in /var/www/test_scheduler/trunk/model/cronModel.php on line 27
+[19-May-2013 10:15:02 UTC] PHP Notice:  Undefined variable: c in /var/www/test_scheduler/trunk/model/cronModel.php on line 27
+[19-May-2013 10:17:07 UTC] PHP Notice:  Undefined variable: c in /var/www/test_scheduler/trunk/model/cronModel.php on line 27
+[19-May-2013 10:17:07 UTC] PHP Notice:  Undefined variable: file_put_contents in /var/www/test_scheduler/trunk/model/cronModel.php on line 33
+[19-May-2013 10:17:07 UTC] PHP Fatal error:  Function name must be a string in /var/www/test_scheduler/trunk/model/cronModel.php on line 33
+[19-May-2013 10:17:57 UTC] PHP Notice:  Undefined variable: file_put_contents in /var/www/test_scheduler/trunk/model/cronModel.php on line 33
+[19-May-2013 10:17:57 UTC] PHP Fatal error:  Function name must be a string in /var/www/test_scheduler/trunk/model/cronModel.php on line 33
+[19-May-2013 10:21:42 UTC] PHP Warning:  file_put_contents() expects parameter 1 to be string, resource given in /var/www/test_scheduler/trunk/model/cronModel.php on line 33
+[19-May-2013 10:41:16 UTC] PHP Notice:  Undefined variable: cronCofigFile in /var/www/test_scheduler/trunk/model/cronModel.php on line 33
+[19-May-2013 10:41:16 UTC] PHP Warning:  fopen(): Filename cannot be empty in /var/www/test_scheduler/trunk/model/cronModel.php on line 33
+[19-May-2013 10:41:16 UTC] PHP Notice:  Undefined variable: cronCofigFile in /var/www/test_scheduler/trunk/model/cronModel.php on line 37
+[19-May-2013 10:41:16 UTC] PHP Warning:  file_put_contents(): Filename cannot be empty in /var/www/test_scheduler/trunk/model/cronModel.php on line 37
+[19-May-2013 10:45:22 UTC] PHP Notice:  Use of undefined constant cronTab - assumed 'cronTab' in /var/www/test_scheduler/trunk/model/cronModel.php on line 47

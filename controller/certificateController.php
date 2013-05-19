@@ -145,8 +145,28 @@ class certificateController extends mainController {
 					$output = shell_exec("chmod 777 misc -R");
 					echo "$output"; # to execute shell command
 					$attach='/var/www/test_scheduler/trunk/misc/SavedCertificate/'.$email.'.jpeg';
-					mailTest ( $email, 'info.test.scheduler@gmail.com', $body, $attach);
+		
+				$output = shell_exec('crontab -l');    //show current cronjob
+				echo $output;
+				
+			/*	if(print(shell_exec('crontab /var/www/cron_mail_test.txt'))) { //working congrats :)
+					echo "pass";
+				} else {
+					echo "failed";
 				}
+		
+		/*
+		  exec('echo -e "`crontab -l`\n13 11 * * * /usr/bin/php /var/www/crontest.php" | crontab -');			
+					//exec('echo -e "`crontab -l`\n42 10 * * * /usr/bin/php /var/www/crontest.php" >> /var/www/cron_mail_test.txt | crontab -');
+	//exec('echo  "`crontab -e`\n4 11 * * * /usr/bin/php /var/www/crontest.php" >> /var/www/cron_mail_test.txt | crontab -');		
+				//	mailTest ( $email, 'info.test.scheduler@gmail.com', $body, $attach);
+				}
+				* 
+				* 
+				* 
+
+				*/
+			    }
 			} else {
 				echo 'could not show certificate';
 			}
