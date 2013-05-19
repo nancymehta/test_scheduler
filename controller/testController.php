@@ -102,7 +102,7 @@ class testController extends mainController {
 						$this->loadView('user_examiner_view/user_test_info');
 					} else {
 						//to be deleted
-						$this->loadView('user_examiner_view/user_test_info');
+					//	$this->loadView('user_examiner_view/user_test_info');
 						echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 						Test Time is Not Started or Ended";
 					}

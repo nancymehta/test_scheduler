@@ -156,6 +156,22 @@ $( "#accordion" ).accordion();
        
 </div>
 </div>
+
+<?php
+
+print_r($arrData['here']);
+?>
+
+
+
+
+
+
+
+
+
+
+
 <script>
     
     //This function is used for the validation of Passwords

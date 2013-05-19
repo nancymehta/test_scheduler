@@ -20,6 +20,7 @@ class accountSettingsController extends common{
 			$this->loadView("user_header");
 			$userId		=	$_SESSION['SESS_USER_ID'];
 			$arrData	=	$this->loadModel('accountSettings','viewDetails',$userId);
+			$arrData['here']=array("example1","example2","example3");
 			$this->loadView('settings_home',$arrData);
 		} catch (Exception $e) {
 			$this->handleException($e->getMessage());
