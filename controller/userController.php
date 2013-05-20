@@ -42,6 +42,15 @@ class userController extends mainController {
 			echo 'could not display the page sorry.';
 		}
 	}
+	
+	function manualOrder() {
+		try {
+			$arrData = $this->loadModel ( 'createTest', 'fetchManualQuestions', $_POST );
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
 	/* provide view for category tab */
 	function questionbank() {
 		/**
@@ -168,6 +177,7 @@ class userController extends mainController {
 		$arrData = $this->loadModel ( 'createTest', 'getTestCategoryValues', array (
 				"test_id" => $_GET ['test_id']
 		) );
+		//echo '<pre>';print_r($arrData);die("in user contrl");
 		if (! empty ( $arrData )) {
 			$this->loadView ( "header" );
 			$this->loadView ( "user_header" );

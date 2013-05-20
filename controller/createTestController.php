@@ -178,18 +178,69 @@ class createTestController extends mainController {
 	
 	function manageQuestion() {
 		try {
-			$arrData = $this->loadModel ( 'createTest', 'updateTestCategory', $_POST );
-			if ($arrData) {
-				$_SESSION ['SESS_ERROR'] = 'Question managed!!';
-				header ( "location:http://test_scheduler.com/user/mytest" );
+			$orgPost = $_POST;
+			$totalQuestion = strip_tags ( $_POST ['totalQues'] );
+			$testId = $_POST ['test_id'];
+			array_shift ( $_POST );
+			array_pop ( $_POST );
+			$sum = 0;
+			$arrValues = array_values ( $_POST );
+			foreach ( $arrValues as $key => $val ) {
+				if ($key % 2 == 0) {
+					$val = strip_tags ( $val );
+					$sum = $sum + $val;
+				}
+			}
+			if ($sum == $totalQuestion) {
+				$boolUpdate = $this->loadModel ( 'createTest', 'updateTestCategory', $orgPost );
+				if ($boolUpdate) {
+					echo 'test updated';
+				} else {
+					echo 'test could not be updated';
+				}
+			} elseif ($sum > $totalQuestion) {
+				echo 'no of questions exceeds the no of total ques';
 			} else {
-				$_SESSION ['SESS_ERROR'] = 'Question could not be managed,you might not have sufficent questions in the question bank!!';
-				header ( "location:http://test_scheduler.com/user/mytest" );
+				echo 'no of ques less than total no of questions please check';
+			}
+			/*
+			 * remove code here from here was of previous submit if and else
+			 * both $arrData = $this->loadModel ( 'createTest',
+			 * 'updateTestCategory', $_POST ); if ($arrData) { $_SESSION
+			 * ['SESS_ERROR'] = 'Question managed!!'; header (
+			 * "location:http://test_scheduler.com/user/mytest" ); } else {
+			 * $_SESSION ['SESS_ERROR'] = 'Question could not be managed,you
+			 * might not have sufficent questions in the question bank!!';
+			 * header ( "location:http://test_scheduler.com/user/mytest" ); }
+			 */
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
+	function manualOrder() {
+		try {
+			if (! empty ( $_POST ['quesId'] )) {
+				if (count ( $_POST ['quesId'] ) == $_POST ['noOfQuestions']) {
+					$boolInsertManually = $this->loadModel ( 'createTest', 'insertManual', $_POST );
+					if ($boolInsertManually) {
+						echo 'Test Updated with selected Questions';
+					} else {
+						echo 'Sorry there was a problem please try again';
+					}
+				} elseif (count ( $_POST ['quesId'] ) > $_POST ['noOfQuestions']) {
+					echo 'you have selected more questions than max questions in test , please Check';
+				} else {
+					echo 'you have selected less questions than max questions in test , please Check';
+				}
+			} else {
+				echo 'you have not selected any Questions';
 			}
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}
 	}
+	
 	
 	function deleteTest() {
 		try {
