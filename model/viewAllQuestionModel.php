@@ -127,15 +127,21 @@ class viewAllQuestionModel extends dbConnectModel {
 		
 		$results = $this->_db->select ( $data );
 		$result2 = $results->fetchAll();
-		//print '<pre>';
+		print '<pre>';
 		//print_r($result2);
+		//die();
 		  $i=0;
 		  while ( (!empty($result2[$i]['option'] ))){
-			$option[$i] = $result2[$i]['option'];
+			$option['id'][] = $result2[$i]['id'];
+			$option['option'][] = $result2[$i]['option'];
 
 			
 			if($result2[$i]['correct']=='1'){
-				$answer[]=$result2[$i]['option'];
+				
+				$answer['id'][]=$result2[$i]['id'];
+				$answer['option'][]=$result2[$i]['option'];
+
+				
 				}
 			$i++;
 			}
@@ -144,7 +150,7 @@ class viewAllQuestionModel extends dbConnectModel {
 		$arrArgs['answer']=$answer;	
 		//print_r($option);	
 		//print_r($answer);
-		//print_r($arrArgs);
+		print_r($arrArgs);
 		//die();
 		return $arrArgs;
 	

@@ -195,8 +195,9 @@ function bulkUploadController() {
     
     /*function will update questions from particular test*/       
     public function quesUpdate(){
-		die('edited');
-		//	print_r($_REQUEST);
+		    echo '<pre>';
+			print_r($_REQUEST);
+			die('edited');
         $questionAnswers['qid']		=	$_REQUEST['qid'];
         $questionAnswers['question']	=	$_REQUEST['question'];
         $questionAnswers['A']		=	$_REQUEST['A'];

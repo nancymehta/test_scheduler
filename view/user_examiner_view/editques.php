@@ -15,11 +15,11 @@ $row=$arrData;
 //echo '<pre>';
 //print_r($row);
 //print_r($row[])
-$totalOptions=count($row['option']);
+echo '--------'.$totalOptions=count($row['option']['id']);
 
 ?>
 	
-			<form name='f1' action='<?php echo SITE_PATH;?>index.php?controller=managetest&function=quesUpdate&qid=<?php echo $row["qno"]; ?>' method='post'>  		
+			<form name='f1' action="<?php  echo SITE_PATH; ?>questionBank/quesUpdate?qid=<?php echo $row['id'];?>" method='post'>  		
  	    	<table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse' bordercolor='#111111' width='100%' id='AutoNumber1'>
 			  <tr>
 			    <td width='100%' colspan='2'>Question Id :&nbsp;<?php echo $row["id"]; ?></td>
@@ -31,13 +31,14 @@ $totalOptions=count($row['option']);
 			  <?php for($i=0;$i<$totalOptions;$i++){   ?>
 			  <tr><td>
 				<?php 
-				      if(in_array($row['option'][$i],$row['answer']))
-				          echo '<input type="checkbox" checked />';
-				      else
-				          echo '<input type="checkbox" />'; 
-				?>
+				         if(in_array($row['option']['id'][$i],$row['answer']['id'])){   ?>
+				      
+				          <input type='checkbox' name='<?php echo $row['option']['id'][$i]; ?>'  checked />
+				     <?php } else{ ?>
+				          <input type='checkbox' name='<?php echo $row['option']['id'][$i]; ?>'/>
+					<?php  } ?>
 			 </td>	     
-			    <td width='54%'><?php echo $i+1; ?>:<input type='text' name='A'<?php echo $i+1; ?> value='<?php echo $row['option'][$i]; ?>' size='20'></td>
+			    <td width='54%'><?php echo $i+1; ?>:<input type='text' name="option<?php echo $i+1; ?>" value='<?php echo $row['option']['option'][$i]; ?>' size='20'></td>
 			  
 			  </tr>
 			  
