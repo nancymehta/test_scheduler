@@ -39,7 +39,7 @@ while ( $row = $arrData->fetch ( PDO::FETCH_ASSOC ) ) {
 				<?php $_SESSION['SESS_CATEGORY_ID']= $row['category_id']; ?>
              	<td width='13%'><a href="<?php  echo SITE_PATH; ?>questionBank/deleteQues?qid=<?php echo $row['id'];?>&category=<?php echo $row['category_id'];?>">delete</a>&nbsp;
              	<a href="<?php  echo SITE_PATH; ?>questionBank/editQues?qid=<?php echo $row['id'];?>&category=<?php echo $row['category_id'];?>">edit</a>
-             	<button id='edit_btn' >edit</button>&nbsp;
+             	
              			
 				</td>
 		   </tr>

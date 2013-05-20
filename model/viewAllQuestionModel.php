@@ -150,7 +150,7 @@ class viewAllQuestionModel extends dbConnectModel {
 		$arrArgs['answer']=$answer;	
 		//print_r($option);	
 		//print_r($answer);
-		print_r($arrArgs);
+		//print_r($arrArgs);
 		//die();
 		return $arrArgs;
 	

@@ -5,7 +5,7 @@
 			    <td width='100%' bgcolor='#999966'>
 			    <p align='center'><span style='font-size: 8.5pt; color: #333333'><b>
 			    <span style='font-family: Verdana'>&nbsp;&nbsp;&nbsp;
-			    <a  href='<?php echo SITE_PATH;?>index.php?controller=adminhome&function=loadAdminHome'>Clik</a>&nbsp;&nbsp;&nbsp;&nbsp; 
+			    <a  href='<?php echo SITE_PATH;?>index.php?controller=adminhome&function=loadAdminHome'>Click To Go back</a>&nbsp;&nbsp;&nbsp;&nbsp; 
 			    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 
 			    </span></b></span></td>
 			  </tr>
@@ -15,7 +15,7 @@ $row=$arrData;
 //echo '<pre>';
 //print_r($row);
 //print_r($row[])
-echo '--------'.$totalOptions=count($row['option']['id']);
+$totalOptions=count($row['option']['id']);
 
 ?>
 	

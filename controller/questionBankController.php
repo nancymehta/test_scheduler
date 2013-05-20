@@ -163,6 +163,9 @@ function bulkUploadController() {
 			
 		     $qid	= $_GET['qid'];
 		   	 $arrData['qid']=$qid;
+		   	 $this->loadView("header");
+			 $this->loadView("user_header");
+			 $this->loadView("user_examiner_view/deshboard_menu");
 			 $result=$this->loadModel('viewAllQuestion','deleteQues',$arrData);
 			 // $result =	this->loadModel('viewAllQuestion','deleteQues',$arrArgs);
 						 
@@ -187,6 +190,9 @@ function bulkUploadController() {
     public function editQues(){
 	
         $arrData['id']  =	$_REQUEST['qid'];
+        $this->loadView("header");
+		$this->loadView("user_header");
+		$this->loadView("user_examiner_view/deshboard_menu");
 		$arrArgument	=	$this->loadModel('viewAllQuestion','editQues',$arrData);
         //print_r($arrArgument);
         $this->loadView("user_examiner_view/editques",$arrArgument);
