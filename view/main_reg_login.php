@@ -46,19 +46,19 @@
                     <label class="label1"><?php echo "Password"; ?>  </label><input class="loginc max-length" id="login_password" name="password" type="password"   />
                     
                       <span class ="log_data"> </span>
-
-                    <div class"space"></div>
+               <div class"space"></div>
                         <br>
                            
               <input id="b1"  class="submmit_button_generic"  type="submit" value="Login"/>
-                
-              
+          <div class"space"></div><br>
+         <a href="<?php echo SITE_PATH."forget_password"; ?>"  style="hover:color:red;" class="floatr fg-mid-blue"> Forget  Password ?</a>               
          </div>
 
             
                 <div class="para"></div>
      
 </form>
+
 </div>
 <div id="registerdiv" class="registerdiv logindiv">
 

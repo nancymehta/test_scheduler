@@ -30,6 +30,18 @@ class mainController extends common{
 			$this->handleException($e->getMessage());
 		}
 	}
+	function forget_password(){
+
+try {
+	            $this->loadView ( "header" ); 
+	            $this->loadView ( "user_header1" ); 
+				$this->loadView("forget_password");
+		} catch (Exception $e) {
+			$this->handleException($e->getMessage());
+		}
+
+
+	}
 	function handleException($message) {
 			echo 'Caught exception: '.$message;
 	}
