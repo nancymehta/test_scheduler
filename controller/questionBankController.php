@@ -203,18 +203,26 @@ function bulkUploadController() {
     public function quesUpdate(){
 		    echo '<pre>';
 			print_r($_REQUEST);
-			die('edited');
-        $questionAnswers['qid']		=	$_REQUEST['qid'];
-        $questionAnswers['question']	=	$_REQUEST['question'];
-        $questionAnswers['A']		=	$_REQUEST['A'];
+			 $questionAnswers['qid']		=	$_REQUEST['qid'];
+             $questionAnswers['question']	=	$_REQUEST['question'];
+			 echo '-------->'.$arrArgument=$this->loadModel('viewAllQuestion','quesUpdate',$questionAnswers);
+			 
+			 echo '--->'.$totalOPtion=$_GET['totalOPtion'];
+			for($i=1;$i<=$totalOPtion;$i++){
+				//if()
+				}
+			 
+			die('Updateded');
+       
+       /* $questionAnswers['A']		=	$_REQUEST['A'];
         $questionAnswers['B']		=	$_REQUEST['B'];
         $questionAnswers['C']		=	$_REQUEST['C'];
         $questionAnswers['D']		=	$_REQUEST['D'];
-        $questionAnswers['ans']		=	$_REQUEST['ans'];
+        $questionAnswers['ans']		=	$_REQUEST['ans'];*/
 		//      print_r($questionAnswers);
-        $result	=	loadModel('managetest','quesUpdate',$questionAnswers);
+        $arrArgument=$this->loadModel('managetest','quesUpdate',$questionAnswers);
         	
-        if($result=="updated"){
+        if($arrArgument=="updated"){
 				header("location: ".SITE_PATH."index.php?controller=managetest&function=showQues");
 			}
         

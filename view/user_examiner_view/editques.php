@@ -19,7 +19,7 @@ $totalOptions=count($row['option']['id']);
 
 ?>
 	
-			<form name='f1' action="<?php  echo SITE_PATH; ?>questionBank/quesUpdate?qid=<?php echo $row['id'];?>" method='post'>  		
+			<form name='f1' action="<?php  echo SITE_PATH; ?>questionBank/quesUpdate?qid=<?php echo $row['id'];?>&totalOPtion=<?php echo $totalOptions; ?>" method='post'>  		
  	    	<table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse' bordercolor='#111111' width='100%' id='AutoNumber1'>
 			  <tr>
 			    <td width='100%' colspan='2'>Question Id :&nbsp;<?php echo $row["id"]; ?></td>

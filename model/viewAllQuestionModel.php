@@ -155,6 +155,35 @@ class viewAllQuestionModel extends dbConnectModel {
 		return $arrArgs;
 	
 	   }
-	
+	   
+	    public function quesUpdate($arrArgs){
+		         print_r($arrArgs);	
+		         if(isset($arrArgs)){
+					$qid=$arrArgs['qid'];
+				    $question=$arrArgs['question'];
+					//die('oye model');
+					$data = array('question' => $question);
+					$where = array('id' => $qid);
+					$result1 =  $this->_db->update('question', $data, $where);
+					
+					/** setting correctness of all option to incorrect **/
+					
+					$data = array('correct' => '0');
+					$where = array('ques_id' => $qid);
+					//$result2 =  $this->_db->update('question_options', $data, $where);
+					
+					
+										
+					
+					
+					//if($result1 && $result2){
+						return 1;  
+						
+						//}
+		          }
+		          
+		   }  
+			
+		
 }
 ?>	
