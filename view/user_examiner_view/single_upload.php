@@ -72,7 +72,7 @@
 				<div class="space"></div>
 				<div class="innerdiv">
 					<div class="space"></div>
-					<label>Type Qestion here:</label><input class="text_right_generic" type="textarea" name="question" id="question">
+					<label>Type Qestion here:</label><input class="text_right_generic max-length" type="textarea" name="question" id="question">
 				</div>
 				<div class="space"></div>
 				<div class="space"></div>
@@ -108,14 +108,14 @@
 								</td>
 								<td><input type="checkbox" id="check1" name="check1"></td>
 								<td><textarea cols=15 rows=1 id="feedback1" name="feedback1"
-										class="text_right_generic"></textarea></td>
+										class="text_right_generic max-length"></textarea></td>
 							</tr>
 							<tr>
 								<td><textarea cols=15 rows=1 id="ques2" name="ques2"
-										class="text_right_generic"></textarea></td>
+										class="text_right_generic max-length"></textarea></td>
 								<td><input type="checkbox" id="check2" name="check2"></td>
 								<td><textarea cols=15 rows=1 id="feedback2" name="feedback2"
-										class="text_right_generic"></textarea></td>
+										class="text_right_generic max-length"></textarea></td>
 							</tr>
 						</tbody>
 					</table>

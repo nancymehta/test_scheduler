@@ -32,11 +32,11 @@
 			<table class="table1 table-generic">
 				<tbody>
 				<tr cellspacing="2"><label>First Name</label></tr>
-        				<tr><input type="text"  name="first_name" id="first_name"/></tr><div class="space"></div>
+        				<tr><input type="text" class = "max-length"  name="first_name" id="first_name"/></tr><div class="space"></div>
 				<tr><label>Last Name</label></tr></br>
-				<tr><input type="text" name="last_name" id="last_name"/></tr><div class="space"></div>
+				<tr><input type="text" class = "max-length" name="last_name" id="last_name"/></tr><div class="space"></div>
 				<tr><label>Email Address</label></tr></br>
-				<tr><input type="text" name="email" id="email"/></tr><div class="space"></div>
+				<tr><input type="text" class = "max-length" name="email" id="email"/></tr><div class="space"></div>
 				<tr><input type="submit" value="Search" class="submmit_button_generic" /></tr>
 			</tbody>
 			</table>

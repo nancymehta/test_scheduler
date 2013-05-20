@@ -18,27 +18,27 @@
 
 <tr>
 <td>Start Time</td>
-<td><input type="text"  value="<?php if(isset($arrData['start_time'])){echo $arrData['start_time'];}?>" name="startTime" id="startTime">
+<td><input type="text" class="max-length"  value="<?php if(isset($arrData['start_time'])){echo $arrData['start_time'];}?>" name="startTime" id="startTime">
 </tr>
 
 <tr>
 <td>End Time</td>
-<td><input type="text" value="<?php if(isset($arrData['end_time'])){echo $arrData['end_time'];}?>" name="endTime" id="endTime">
+<td><input type="text" class="max-length" value="<?php if(isset($arrData['end_time'])){echo $arrData['end_time'];}?>" name="endTime" id="endTime">
 </tr>
 
 <tr>
 <td>Test Duration (mins)</td>
-<td><input type="text" value="<?php if(isset($arrData['time_limit'])){echo $arrData['time_limit'];}?>" name="timeDuration" id="timeDuration">
+<td><input type="text" class="max-length" value="<?php if(isset($arrData['time_limit'])){echo $arrData['time_limit'];}?>" name="timeDuration" id="timeDuration">
 </tr>
 
 <tr>
 <td>Per Page Questions</td>
-<td><input type="text" value="<?php if(isset($arrData['per_page_ques'])){echo $arrData['per_page_ques'];}?>" name="perPageQuestions" id="perPageQuestions">
+<td><input type="text" class="max-length" value="<?php if(isset($arrData['per_page_ques'])){echo $arrData['per_page_ques'];}?>" name="perPageQuestions" id="perPageQuestions">
 </tr>
 
 <tr>
 <td>Passing Marks</td>
-<td><input type="text"  value="<?php if(isset($arrData['pass_marks'])){echo $arrData['pass_marks'];}?>" name="passingMarks" id="passingMarks">
+<td><input type="text" class="max-length"  value="<?php if(isset($arrData['pass_marks'])){echo $arrData['pass_marks'];}?>" name="passingMarks" id="passingMarks">
 </tr>
 
 <tr>

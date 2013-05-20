@@ -39,7 +39,7 @@
 Question/Category Settings
 <form action="http://test_scheduler.com/createTest/manageQuestion"
 	method="post" id="frmManageQuestions" name="frmManageQuestions">
-	Total No Of Questions In Test : <input type="text" name="totalQues"
+	Total No Of Questions In Test : <input type="text" class="max-length" name="totalQues"
 		id="totalQues" value="<?php echo $arrData['total_ques'];?>">
 	<table id="tblRandom">
 		<tr>
@@ -52,7 +52,7 @@ Question/Category Settings
 		if (isset ( $arrData [$i] )) {
 			echo '<tr>';
 			echo '<td><label>' . $arrData [$i] ['categoryName'] . '</label></td>';
-			echo "<td><input type='text'" . "name='noOfQuesForCategoryId_" . $arrData [$i] ['categoryId'] . "'" . "value='" . $arrData [$i] ['no_of_ques'] . "'/></td>";
+			echo "<td><input type='text' class='max-length" . "name='noOfQuesForCategoryId_" . $arrData [$i] ['categoryId'] . "'" . "value='" . $arrData [$i] ['no_of_ques'] . "'/></td>";
 			echo "<td><input type='hidden'" . "name='categoryId_" . $arrData [$i] ['categoryId'] . "'" . "value='" . $arrData [$i] ['categoryId'] . "'/></td>";
 			echo '</tr>';
 		}

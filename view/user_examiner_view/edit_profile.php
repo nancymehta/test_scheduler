@@ -77,12 +77,12 @@
      <p><b>Note:</b> Closing your account is permanent and cannot be undone.</p><br/>
      <b>Reasons for closing your Account?</b><br/>
      <form id="edit-delete" method="post">
-     <textarea cols="30" rows="3" name="reason" id="reason" class="text_right_generic"></textarea><br/>
+     <textarea cols="30" rows="3" name="reason" id="reason" class="text_right_generic max-length"></textarea><br/>
     <div class="space"></div>
-	 <label>User Name:</label> <input type="text" class="text_right_generic" name="userName" id="userName" />
+	 <label>User Name:</label> <input type="text" class="text_right_generic max-length" name="userName" id="userName" />
   <div class="space"></div>
 	 
-	 <label>Password:</label> <input type="password"  class="text_right_generic" name="userPassword" id="userPassword" />
+	 <label>Password:</label> <input type="password"  class="text_right_generic max-length" name="userPassword" id="userPassword" />
 	 <div class="space"></div><p><b>Note:</b> Please be patient once you select the link below. 
 	Closing your account can take a few moments.</p>
 	<input type="submit" value="Permanently close my account" class="submmit_button_generic" />

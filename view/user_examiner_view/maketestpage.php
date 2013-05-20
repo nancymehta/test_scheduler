@@ -46,7 +46,7 @@
 					action="http://test_scheduler.com/createTest/createNewTest" id = "add_test_form">
 					<div class="space"></div>
 					<label>Test Name :</label> <input type="text"
-						class="text_right_generic" id="test_name" name="test_name" />
+						class="text_right_generic max-length" id="test_name" name="test_name" />
 					<div class="space"></div>
 					
 					<label>Category Type :</label> <select id="category_name"
@@ -102,7 +102,7 @@
 					echo '<td><a href="http://test_scheduler.com/user/examSettings?test_id=' . $arrData ['test'] ['testId'] [$i] . '&test_name=' . $arrData ['test'] ['testName'] [$i] . '">Manage assign test</a></td>';
 					$temp=$arrData ['test'] ['testId'][$i].$arrData ['test'] ['testName'][$i];
 					echo '<td><a href="#">Mail Link</a></td>';
-					echo "<td><input type='text' value='test_scheduler.com/test/home/".md5($temp)."' readonly></td>";
+					echo "<td><input type='text' class='max-length' value='test_scheduler.com/test/home/".md5($temp)."' readonly></td>";
 					$i ++;
 					echo '</tr>';
 				}

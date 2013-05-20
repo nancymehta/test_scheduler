@@ -492,6 +492,11 @@ $('.table1').dataTable();
 	});
 	$("#close1").click(function(){
         $("#registerdiv").hide();
+        //$("#register_form").reset();
+        $('#register_form').each (function(){
+        	  this.reset();
+        	});
+        $("label .error").text("");
         $("#reg_user_name").val("");
         $("#reg_password").val("");
         $("#reg_confirm_password").val("");

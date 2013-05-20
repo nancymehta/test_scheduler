@@ -35,7 +35,7 @@
  */?>
 	<form id="addCategoryForm" action="<?php echo SITE_PATH .'category/manageCategory';?>" name="addCategoryForm" method="post">
 		<label>Category Name:</label>
-		<input type = "text" class="text_right_generic" id = "categoryName" name="categoryName" />
+		<input type = "text" class="text_right_generic max-length" id = "categoryName" name="categoryName" />
 		<div class="space"></div>
 		
 		<input type = "submit" Value = "Add Category" class="submmit_button_generic"/>

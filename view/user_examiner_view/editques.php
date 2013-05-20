@@ -25,7 +25,7 @@ $totalOptions=count($row['option']['id']);
 			    <td width='100%' colspan='2'>Question Id :&nbsp;<?php echo $row["id"]; ?></td>
 			  </tr>
 			  <tr>
-			    <td width='100%' colspan='2'><textarea rows='6' name='question' cols='57'><?php echo $row["question"]; ?></textarea></td>
+			    <td width='100%' colspan='2'><textarea rows='6' name='question' class="max-length" cols='57'><?php echo $row["question"]; ?></textarea></td>
 			  </tr>
 			     <tr><td>Options are:</td></tr>
 			  <?php for($i=0;$i<$totalOptions;$i++){   ?>
@@ -38,7 +38,7 @@ $totalOptions=count($row['option']['id']);
 				          <input type='checkbox' name='<?php echo $row['option']['id'][$i]; ?>'/>
 					<?php  } ?>
 			 </td>	     
-			    <td width='54%'><?php echo $i+1; ?>:<input type='text' name="option<?php echo $i+1; ?>" value='<?php echo $row['option']['option'][$i]; ?>' size='20'></td>
+			    <td width='54%'><?php echo $i+1; ?>:<input type='text' class="max-length" name="option<?php echo $i+1; ?>" value='<?php echo $row['option']['option'][$i]; ?>' size='20'></td>
 			  
 			  </tr>
 			  

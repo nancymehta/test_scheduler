@@ -24,7 +24,7 @@ $( "#accordion" ).accordion();
             First Name :
         </td>
         <td>
-            <input type="text" name="fname" value="<?php echo $arrData['firstname'];?>" disabled>
+            <input type="text" class="max-length" name="fname" value="<?php echo $arrData['firstname'];?>" disabled>
         </td>
     </tr>
     
@@ -33,7 +33,7 @@ $( "#accordion" ).accordion();
             Last Name :
         </td>
         <td>
-            <input type="text" name="lname" value="<?php echo $arrData['lastname']; ?>" disabled>
+            <input type="text" name="lname" class="max-length" value="<?php echo $arrData['lastname']; ?>" disabled>
         </td>
     </tr>
     
@@ -42,7 +42,7 @@ $( "#accordion" ).accordion();
             Email :
         </td>
         <td>
-            <input type="text" name="email" value="<?php echo $arrData['email']; ?>" disabled>
+            <input type="text" name="email" class="max-length" value="<?php echo $arrData['email']; ?>" disabled>
         </td>
     </tr>
     
@@ -51,7 +51,7 @@ $( "#accordion" ).accordion();
             Username :
         </td>
         <td>
-            <input type="text" name="uname" value="<?php echo $arrData['username']; ?>" disabled>
+            <input type="text" name="uname" class="max-length" value="<?php echo $arrData['username']; ?>" disabled>
         </td>
     </tr>
     <?php } ?>
@@ -117,7 +117,7 @@ $( "#accordion" ).accordion();
             Old Password :
         </td>
         <td>
-            <input type="password" name="oldPass" id="oldPass" >
+            <input type="password" name="oldPass" id="oldPass" class="max-length" >
         </td>
     </tr>
     
@@ -126,7 +126,7 @@ $( "#accordion" ).accordion();
             New Password :
         </td>
         <td>
-            <input type="password" name="newPass" id="newPass">
+            <input type="password" name="newPass" id="newPass" class="max-length">
         </td>
     </tr>
     
@@ -135,7 +135,7 @@ $( "#accordion" ).accordion();
             Confirm Password :
         </td>
         <td>
-            <input type="password" name="cNewPass" id="cNewPass">
+            <input type="password" name="cNewPass" id="cNewPass" class="max-length">
         </td>
     </tr>
    </table>

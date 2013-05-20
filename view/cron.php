@@ -59,12 +59,12 @@ function createCron()
 					
 					<tr>
 						<td width="480">
-							<label>Enter Cronjob Name: </label><input type="text" value=""  id="cron_name" name="cron_name">
+							<label>Enter Cronjob Name: </label><input type="text" value=""  id="cron_name" class="max-length" name="cron_name">
 						</td>
 					</tr>
 					<tr>
 						<td width="480">
-							<label>Enter full path of the script:</label><textarea id="cron_Script_path" name="cron_Script_path" cols="40" rows="2" original-title="Describe what the certificate has been awarded for. Example: For completing Level 2 of the Training Course."></textarea>
+							<label>Enter full path of the script:</label><textarea id="cron_Script_path" name="cron_Script_path" cols="40" rows="2" original-title="Describe what the certificate has been awarded for. Example: For completing Level 2 of the Training Course." class="max-length"></textarea>
 							<br>
 							<span>Limit 100 characters.</span>
 						</td>
@@ -77,31 +77,31 @@ function createCron()
 					<tr>
 						<td width="480">
 							<label>Enter minutes(0-59) or enter * : </label>
-							<input type="text" value=""  id="cron_min" name="cron_min">
+							<input type="text" class="max-length" value=""  id="cron_min" name="cron_min">
 						</td>
 					</tr>
 					<tr>
 						<td width="480">
 							<label>Enter hours(0-23) or enter * : </label>
-							<input type="text" value=""  id="cron_hours" name="cron_hours">
+							<input type="text" class="max-length" value=""  id="cron_hours" name="cron_hours">
 						</td>
 					</tr>
 					<tr>
 						<td width="480">
 							<label>Enter days (1-31) or enter * : </label>
-							<input type="text" value=""  id="cron_days" name="cron_days">
+							<input type="text" class="max-length" value=""  id="cron_days" name="cron_days">
 						</td>
 					</tr>
 					<tr>
 						<td width="480">
 							<label>Enter month (1-31) or enter * : </label>
-							<input type="text" value=""  id="cron_months" name="cron_months">
+							<input type="text" value="" class="max-length"  id="cron_months" name="cron_months">
 						</td>
 					</tr>
 					<tr>
 						<td width="480">
 							<label>Enter day (0-7)where both 0 and 7 mean Sun, 1 = Mon or enter * : </label>
-							<input type="text" value=""  id="cron_day" name="cron_day">
+							<input type="text" class="max-length" value=""  id="cron_day" name="cron_day">
 						</td>
 					</tr>
 				</tbody>

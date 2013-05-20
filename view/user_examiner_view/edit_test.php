@@ -9,7 +9,7 @@
 		action="http://test_scheduler.com/createTest/updateTest"
 		id="add_test_form" name="add_test_form">
 		<label>Test Name : </label><input type="text" id="test_name" name="test_name"
-			value="<?php print_r($arrData['testName']);?>" class="text_right_generic-small"/>
+			value="<?php print_r($arrData['testName']);?>" class="text_right_generic-small max-length"/>
 		<?php //echo '<pre>';print_r($arrData);die("here");?>
 		
 		<div class="space"></div>
