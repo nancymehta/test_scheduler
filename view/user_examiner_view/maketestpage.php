@@ -89,14 +89,15 @@
 					echo '<td>';
 					print_r ( $arrData ['test'] ['testName'] [$i] );
 					echo '</td>';
-					echo '<td><a href="http://test_scheduler.com/createTest/editTest?test_id=' . $arrData ['test'] ['testId'] [$i] . '&test_name=' . $arrData ['test'] ['testName'] [$i] . '">Edit</a></td>';
-					if($arrData ['test'] ['testStatus'] [$i] == '0'){
+					echo '<td><a style="background-color:white;margin-top: 5px;"  href="http://test_scheduler.com/createTest/editTest?test_id=' . $arrData ['test'] ['testId'] [$i] . '&test_name=' . $arrData ['test'] ['testName'] [$i] . '"><img style="height:24px;width:24px;" src="'.IMAGE_PATH.'/editb.jpg" ></img></a></td>';
+					
+					 echo "<td><a style=background-color:white;margin-top:5px; onclick=fncDelete(".$arrData ['test'] ['testId'] [$i].")><img src=".IMAGE_PATH."delete.gif></img></a></td>";
+					 if($arrData ['test'] ['testStatus'] [$i] == '0'){
 						echo "<td><a href='#' onclick=fncEnableDisable(".$arrData ['test'] ['testId'] [$i].",2".")>Disable Test</a></td>";
 					} elseif ($arrData ['test'] ['testStatus'] [$i] == '2') {
 						#first arguement is test id and next is status
 						echo "<td><a href='#' onclick=fncEnableDisable(".$arrData ['test'] ['testId'] [$i].",0".")>Enable Test</a></td>";
 					}
-					echo "<td><a href='#' onclick=fncDelete(".$arrData ['test'] ['testId'] [$i].")>Delete</a></td>";
 					echo '<td><a href="http://test_scheduler.com/user/manageQuestions?test_id='.$arrData ['test'] ['testId'] [$i].'">Manage Questions</a></td>';
 					echo '<td><a href="http://test_scheduler.com/user/examSettings?test_id=' . $arrData ['test'] ['testId'] [$i] . '&test_name=' . $arrData ['test'] ['testName'] [$i] . '">Manage assign test</a></td>';
 					$temp=$arrData ['test'] ['testId'][$i].$arrData ['test'] ['testName'][$i];

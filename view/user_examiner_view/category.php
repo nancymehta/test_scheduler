@@ -71,8 +71,8 @@
 				<td><?php echo $sno; ?></td>
 				<td><?php echo $name[$i]; ?></td>
 				<!--<td><a href="#" onclick="$('.b1').click()">Edit</a></td>-->
-				<td><a href="#" class="font-generic-small" onclick="updateCategory(<?php echo $id[$i].",'".$name[$i]."'";?>)">edit</a></td>
-				<td><a href="#" class="font-generic-small" onclick="deleteCategory(<?php echo $id[$i];?>)">delete</a></td>
+				<td><a href="#" style="background-color:white;margin-top: 5px;" class="font-generic-small" onclick="updateCategory(<?php echo $id[$i].",'".$name[$i]."'";?>)"><img style="height:24px;width:24px;" src="<?php echo IMAGE_PATH;?>/editb.jpg"></img></a></td>
+				<td><a href="#" style="background-color:white;margin-top: 5px;" class="font-generic-small" onclick="deleteCategory(<?php echo $id[$i];?>)"><img  src="<?php echo IMAGE_PATH;?>/delete.gif"></img></a></td>
 			</tr>
 			<?php
 			$sno++;

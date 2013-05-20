@@ -46,7 +46,7 @@
 					</th>
 					<th style="font-size:13px" align="left"> <?php echo CREATED_ON; ?>
 					</th>
-					<th style="font-size:13px" align="left"> <?php echo OPTIONS; ?>
+					<th style="font-size:13px" align="left" colspan="2"> <?php echo OPTIONS; ?>
 					</th>   
 					<th>Print Result</th>
 				</tr>
@@ -62,8 +62,8 @@
 						<td><?php echo $key['name']; ?></td>
 						<td><?php echo $key['created_on']; ?></td>
 					
-						<td><a href="#" onClick="fetchTestContent(<?php echo $key['id']; ?>)"><?php echo VIEW; ?></a>
-						<a href="#" onClick="deleteTest(<?php echo $key['id']; ?>)"><?php echo DELETE; ?></a>
+						<td><a style="background-color:white;margin-top: 5px;" href="#" onClick="fetchTestContent(<?php echo $key['id']; ?>)"><img style="height:24px;width:24px;" src="<?php echo IMAGE_PATH;?>/editb.jpg"></img></a></td>
+						<td><a href="#" style="background-color:white;margin-top: 5px;" onClick="deleteTest(<?php echo $key['id']; ?>)"><img src="<?php echo IMAGE_PATH;?>/delete.gif"></img></a>
 						</td>
 						<td>
 						<a href="#" onClick="deleteTest(<?php echo $key['id']; ?>)"><?php echo 'generate PDF'; ?></a>
