@@ -37,6 +37,49 @@ class resultController extends mainController {
 		$result=$this->loadModel("result","individualResults",array('id'=>$testId));
 		$this->loadView("user_examiner_view/user_result",$result);
 	}
+
+	function sendIndividualResults() {
+		$testId=$_GET['id'];
+		$result=$this->loadModel("result","sendResult",array('id'=>$testId));
+		/*echo"<pre>";
+		echo print_r($result);
+		echo"</pre>";*/
+		if($result){		
+			foreach($result as $key=>$value){
+				$email=$value['email_enroll_no'];
+				//echo $email;
+				$body=$value['body'];
+				$err=mailTest ( $email,'result',$body);
+				$_SESSION['SESS_ERROR']=$err;
+				header("location:http://test_scheduler.com/result/sendIndividualResults");
+			}
+		}
+		else{
+			echo "Mail Can't be sent";
+		}
+		//$this->loadView("user_examiner_view/user_result",$result);
+	}
+
+	function sendResults() {
+		$testId=$_GET['id'];
+		$result=$this->loadModel("result","sendOverallResult",array('id'=>$testId));
+		//echo"<pre>";
+		//echo print_r($result);
+		//echo"</pre>";
+		if($result){		
+			foreach($result as $key=>$value){
+				$email=$value['email_enroll_no'];
+				echo $email;
+				$body=$key['body'];
+				echo $body;
+				mailTest ( $email,'result',$body);
+			}
+		}
+		else{
+			echo "Mail Can't be sent";
+		}
+		//$this->loadView("user_examiner_view/user_result",$result);
+	}
 }
 
 ?>

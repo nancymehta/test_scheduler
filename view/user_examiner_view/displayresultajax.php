@@ -12,6 +12,7 @@ if (isset ( $arrData )) {
 		$diff += $end_time - $start_time;
 		$data_sum += $key ['score'];
 		$total_ques = $key ['total_ques'];
+		$test_id= $key ['test_id'];
 	}
 	
 	$total_perc = ( float ) ($data_sum / $total_ques) * 100;
@@ -27,14 +28,15 @@ if (isset ( $arrData )) {
 		<th>Score</th>
 		<th>Duration</th>
 		<th>Attempt</th>
+		<th>Send Mail</th>
 	</tr>
 	<tr>
 		<td></td>
 		<td><?php echo $total_perc; ?></td>
-		<td>
-<?php echo $data_sum."/".$key['total_ques']; ?></td>
+		<td><?php echo $data_sum."/".$total_ques; ?></td>
 		<td><?php echo gmdate("H:i:s", $totalDuration);?></td>
 		<td><?php echo $total_attempt; ?></td>
+		<td><a href='sendResults?id=<?php echo $test_id;?>'>Send Mail</a></td>
 	</tr>
 </table>
 <br>
@@ -46,6 +48,7 @@ if (isset ( $arrData )) {
 		<th>Duration</th>
 
 		<th>View Result</th>
+		<th>Send Mail</th>
 	</tr>
  <?php
 	foreach ( $arrData as $key ) {
@@ -54,7 +57,13 @@ if (isset ( $arrData )) {
 		$start_time = new DateTime ( $key ['start_time'] );
 		$diff_time = $end_time->diff ( $start_time );
 		$data_perc = ($key ['ques_attempted'] / $key ['total_ques']) * 100;
-		echo "<tr><td>" . $key ['first_name'] . " " . $key ['last_name'] . "</td><td>" . $data_perc . "</td><td>" . $key ['score'] . "/" . $key ['total_ques'] . "</td><td>" . $diff_time->format ( '%hh :%mm: %ss' ) . "</td><td><a href='getIndividualResults?id=" . $key ['id'] . "'>click  to View</a></td></tr>";
+		echo "<tr><td>" . $key ['first_name'] . " " . $key ['last_name'] . "</td>
+		<td>" . $data_perc . "</td>
+		<td>" . $key ['score'] . "/" . $key ['total_ques'] . "</td>
+		<td>" . $diff_time->format ( '%hh :%mm: %ss' ) . "</td>
+		<td><a href='getIndividualResults?id=" . $key ['id'] . "'>click  to View</a></td>
+		<td><a href='sendIndividualResults?id=" . $key ['id'] . "'>Send Mail</a></td>
+		</tr>";
 	}
 } else {
 	echo NO_RECORDS_FOUND;

@@ -13,10 +13,10 @@ class resultModel extends dbConnectModel {
 		    		'test.created_by' => $_SESSION ['SESS_USER_ID']
 		    );
 		    $data['joins'][] = array(
-	'table' => 'validate_users', 
-	'type'	=> 'inner',
-	'conditions' => array('validate_users.id' => 'test.created_by')
-);
+			'table' => 'validate_users', 
+			'type'	=> 'inner',
+			'conditions' => array('validate_users.id' => 'test.created_by')
+			);
 		    $result = $this->_db->select($data);
 
 		    while($temp = $result->fetch(PDO::FETCH_ASSOC)){
@@ -29,23 +29,20 @@ class resultModel extends dbConnectModel {
 
 		function overAllResults($arrArgument){
 			$data['tables'] = 'test_taker';
-		    $data['columns']= array('first_name','test_taker.id','last_name','start_time','end_time','score','ques_attempted','total_ques');
+		    $data['columns']= array('first_name','test_taker.id','test_id','last_name','start_time','end_time','score','ques_attempted','total_ques');
 		    $data['conditions']	= array(
 		    		'test_taker.test_id' => $arrArgument['testid']
 		    );
 		    $data['joins'][] = array(
-	'table' => 'test', 
-	'type'	=> 'inner',
-	'conditions' => array('test_taker.test_id' => 'test.id')
-);
+			'table' => 'test', 
+			'type'	=> 'inner',
+			'conditions' => array('test_taker.test_id' => 'test.id')
+			);
 		    $result = $this->_db->select($data);
-
-
-
 		    while($temp = $result->fetch(PDO::FETCH_ASSOC)){
 					$row[]=$temp;
 				}	   
-return $row;		}
+		return $row;		}
 
 	function individualResults($arrArgument)
 		{
@@ -94,6 +91,94 @@ return $row;		}
 		    	return $row;
 	    }
 
-	
+
+	    function sendResult($arrArgument)
+	    {
+			 $data['tables'] = 'test_taker';
+		    $data['columns']= array('first_name','test_taker.id','test_id','ip_address','email_enroll_no','last_name','start_time','end_time','score','ques_attempted','total_ques');
+		    $data['conditions']	= array(
+		    		'test_taker.test_id' => $arrArgument['id']);
+		    $data['joins'][] = array(
+		    		'table' => 'test',
+		    		'type'	=> 'inner',
+		    		'conditions' => array('test_taker.test_id' => 'test.id'));
+
+		    $result = $this->_db->select($data);
+		    $temp = $result->fetch(PDO::FETCH_ASSOC);
+		    $end_time = new DateTime($temp['end_time']);
+ 			 $start_time = new DateTime($temp['start_time']);
+ 			 $diff_time=$end_time->diff($start_time);
+		    $data_perc=($temp['score']/$temp['total_ques'])*100;
+
+		 	  $str="";
+			  $str.="                           Name of Exam Taker : ".$temp['first_name']." " .$temp['last_name']."                                               
+			   "."Id  Assigned : ".$temp['id']."
+			   "."Score : ". $temp['score']."/".$temp['total_ques']."
+			   "."Percentage  : ". $data_perc."
+			   "."Duration : ".$diff_time->format('%hh :%mm: %ss')."
+			   "."Date Started  : ".$temp['start_time']."
+			   "."Date Finished  : ".$temp['end_time']."
+			   "."Email  : ".$temp['email_enroll_no']."
+			   "."Ip Address : ".$temp['ip_address'];
+			  
+        	$data=array();
+			$data['tables'] = 'test_taker';
+		    $data['columns']= array('first_name','last_name','test_taker.id','test_id','email_enroll_no');
+		    $data['conditions']	= array(
+		    		'test_taker.test_id' => $arrArgument['id']
+		    );
+
+		    $result = $this->_db->select($data);
+		    while($temp = $result->fetch(PDO::FETCH_ASSOC)){
+					$row[]=$temp;
+				}	   $row['0']['body']=$str;
+
+			return $row;	
+		}
+
+		function sendOverallResult($arrArgument)
+	    {
+          $data['tables'] = 'test_taker';
+		    $data['columns']= array('first_name','test_taker.id','test_id','ip_address','email_enroll_no','last_name','start_time','end_time','score','ques_attempted','total_ques');
+		    $data['conditions']	= array(
+		    		'test_taker.test_id' => $arrArgument['id']);
+		    $data['joins'][] = array(
+		    		'table' => 'test',
+		    		'type'	=> 'inner',
+		    		'conditions' => array('test_taker.test_id' => 'test.id'));
+		    $result = $this->_db->select($data);
+		    $temp = $result->fetch(PDO::FETCH_ASSOC);
+		    $end_time = new DateTime($temp['end_time']);
+ 			 $start_time = new DateTime($temp['start_time']);
+ 			 $diff_time=$end_time->diff($start_time);
+		    $data_perc=($temp['score']/$temp['total_ques'])*100;
+		 	   $str="";
+			   $str.="Name of Exam Taker : ".$temp['first_name']." " .$temp['last_name']."                                               
+			   "."Id  Assigned : ".$temp['id']."
+			   "."Score : ". $temp['score']."/".$temp['total_ques']."
+			   "."Percentage  : ". $data_perc."
+			   "."Duration : ".$diff_time->format('%hh :%mm: %ss')."
+			   "."Date Started  : ".$temp['start_time']."
+			   "."Date Finished  : ".$temp['end_time']."
+			   "."Email  : ".$temp['email_enroll_no']."
+			   "."Ip Address : ".$temp['ip_address'];
+			  
+        	$data=array();
+
+			$data['tables'] = 'test_taker';
+		   $data['columns']= array('first_name','last_name','test_id','test_taker.id','email_enroll_no');
+		   $data['conditions']	= array(
+		    		'test_taker.test_id' => $arrArgument['id']
+		    );
+
+		    $result = $this->_db->select($data);
+		    while($temp = $result->fetch(PDO::FETCH_ASSOC)){
+					$row[]=$temp;
+					$row['body']=$str;
+				}	   
+			
+			return $row;	
+        }
+ 
 	}
 ?>

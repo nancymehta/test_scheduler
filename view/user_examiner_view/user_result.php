@@ -22,6 +22,9 @@ if(isset($arrData['test_taker_details'])){
 <tr> <td>Email</td> <td><?php echo $key['email_enroll_no'];?></td></tr>
 
 </table>
+
+   
+
 	<!-- <span class="floatl">Name of Exam Taker : </span> <label class="floatr" id="user-result-name" name="user-result-name"><?php echo $key['first_name']." " .$key['last_name']; ?></label>
 	<br>
 	<br>
