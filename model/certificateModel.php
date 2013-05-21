@@ -172,10 +172,10 @@ class certificateModel extends dbConnectModel {
 		$result = $this->_db->select($data);
 		$row=array();
 		while($temp = $result->fetch(PDO::FETCH_ASSOC)) {
-			if($temp['score'] >= $temp['pass_marks']) {
+		//	if($temp['score'] >= $temp['pass_marks']) {
 					
 					$row[]=$temp;
-			}
+		//	}
 		} 	   
 		
 		if(isset($row)) {

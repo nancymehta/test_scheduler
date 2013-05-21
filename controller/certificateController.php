@@ -66,7 +66,8 @@ class certificateController extends mainController {
 		
 			if ($validation->checkRequired($_POST ['certificate_name']) && 
 				$validation->checkRequired($_POST ['certificate_body']) && 
-					$validation->checkRequired($_POST ['test_select'])) {
+					$validation->checkRequired($_POST ['test_select']) &&
+					!empty($_POST ['test_select'])) {
 
 				if ($validation->validateCertificateInput($_POST ['certificate_name']) &&
 					$validation->validateCertificateInput($_POST ['certificate_body'])) {
@@ -94,6 +95,8 @@ class certificateController extends mainController {
 				} else {
 					echo INVALID_INPUT;
 				}
+			} else {
+				echo SELECT_TEST;
 			}
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
@@ -130,13 +133,9 @@ class certificateController extends mainController {
 									);
 					
 						//$this->loadModel('cron','createCronjob',$argArray); */
-						#Mailing certificate 
-						if(mailTest ( $email, CERT_MAILED_SUBJECT, $body, $attach)) {
-							$this->loadModel( 'certificate', 'updateCertificateRecord', $userDetails );
-						} else {
-							echo CERT_ISSUE_FAILED_MSG;
-						}
-						
+						#Mailing certificate
+						mailTest ( $email, CERT_MAILED_SUBJECT, $body, $attach); 
+											
 		
 					}
 				} else {

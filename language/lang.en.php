@@ -127,6 +127,8 @@ define('PRESENTED_TO','Presented to:');
 define('CERT_ACHIEVEMENT','Certificate of Achievement');
 define('DEMO_NAME','Dean Winchester');
 define('SERIAL_No','S.NO.');
+define('CERT_CREATED_MSG','created certificate successfully');
+define('CERT_NOT_CREATED_MSG','could not create certificate');
 define('TEST','Test');
 define('OPTION','Option');
 define('NO_RECORD','No Record Exists');
