@@ -38,8 +38,10 @@ define('INVALID_FLOAT','please enter valid float value');
 define('VALID_INT','you have entered valid integer');
 define('INVALID_INT','please enter valid integer');
 define('INVALID_USERNAME','INCORRECT User Name,only alphanumeric, dot & underscore are permitted');
+define('INVALID_CNAME','INCORRECT Certificate Name,only alphanumeric, dot & spaces are permitted');
 define('UNAME_LENGTH','INCORRECT User Name,Length must be between 5-20 characters');
 define('UNAME_VALUE','INCORRECT User Name,Enter a value');
+define('CNAME_VALUE','INCORRECT Certificate Name,Enter a value');
 define('INVALID_PASS','INVALID password');
 define('INVALID_PASS_LENGTH','INCORRECT password,length must be between 6 and 20 char');
 define('INVALID_PHONE','enter digits only');
@@ -62,6 +64,7 @@ define('INVALID_RANGE','Enter valid range min should be less than max');
 define('INVALID_DATE_FORMAT','Enter date as YYYY-MM-DD and all should be digit');
 define('ENTER_PASSWORD','Password should not be Empty');
 define('INVALID_TIME','Enter the Time value in HH:MM:SS format');
+define('INVALID_INPUT','Please enter valid input');
 define("USER_NAME","User Name: ");
 define("PASSWORD","Password: ");
 define("USER_TYPE","Type Of User: ");
@@ -108,4 +111,28 @@ define("UMSG1","NO USER RECORDS FOUND");
 define("UMSG2","The user details has been successfully changed");
 define("UMSG3","Are you sure want to delete");
 
+
+/* Constants for user certificate management */
+
+define('ISSUE_CERTIFICATE','ISSUE CERTIFICATE');
+define('CREATE_CERTIFICATE','CREATE CERTIFICATE');
+define('SELECT_TEST','Select Test');
+define('ENT_CERTIFICATE_NAME','Enter Certificate Name'); 
+define('LIMT_30_CHAR','Limit 30 characters'); 
+define('LIMT_100_CHAR','Limit 100 characters');
+define('CUST_CERTIFICATE','Customize Certificate'); 
+define('DESC_CERT','Description of certificate to:');
+define('SAVE_CERT','Save certificate');
+define('PRESENTED_TO','Presented to:');
+define('CERT_ACHIEVEMENT','Certificate of Achievement');
+define('DEMO_NAME','Dean Winchester');
+define('SERIAL_No','S.NO.');
+define('TEST','Test');
+define('OPTION','Option');
+define('NO_RECORD','No Record Exists');
+define('ISSUE_CERT','Issue Certificate');
+define('CERT_MAILED_MSG','Your certificate has been send. Kindly find the attachment');
+define('CERT_MAILED_SUBJECT','Test Scheduler Certificate');
+define('CERT_ISSUE_FAILED_MSG','Could not issuecertificate');
+define('NO_CERTIFICATE_MSG','No Certificate is available for this test. Please create certificate first');
 ?>

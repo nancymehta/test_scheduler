@@ -499,6 +499,44 @@ class validation
 			return false;
 		}
 	}
+
+	/* this function is written to check the valid character for certificate name.
+	 * @param $str (string)
+	* @return type : boolean
+	* */
+	public function validateCertificateInput($str)
+	{
+		$pattern='/^[A-Za-z0-9. ]+$/';
+		if(!$str == '')
+		{
+			$strLength=strlen($str);
+			if(($strLength >= 1)&&($strLength <= 30))
+			{
+				$pattern='/^[A-Za-z0-9. ]+$/';
+				if(preg_match($pattern,$str))
+				{
+					return true;
+				} 
+				else 
+				{
+					echo INVALID_CNAME;
+					return false;
+				}
+			}
+			else 
+			{
+				echo CNAME_LENGTH;
+				return false;
+			}
+		}
+		else 
+		{
+			echo UNAME_VALUE;
+			return false;
+		}
+	}
+
+
 }
 
 

@@ -1,8 +1,5 @@
 <?php
 #!/usr/bin/php
 
-#cron test file
-echo "success";
-
-
+echo "cron test";
 ?>

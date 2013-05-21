@@ -25,7 +25,7 @@ class cronController extends mainController {
 	
 	
 	# method to show cron jobs view
-	function showCronjob() {
+	function showCronjobView() {
 		try {
 			
 			
@@ -39,7 +39,7 @@ class cronController extends mainController {
 		}
 	}
 	
-	# method to show certificate issue view
+	# method to create cronjobs
 	function createCronjob() {
 		try {
 				
@@ -71,5 +71,18 @@ class cronController extends mainController {
 			$this->handleException ( $e->getMessage () );
 		}
 	}
+	
+	# method to show cron jobs view
+	function showCronjob() {
+		try {
+			
+			$result = $this->loadModel('cron','showCronjob');
+			echo "Running Cronjobs <br>".$result;
+					
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
 	
 }

@@ -7,18 +7,18 @@
 *Name			Task			    Date			Description
 ************************************************************
 *
-*/include MODEL_PATH . "db_connect.php";
-class cronModel extends dbConnectModel {
+*///include MODEL_PATH . "db_connect.php";
+class cronModel {/* extends dbConnectModel {
 	function __construct() {
 		parent::__construct ();
 	}
-	
+		*/
 		
 	/*********************  Methods related to cronjob management **************/
 	
 	# Method to create new cronjob
 	public function createCronjob($arrArgs) {
-		try {
+		try { // print_r($arrArgs); die("c m");
 			
 			$cronName 		= $arrArgs['cron_name'];
 			$cronScriptPath = $arrArgs['cron_Script_path'];
@@ -60,5 +60,12 @@ class cronModel extends dbConnectModel {
 		}
 	}
 	
+	#Method to show cronjnobs
+	public function showCronjob() {
+		$command = shell_exec('crontab -l'); # command to show running cronjobs
+			
+		return $command;
+		
+	}
 	
 }

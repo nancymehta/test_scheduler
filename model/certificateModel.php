@@ -72,13 +72,40 @@ class certificateModel extends dbConnectModel {
 		}
 	}
 	
+	# Method to check is requested certificate exists
+	public function checkCertificate($testId) { 
+		try {	
+			if (! empty ( $testId )) {	
+				$data ['tables'] 	 = 'certificate_master';
+				$data ['conditions'] = array(
+											'id' => $testId
+									   );
+									  
+				#selecting certificate details from certificate_master table					  
+				$result_select = $this->_db->select ( $data ); 
+				$row = $result_select->fetch ( PDO::FETCH_ASSOC );
+				if (!empty ( $row ) == 1) { 
+					return true; 
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}		
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
+	
+	
 	# Method to dynamically create certificate
 	public function drawCertificate($arrArgs) {
 		try {  
 			$error=array();
 			if (! empty ( $arrArgs )) {
 				foreach( $arrArgs as $key => $value)  {		
-			
+					
 					$certficateName = $value['name'];
 					$firstName 		= $value['first_name'];
 					$lastName 		= $value['last_name'];
@@ -125,7 +152,8 @@ class certificateModel extends dbConnectModel {
 		$data['tables'] = 'test_link';
 		$data['columns']   = array('first_name','last_name','pass_marks','certificate_id',
 								'test_taker.score','certificate_master.name','test_taker.test_id',
-								'certificate_master.upload_path','test_taker.email_enroll_no'
+								'certificate_master.upload_path','test_taker.email_enroll_no',
+								'test_taker.id','certificate_master.id'
 						  );
 		$data['conditions']	= array(
 								'test_taker.test_id' => $arrArgument['test_id']
@@ -142,18 +170,19 @@ class certificateModel extends dbConnectModel {
 							);						
 							
 		$result = $this->_db->select($data);
-
+		$row=array();
 		while($temp = $result->fetch(PDO::FETCH_ASSOC)) {
 			if($temp['score'] >= $temp['pass_marks']) {
 					
 					$row[]=$temp;
 			}
 		} 	   
+		
 		if(isset($row)) {
 	
 			return $row;		
 		} else {
-			echo "No Record Found";
+			echo NO_RECORD;
 			return 0;
 		}	
 	
@@ -206,6 +235,36 @@ class certificateModel extends dbConnectModel {
 		   
 	}
 
- 	
+ 	# Method to update issued certificate  records
+	public function updateCertificateRecord($arrArgs) {
+		try { //echo "<pre>"; print_r($arrArgs); die ("cc here");
+			if (! empty ( $arrArgs )) {
+				$data ['tables'] = 'certificate';
+				$data ['columns'] = array (
+										
+										'certificate_id'  	=> 1,
+										'test_taker_id'  	=> $arrArgs ['id'],
+										'issued' 			=> 1,
+										'updated_on' 		=> 'now()',
+										'created_by' 		=> $_SESSION ['SESS_USER_ID'],
+										
+									);
+								
+
+				$result_query = $this->_db->insert ( $data ['tables'], $data ['columns'] );
+				
+				if ($result_query) {
+					return true;
+				} else {
+					return false;
+				}
+			 } else {
+				return false;
+			}
+		} catch ( Exception $e ) {
+			$this->handleException ( $e->getMessage () );
+		}
+	}
+	
  	
 }

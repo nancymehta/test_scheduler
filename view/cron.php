@@ -12,17 +12,43 @@
 
 ?>
 <script>
+// fucntion to create cron job	
 function createCron()
 {	 
 	$.ajax({ 
       type: "POST",
-      url : '<?php echo SITE_PATH.'/cron/createCronjob'; ?>',                                             
+      url : '<?php echo SITE_PATH.'cron/createCronjob'; ?>',                                             
       data: $('#cronjobs').serialize(),
        beforeSend: function() {
 
         },
        success: function(data){
            alert(data);
+           // $('#cronjobs').get(0).reset();
+        },
+       complete: function () {
+            
+        },
+      error: function(){
+            
+        }
+	 });
+	
+ }
+ 
+ // function to show cron job
+ function showCron()
+{	 
+	$.ajax({ 
+      type: "POST",
+      url : '<?php echo SITE_PATH.'cron/showCronjob'; ?>',                                             
+      data: $('#runingCron').serialize(),
+       beforeSend: function() {
+
+        },
+       success: function(data){
+           
+           $('.midright').append(data);
         },
        complete: function () {
             
@@ -46,7 +72,7 @@ function createCron()
 
 
 <div id="certificate">
-	<form id="cronjobs"  name="cronjobs" action="<?php echo SITE_PATH.'/cron/createCronjob'; ?>" method="post">
+	<form id="cronjobs"  name="cronjobs" action="<?php echo SITE_PATH.'cron/createCronjob'; ?>" method="post">
 		<input type="hidden" value="" name="certificate_id">
 		
 		<div>
@@ -110,8 +136,8 @@ function createCron()
 		<input type="button" value="Create Cron" class="submmit_button_generic" onclick="createCron()" />
 	</form>
 </div>
-<form id="certificateEdit"  name="certificateEdit" action="<?php echo SITE_PATH.'createTest/showCertificate'; ?>" method="post">
-	<input type="submit" value="preview certificate" class="submmit_button_generic" />
+<form id="runningCron"  name="runningCron" action="<?php echo SITE_PATH.'cron/showCronjob'; ?>" method="post">
+	<input type="button" value="See Running Cronjobs" class="submmit_button_generic" onclick="showCron()" />
 </form>
 </div>
 <div class="midright">

@@ -31,8 +31,6 @@ class certificateController extends mainController {
 						"id" => $_SESSION ['SESS_USER_ID']
 						) );
 			
-			
-			//echo"<pre>"; print_r($arrData); die("here");
 			if (! empty ( $arrData )) {
 				
 				$this->loadView("header" );
@@ -70,8 +68,8 @@ class certificateController extends mainController {
 				$validation->checkRequired($_POST ['certificate_body']) && 
 					$validation->checkRequired($_POST ['test_select'])) {
 
-				if (//$validation->validateAlphabate($_POST ['certificate_name']) &&
-					$validation->validateAlphabate($_POST ['certificate_body'])) {
+				if ($validation->validateCertificateInput($_POST ['certificate_name']) &&
+					$validation->validateCertificateInput($_POST ['certificate_body'])) {
 			
 					if ($validation->checkLength($_POST ['certificate_name'],1,30) &&
 							$validation->checkLength($_POST ['certificate_body'],1,100)) {
@@ -79,7 +77,7 @@ class certificateController extends mainController {
 						$certificateName	 = strip_tags ($_POST ['certificate_name']);
 						$certificateBody 	 = strip_tags ($_POST ['certificate_body']);
 						$testId				 = strip_tags ($_POST ['test_select']);
-						//echo($testId); die("here");
+						
 						$arrArgs = array (
 								   	'name' 				=> $certificateName,
 									'certificate_body' 	=> $certificateBody,
@@ -94,7 +92,7 @@ class certificateController extends mainController {
 						}
 					}
 				} else {
-					echo "please enter valid input";
+					echo INVALID_INPUT;
 				}
 			}
 		} catch ( Exception $e ) {
@@ -102,78 +100,51 @@ class certificateController extends mainController {
 		}
 	}
 
-	#method to show certificate
-	function showCertificate() {
-		try {
-			$userDetails=$this->loadModel("certificate","userDetails");
-			print_r($userDetails);
-		
-			$certificate=$this->loadModel ( 'certificate', 'drawCertificate', $userDetails );
-			if($certificate){
-			//	$this->loadView("header");
-				//	$this->loadView("user_header");
-				//	$this->loadView("user_examiner_view/showCertificateCreate",$certificate);
-				foreach($userDetails as $key=>$value) {
-					$email=$value['email_enroll_no'];
-					$certficateName=$value['name'];
-					$body="Your certificate has been ";
-					$output = shell_exec("chmod 777 misc -R");
-					$attach='/var/www/test_scheduler/trunk/misc/SavedCertificate/'.$email.'.jpeg';
-					mailTest ( $email, 'info.test.scheduler@gmail.com', $body, $attach);
-				}
-			} else{
-				echo 'could not show certificate';
-
-			}
-		} catch(Exception $e) {
-			$this->handleException ( $e->getMessage () );
-		}
-	}
 
 	function issueCertificate() {
 		try {
 			$testId = $_REQUEST['test_id'];
-			#create array containg user details like name, marks , total marks
-			$userDetails=$this->loadModel("certificate","userDetails",$testId);
-			//print_r($userDetails); die("c c");
+			
+			$ckCertificate=$this->loadModel("certificate","checkCertificate",$testId);
+			
+			if($ckCertificate) {
+				#create array containg user details name, marks , total marks
+				$userDetails=$this->loadModel("certificate","userDetails",$testId);
 				
-			#loading model to dynamically generate certificate
-			$certificate=$this->loadModel ( 'certificate', 'drawCertificate', $userDetails );
-			if($certificate){
-				foreach($userDetails as $key=>$value) {
-					$email=$value['email_enroll_no'];
-					$certficateName=$value['name'];
-					$body="Your certificate has been send. Kindly find the attachment";
-					$output = shell_exec("chmod 777 misc -R");
-					echo "$output"; # to execute shell command
-					$attach='/var/www/test_scheduler/trunk/misc/SavedCertificate/'.$email.'.jpeg';
-					mailTest ( $email, 'info.test.scheduler@gmail.com', $body, $attach);
-		 /*
-				$output = shell_exec('crontab -l');    //show current cronjob
-				echo $output;
+				#loading model to dynamically generate certificate
+				$certificate=$this->loadModel ( 'certificate', 'drawCertificate', $userDetails );
 				
-				if(print(shell_exec('crontab /var/www/cron_mail_test.txt'))) { //working congrats :)
-					echo "pass";
-				} else {
-					echo "failed";
-				}
+				
+				if($certificate){
+					foreach($userDetails as $key=>$value) {
+						$email=$value['email_enroll_no'];
+						$certficateName=$value['name'];
+						$body=CERT_MAILED_MSG;
+						$output = shell_exec("chmod 777 misc -R");
+						echo $output; # to execute shell command
+						$attach = SITE_ROOT.'/misc/SavedCertificate/'.$email.'.jpeg';
+					
+						/*$argArray = array( 	'cron_name' 		=> 'mailCertificateScript',
+											'cron_Script_path'  => SITE_ROOT.'cron/mailCertificateScript.php',
+											'cron_time'         => '2 17 * * * '
+									);
+					
+						//$this->loadModel('cron','createCronjob',$argArray); */
+						#Mailing certificate 
+						if(mailTest ( $email, CERT_MAILED_SUBJECT, $body, $attach)) {
+							$this->loadModel( 'certificate', 'updateCertificateRecord', $userDetails );
+						} else {
+							echo CERT_ISSUE_FAILED_MSG;
+						}
+						
 		
-		/*
-		  exec('echo -e "`crontab -l`\n13 11 * * * /usr/bin/php /var/www/crontest.php" | crontab -');			
-					//exec('echo -e "`crontab -l`\n42 10 * * * /usr/bin/php /var/www/crontest.php" >> /var/www/cron_mail_test.txt | crontab -');
-	//exec('echo  "`crontab -e`\n4 11 * * * /usr/bin/php /var/www/crontest.php" >> /var/www/cron_mail_test.txt | crontab -');		
-				//	mailTest ( $email, 'info.test.scheduler@gmail.com', $body, $attach);
+					}
+				} else {
+					echo CERT_ISSUE_FAILED_MSG;
 				}
-				* 
-				* 
-				* 
-
-				*/
-			    }
 			} else {
-				echo 'could not show certificate';
+				echo NO_CERTIFICATE_MSG;
 			}
-
 		} catch ( Exception $e ) {
 			$this->handleException ( $e->getMessage () );
 		}
