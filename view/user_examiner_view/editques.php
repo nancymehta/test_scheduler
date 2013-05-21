@@ -33,9 +33,9 @@ $totalOptions=count($row['option']['id']);
 				<?php 
 				         if(in_array($row['option']['id'][$i],$row['answer']['id'])){   ?>
 				      
-				          <input type='checkbox' name='<?php echo $row['option']['id'][$i]; ?>'  checked />
+				          <input type='checkbox' name='ans[<?php echo $row['option']['id'][$i]; ?>]'  checked />
 				     <?php } else{ ?>
-				          <input type='checkbox' name='<?php echo $row['option']['id'][$i]; ?>'/>
+				          <input type='checkbox' name='ans[<?php echo $row['option']['id'][$i]; ?>]'/>
 					<?php  } ?>
 			 </td>	     
 			    <td width='54%'><?php echo $i+1; ?>:<input type='text' class="max-length" name="option<?php echo $i+1; ?>" value='<?php echo $row['option']['option'][$i]; ?>' size='20'></td>

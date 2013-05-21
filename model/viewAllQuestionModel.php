@@ -170,19 +170,43 @@ class viewAllQuestionModel extends dbConnectModel {
 					
 					$data = array('correct' => '0');
 					$where = array('ques_id' => $qid);
-					//$result2 =  $this->_db->update('question_options', $data, $where);
+					$result2 =  $this->_db->update('question_options', $data, $where);
 					
 					
 										
 					
 					
-					//if($result1 && $result2){
+					if($result1 && $result2){
 						return 1;  
 						
-						//}
+						}
 		          }
 		          
-		   }  
+		   } 
+		  public function optionUpdate($arrArgs){
+			
+			print_r($arrArgs);
+							
+		     if(isset($arrArgs)){
+					
+					foreach( $arrArgs as $key=>$value){
+						/** setting correctness of maintioned option  **/
+						$data = array('correct' => '1');
+						$where = array('id' => $key);
+						$result1 =  $this->_db->update('question_options', $data, $where);
+															
+					
+			          }
+										
+					
+					
+					if($result1){
+						return 1;  
+										
+		          }
+			
+			}
+		}
 			
 		
 }
