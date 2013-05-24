@@ -56,8 +56,8 @@ function fetchTestContent(id) {
                         <td><?php echo $count; ?></td>
 						<td><?php echo $key['name']; ?></td>
 						<td><?php echo $key['created_on']; ?></td>
-						<td><a href="#" onClick="fetchTestContent(<?php echo $key['id']; ?>)"><?php echo VIEW; ?></a>
-						<a href="#" onClick="deleteTest(<?php echo $key['id']; ?>)"><?php echo DELETE; ?></a>
+						<td><a href="#" onClick="fetchTestContent(<?php echo $key['id']; ?>)" style="background-color:white;margin-top:5px;"><img src="<?php echo IMAGE_PATH."view_button.png";?>" style="height:24px;width:24px;"/></a>
+						<a href="#" onClick="deleteTest(<?php echo $key['id']; ?>)" style="background-color:white;margin-top:5px;"><img src="<?php echo IMAGE_PATH."delete.gif";?>" style="height:24px;width:24px;"/></a>
 						</td>
 						
 					</tr>

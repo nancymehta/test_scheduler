@@ -88,7 +88,11 @@
 					<tr valign="top">
                         <td><?php echo $umanage['id']; ?></td>
 						<td><?php echo $umanage['username']; ?></td>
-						<td><a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'EDIT')"><?php echo EDIT;?></a> <a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'DELETE')"><?php echo DELETE;?></a><a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'BANUSER')"><?php echo 'BANUSER';?></a></td>
+						<td>
+							<a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'EDIT')"  style="background-color:white;margin-top:5px;"><img src="<?php echo IMAGE_PATH."editb.jpg";?>" style="height:24px;width:24px;"/></a> 
+							<a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'DELETE')" style="background-color:white;margin-top:5px;"><img src="<?php echo IMAGE_PATH."delete.gif";?>" style="height:24px;width:24px;"/></a>
+							<a href="#" onClick="submit1(<?php echo $umanage['id']; ?>,'BANUSER')" style="background-color:white;margin-top:5px;"><img src="<?php echo IMAGE_PATH."banuser2.png";?>" style="height:24px;width:24px;"/></a>
+						</td>
 					</tr>
 				<?php 
 				} // end of foreach

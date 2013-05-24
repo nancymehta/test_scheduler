@@ -199,4 +199,20 @@ class testuiController extends common{
   	$this->loadView("confirmregister");
   }
   
+  function adminTestManagement()
+  {
+  	$this->loadView("header");
+  	$this->loadView("user_header");
+  	//$this->loadView("admin_view/deshboard_menu");
+  	$this->loadView("admin_view/testmanagement");
+  }
+  
+  function adminUserManagement()
+  {
+  	$this->loadView("header");
+  	$this->loadView("user_header");
+  	//$this->loadView("admin_view/deshboard_menu");
+  	$this->loadView("admin_view/usermanagement");
+  }
+  
 }
