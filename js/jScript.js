@@ -486,10 +486,11 @@ $('.table1').dataTable();
 	// Js by Bhanu
 
 	$("#bclose").click(function(){
-     $("#logindiv").hide();
+	    $("#logindiv").hide();
         $("#user_name").val("");
         $("#password").val("");
 	});
+	
 	$("#close1").click(function(){
         $("#registerdiv").hide();
         //$("#register_form").reset();
