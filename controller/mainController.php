@@ -51,7 +51,7 @@ class mainController extends common{
 					$value=$this->loadModel('base','insertToken',$email);
 					$this->loadView("header");
 					$this->loadView ( "user_header1" ); 
-					$this->loadView( "forget_password_email" );
+					$this->loadView( "forget_password_email",$email);
 					if($value){
 						$subject = "Forgot Password on TEST SCHEDULER";
 						$uri= $uri = 'http://'. $_SERVER['HTTP_HOST'];
