@@ -70,6 +70,20 @@ class adminController extends mainController {
 			$this->handleException($e->getMessage());
 			}
     }
+    
+    function activateUser() {
+    	try{
+    		if (isset ( $_POST ['id'] )) {
+    		    $userResult = $this->loadModel ( "admin", "activateUser", $_POST ['id'] );
+    			$this->loadView ( "admin_view/usermanagement", $userResult );
+    		}
+    	} catch (Exception $e) {
+    		$this->handleException($e->getMessage());
+    	}
+    }
+    
+    
+    
 	function editUserDetails() {
         try{
         	if (isset ( $_POST )) {

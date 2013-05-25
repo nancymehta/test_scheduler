@@ -20,6 +20,7 @@ class adminModel extends dbConnectModel{
 		}
 	
 	function usermanagement(){
+		
 		$userResult=array();
 		$data['tables'] = 'validate_users';
 		$data['columns']= array(
@@ -28,7 +29,8 @@ class adminModel extends dbConnectModel{
 					);
 		$data['conditions']= array(
 					'status' => '0',
-					'user_type' => 1,
+				    'user_type' =>'1',
+					
 					);
 			$result = $this->_db->select($data);
 	
@@ -152,6 +154,30 @@ class adminModel extends dbConnectModel{
 		
 		}
 		return $banUsers;
+	}
+	
+	
+	function activateUser($id){
+		$userResult=array();
+		$data['conditions'] = array('id'=> $id);
+		$update_row[] = array('status' => '0');
+		foreach($update_row as $row) {
+			$result = $this->_db->update('validate_users',$row,$data['conditions']);
+		}
+	
+		$banUsers=array();
+		$data['tables'] = 'validate_users';
+		$data['columns']= array('id','username');
+		$data['conditions']=array( 'status'=> '2');
+		$result=$this->_db->select($data);
+		while( $row = $result->fetch(PDO::FETCH_ASSOC) ){
+			$banUsers[]=$row;
+	
+		}
+		$result=array();
+		$result= $this->usermanagement();
+		return $result;
+		
 	}
 	
 	function feedbackManagementModel(){
