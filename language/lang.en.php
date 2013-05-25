@@ -129,7 +129,7 @@ define('QUES_BANK','Question Bank');
 define('CATEGORIES','categories');
 define('CERTI','certificates');
 define('ASSIGN','Assign');
-define('RESULT','Results');
+define('RESULTS','Results');
 define('TEST','Test');
 define('FAQ','Faq');
 define('ACC_SETTING','Account Settings');
@@ -159,7 +159,7 @@ define('YR_UNAME','Your User Name');
 define('YR_PASS','Your Password');
 define('YR_EMAIL','Your Email');
 define('VERY_N_VERY','Verified / Not Verified');
-define('YR_NAME','Your Country');
+define('YR_Country','Your Country');
 define('DISP_FNAME','display your first name');
 define('EPROF_MSG1','Click to view Registered users under my account');
 define('EPROF_MSG2','You currently have 1000 user places available to use.
@@ -209,7 +209,7 @@ define('LIMIT_100CHR','Limit 100 characters.');
 
 /* constants user_examiner_view/managequestion.php*/
 define('QES_CAT_SETT','Question/Category Settings');
-define('TEST_NAME','Test name');
+define('TESTS_NAME','Test name');
 define('NO_OF_QUES','No of Question');
 
 /* constants user_examiner_view/manageTEST.php*/
@@ -223,7 +223,7 @@ define('MGT_TEST_MSG3','As the questions selected for this test will change each
 define('TOT_POINTS_AVAIL','Total points available');
 define('MGT_TEST_MSG4','cannot be calculated in advance.');
 define('MGT_TEST_MSG5','If you add questions to this test yourself manually (referred to as');
-define('STATIC_QUES','Static questions');
+define('STATIC_QUESTION','Static questions');
 define('MGT_TEST_MSG6','they will not be used again when ClassMarker selects random questions from your question bank.');
 define('MGT_TEST_MSG7','Use either Option 1 or Option 2, not both.');
 define('OPT1','Option 1');
@@ -243,7 +243,7 @@ define('MGT_TEST_MSG12','Display random questions grouped and ordered by the cat
 define('DISP_QUES_RAND','Display questions in random order');
 define('MGT_TEST_MSG13','Display questions grouped and ordered by categories above');
 define('CLICK_USE_CERTI','click to use certificate');
-define('CERTI','Certificates');
+define('CERTIFICATES','Certificates');
 define('MGT_TEST_MSG14','You can allow users to download a certificate when they complete their test.');
 define('CERTI_CREATE','Create a certificate');
 define('MGT_TEST_MSG15','Now each time you');
