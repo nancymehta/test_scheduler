@@ -5,12 +5,12 @@
  * Description : provides base work for users like login to database
  * Date_of_creation :6-5-2013
  */
-//ini_set('display_errors','1');
 include MODEL_PATH."db_connect.php";
 class baseModel extends dbConnectModel{
 	function __construct() {
 		parent::__construct();
 	}
+
 	function login($arrArgs=array()) {
 		/**
 		 *
@@ -51,10 +51,8 @@ class baseModel extends dbConnectModel{
 				else {
 					return 0;
 				} 
-					
 			}  
-		}
-			   
+		} 
 	}
 	
 	function singleLoginLogic()
@@ -84,23 +82,16 @@ class baseModel extends dbConnectModel{
 			$data['columns']= array('ip_address');
 			$datax	= array(
 					'ip_address' => $ip
-					
 						);
 			$result = $this->_db->count('user_profile',$datax);
-			
 			$count=$result->fetchColumn();
 			//echo $count;
-			
 			if($count<10)
 			{
 				$data1=array(
 				"username"=>$arrArgs['username'],
 				"password"=>$arrArgs['password']);
-		
-		                
 				$result1 = $this->_db->insert('validate_users', $data1);
-		                 
-		
 				$user_id=$this->_db->lastInsertId();
 				$ip= $_SERVER['REMOTE_ADDR'];
 				//$datetime =date("d/m/y h:i:s");
@@ -185,7 +176,6 @@ class baseModel extends dbConnectModel{
 // 		if(!empty($row['feedback'])) {
 		return $row;
 // 		}
-		
 	}
 	/*Created By : DEEPIKA SOLANKI
 	 * */
@@ -200,5 +190,95 @@ class baseModel extends dbConnectModel{
 		}
 		return $row;
 	}
-} 
+	
+	function check_forget_email($email){
+		$data['tables']="user_profile";
+		$data['columns']=array("id","email");
+		$data['conditions']=array("email"=>$email);
+		$result=$this->_db->select($data);
+		$row=array();
+		while($temp=$result->fetch(PDO::FETCH_ASSOC)) {
+			$row[]=$temp;
+		}
+		return $row;
+	}
 
+	function insertToken($email){
+		$data['tables']="user_profile";
+		$data['columns']=array("user_id","email");
+		$data['conditions']=array("email"=>$email);
+		$result=$this->_db->select($data);
+		if($temp=$result->fetch(PDO::FETCH_ASSOC)){
+			$id=$temp['user_id'];
+			$validCharacters = "ABCDEFGHIJKLMNPQRSTUXYVWZ123456789";
+    			$validCharNumber = strlen($validCharacters);
+    			$result1 = "";
+ 			for ($i = 0; $i < 10; $i++) {
+        			$index = mt_rand(0, $validCharNumber - 1);
+        			$result1 .= $validCharacters[$index];
+    			}
+			$data1=array(	
+				"token"=>$result1,
+				"used"=>0
+				);
+			 $where = array('id' => $id);
+			$result2 = $this->_db->update('validate_users',$data1,$where);
+		return $result1;	
+		}
+		else{
+		return 0;
+		}
+	}
+	
+	function fetchEmail($token){
+		$data=array();
+		$data['tables']= 'validate_users';
+		$data['columns']= array('user_profile.email','validate_users.token','validate_users.used'	);
+		$data['conditions']= array(
+							'validate_users.token' => $token,
+							'validate_users.used'=>0
+								);
+		$data['joins'][] = array(
+							'table' => 'user_profile',
+							'type'	=> 'inner',
+							'conditions' => array(
+									'user_profile.user_id' => 'validate_users.id')
+		);
+		$result = $this->_db->select($data);
+		while($row=$result->fetch(PDO::FETCH_ASSOC)){
+			$email=$row['email'];
+		}
+		If ($email!=''){
+			$_SESSION['email']=$email;
+			return 1;
+		}
+	}
+	
+	function updatePassword($password){
+		$data['tables']= 'user_profile';
+		$data['columns']= array('user_id');
+		$data['conditions']= array(
+				'email' => $_SESSION['email']
+		);
+		$result1=$this->_db->select($data);
+		while($row=$result1->fetch(PDO::FETCH_ASSOC)){
+			$data=array(
+					"password"=>$password
+				);
+			$where = array('id' => $row['user_id']);
+			$result = $this->_db->update('validate_users',$data,$where);
+			if($result){
+				$data1=array(
+						"used"=>1
+						);
+			//	$where = array('id' => $row['user_id']);
+				$result = $this->_db->update('validate_users',$data1,$where);
+				return 1;
+			}
+			else{
+				return 0;
+			}
+		}
+	}
+} 
+?>

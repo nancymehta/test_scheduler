@@ -7,9 +7,6 @@
  */
 //ini_set('display_errors','1');
 class mainController extends common{
-	
-	
-	
 	function home() {
 	try {
    		//$arrValue=$this->loadModel('base','login');
@@ -31,17 +28,79 @@ class mainController extends common{
 		}
 	}
 	function forget_password(){
-
-try {
+		try {
 	            $this->loadView ( "header" ); 
 	            $this->loadView ( "user_header1" ); 
 				$this->loadView("forget_password");
 		} catch (Exception $e) {
 			$this->handleException($e->getMessage());
 		}
-
-
 	}
+		
+	function check_forget_email(){
+		try {
+			if(isset($_POST['email'])){
+				$email=strip_tags($_POST['email']);
+				$value=$this->loadModel('base','check_forget_email',$email);
+				if(empty($value)){
+    					$this->loadView ( "header" ); 
+	            			$this->loadView ( "user_header1" ); 
+					$this->loadView( "forget_password" );
+				}
+				else{
+					$value=$this->loadModel('base','insertToken',$email);
+					$this->loadView("header");
+					$this->loadView ( "user_header1" ); 
+					$this->loadView( "forget_password_email" );
+					if($value){
+						$subject = "Forgot Password on TEST SCHEDULER";
+						$uri= $uri = 'http://'. $_SERVER['HTTP_HOST'];
+						$body='
+							<html>
+							<head>
+							<title>Forgot Password</title>
+							</head>
+							<body>
+							<p>Click on the given link to reset your password <a href="'.$uri.'/main/resetPassword?token='.$value.'">Reset Password</a></p>
+							</body>
+							</html>';
+						mailTest ( $email,$subject, $body, $attach=''); 
+					}
+			
+				}
+				}
+		}
+		catch (Exception $e) {
+			$this->handleException($e->getMessage());
+		}
+	}
+
+	function resetPassword(){
+			$token=$_GET['token'];
+			$value=$this->loadModel("base","fetchEmail",$token);
+			if($value){
+			$this->loadView("header");
+			$this->loadView ( "user_header1" ); 	
+			$this->loadView("reset_pass");
+			}
+			else{
+				die("error occured");
+			}
+		}
+		
+		function passChanged(){
+			if(isset($_POST['password']) && isset($_SESSION['email'])){
+				$password=$_POST['password'];
+				$value=$this->loadModel("base","updatePassword",$password);
+				if($value==1){
+					echo "passoword changed";
+				}
+				else{
+					echo "some error occured";
+				}
+			}
+		}
+	
 	function handleException($message) {
 			echo 'Caught exception: '.$message;
 	}
@@ -96,13 +155,11 @@ try {
 		 * Description :this method is intended to control  the login activity of user
 		 * Date_of_creation :9-5-2013
 		 */
-	
 		try {
 		    $arrArgs = array(
 				'username'=> @$_POST['user_name'],
 				'password'=> @$_POST['password']
 				);
-			
 			$arrData = $this->loadmodel('base','login',$arrArgs);
 			if($arrData == 1){
 				$result=$this->loadModel('base','insert_log',"login");
@@ -117,7 +174,6 @@ try {
 		}
 	}
 	
-	
 	function logout(){
 		try {
 		$_SESSION['SESS_USER_NAME']="";
@@ -128,8 +184,6 @@ try {
 			}catch (Exception $e) {
 			$this->handleException($e->getMessage());
 		}
-	
-
 	}
 	
 	function singleLoginLogic()
@@ -146,18 +200,13 @@ try {
 	function registeration()
 	{
 		$this->loadView("header");
-		
-		
 		$this->loadView("confirmregister");
-		
 	}
 	
 	function loadLogin()
 	{
 		$this->loadView("header");
-		
-		
 		$this->loadView("confirm_login");
-		
 	}
 }
+?>
